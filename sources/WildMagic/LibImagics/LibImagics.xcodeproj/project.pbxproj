@@ -1,0 +1,1545 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 42;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3CC53A230A0026BA00C3FEC5 /* libWm4Foundationd.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CC53A220A0026BA00C3FEC5 /* libWm4Foundationd.dylib */; };
+		3CC53A250A0026D600C3FEC5 /* libWm4Foundation.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CC53A240A0026D600C3FEC5 /* libWm4Foundation.dylib */; };
+		3CC651980AE56EF800651FE5 /* Wm4Binary2D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC651940AE56EF800651FE5 /* Wm4Binary2D.cpp */; };
+		3CC651990AE56EF800651FE5 /* Wm4Binary2D.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC651950AE56EF800651FE5 /* Wm4Binary2D.h */; };
+		3CC6519A0AE56EF800651FE5 /* Wm4Binary3D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC651960AE56EF800651FE5 /* Wm4Binary3D.cpp */; };
+		3CC6519B0AE56EF800651FE5 /* Wm4Binary3D.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC651970AE56EF800651FE5 /* Wm4Binary3D.h */; };
+		3CC6519C0AE56EF800651FE5 /* Wm4Binary2D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC651940AE56EF800651FE5 /* Wm4Binary2D.cpp */; };
+		3CC6519D0AE56EF800651FE5 /* Wm4Binary2D.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC651950AE56EF800651FE5 /* Wm4Binary2D.h */; };
+		3CC6519E0AE56EF800651FE5 /* Wm4Binary3D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC651960AE56EF800651FE5 /* Wm4Binary3D.cpp */; };
+		3CC6519F0AE56EF800651FE5 /* Wm4Binary3D.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC651970AE56EF800651FE5 /* Wm4Binary3D.h */; };
+		3CC651A00AE56EF800651FE5 /* Wm4Binary2D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC651940AE56EF800651FE5 /* Wm4Binary2D.cpp */; };
+		3CC651A10AE56EF800651FE5 /* Wm4Binary2D.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC651950AE56EF800651FE5 /* Wm4Binary2D.h */; };
+		3CC651A20AE56EF800651FE5 /* Wm4Binary3D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC651960AE56EF800651FE5 /* Wm4Binary3D.cpp */; };
+		3CC651A30AE56EF800651FE5 /* Wm4Binary3D.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC651970AE56EF800651FE5 /* Wm4Binary3D.h */; };
+		3CC651A40AE56EF800651FE5 /* Wm4Binary2D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC651940AE56EF800651FE5 /* Wm4Binary2D.cpp */; };
+		3CC651A50AE56EF800651FE5 /* Wm4Binary2D.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC651950AE56EF800651FE5 /* Wm4Binary2D.h */; };
+		3CC651A60AE56EF800651FE5 /* Wm4Binary3D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC651960AE56EF800651FE5 /* Wm4Binary3D.cpp */; };
+		3CC651A70AE56EF800651FE5 /* Wm4Binary3D.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC651970AE56EF800651FE5 /* Wm4Binary3D.h */; };
+		3CC651A80AE56EF800651FE5 /* Wm4Binary2D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC651940AE56EF800651FE5 /* Wm4Binary2D.cpp */; };
+		3CC651A90AE56EF800651FE5 /* Wm4Binary2D.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC651950AE56EF800651FE5 /* Wm4Binary2D.h */; };
+		3CC651AA0AE56EF800651FE5 /* Wm4Binary3D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC651960AE56EF800651FE5 /* Wm4Binary3D.cpp */; };
+		3CC651AB0AE56EF800651FE5 /* Wm4Binary3D.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC651970AE56EF800651FE5 /* Wm4Binary3D.h */; };
+		3CC651AC0AE56EF800651FE5 /* Wm4Binary2D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC651940AE56EF800651FE5 /* Wm4Binary2D.cpp */; };
+		3CC651AD0AE56EF800651FE5 /* Wm4Binary2D.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC651950AE56EF800651FE5 /* Wm4Binary2D.h */; };
+		3CC651AE0AE56EF800651FE5 /* Wm4Binary3D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC651960AE56EF800651FE5 /* Wm4Binary3D.cpp */; };
+		3CC651AF0AE56EF800651FE5 /* Wm4Binary3D.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC651970AE56EF800651FE5 /* Wm4Binary3D.h */; };
+		3CC651B90AE56F0E00651FE5 /* Wm4ExtractCurveSquares.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC651B00AE56F0E00651FE5 /* Wm4ExtractCurveSquares.cpp */; };
+		3CC651BA0AE56F0E00651FE5 /* Wm4ExtractCurveSquares.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC651B10AE56F0E00651FE5 /* Wm4ExtractCurveSquares.h */; };
+		3CC651BB0AE56F0E00651FE5 /* Wm4ExtractCurveTris.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC651B20AE56F0E00651FE5 /* Wm4ExtractCurveTris.cpp */; };
+		3CC651BC0AE56F0E00651FE5 /* Wm4ExtractCurveTris.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC651B30AE56F0E00651FE5 /* Wm4ExtractCurveTris.h */; };
+		3CC651BD0AE56F0E00651FE5 /* Wm4ExtractSurfaceCubes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC651B40AE56F0E00651FE5 /* Wm4ExtractSurfaceCubes.cpp */; };
+		3CC651BE0AE56F0E00651FE5 /* Wm4ExtractSurfaceCubes.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC651B50AE56F0E00651FE5 /* Wm4ExtractSurfaceCubes.h */; };
+		3CC651BF0AE56F0E00651FE5 /* Wm4ExtractSurfaceTetra.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC651B70AE56F0E00651FE5 /* Wm4ExtractSurfaceTetra.cpp */; };
+		3CC651C00AE56F0E00651FE5 /* Wm4ExtractSurfaceTetra.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC651B80AE56F0E00651FE5 /* Wm4ExtractSurfaceTetra.h */; };
+		3CC651C10AE56F0E00651FE5 /* Wm4ExtractCurveSquares.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC651B00AE56F0E00651FE5 /* Wm4ExtractCurveSquares.cpp */; };
+		3CC651C20AE56F0E00651FE5 /* Wm4ExtractCurveSquares.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC651B10AE56F0E00651FE5 /* Wm4ExtractCurveSquares.h */; };
+		3CC651C30AE56F0E00651FE5 /* Wm4ExtractCurveTris.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC651B20AE56F0E00651FE5 /* Wm4ExtractCurveTris.cpp */; };
+		3CC651C40AE56F0E00651FE5 /* Wm4ExtractCurveTris.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC651B30AE56F0E00651FE5 /* Wm4ExtractCurveTris.h */; };
+		3CC651C50AE56F0E00651FE5 /* Wm4ExtractSurfaceCubes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC651B40AE56F0E00651FE5 /* Wm4ExtractSurfaceCubes.cpp */; };
+		3CC651C60AE56F0E00651FE5 /* Wm4ExtractSurfaceCubes.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC651B50AE56F0E00651FE5 /* Wm4ExtractSurfaceCubes.h */; };
+		3CC651C70AE56F0E00651FE5 /* Wm4ExtractSurfaceTetra.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC651B70AE56F0E00651FE5 /* Wm4ExtractSurfaceTetra.cpp */; };
+		3CC651C80AE56F0E00651FE5 /* Wm4ExtractSurfaceTetra.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC651B80AE56F0E00651FE5 /* Wm4ExtractSurfaceTetra.h */; };
+		3CC651C90AE56F0E00651FE5 /* Wm4ExtractCurveSquares.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC651B00AE56F0E00651FE5 /* Wm4ExtractCurveSquares.cpp */; };
+		3CC651CA0AE56F0E00651FE5 /* Wm4ExtractCurveSquares.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC651B10AE56F0E00651FE5 /* Wm4ExtractCurveSquares.h */; };
+		3CC651CB0AE56F0E00651FE5 /* Wm4ExtractCurveTris.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC651B20AE56F0E00651FE5 /* Wm4ExtractCurveTris.cpp */; };
+		3CC651CC0AE56F0E00651FE5 /* Wm4ExtractCurveTris.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC651B30AE56F0E00651FE5 /* Wm4ExtractCurveTris.h */; };
+		3CC651CD0AE56F0E00651FE5 /* Wm4ExtractSurfaceCubes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC651B40AE56F0E00651FE5 /* Wm4ExtractSurfaceCubes.cpp */; };
+		3CC651CE0AE56F0E00651FE5 /* Wm4ExtractSurfaceCubes.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC651B50AE56F0E00651FE5 /* Wm4ExtractSurfaceCubes.h */; };
+		3CC651CF0AE56F0E00651FE5 /* Wm4ExtractSurfaceTetra.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC651B70AE56F0E00651FE5 /* Wm4ExtractSurfaceTetra.cpp */; };
+		3CC651D00AE56F0E00651FE5 /* Wm4ExtractSurfaceTetra.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC651B80AE56F0E00651FE5 /* Wm4ExtractSurfaceTetra.h */; };
+		3CC651D10AE56F0E00651FE5 /* Wm4ExtractCurveSquares.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC651B00AE56F0E00651FE5 /* Wm4ExtractCurveSquares.cpp */; };
+		3CC651D20AE56F0E00651FE5 /* Wm4ExtractCurveSquares.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC651B10AE56F0E00651FE5 /* Wm4ExtractCurveSquares.h */; };
+		3CC651D30AE56F0E00651FE5 /* Wm4ExtractCurveTris.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC651B20AE56F0E00651FE5 /* Wm4ExtractCurveTris.cpp */; };
+		3CC651D40AE56F0E00651FE5 /* Wm4ExtractCurveTris.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC651B30AE56F0E00651FE5 /* Wm4ExtractCurveTris.h */; };
+		3CC651D50AE56F0E00651FE5 /* Wm4ExtractSurfaceCubes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC651B40AE56F0E00651FE5 /* Wm4ExtractSurfaceCubes.cpp */; };
+		3CC651D60AE56F0E00651FE5 /* Wm4ExtractSurfaceCubes.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC651B50AE56F0E00651FE5 /* Wm4ExtractSurfaceCubes.h */; };
+		3CC651D70AE56F0E00651FE5 /* Wm4ExtractSurfaceTetra.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC651B70AE56F0E00651FE5 /* Wm4ExtractSurfaceTetra.cpp */; };
+		3CC651D80AE56F0E00651FE5 /* Wm4ExtractSurfaceTetra.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC651B80AE56F0E00651FE5 /* Wm4ExtractSurfaceTetra.h */; };
+		3CC651D90AE56F0E00651FE5 /* Wm4ExtractCurveSquares.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC651B00AE56F0E00651FE5 /* Wm4ExtractCurveSquares.cpp */; };
+		3CC651DA0AE56F0E00651FE5 /* Wm4ExtractCurveSquares.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC651B10AE56F0E00651FE5 /* Wm4ExtractCurveSquares.h */; };
+		3CC651DB0AE56F0E00651FE5 /* Wm4ExtractCurveTris.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC651B20AE56F0E00651FE5 /* Wm4ExtractCurveTris.cpp */; };
+		3CC651DC0AE56F0E00651FE5 /* Wm4ExtractCurveTris.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC651B30AE56F0E00651FE5 /* Wm4ExtractCurveTris.h */; };
+		3CC651DD0AE56F0E00651FE5 /* Wm4ExtractSurfaceCubes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC651B40AE56F0E00651FE5 /* Wm4ExtractSurfaceCubes.cpp */; };
+		3CC651DE0AE56F0E00651FE5 /* Wm4ExtractSurfaceCubes.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC651B50AE56F0E00651FE5 /* Wm4ExtractSurfaceCubes.h */; };
+		3CC651DF0AE56F0E00651FE5 /* Wm4ExtractSurfaceTetra.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC651B70AE56F0E00651FE5 /* Wm4ExtractSurfaceTetra.cpp */; };
+		3CC651E00AE56F0E00651FE5 /* Wm4ExtractSurfaceTetra.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC651B80AE56F0E00651FE5 /* Wm4ExtractSurfaceTetra.h */; };
+		3CC651E10AE56F0E00651FE5 /* Wm4ExtractCurveSquares.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC651B00AE56F0E00651FE5 /* Wm4ExtractCurveSquares.cpp */; };
+		3CC651E20AE56F0E00651FE5 /* Wm4ExtractCurveSquares.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC651B10AE56F0E00651FE5 /* Wm4ExtractCurveSquares.h */; };
+		3CC651E30AE56F0E00651FE5 /* Wm4ExtractCurveTris.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC651B20AE56F0E00651FE5 /* Wm4ExtractCurveTris.cpp */; };
+		3CC651E40AE56F0E00651FE5 /* Wm4ExtractCurveTris.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC651B30AE56F0E00651FE5 /* Wm4ExtractCurveTris.h */; };
+		3CC651E50AE56F0E00651FE5 /* Wm4ExtractSurfaceCubes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC651B40AE56F0E00651FE5 /* Wm4ExtractSurfaceCubes.cpp */; };
+		3CC651E60AE56F0E00651FE5 /* Wm4ExtractSurfaceCubes.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC651B50AE56F0E00651FE5 /* Wm4ExtractSurfaceCubes.h */; };
+		3CC651E70AE56F0E00651FE5 /* Wm4ExtractSurfaceTetra.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC651B70AE56F0E00651FE5 /* Wm4ExtractSurfaceTetra.cpp */; };
+		3CC651E80AE56F0E00651FE5 /* Wm4ExtractSurfaceTetra.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC651B80AE56F0E00651FE5 /* Wm4ExtractSurfaceTetra.h */; };
+		3CC651F90AE56F2600651FE5 /* Wm4Element.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC651E90AE56F2600651FE5 /* Wm4Element.cpp */; };
+		3CC651FA0AE56F2600651FE5 /* Wm4Element.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC651EA0AE56F2600651FE5 /* Wm4Element.h */; };
+		3CC651FB0AE56F2600651FE5 /* Wm4ImageConvert.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC651EC0AE56F2600651FE5 /* Wm4ImageConvert.cpp */; };
+		3CC651FC0AE56F2600651FE5 /* Wm4ImageConvert.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC651ED0AE56F2600651FE5 /* Wm4ImageConvert.h */; };
+		3CC651FD0AE56F2600651FE5 /* Wm4Images.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC651EE0AE56F2600651FE5 /* Wm4Images.cpp */; };
+		3CC651FE0AE56F2600651FE5 /* Wm4Images.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC651EF0AE56F2600651FE5 /* Wm4Images.h */; };
+		3CC651FF0AE56F2600651FE5 /* Wm4Lattice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC651F00AE56F2600651FE5 /* Wm4Lattice.cpp */; };
+		3CC652000AE56F2600651FE5 /* Wm4Lattice.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC651F10AE56F2600651FE5 /* Wm4Lattice.h */; };
+		3CC652010AE56F2600651FE5 /* Wm4TImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC651F30AE56F2600651FE5 /* Wm4TImage.h */; };
+		3CC652020AE56F2600651FE5 /* Wm4TImage2D.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC651F50AE56F2600651FE5 /* Wm4TImage2D.h */; };
+		3CC652030AE56F2600651FE5 /* Wm4TImage3D.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC651F70AE56F2600651FE5 /* Wm4TImage3D.h */; };
+		3CC652040AE56F2600651FE5 /* Wm4Element.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC651E90AE56F2600651FE5 /* Wm4Element.cpp */; };
+		3CC652050AE56F2600651FE5 /* Wm4Element.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC651EA0AE56F2600651FE5 /* Wm4Element.h */; };
+		3CC652060AE56F2600651FE5 /* Wm4ImageConvert.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC651EC0AE56F2600651FE5 /* Wm4ImageConvert.cpp */; };
+		3CC652070AE56F2600651FE5 /* Wm4ImageConvert.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC651ED0AE56F2600651FE5 /* Wm4ImageConvert.h */; };
+		3CC652080AE56F2600651FE5 /* Wm4Images.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC651EE0AE56F2600651FE5 /* Wm4Images.cpp */; };
+		3CC652090AE56F2600651FE5 /* Wm4Images.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC651EF0AE56F2600651FE5 /* Wm4Images.h */; };
+		3CC6520A0AE56F2600651FE5 /* Wm4Lattice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC651F00AE56F2600651FE5 /* Wm4Lattice.cpp */; };
+		3CC6520B0AE56F2600651FE5 /* Wm4Lattice.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC651F10AE56F2600651FE5 /* Wm4Lattice.h */; };
+		3CC6520C0AE56F2600651FE5 /* Wm4TImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC651F30AE56F2600651FE5 /* Wm4TImage.h */; };
+		3CC6520D0AE56F2600651FE5 /* Wm4TImage2D.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC651F50AE56F2600651FE5 /* Wm4TImage2D.h */; };
+		3CC6520E0AE56F2600651FE5 /* Wm4TImage3D.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC651F70AE56F2600651FE5 /* Wm4TImage3D.h */; };
+		3CC6520F0AE56F2600651FE5 /* Wm4Element.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC651E90AE56F2600651FE5 /* Wm4Element.cpp */; };
+		3CC652100AE56F2600651FE5 /* Wm4Element.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC651EA0AE56F2600651FE5 /* Wm4Element.h */; };
+		3CC652110AE56F2600651FE5 /* Wm4ImageConvert.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC651EC0AE56F2600651FE5 /* Wm4ImageConvert.cpp */; };
+		3CC652120AE56F2600651FE5 /* Wm4ImageConvert.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC651ED0AE56F2600651FE5 /* Wm4ImageConvert.h */; };
+		3CC652130AE56F2600651FE5 /* Wm4Images.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC651EE0AE56F2600651FE5 /* Wm4Images.cpp */; };
+		3CC652140AE56F2600651FE5 /* Wm4Images.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC651EF0AE56F2600651FE5 /* Wm4Images.h */; };
+		3CC652150AE56F2600651FE5 /* Wm4Lattice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC651F00AE56F2600651FE5 /* Wm4Lattice.cpp */; };
+		3CC652160AE56F2600651FE5 /* Wm4Lattice.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC651F10AE56F2600651FE5 /* Wm4Lattice.h */; };
+		3CC652170AE56F2600651FE5 /* Wm4TImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC651F30AE56F2600651FE5 /* Wm4TImage.h */; };
+		3CC652180AE56F2600651FE5 /* Wm4TImage2D.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC651F50AE56F2600651FE5 /* Wm4TImage2D.h */; };
+		3CC652190AE56F2600651FE5 /* Wm4TImage3D.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC651F70AE56F2600651FE5 /* Wm4TImage3D.h */; };
+		3CC6521A0AE56F2600651FE5 /* Wm4Element.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC651E90AE56F2600651FE5 /* Wm4Element.cpp */; };
+		3CC6521B0AE56F2600651FE5 /* Wm4Element.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC651EA0AE56F2600651FE5 /* Wm4Element.h */; };
+		3CC6521C0AE56F2600651FE5 /* Wm4ImageConvert.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC651EC0AE56F2600651FE5 /* Wm4ImageConvert.cpp */; };
+		3CC6521D0AE56F2600651FE5 /* Wm4ImageConvert.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC651ED0AE56F2600651FE5 /* Wm4ImageConvert.h */; };
+		3CC6521E0AE56F2600651FE5 /* Wm4Images.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC651EE0AE56F2600651FE5 /* Wm4Images.cpp */; };
+		3CC6521F0AE56F2600651FE5 /* Wm4Images.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC651EF0AE56F2600651FE5 /* Wm4Images.h */; };
+		3CC652200AE56F2600651FE5 /* Wm4Lattice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC651F00AE56F2600651FE5 /* Wm4Lattice.cpp */; };
+		3CC652210AE56F2600651FE5 /* Wm4Lattice.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC651F10AE56F2600651FE5 /* Wm4Lattice.h */; };
+		3CC652220AE56F2600651FE5 /* Wm4TImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC651F30AE56F2600651FE5 /* Wm4TImage.h */; };
+		3CC652230AE56F2600651FE5 /* Wm4TImage2D.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC651F50AE56F2600651FE5 /* Wm4TImage2D.h */; };
+		3CC652240AE56F2600651FE5 /* Wm4TImage3D.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC651F70AE56F2600651FE5 /* Wm4TImage3D.h */; };
+		3CC652250AE56F2600651FE5 /* Wm4Element.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC651E90AE56F2600651FE5 /* Wm4Element.cpp */; };
+		3CC652260AE56F2600651FE5 /* Wm4Element.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC651EA0AE56F2600651FE5 /* Wm4Element.h */; };
+		3CC652270AE56F2600651FE5 /* Wm4ImageConvert.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC651EC0AE56F2600651FE5 /* Wm4ImageConvert.cpp */; };
+		3CC652280AE56F2600651FE5 /* Wm4ImageConvert.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC651ED0AE56F2600651FE5 /* Wm4ImageConvert.h */; };
+		3CC652290AE56F2600651FE5 /* Wm4Images.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC651EE0AE56F2600651FE5 /* Wm4Images.cpp */; };
+		3CC6522A0AE56F2600651FE5 /* Wm4Images.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC651EF0AE56F2600651FE5 /* Wm4Images.h */; };
+		3CC6522B0AE56F2600651FE5 /* Wm4Lattice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC651F00AE56F2600651FE5 /* Wm4Lattice.cpp */; };
+		3CC6522C0AE56F2600651FE5 /* Wm4Lattice.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC651F10AE56F2600651FE5 /* Wm4Lattice.h */; };
+		3CC6522D0AE56F2600651FE5 /* Wm4TImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC651F30AE56F2600651FE5 /* Wm4TImage.h */; };
+		3CC6522E0AE56F2600651FE5 /* Wm4TImage2D.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC651F50AE56F2600651FE5 /* Wm4TImage2D.h */; };
+		3CC6522F0AE56F2600651FE5 /* Wm4TImage3D.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC651F70AE56F2600651FE5 /* Wm4TImage3D.h */; };
+		3CC652300AE56F2600651FE5 /* Wm4Element.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC651E90AE56F2600651FE5 /* Wm4Element.cpp */; };
+		3CC652310AE56F2600651FE5 /* Wm4Element.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC651EA0AE56F2600651FE5 /* Wm4Element.h */; };
+		3CC652320AE56F2600651FE5 /* Wm4ImageConvert.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC651EC0AE56F2600651FE5 /* Wm4ImageConvert.cpp */; };
+		3CC652330AE56F2600651FE5 /* Wm4ImageConvert.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC651ED0AE56F2600651FE5 /* Wm4ImageConvert.h */; };
+		3CC652340AE56F2600651FE5 /* Wm4Images.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC651EE0AE56F2600651FE5 /* Wm4Images.cpp */; };
+		3CC652350AE56F2600651FE5 /* Wm4Images.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC651EF0AE56F2600651FE5 /* Wm4Images.h */; };
+		3CC652360AE56F2600651FE5 /* Wm4Lattice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC651F00AE56F2600651FE5 /* Wm4Lattice.cpp */; };
+		3CC652370AE56F2600651FE5 /* Wm4Lattice.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC651F10AE56F2600651FE5 /* Wm4Lattice.h */; };
+		3CC652380AE56F2600651FE5 /* Wm4TImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC651F30AE56F2600651FE5 /* Wm4TImage.h */; };
+		3CC652390AE56F2600651FE5 /* Wm4TImage2D.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC651F50AE56F2600651FE5 /* Wm4TImage2D.h */; };
+		3CC6523A0AE56F2600651FE5 /* Wm4TImage3D.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC651F70AE56F2600651FE5 /* Wm4TImage3D.h */; };
+		3CC652520AE56F3F00651FE5 /* Wm4CurvatureFlow2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC6523B0AE56F3F00651FE5 /* Wm4CurvatureFlow2.cpp */; };
+		3CC652530AE56F3F00651FE5 /* Wm4CurvatureFlow2.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC6523C0AE56F3F00651FE5 /* Wm4CurvatureFlow2.h */; };
+		3CC652540AE56F3F00651FE5 /* Wm4CurvatureFlow3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC6523D0AE56F3F00651FE5 /* Wm4CurvatureFlow3.cpp */; };
+		3CC652550AE56F3F00651FE5 /* Wm4CurvatureFlow3.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC6523E0AE56F3F00651FE5 /* Wm4CurvatureFlow3.h */; };
+		3CC652560AE56F3F00651FE5 /* Wm4FastBlur.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC6523F0AE56F3F00651FE5 /* Wm4FastBlur.cpp */; };
+		3CC652570AE56F3F00651FE5 /* Wm4FastBlur.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC652400AE56F3F00651FE5 /* Wm4FastBlur.h */; };
+		3CC652580AE56F3F00651FE5 /* Wm4GaussianBlur2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC652410AE56F3F00651FE5 /* Wm4GaussianBlur2.cpp */; };
+		3CC652590AE56F3F00651FE5 /* Wm4GaussianBlur2.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC652420AE56F3F00651FE5 /* Wm4GaussianBlur2.h */; };
+		3CC6525A0AE56F3F00651FE5 /* Wm4GaussianBlur3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC652430AE56F3F00651FE5 /* Wm4GaussianBlur3.cpp */; };
+		3CC6525B0AE56F3F00651FE5 /* Wm4GaussianBlur3.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC652440AE56F3F00651FE5 /* Wm4GaussianBlur3.h */; };
+		3CC6525C0AE56F3F00651FE5 /* Wm4GradientAnisotropic2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC652450AE56F3F00651FE5 /* Wm4GradientAnisotropic2.cpp */; };
+		3CC6525D0AE56F3F00651FE5 /* Wm4GradientAnisotropic2.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC652460AE56F3F00651FE5 /* Wm4GradientAnisotropic2.h */; };
+		3CC6525E0AE56F3F00651FE5 /* Wm4GradientAnisotropic3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC652470AE56F3F00651FE5 /* Wm4GradientAnisotropic3.cpp */; };
+		3CC6525F0AE56F3F00651FE5 /* Wm4GradientAnisotropic3.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC652480AE56F3F00651FE5 /* Wm4GradientAnisotropic3.h */; };
+		3CC652600AE56F3F00651FE5 /* Wm4PdeFilter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC652490AE56F3F00651FE5 /* Wm4PdeFilter.cpp */; };
+		3CC652610AE56F3F00651FE5 /* Wm4PdeFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC6524A0AE56F3F00651FE5 /* Wm4PdeFilter.h */; };
+		3CC652620AE56F3F00651FE5 /* Wm4PdeFilter2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC6524C0AE56F3F00651FE5 /* Wm4PdeFilter2.cpp */; };
+		3CC652630AE56F3F00651FE5 /* Wm4PdeFilter2.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC6524D0AE56F3F00651FE5 /* Wm4PdeFilter2.h */; };
+		3CC652640AE56F3F00651FE5 /* Wm4PdeFilter3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC6524F0AE56F3F00651FE5 /* Wm4PdeFilter3.cpp */; };
+		3CC652650AE56F3F00651FE5 /* Wm4PdeFilter3.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC652500AE56F3F00651FE5 /* Wm4PdeFilter3.h */; };
+		3CC652660AE56F3F00651FE5 /* Wm4CurvatureFlow2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC6523B0AE56F3F00651FE5 /* Wm4CurvatureFlow2.cpp */; };
+		3CC652670AE56F3F00651FE5 /* Wm4CurvatureFlow2.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC6523C0AE56F3F00651FE5 /* Wm4CurvatureFlow2.h */; };
+		3CC652680AE56F3F00651FE5 /* Wm4CurvatureFlow3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC6523D0AE56F3F00651FE5 /* Wm4CurvatureFlow3.cpp */; };
+		3CC652690AE56F3F00651FE5 /* Wm4CurvatureFlow3.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC6523E0AE56F3F00651FE5 /* Wm4CurvatureFlow3.h */; };
+		3CC6526A0AE56F3F00651FE5 /* Wm4FastBlur.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC6523F0AE56F3F00651FE5 /* Wm4FastBlur.cpp */; };
+		3CC6526B0AE56F3F00651FE5 /* Wm4FastBlur.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC652400AE56F3F00651FE5 /* Wm4FastBlur.h */; };
+		3CC6526C0AE56F3F00651FE5 /* Wm4GaussianBlur2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC652410AE56F3F00651FE5 /* Wm4GaussianBlur2.cpp */; };
+		3CC6526D0AE56F3F00651FE5 /* Wm4GaussianBlur2.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC652420AE56F3F00651FE5 /* Wm4GaussianBlur2.h */; };
+		3CC6526E0AE56F3F00651FE5 /* Wm4GaussianBlur3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC652430AE56F3F00651FE5 /* Wm4GaussianBlur3.cpp */; };
+		3CC6526F0AE56F3F00651FE5 /* Wm4GaussianBlur3.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC652440AE56F3F00651FE5 /* Wm4GaussianBlur3.h */; };
+		3CC652700AE56F3F00651FE5 /* Wm4GradientAnisotropic2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC652450AE56F3F00651FE5 /* Wm4GradientAnisotropic2.cpp */; };
+		3CC652710AE56F3F00651FE5 /* Wm4GradientAnisotropic2.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC652460AE56F3F00651FE5 /* Wm4GradientAnisotropic2.h */; };
+		3CC652720AE56F3F00651FE5 /* Wm4GradientAnisotropic3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC652470AE56F3F00651FE5 /* Wm4GradientAnisotropic3.cpp */; };
+		3CC652730AE56F3F00651FE5 /* Wm4GradientAnisotropic3.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC652480AE56F3F00651FE5 /* Wm4GradientAnisotropic3.h */; };
+		3CC652740AE56F3F00651FE5 /* Wm4PdeFilter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC652490AE56F3F00651FE5 /* Wm4PdeFilter.cpp */; };
+		3CC652750AE56F3F00651FE5 /* Wm4PdeFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC6524A0AE56F3F00651FE5 /* Wm4PdeFilter.h */; };
+		3CC652760AE56F3F00651FE5 /* Wm4PdeFilter2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC6524C0AE56F3F00651FE5 /* Wm4PdeFilter2.cpp */; };
+		3CC652770AE56F3F00651FE5 /* Wm4PdeFilter2.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC6524D0AE56F3F00651FE5 /* Wm4PdeFilter2.h */; };
+		3CC652780AE56F3F00651FE5 /* Wm4PdeFilter3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC6524F0AE56F3F00651FE5 /* Wm4PdeFilter3.cpp */; };
+		3CC652790AE56F3F00651FE5 /* Wm4PdeFilter3.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC652500AE56F3F00651FE5 /* Wm4PdeFilter3.h */; };
+		3CC6527A0AE56F3F00651FE5 /* Wm4CurvatureFlow2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC6523B0AE56F3F00651FE5 /* Wm4CurvatureFlow2.cpp */; };
+		3CC6527B0AE56F3F00651FE5 /* Wm4CurvatureFlow2.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC6523C0AE56F3F00651FE5 /* Wm4CurvatureFlow2.h */; };
+		3CC6527C0AE56F3F00651FE5 /* Wm4CurvatureFlow3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC6523D0AE56F3F00651FE5 /* Wm4CurvatureFlow3.cpp */; };
+		3CC6527D0AE56F3F00651FE5 /* Wm4CurvatureFlow3.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC6523E0AE56F3F00651FE5 /* Wm4CurvatureFlow3.h */; };
+		3CC6527E0AE56F3F00651FE5 /* Wm4FastBlur.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC6523F0AE56F3F00651FE5 /* Wm4FastBlur.cpp */; };
+		3CC6527F0AE56F3F00651FE5 /* Wm4FastBlur.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC652400AE56F3F00651FE5 /* Wm4FastBlur.h */; };
+		3CC652800AE56F3F00651FE5 /* Wm4GaussianBlur2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC652410AE56F3F00651FE5 /* Wm4GaussianBlur2.cpp */; };
+		3CC652810AE56F3F00651FE5 /* Wm4GaussianBlur2.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC652420AE56F3F00651FE5 /* Wm4GaussianBlur2.h */; };
+		3CC652820AE56F3F00651FE5 /* Wm4GaussianBlur3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC652430AE56F3F00651FE5 /* Wm4GaussianBlur3.cpp */; };
+		3CC652830AE56F3F00651FE5 /* Wm4GaussianBlur3.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC652440AE56F3F00651FE5 /* Wm4GaussianBlur3.h */; };
+		3CC652840AE56F3F00651FE5 /* Wm4GradientAnisotropic2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC652450AE56F3F00651FE5 /* Wm4GradientAnisotropic2.cpp */; };
+		3CC652850AE56F3F00651FE5 /* Wm4GradientAnisotropic2.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC652460AE56F3F00651FE5 /* Wm4GradientAnisotropic2.h */; };
+		3CC652860AE56F3F00651FE5 /* Wm4GradientAnisotropic3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC652470AE56F3F00651FE5 /* Wm4GradientAnisotropic3.cpp */; };
+		3CC652870AE56F3F00651FE5 /* Wm4GradientAnisotropic3.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC652480AE56F3F00651FE5 /* Wm4GradientAnisotropic3.h */; };
+		3CC652880AE56F3F00651FE5 /* Wm4PdeFilter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC652490AE56F3F00651FE5 /* Wm4PdeFilter.cpp */; };
+		3CC652890AE56F3F00651FE5 /* Wm4PdeFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC6524A0AE56F3F00651FE5 /* Wm4PdeFilter.h */; };
+		3CC6528A0AE56F3F00651FE5 /* Wm4PdeFilter2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC6524C0AE56F3F00651FE5 /* Wm4PdeFilter2.cpp */; };
+		3CC6528B0AE56F3F00651FE5 /* Wm4PdeFilter2.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC6524D0AE56F3F00651FE5 /* Wm4PdeFilter2.h */; };
+		3CC6528C0AE56F3F00651FE5 /* Wm4PdeFilter3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC6524F0AE56F3F00651FE5 /* Wm4PdeFilter3.cpp */; };
+		3CC6528D0AE56F3F00651FE5 /* Wm4PdeFilter3.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC652500AE56F3F00651FE5 /* Wm4PdeFilter3.h */; };
+		3CC6528E0AE56F3F00651FE5 /* Wm4CurvatureFlow2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC6523B0AE56F3F00651FE5 /* Wm4CurvatureFlow2.cpp */; };
+		3CC6528F0AE56F3F00651FE5 /* Wm4CurvatureFlow2.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC6523C0AE56F3F00651FE5 /* Wm4CurvatureFlow2.h */; };
+		3CC652900AE56F3F00651FE5 /* Wm4CurvatureFlow3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC6523D0AE56F3F00651FE5 /* Wm4CurvatureFlow3.cpp */; };
+		3CC652910AE56F3F00651FE5 /* Wm4CurvatureFlow3.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC6523E0AE56F3F00651FE5 /* Wm4CurvatureFlow3.h */; };
+		3CC652920AE56F3F00651FE5 /* Wm4FastBlur.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC6523F0AE56F3F00651FE5 /* Wm4FastBlur.cpp */; };
+		3CC652930AE56F3F00651FE5 /* Wm4FastBlur.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC652400AE56F3F00651FE5 /* Wm4FastBlur.h */; };
+		3CC652940AE56F3F00651FE5 /* Wm4GaussianBlur2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC652410AE56F3F00651FE5 /* Wm4GaussianBlur2.cpp */; };
+		3CC652950AE56F3F00651FE5 /* Wm4GaussianBlur2.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC652420AE56F3F00651FE5 /* Wm4GaussianBlur2.h */; };
+		3CC652960AE56F3F00651FE5 /* Wm4GaussianBlur3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC652430AE56F3F00651FE5 /* Wm4GaussianBlur3.cpp */; };
+		3CC652970AE56F3F00651FE5 /* Wm4GaussianBlur3.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC652440AE56F3F00651FE5 /* Wm4GaussianBlur3.h */; };
+		3CC652980AE56F3F00651FE5 /* Wm4GradientAnisotropic2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC652450AE56F3F00651FE5 /* Wm4GradientAnisotropic2.cpp */; };
+		3CC652990AE56F3F00651FE5 /* Wm4GradientAnisotropic2.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC652460AE56F3F00651FE5 /* Wm4GradientAnisotropic2.h */; };
+		3CC6529A0AE56F3F00651FE5 /* Wm4GradientAnisotropic3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC652470AE56F3F00651FE5 /* Wm4GradientAnisotropic3.cpp */; };
+		3CC6529B0AE56F3F00651FE5 /* Wm4GradientAnisotropic3.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC652480AE56F3F00651FE5 /* Wm4GradientAnisotropic3.h */; };
+		3CC6529C0AE56F3F00651FE5 /* Wm4PdeFilter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC652490AE56F3F00651FE5 /* Wm4PdeFilter.cpp */; };
+		3CC6529D0AE56F3F00651FE5 /* Wm4PdeFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC6524A0AE56F3F00651FE5 /* Wm4PdeFilter.h */; };
+		3CC6529E0AE56F3F00651FE5 /* Wm4PdeFilter2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC6524C0AE56F3F00651FE5 /* Wm4PdeFilter2.cpp */; };
+		3CC6529F0AE56F3F00651FE5 /* Wm4PdeFilter2.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC6524D0AE56F3F00651FE5 /* Wm4PdeFilter2.h */; };
+		3CC652A00AE56F3F00651FE5 /* Wm4PdeFilter3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC6524F0AE56F3F00651FE5 /* Wm4PdeFilter3.cpp */; };
+		3CC652A10AE56F3F00651FE5 /* Wm4PdeFilter3.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC652500AE56F3F00651FE5 /* Wm4PdeFilter3.h */; };
+		3CC652A20AE56F3F00651FE5 /* Wm4CurvatureFlow2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC6523B0AE56F3F00651FE5 /* Wm4CurvatureFlow2.cpp */; };
+		3CC652A30AE56F3F00651FE5 /* Wm4CurvatureFlow2.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC6523C0AE56F3F00651FE5 /* Wm4CurvatureFlow2.h */; };
+		3CC652A40AE56F3F00651FE5 /* Wm4CurvatureFlow3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC6523D0AE56F3F00651FE5 /* Wm4CurvatureFlow3.cpp */; };
+		3CC652A50AE56F3F00651FE5 /* Wm4CurvatureFlow3.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC6523E0AE56F3F00651FE5 /* Wm4CurvatureFlow3.h */; };
+		3CC652A60AE56F3F00651FE5 /* Wm4FastBlur.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC6523F0AE56F3F00651FE5 /* Wm4FastBlur.cpp */; };
+		3CC652A70AE56F3F00651FE5 /* Wm4FastBlur.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC652400AE56F3F00651FE5 /* Wm4FastBlur.h */; };
+		3CC652A80AE56F3F00651FE5 /* Wm4GaussianBlur2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC652410AE56F3F00651FE5 /* Wm4GaussianBlur2.cpp */; };
+		3CC652A90AE56F3F00651FE5 /* Wm4GaussianBlur2.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC652420AE56F3F00651FE5 /* Wm4GaussianBlur2.h */; };
+		3CC652AA0AE56F3F00651FE5 /* Wm4GaussianBlur3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC652430AE56F3F00651FE5 /* Wm4GaussianBlur3.cpp */; };
+		3CC652AB0AE56F3F00651FE5 /* Wm4GaussianBlur3.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC652440AE56F3F00651FE5 /* Wm4GaussianBlur3.h */; };
+		3CC652AC0AE56F3F00651FE5 /* Wm4GradientAnisotropic2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC652450AE56F3F00651FE5 /* Wm4GradientAnisotropic2.cpp */; };
+		3CC652AD0AE56F3F00651FE5 /* Wm4GradientAnisotropic2.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC652460AE56F3F00651FE5 /* Wm4GradientAnisotropic2.h */; };
+		3CC652AE0AE56F3F00651FE5 /* Wm4GradientAnisotropic3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC652470AE56F3F00651FE5 /* Wm4GradientAnisotropic3.cpp */; };
+		3CC652AF0AE56F3F00651FE5 /* Wm4GradientAnisotropic3.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC652480AE56F3F00651FE5 /* Wm4GradientAnisotropic3.h */; };
+		3CC652B00AE56F3F00651FE5 /* Wm4PdeFilter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC652490AE56F3F00651FE5 /* Wm4PdeFilter.cpp */; };
+		3CC652B10AE56F3F00651FE5 /* Wm4PdeFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC6524A0AE56F3F00651FE5 /* Wm4PdeFilter.h */; };
+		3CC652B20AE56F3F00651FE5 /* Wm4PdeFilter2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC6524C0AE56F3F00651FE5 /* Wm4PdeFilter2.cpp */; };
+		3CC652B30AE56F3F00651FE5 /* Wm4PdeFilter2.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC6524D0AE56F3F00651FE5 /* Wm4PdeFilter2.h */; };
+		3CC652B40AE56F3F00651FE5 /* Wm4PdeFilter3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC6524F0AE56F3F00651FE5 /* Wm4PdeFilter3.cpp */; };
+		3CC652B50AE56F3F00651FE5 /* Wm4PdeFilter3.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC652500AE56F3F00651FE5 /* Wm4PdeFilter3.h */; };
+		3CC652B60AE56F3F00651FE5 /* Wm4CurvatureFlow2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC6523B0AE56F3F00651FE5 /* Wm4CurvatureFlow2.cpp */; };
+		3CC652B70AE56F3F00651FE5 /* Wm4CurvatureFlow2.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC6523C0AE56F3F00651FE5 /* Wm4CurvatureFlow2.h */; };
+		3CC652B80AE56F3F00651FE5 /* Wm4CurvatureFlow3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC6523D0AE56F3F00651FE5 /* Wm4CurvatureFlow3.cpp */; };
+		3CC652B90AE56F3F00651FE5 /* Wm4CurvatureFlow3.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC6523E0AE56F3F00651FE5 /* Wm4CurvatureFlow3.h */; };
+		3CC652BA0AE56F3F00651FE5 /* Wm4FastBlur.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC6523F0AE56F3F00651FE5 /* Wm4FastBlur.cpp */; };
+		3CC652BB0AE56F3F00651FE5 /* Wm4FastBlur.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC652400AE56F3F00651FE5 /* Wm4FastBlur.h */; };
+		3CC652BC0AE56F3F00651FE5 /* Wm4GaussianBlur2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC652410AE56F3F00651FE5 /* Wm4GaussianBlur2.cpp */; };
+		3CC652BD0AE56F3F00651FE5 /* Wm4GaussianBlur2.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC652420AE56F3F00651FE5 /* Wm4GaussianBlur2.h */; };
+		3CC652BE0AE56F3F00651FE5 /* Wm4GaussianBlur3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC652430AE56F3F00651FE5 /* Wm4GaussianBlur3.cpp */; };
+		3CC652BF0AE56F3F00651FE5 /* Wm4GaussianBlur3.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC652440AE56F3F00651FE5 /* Wm4GaussianBlur3.h */; };
+		3CC652C00AE56F3F00651FE5 /* Wm4GradientAnisotropic2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC652450AE56F3F00651FE5 /* Wm4GradientAnisotropic2.cpp */; };
+		3CC652C10AE56F3F00651FE5 /* Wm4GradientAnisotropic2.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC652460AE56F3F00651FE5 /* Wm4GradientAnisotropic2.h */; };
+		3CC652C20AE56F3F00651FE5 /* Wm4GradientAnisotropic3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC652470AE56F3F00651FE5 /* Wm4GradientAnisotropic3.cpp */; };
+		3CC652C30AE56F3F00651FE5 /* Wm4GradientAnisotropic3.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC652480AE56F3F00651FE5 /* Wm4GradientAnisotropic3.h */; };
+		3CC652C40AE56F3F00651FE5 /* Wm4PdeFilter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC652490AE56F3F00651FE5 /* Wm4PdeFilter.cpp */; };
+		3CC652C50AE56F3F00651FE5 /* Wm4PdeFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC6524A0AE56F3F00651FE5 /* Wm4PdeFilter.h */; };
+		3CC652C60AE56F3F00651FE5 /* Wm4PdeFilter2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC6524C0AE56F3F00651FE5 /* Wm4PdeFilter2.cpp */; };
+		3CC652C70AE56F3F00651FE5 /* Wm4PdeFilter2.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC6524D0AE56F3F00651FE5 /* Wm4PdeFilter2.h */; };
+		3CC652C80AE56F3F00651FE5 /* Wm4PdeFilter3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC6524F0AE56F3F00651FE5 /* Wm4PdeFilter3.cpp */; };
+		3CC652C90AE56F3F00651FE5 /* Wm4PdeFilter3.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC652500AE56F3F00651FE5 /* Wm4PdeFilter3.h */; };
+		3CC652CC0AE56F4C00651FE5 /* Wm4RasterDrawing.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC652CA0AE56F4B00651FE5 /* Wm4RasterDrawing.cpp */; };
+		3CC652CD0AE56F4C00651FE5 /* Wm4RasterDrawing.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC652CB0AE56F4B00651FE5 /* Wm4RasterDrawing.h */; };
+		3CC652CE0AE56F4C00651FE5 /* Wm4RasterDrawing.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC652CA0AE56F4B00651FE5 /* Wm4RasterDrawing.cpp */; };
+		3CC652CF0AE56F4C00651FE5 /* Wm4RasterDrawing.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC652CB0AE56F4B00651FE5 /* Wm4RasterDrawing.h */; };
+		3CC652D00AE56F4C00651FE5 /* Wm4RasterDrawing.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC652CA0AE56F4B00651FE5 /* Wm4RasterDrawing.cpp */; };
+		3CC652D10AE56F4C00651FE5 /* Wm4RasterDrawing.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC652CB0AE56F4B00651FE5 /* Wm4RasterDrawing.h */; };
+		3CC652D20AE56F4C00651FE5 /* Wm4RasterDrawing.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC652CA0AE56F4B00651FE5 /* Wm4RasterDrawing.cpp */; };
+		3CC652D30AE56F4C00651FE5 /* Wm4RasterDrawing.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC652CB0AE56F4B00651FE5 /* Wm4RasterDrawing.h */; };
+		3CC652D40AE56F4C00651FE5 /* Wm4RasterDrawing.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC652CA0AE56F4B00651FE5 /* Wm4RasterDrawing.cpp */; };
+		3CC652D50AE56F4C00651FE5 /* Wm4RasterDrawing.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC652CB0AE56F4B00651FE5 /* Wm4RasterDrawing.h */; };
+		3CC652D60AE56F4C00651FE5 /* Wm4RasterDrawing.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC652CA0AE56F4B00651FE5 /* Wm4RasterDrawing.cpp */; };
+		3CC652D70AE56F4C00651FE5 /* Wm4RasterDrawing.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC652CB0AE56F4B00651FE5 /* Wm4RasterDrawing.h */; };
+		3CC6530B0AE56F5C00651FE5 /* Wm4FastMarch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC652D80AE56F5C00651FE5 /* Wm4FastMarch.cpp */; };
+		3CC6530C0AE56F5C00651FE5 /* Wm4FastMarch.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC652D90AE56F5C00651FE5 /* Wm4FastMarch.h */; };
+		3CC6530D0AE56F5C00651FE5 /* Wm4FastMarch2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC652DB0AE56F5C00651FE5 /* Wm4FastMarch2.cpp */; };
+		3CC6530E0AE56F5C00651FE5 /* Wm4FastMarch2.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC652DC0AE56F5C00651FE5 /* Wm4FastMarch2.h */; };
+		3CC6530F0AE56F5C00651FE5 /* Wm4FastMarch3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC652DE0AE56F5C00651FE5 /* Wm4FastMarch3.cpp */; };
+		3CC653100AE56F5C00651FE5 /* Wm4FastMarch3.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC652DF0AE56F5C00651FE5 /* Wm4FastMarch3.h */; };
+		3CC653310AE56F5C00651FE5 /* Wm4FastMarch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC652D80AE56F5C00651FE5 /* Wm4FastMarch.cpp */; };
+		3CC653320AE56F5C00651FE5 /* Wm4FastMarch.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC652D90AE56F5C00651FE5 /* Wm4FastMarch.h */; };
+		3CC653330AE56F5C00651FE5 /* Wm4FastMarch2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC652DB0AE56F5C00651FE5 /* Wm4FastMarch2.cpp */; };
+		3CC653340AE56F5C00651FE5 /* Wm4FastMarch2.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC652DC0AE56F5C00651FE5 /* Wm4FastMarch2.h */; };
+		3CC653350AE56F5C00651FE5 /* Wm4FastMarch3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC652DE0AE56F5C00651FE5 /* Wm4FastMarch3.cpp */; };
+		3CC653360AE56F5C00651FE5 /* Wm4FastMarch3.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC652DF0AE56F5C00651FE5 /* Wm4FastMarch3.h */; };
+		3CC653570AE56F5C00651FE5 /* Wm4FastMarch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC652D80AE56F5C00651FE5 /* Wm4FastMarch.cpp */; };
+		3CC653580AE56F5C00651FE5 /* Wm4FastMarch.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC652D90AE56F5C00651FE5 /* Wm4FastMarch.h */; };
+		3CC653590AE56F5C00651FE5 /* Wm4FastMarch2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC652DB0AE56F5C00651FE5 /* Wm4FastMarch2.cpp */; };
+		3CC6535A0AE56F5C00651FE5 /* Wm4FastMarch2.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC652DC0AE56F5C00651FE5 /* Wm4FastMarch2.h */; };
+		3CC6535B0AE56F5C00651FE5 /* Wm4FastMarch3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC652DE0AE56F5C00651FE5 /* Wm4FastMarch3.cpp */; };
+		3CC6535C0AE56F5C00651FE5 /* Wm4FastMarch3.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC652DF0AE56F5C00651FE5 /* Wm4FastMarch3.h */; };
+		3CC6537D0AE56F5C00651FE5 /* Wm4FastMarch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC652D80AE56F5C00651FE5 /* Wm4FastMarch.cpp */; };
+		3CC6537E0AE56F5C00651FE5 /* Wm4FastMarch.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC652D90AE56F5C00651FE5 /* Wm4FastMarch.h */; };
+		3CC6537F0AE56F5C00651FE5 /* Wm4FastMarch2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC652DB0AE56F5C00651FE5 /* Wm4FastMarch2.cpp */; };
+		3CC653800AE56F5C00651FE5 /* Wm4FastMarch2.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC652DC0AE56F5C00651FE5 /* Wm4FastMarch2.h */; };
+		3CC653810AE56F5C00651FE5 /* Wm4FastMarch3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC652DE0AE56F5C00651FE5 /* Wm4FastMarch3.cpp */; };
+		3CC653820AE56F5C00651FE5 /* Wm4FastMarch3.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC652DF0AE56F5C00651FE5 /* Wm4FastMarch3.h */; };
+		3CC653A30AE56F5C00651FE5 /* Wm4FastMarch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC652D80AE56F5C00651FE5 /* Wm4FastMarch.cpp */; };
+		3CC653A40AE56F5C00651FE5 /* Wm4FastMarch.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC652D90AE56F5C00651FE5 /* Wm4FastMarch.h */; };
+		3CC653A50AE56F5C00651FE5 /* Wm4FastMarch2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC652DB0AE56F5C00651FE5 /* Wm4FastMarch2.cpp */; };
+		3CC653A60AE56F5C00651FE5 /* Wm4FastMarch2.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC652DC0AE56F5C00651FE5 /* Wm4FastMarch2.h */; };
+		3CC653A70AE56F5C00651FE5 /* Wm4FastMarch3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC652DE0AE56F5C00651FE5 /* Wm4FastMarch3.cpp */; };
+		3CC653A80AE56F5C00651FE5 /* Wm4FastMarch3.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC652DF0AE56F5C00651FE5 /* Wm4FastMarch3.h */; };
+		3CC653C90AE56F5C00651FE5 /* Wm4FastMarch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC652D80AE56F5C00651FE5 /* Wm4FastMarch.cpp */; };
+		3CC653CA0AE56F5C00651FE5 /* Wm4FastMarch.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC652D90AE56F5C00651FE5 /* Wm4FastMarch.h */; };
+		3CC653CB0AE56F5C00651FE5 /* Wm4FastMarch2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC652DB0AE56F5C00651FE5 /* Wm4FastMarch2.cpp */; };
+		3CC653CC0AE56F5C00651FE5 /* Wm4FastMarch2.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC652DC0AE56F5C00651FE5 /* Wm4FastMarch2.h */; };
+		3CC653CD0AE56F5C00651FE5 /* Wm4FastMarch3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC652DE0AE56F5C00651FE5 /* Wm4FastMarch3.cpp */; };
+		3CC653CE0AE56F5C00651FE5 /* Wm4FastMarch3.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC652DF0AE56F5C00651FE5 /* Wm4FastMarch3.h */; };
+		3CC653F80AE5705900651FE5 /* Wm4Imagics.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC653F40AE5705900651FE5 /* Wm4Imagics.h */; };
+		3CC653F90AE5705900651FE5 /* Wm4ImagicsLIB.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC653F50AE5705900651FE5 /* Wm4ImagicsLIB.h */; };
+		3CC653FA0AE5705900651FE5 /* Wm4ImagicsPCH.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC653F60AE5705900651FE5 /* Wm4ImagicsPCH.cpp */; };
+		3CC653FB0AE5705900651FE5 /* Wm4ImagicsPCH.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC653F70AE5705900651FE5 /* Wm4ImagicsPCH.h */; };
+		3CC653FC0AE5705900651FE5 /* Wm4Imagics.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC653F40AE5705900651FE5 /* Wm4Imagics.h */; };
+		3CC653FD0AE5705900651FE5 /* Wm4ImagicsLIB.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC653F50AE5705900651FE5 /* Wm4ImagicsLIB.h */; };
+		3CC653FE0AE5705900651FE5 /* Wm4ImagicsPCH.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC653F60AE5705900651FE5 /* Wm4ImagicsPCH.cpp */; };
+		3CC653FF0AE5705900651FE5 /* Wm4ImagicsPCH.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC653F70AE5705900651FE5 /* Wm4ImagicsPCH.h */; };
+		3CC654000AE5705900651FE5 /* Wm4Imagics.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC653F40AE5705900651FE5 /* Wm4Imagics.h */; };
+		3CC654010AE5705900651FE5 /* Wm4ImagicsLIB.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC653F50AE5705900651FE5 /* Wm4ImagicsLIB.h */; };
+		3CC654020AE5705900651FE5 /* Wm4ImagicsPCH.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC653F60AE5705900651FE5 /* Wm4ImagicsPCH.cpp */; };
+		3CC654030AE5705900651FE5 /* Wm4ImagicsPCH.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC653F70AE5705900651FE5 /* Wm4ImagicsPCH.h */; };
+		3CC654040AE5705900651FE5 /* Wm4Imagics.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC653F40AE5705900651FE5 /* Wm4Imagics.h */; };
+		3CC654050AE5705900651FE5 /* Wm4ImagicsLIB.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC653F50AE5705900651FE5 /* Wm4ImagicsLIB.h */; };
+		3CC654060AE5705900651FE5 /* Wm4ImagicsPCH.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC653F60AE5705900651FE5 /* Wm4ImagicsPCH.cpp */; };
+		3CC654070AE5705900651FE5 /* Wm4ImagicsPCH.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC653F70AE5705900651FE5 /* Wm4ImagicsPCH.h */; };
+		3CC654080AE5705900651FE5 /* Wm4Imagics.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC653F40AE5705900651FE5 /* Wm4Imagics.h */; };
+		3CC654090AE5705900651FE5 /* Wm4ImagicsLIB.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC653F50AE5705900651FE5 /* Wm4ImagicsLIB.h */; };
+		3CC6540A0AE5705900651FE5 /* Wm4ImagicsPCH.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC653F60AE5705900651FE5 /* Wm4ImagicsPCH.cpp */; };
+		3CC6540B0AE5705900651FE5 /* Wm4ImagicsPCH.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC653F70AE5705900651FE5 /* Wm4ImagicsPCH.h */; };
+		3CC6540C0AE5705900651FE5 /* Wm4Imagics.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC653F40AE5705900651FE5 /* Wm4Imagics.h */; };
+		3CC6540D0AE5705900651FE5 /* Wm4ImagicsLIB.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC653F50AE5705900651FE5 /* Wm4ImagicsLIB.h */; };
+		3CC6540E0AE5705900651FE5 /* Wm4ImagicsPCH.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC653F60AE5705900651FE5 /* Wm4ImagicsPCH.cpp */; };
+		3CC6540F0AE5705900651FE5 /* Wm4ImagicsPCH.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC653F70AE5705900651FE5 /* Wm4ImagicsPCH.h */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		3CBB669E0A2AB89D001275CA /* libWm4Imagicsmd.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libWm4Imagicsmd.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		3CBB66CC0A2AB9CD001275CA /* libWm4Imagicsm.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libWm4Imagicsm.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		3CC53A220A0026BA00C3FEC5 /* libWm4Foundationd.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libWm4Foundationd.dylib; path = ../SDK/Library/DebugDLL/libWm4Foundationd.dylib; sourceTree = SOURCE_ROOT; };
+		3CC53A240A0026D600C3FEC5 /* libWm4Foundation.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libWm4Foundation.dylib; path = ../SDK/Library/ReleaseDLL/libWm4Foundation.dylib; sourceTree = SOURCE_ROOT; };
+		3CC651940AE56EF800651FE5 /* Wm4Binary2D.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = Wm4Binary2D.cpp; path = BinaryOperations/Wm4Binary2D.cpp; sourceTree = "<group>"; };
+		3CC651950AE56EF800651FE5 /* Wm4Binary2D.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = Wm4Binary2D.h; path = BinaryOperations/Wm4Binary2D.h; sourceTree = "<group>"; };
+		3CC651960AE56EF800651FE5 /* Wm4Binary3D.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = Wm4Binary3D.cpp; path = BinaryOperations/Wm4Binary3D.cpp; sourceTree = "<group>"; };
+		3CC651970AE56EF800651FE5 /* Wm4Binary3D.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = Wm4Binary3D.h; path = BinaryOperations/Wm4Binary3D.h; sourceTree = "<group>"; };
+		3CC651B00AE56F0E00651FE5 /* Wm4ExtractCurveSquares.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = Wm4ExtractCurveSquares.cpp; path = Extraction/Wm4ExtractCurveSquares.cpp; sourceTree = "<group>"; };
+		3CC651B10AE56F0E00651FE5 /* Wm4ExtractCurveSquares.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = Wm4ExtractCurveSquares.h; path = Extraction/Wm4ExtractCurveSquares.h; sourceTree = "<group>"; };
+		3CC651B20AE56F0E00651FE5 /* Wm4ExtractCurveTris.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = Wm4ExtractCurveTris.cpp; path = Extraction/Wm4ExtractCurveTris.cpp; sourceTree = "<group>"; };
+		3CC651B30AE56F0E00651FE5 /* Wm4ExtractCurveTris.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = Wm4ExtractCurveTris.h; path = Extraction/Wm4ExtractCurveTris.h; sourceTree = "<group>"; };
+		3CC651B40AE56F0E00651FE5 /* Wm4ExtractSurfaceCubes.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = Wm4ExtractSurfaceCubes.cpp; path = Extraction/Wm4ExtractSurfaceCubes.cpp; sourceTree = "<group>"; };
+		3CC651B50AE56F0E00651FE5 /* Wm4ExtractSurfaceCubes.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = Wm4ExtractSurfaceCubes.h; path = Extraction/Wm4ExtractSurfaceCubes.h; sourceTree = "<group>"; };
+		3CC651B60AE56F0E00651FE5 /* Wm4ExtractSurfaceCubes.inl */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text; name = Wm4ExtractSurfaceCubes.inl; path = Extraction/Wm4ExtractSurfaceCubes.inl; sourceTree = "<group>"; };
+		3CC651B70AE56F0E00651FE5 /* Wm4ExtractSurfaceTetra.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = Wm4ExtractSurfaceTetra.cpp; path = Extraction/Wm4ExtractSurfaceTetra.cpp; sourceTree = "<group>"; };
+		3CC651B80AE56F0E00651FE5 /* Wm4ExtractSurfaceTetra.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = Wm4ExtractSurfaceTetra.h; path = Extraction/Wm4ExtractSurfaceTetra.h; sourceTree = "<group>"; };
+		3CC651E90AE56F2600651FE5 /* Wm4Element.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = Wm4Element.cpp; path = Images/Wm4Element.cpp; sourceTree = "<group>"; };
+		3CC651EA0AE56F2600651FE5 /* Wm4Element.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = Wm4Element.h; path = Images/Wm4Element.h; sourceTree = "<group>"; };
+		3CC651EB0AE56F2600651FE5 /* Wm4Element.inl */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text; name = Wm4Element.inl; path = Images/Wm4Element.inl; sourceTree = "<group>"; };
+		3CC651EC0AE56F2600651FE5 /* Wm4ImageConvert.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = Wm4ImageConvert.cpp; path = Images/Wm4ImageConvert.cpp; sourceTree = "<group>"; };
+		3CC651ED0AE56F2600651FE5 /* Wm4ImageConvert.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = Wm4ImageConvert.h; path = Images/Wm4ImageConvert.h; sourceTree = "<group>"; };
+		3CC651EE0AE56F2600651FE5 /* Wm4Images.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = Wm4Images.cpp; path = Images/Wm4Images.cpp; sourceTree = "<group>"; };
+		3CC651EF0AE56F2600651FE5 /* Wm4Images.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = Wm4Images.h; path = Images/Wm4Images.h; sourceTree = "<group>"; };
+		3CC651F00AE56F2600651FE5 /* Wm4Lattice.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = Wm4Lattice.cpp; path = Images/Wm4Lattice.cpp; sourceTree = "<group>"; };
+		3CC651F10AE56F2600651FE5 /* Wm4Lattice.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = Wm4Lattice.h; path = Images/Wm4Lattice.h; sourceTree = "<group>"; };
+		3CC651F20AE56F2600651FE5 /* Wm4Lattice.inl */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text; name = Wm4Lattice.inl; path = Images/Wm4Lattice.inl; sourceTree = "<group>"; };
+		3CC651F30AE56F2600651FE5 /* Wm4TImage.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = Wm4TImage.h; path = Images/Wm4TImage.h; sourceTree = "<group>"; };
+		3CC651F40AE56F2600651FE5 /* Wm4TImage.inl */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text; name = Wm4TImage.inl; path = Images/Wm4TImage.inl; sourceTree = "<group>"; };
+		3CC651F50AE56F2600651FE5 /* Wm4TImage2D.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = Wm4TImage2D.h; path = Images/Wm4TImage2D.h; sourceTree = "<group>"; };
+		3CC651F60AE56F2600651FE5 /* Wm4TImage2D.inl */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text; name = Wm4TImage2D.inl; path = Images/Wm4TImage2D.inl; sourceTree = "<group>"; };
+		3CC651F70AE56F2600651FE5 /* Wm4TImage3D.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = Wm4TImage3D.h; path = Images/Wm4TImage3D.h; sourceTree = "<group>"; };
+		3CC651F80AE56F2600651FE5 /* Wm4TImage3D.inl */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text; name = Wm4TImage3D.inl; path = Images/Wm4TImage3D.inl; sourceTree = "<group>"; };
+		3CC6523B0AE56F3F00651FE5 /* Wm4CurvatureFlow2.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = Wm4CurvatureFlow2.cpp; path = Filters/Wm4CurvatureFlow2.cpp; sourceTree = "<group>"; };
+		3CC6523C0AE56F3F00651FE5 /* Wm4CurvatureFlow2.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = Wm4CurvatureFlow2.h; path = Filters/Wm4CurvatureFlow2.h; sourceTree = "<group>"; };
+		3CC6523D0AE56F3F00651FE5 /* Wm4CurvatureFlow3.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = Wm4CurvatureFlow3.cpp; path = Filters/Wm4CurvatureFlow3.cpp; sourceTree = "<group>"; };
+		3CC6523E0AE56F3F00651FE5 /* Wm4CurvatureFlow3.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = Wm4CurvatureFlow3.h; path = Filters/Wm4CurvatureFlow3.h; sourceTree = "<group>"; };
+		3CC6523F0AE56F3F00651FE5 /* Wm4FastBlur.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = Wm4FastBlur.cpp; path = Filters/Wm4FastBlur.cpp; sourceTree = "<group>"; };
+		3CC652400AE56F3F00651FE5 /* Wm4FastBlur.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = Wm4FastBlur.h; path = Filters/Wm4FastBlur.h; sourceTree = "<group>"; };
+		3CC652410AE56F3F00651FE5 /* Wm4GaussianBlur2.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = Wm4GaussianBlur2.cpp; path = Filters/Wm4GaussianBlur2.cpp; sourceTree = "<group>"; };
+		3CC652420AE56F3F00651FE5 /* Wm4GaussianBlur2.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = Wm4GaussianBlur2.h; path = Filters/Wm4GaussianBlur2.h; sourceTree = "<group>"; };
+		3CC652430AE56F3F00651FE5 /* Wm4GaussianBlur3.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = Wm4GaussianBlur3.cpp; path = Filters/Wm4GaussianBlur3.cpp; sourceTree = "<group>"; };
+		3CC652440AE56F3F00651FE5 /* Wm4GaussianBlur3.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = Wm4GaussianBlur3.h; path = Filters/Wm4GaussianBlur3.h; sourceTree = "<group>"; };
+		3CC652450AE56F3F00651FE5 /* Wm4GradientAnisotropic2.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = Wm4GradientAnisotropic2.cpp; path = Filters/Wm4GradientAnisotropic2.cpp; sourceTree = "<group>"; };
+		3CC652460AE56F3F00651FE5 /* Wm4GradientAnisotropic2.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = Wm4GradientAnisotropic2.h; path = Filters/Wm4GradientAnisotropic2.h; sourceTree = "<group>"; };
+		3CC652470AE56F3F00651FE5 /* Wm4GradientAnisotropic3.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = Wm4GradientAnisotropic3.cpp; path = Filters/Wm4GradientAnisotropic3.cpp; sourceTree = "<group>"; };
+		3CC652480AE56F3F00651FE5 /* Wm4GradientAnisotropic3.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = Wm4GradientAnisotropic3.h; path = Filters/Wm4GradientAnisotropic3.h; sourceTree = "<group>"; };
+		3CC652490AE56F3F00651FE5 /* Wm4PdeFilter.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = Wm4PdeFilter.cpp; path = Filters/Wm4PdeFilter.cpp; sourceTree = "<group>"; };
+		3CC6524A0AE56F3F00651FE5 /* Wm4PdeFilter.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = Wm4PdeFilter.h; path = Filters/Wm4PdeFilter.h; sourceTree = "<group>"; };
+		3CC6524B0AE56F3F00651FE5 /* Wm4PdeFilter.inl */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text; name = Wm4PdeFilter.inl; path = Filters/Wm4PdeFilter.inl; sourceTree = "<group>"; };
+		3CC6524C0AE56F3F00651FE5 /* Wm4PdeFilter2.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = Wm4PdeFilter2.cpp; path = Filters/Wm4PdeFilter2.cpp; sourceTree = "<group>"; };
+		3CC6524D0AE56F3F00651FE5 /* Wm4PdeFilter2.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = Wm4PdeFilter2.h; path = Filters/Wm4PdeFilter2.h; sourceTree = "<group>"; };
+		3CC6524E0AE56F3F00651FE5 /* Wm4PdeFilter2.inl */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text; name = Wm4PdeFilter2.inl; path = Filters/Wm4PdeFilter2.inl; sourceTree = "<group>"; };
+		3CC6524F0AE56F3F00651FE5 /* Wm4PdeFilter3.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = Wm4PdeFilter3.cpp; path = Filters/Wm4PdeFilter3.cpp; sourceTree = "<group>"; };
+		3CC652500AE56F3F00651FE5 /* Wm4PdeFilter3.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = Wm4PdeFilter3.h; path = Filters/Wm4PdeFilter3.h; sourceTree = "<group>"; };
+		3CC652510AE56F3F00651FE5 /* Wm4PdeFilter3.inl */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text; name = Wm4PdeFilter3.inl; path = Filters/Wm4PdeFilter3.inl; sourceTree = "<group>"; };
+		3CC652CA0AE56F4B00651FE5 /* Wm4RasterDrawing.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = Wm4RasterDrawing.cpp; path = RasterDrawing/Wm4RasterDrawing.cpp; sourceTree = "<group>"; };
+		3CC652CB0AE56F4B00651FE5 /* Wm4RasterDrawing.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = Wm4RasterDrawing.h; path = RasterDrawing/Wm4RasterDrawing.h; sourceTree = "<group>"; };
+		3CC652D80AE56F5C00651FE5 /* Wm4FastMarch.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = Wm4FastMarch.cpp; path = Segmenters/Wm4FastMarch.cpp; sourceTree = "<group>"; };
+		3CC652D90AE56F5C00651FE5 /* Wm4FastMarch.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = Wm4FastMarch.h; path = Segmenters/Wm4FastMarch.h; sourceTree = "<group>"; };
+		3CC652DA0AE56F5C00651FE5 /* Wm4FastMarch.inl */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text; name = Wm4FastMarch.inl; path = Segmenters/Wm4FastMarch.inl; sourceTree = "<group>"; };
+		3CC652DB0AE56F5C00651FE5 /* Wm4FastMarch2.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = Wm4FastMarch2.cpp; path = Segmenters/Wm4FastMarch2.cpp; sourceTree = "<group>"; };
+		3CC652DC0AE56F5C00651FE5 /* Wm4FastMarch2.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = Wm4FastMarch2.h; path = Segmenters/Wm4FastMarch2.h; sourceTree = "<group>"; };
+		3CC652DD0AE56F5C00651FE5 /* Wm4FastMarch2.inl */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text; name = Wm4FastMarch2.inl; path = Segmenters/Wm4FastMarch2.inl; sourceTree = "<group>"; };
+		3CC652DE0AE56F5C00651FE5 /* Wm4FastMarch3.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = Wm4FastMarch3.cpp; path = Segmenters/Wm4FastMarch3.cpp; sourceTree = "<group>"; };
+		3CC652DF0AE56F5C00651FE5 /* Wm4FastMarch3.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = Wm4FastMarch3.h; path = Segmenters/Wm4FastMarch3.h; sourceTree = "<group>"; };
+		3CC652E00AE56F5C00651FE5 /* Wm4FastMarch3.inl */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text; name = Wm4FastMarch3.inl; path = Segmenters/Wm4FastMarch3.inl; sourceTree = "<group>"; };
+		3CC653F40AE5705900651FE5 /* Wm4Imagics.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = Wm4Imagics.h; sourceTree = "<group>"; };
+		3CC653F50AE5705900651FE5 /* Wm4ImagicsLIB.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = Wm4ImagicsLIB.h; sourceTree = "<group>"; };
+		3CC653F60AE5705900651FE5 /* Wm4ImagicsPCH.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = Wm4ImagicsPCH.cpp; sourceTree = "<group>"; };
+		3CC653F70AE5705900651FE5 /* Wm4ImagicsPCH.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = Wm4ImagicsPCH.h; sourceTree = "<group>"; };
+		742FFA1207F46D6500E4DBBA /* libWm4Imagicsd.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libWm4Imagicsd.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+		742FFA1707F46DC300E4DBBA /* libWm4Imagics.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libWm4Imagics.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+		74B57E8D07F3427D00913EC4 /* libWm4Imagicsd.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libWm4Imagicsd.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		74D6DDFE07F342E200267169 /* libWm4Imagics.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libWm4Imagics.a; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3CBB669C0A2AB89D001275CA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3CBB66CA0A2AB9CD001275CA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		742FFA1007F46D6500E4DBBA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3CC53A230A0026BA00C3FEC5 /* libWm4Foundationd.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		742FFA1607F46DC300E4DBBA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3CC53A250A0026D600C3FEC5 /* libWm4Foundation.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		74B57E8B07F3427D00913EC4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		74D6DDFD07F342E200267169 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3CC53A1B0A00266B00C3FEC5 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				3CC53A1E0A00267B00C3FEC5 /* DebugDLL */,
+				3CC53A210A00268B00C3FEC5 /* ReleaseDLL */,
+			);
+			name = Libraries;
+			sourceTree = "<group>";
+		};
+		3CC53A1E0A00267B00C3FEC5 /* DebugDLL */ = {
+			isa = PBXGroup;
+			children = (
+				3CC53A220A0026BA00C3FEC5 /* libWm4Foundationd.dylib */,
+			);
+			name = DebugDLL;
+			sourceTree = "<group>";
+		};
+		3CC53A210A00268B00C3FEC5 /* ReleaseDLL */ = {
+			isa = PBXGroup;
+			children = (
+				3CC53A240A0026D600C3FEC5 /* libWm4Foundation.dylib */,
+			);
+			name = ReleaseDLL;
+			sourceTree = "<group>";
+		};
+		3CC651840AE56E7C00651FE5 /* BinaryOperations */ = {
+			isa = PBXGroup;
+			children = (
+				3CC651940AE56EF800651FE5 /* Wm4Binary2D.cpp */,
+				3CC651950AE56EF800651FE5 /* Wm4Binary2D.h */,
+				3CC651960AE56EF800651FE5 /* Wm4Binary3D.cpp */,
+				3CC651970AE56EF800651FE5 /* Wm4Binary3D.h */,
+			);
+			name = BinaryOperations;
+			sourceTree = "<group>";
+		};
+		3CC651870AE56E8F00651FE5 /* Extraction */ = {
+			isa = PBXGroup;
+			children = (
+				3CC651B00AE56F0E00651FE5 /* Wm4ExtractCurveSquares.cpp */,
+				3CC651B10AE56F0E00651FE5 /* Wm4ExtractCurveSquares.h */,
+				3CC651B20AE56F0E00651FE5 /* Wm4ExtractCurveTris.cpp */,
+				3CC651B30AE56F0E00651FE5 /* Wm4ExtractCurveTris.h */,
+				3CC651B40AE56F0E00651FE5 /* Wm4ExtractSurfaceCubes.cpp */,
+				3CC651B50AE56F0E00651FE5 /* Wm4ExtractSurfaceCubes.h */,
+				3CC651B60AE56F0E00651FE5 /* Wm4ExtractSurfaceCubes.inl */,
+				3CC651B70AE56F0E00651FE5 /* Wm4ExtractSurfaceTetra.cpp */,
+				3CC651B80AE56F0E00651FE5 /* Wm4ExtractSurfaceTetra.h */,
+			);
+			name = Extraction;
+			sourceTree = "<group>";
+		};
+		3CC6518A0AE56E9A00651FE5 /* Filters */ = {
+			isa = PBXGroup;
+			children = (
+				3CC6523B0AE56F3F00651FE5 /* Wm4CurvatureFlow2.cpp */,
+				3CC6523C0AE56F3F00651FE5 /* Wm4CurvatureFlow2.h */,
+				3CC6523D0AE56F3F00651FE5 /* Wm4CurvatureFlow3.cpp */,
+				3CC6523E0AE56F3F00651FE5 /* Wm4CurvatureFlow3.h */,
+				3CC6523F0AE56F3F00651FE5 /* Wm4FastBlur.cpp */,
+				3CC652400AE56F3F00651FE5 /* Wm4FastBlur.h */,
+				3CC652410AE56F3F00651FE5 /* Wm4GaussianBlur2.cpp */,
+				3CC652420AE56F3F00651FE5 /* Wm4GaussianBlur2.h */,
+				3CC652430AE56F3F00651FE5 /* Wm4GaussianBlur3.cpp */,
+				3CC652440AE56F3F00651FE5 /* Wm4GaussianBlur3.h */,
+				3CC652450AE56F3F00651FE5 /* Wm4GradientAnisotropic2.cpp */,
+				3CC652460AE56F3F00651FE5 /* Wm4GradientAnisotropic2.h */,
+				3CC652470AE56F3F00651FE5 /* Wm4GradientAnisotropic3.cpp */,
+				3CC652480AE56F3F00651FE5 /* Wm4GradientAnisotropic3.h */,
+				3CC652490AE56F3F00651FE5 /* Wm4PdeFilter.cpp */,
+				3CC6524A0AE56F3F00651FE5 /* Wm4PdeFilter.h */,
+				3CC6524B0AE56F3F00651FE5 /* Wm4PdeFilter.inl */,
+				3CC6524C0AE56F3F00651FE5 /* Wm4PdeFilter2.cpp */,
+				3CC6524D0AE56F3F00651FE5 /* Wm4PdeFilter2.h */,
+				3CC6524E0AE56F3F00651FE5 /* Wm4PdeFilter2.inl */,
+				3CC6524F0AE56F3F00651FE5 /* Wm4PdeFilter3.cpp */,
+				3CC652500AE56F3F00651FE5 /* Wm4PdeFilter3.h */,
+				3CC652510AE56F3F00651FE5 /* Wm4PdeFilter3.inl */,
+			);
+			name = Filters;
+			sourceTree = "<group>";
+		};
+		3CC6518D0AE56EA400651FE5 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				3CC651E90AE56F2600651FE5 /* Wm4Element.cpp */,
+				3CC651EA0AE56F2600651FE5 /* Wm4Element.h */,
+				3CC651EB0AE56F2600651FE5 /* Wm4Element.inl */,
+				3CC651EC0AE56F2600651FE5 /* Wm4ImageConvert.cpp */,
+				3CC651ED0AE56F2600651FE5 /* Wm4ImageConvert.h */,
+				3CC651EE0AE56F2600651FE5 /* Wm4Images.cpp */,
+				3CC651EF0AE56F2600651FE5 /* Wm4Images.h */,
+				3CC651F00AE56F2600651FE5 /* Wm4Lattice.cpp */,
+				3CC651F10AE56F2600651FE5 /* Wm4Lattice.h */,
+				3CC651F20AE56F2600651FE5 /* Wm4Lattice.inl */,
+				3CC651F30AE56F2600651FE5 /* Wm4TImage.h */,
+				3CC651F40AE56F2600651FE5 /* Wm4TImage.inl */,
+				3CC651F50AE56F2600651FE5 /* Wm4TImage2D.h */,
+				3CC651F60AE56F2600651FE5 /* Wm4TImage2D.inl */,
+				3CC651F70AE56F2600651FE5 /* Wm4TImage3D.h */,
+				3CC651F80AE56F2600651FE5 /* Wm4TImage3D.inl */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		3CC651900AE56EAF00651FE5 /* RasterDrawing */ = {
+			isa = PBXGroup;
+			children = (
+				3CC652CA0AE56F4B00651FE5 /* Wm4RasterDrawing.cpp */,
+				3CC652CB0AE56F4B00651FE5 /* Wm4RasterDrawing.h */,
+			);
+			name = RasterDrawing;
+			sourceTree = "<group>";
+		};
+		3CC651930AE56EBD00651FE5 /* Segmenters */ = {
+			isa = PBXGroup;
+			children = (
+				3CC652D80AE56F5C00651FE5 /* Wm4FastMarch.cpp */,
+				3CC652D90AE56F5C00651FE5 /* Wm4FastMarch.h */,
+				3CC652DA0AE56F5C00651FE5 /* Wm4FastMarch.inl */,
+				3CC652DB0AE56F5C00651FE5 /* Wm4FastMarch2.cpp */,
+				3CC652DC0AE56F5C00651FE5 /* Wm4FastMarch2.h */,
+				3CC652DD0AE56F5C00651FE5 /* Wm4FastMarch2.inl */,
+				3CC652DE0AE56F5C00651FE5 /* Wm4FastMarch3.cpp */,
+				3CC652DF0AE56F5C00651FE5 /* Wm4FastMarch3.h */,
+				3CC652E00AE56F5C00651FE5 /* Wm4FastMarch3.inl */,
+			);
+			name = Segmenters;
+			sourceTree = "<group>";
+		};
+		74B57E7F07F3425300913EC4 = {
+			isa = PBXGroup;
+			children = (
+				74D6DE0107F3432700267169 /* Sources */,
+				3CC53A1B0A00266B00C3FEC5 /* Libraries */,
+				74B57E8E07F3427D00913EC4 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		74B57E8E07F3427D00913EC4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				74B57E8D07F3427D00913EC4 /* libWm4Imagicsd.a */,
+				74D6DDFE07F342E200267169 /* libWm4Imagics.a */,
+				742FFA1207F46D6500E4DBBA /* libWm4Imagicsd.dylib */,
+				742FFA1707F46DC300E4DBBA /* libWm4Imagics.dylib */,
+				3CBB669E0A2AB89D001275CA /* libWm4Imagicsmd.a */,
+				3CBB66CC0A2AB9CD001275CA /* libWm4Imagicsm.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		74D6DE0107F3432700267169 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				3CC651840AE56E7C00651FE5 /* BinaryOperations */,
+				3CC651870AE56E8F00651FE5 /* Extraction */,
+				3CC6518D0AE56EA400651FE5 /* Images */,
+				3CC6518A0AE56E9A00651FE5 /* Filters */,
+				3CC651900AE56EAF00651FE5 /* RasterDrawing */,
+				3CC651930AE56EBD00651FE5 /* Segmenters */,
+				3CC653F40AE5705900651FE5 /* Wm4Imagics.h */,
+				3CC653F50AE5705900651FE5 /* Wm4ImagicsLIB.h */,
+				3CC653F60AE5705900651FE5 /* Wm4ImagicsPCH.cpp */,
+				3CC653F70AE5705900651FE5 /* Wm4ImagicsPCH.h */,
+			);
+			name = Sources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		3CBB669A0A2AB89D001275CA /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3CC651A90AE56EF800651FE5 /* Wm4Binary2D.h in Headers */,
+				3CC651AB0AE56EF800651FE5 /* Wm4Binary3D.h in Headers */,
+				3CC651DA0AE56F0E00651FE5 /* Wm4ExtractCurveSquares.h in Headers */,
+				3CC651DC0AE56F0E00651FE5 /* Wm4ExtractCurveTris.h in Headers */,
+				3CC651DE0AE56F0E00651FE5 /* Wm4ExtractSurfaceCubes.h in Headers */,
+				3CC651E00AE56F0E00651FE5 /* Wm4ExtractSurfaceTetra.h in Headers */,
+				3CC652260AE56F2600651FE5 /* Wm4Element.h in Headers */,
+				3CC652280AE56F2600651FE5 /* Wm4ImageConvert.h in Headers */,
+				3CC6522A0AE56F2600651FE5 /* Wm4Images.h in Headers */,
+				3CC6522C0AE56F2600651FE5 /* Wm4Lattice.h in Headers */,
+				3CC6522D0AE56F2600651FE5 /* Wm4TImage.h in Headers */,
+				3CC6522E0AE56F2600651FE5 /* Wm4TImage2D.h in Headers */,
+				3CC6522F0AE56F2600651FE5 /* Wm4TImage3D.h in Headers */,
+				3CC652A30AE56F3F00651FE5 /* Wm4CurvatureFlow2.h in Headers */,
+				3CC652A50AE56F3F00651FE5 /* Wm4CurvatureFlow3.h in Headers */,
+				3CC652A70AE56F3F00651FE5 /* Wm4FastBlur.h in Headers */,
+				3CC652A90AE56F3F00651FE5 /* Wm4GaussianBlur2.h in Headers */,
+				3CC652AB0AE56F3F00651FE5 /* Wm4GaussianBlur3.h in Headers */,
+				3CC652AD0AE56F3F00651FE5 /* Wm4GradientAnisotropic2.h in Headers */,
+				3CC652AF0AE56F3F00651FE5 /* Wm4GradientAnisotropic3.h in Headers */,
+				3CC652B10AE56F3F00651FE5 /* Wm4PdeFilter.h in Headers */,
+				3CC652B30AE56F3F00651FE5 /* Wm4PdeFilter2.h in Headers */,
+				3CC652B50AE56F3F00651FE5 /* Wm4PdeFilter3.h in Headers */,
+				3CC652D50AE56F4C00651FE5 /* Wm4RasterDrawing.h in Headers */,
+				3CC653A40AE56F5C00651FE5 /* Wm4FastMarch.h in Headers */,
+				3CC653A60AE56F5C00651FE5 /* Wm4FastMarch2.h in Headers */,
+				3CC653A80AE56F5C00651FE5 /* Wm4FastMarch3.h in Headers */,
+				3CC654080AE5705900651FE5 /* Wm4Imagics.h in Headers */,
+				3CC654090AE5705900651FE5 /* Wm4ImagicsLIB.h in Headers */,
+				3CC6540B0AE5705900651FE5 /* Wm4ImagicsPCH.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3CBB66C80A2AB9CD001275CA /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3CC651AD0AE56EF800651FE5 /* Wm4Binary2D.h in Headers */,
+				3CC651AF0AE56EF800651FE5 /* Wm4Binary3D.h in Headers */,
+				3CC651E20AE56F0E00651FE5 /* Wm4ExtractCurveSquares.h in Headers */,
+				3CC651E40AE56F0E00651FE5 /* Wm4ExtractCurveTris.h in Headers */,
+				3CC651E60AE56F0E00651FE5 /* Wm4ExtractSurfaceCubes.h in Headers */,
+				3CC651E80AE56F0E00651FE5 /* Wm4ExtractSurfaceTetra.h in Headers */,
+				3CC652310AE56F2600651FE5 /* Wm4Element.h in Headers */,
+				3CC652330AE56F2600651FE5 /* Wm4ImageConvert.h in Headers */,
+				3CC652350AE56F2600651FE5 /* Wm4Images.h in Headers */,
+				3CC652370AE56F2600651FE5 /* Wm4Lattice.h in Headers */,
+				3CC652380AE56F2600651FE5 /* Wm4TImage.h in Headers */,
+				3CC652390AE56F2600651FE5 /* Wm4TImage2D.h in Headers */,
+				3CC6523A0AE56F2600651FE5 /* Wm4TImage3D.h in Headers */,
+				3CC652B70AE56F3F00651FE5 /* Wm4CurvatureFlow2.h in Headers */,
+				3CC652B90AE56F3F00651FE5 /* Wm4CurvatureFlow3.h in Headers */,
+				3CC652BB0AE56F3F00651FE5 /* Wm4FastBlur.h in Headers */,
+				3CC652BD0AE56F3F00651FE5 /* Wm4GaussianBlur2.h in Headers */,
+				3CC652BF0AE56F3F00651FE5 /* Wm4GaussianBlur3.h in Headers */,
+				3CC652C10AE56F3F00651FE5 /* Wm4GradientAnisotropic2.h in Headers */,
+				3CC652C30AE56F3F00651FE5 /* Wm4GradientAnisotropic3.h in Headers */,
+				3CC652C50AE56F3F00651FE5 /* Wm4PdeFilter.h in Headers */,
+				3CC652C70AE56F3F00651FE5 /* Wm4PdeFilter2.h in Headers */,
+				3CC652C90AE56F3F00651FE5 /* Wm4PdeFilter3.h in Headers */,
+				3CC652D70AE56F4C00651FE5 /* Wm4RasterDrawing.h in Headers */,
+				3CC653CA0AE56F5C00651FE5 /* Wm4FastMarch.h in Headers */,
+				3CC653CC0AE56F5C00651FE5 /* Wm4FastMarch2.h in Headers */,
+				3CC653CE0AE56F5C00651FE5 /* Wm4FastMarch3.h in Headers */,
+				3CC6540C0AE5705900651FE5 /* Wm4Imagics.h in Headers */,
+				3CC6540D0AE5705900651FE5 /* Wm4ImagicsLIB.h in Headers */,
+				3CC6540F0AE5705900651FE5 /* Wm4ImagicsPCH.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		742FFA0E07F46D6500E4DBBA /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3CC651A10AE56EF800651FE5 /* Wm4Binary2D.h in Headers */,
+				3CC651A30AE56EF800651FE5 /* Wm4Binary3D.h in Headers */,
+				3CC651CA0AE56F0E00651FE5 /* Wm4ExtractCurveSquares.h in Headers */,
+				3CC651CC0AE56F0E00651FE5 /* Wm4ExtractCurveTris.h in Headers */,
+				3CC651CE0AE56F0E00651FE5 /* Wm4ExtractSurfaceCubes.h in Headers */,
+				3CC651D00AE56F0E00651FE5 /* Wm4ExtractSurfaceTetra.h in Headers */,
+				3CC652100AE56F2600651FE5 /* Wm4Element.h in Headers */,
+				3CC652120AE56F2600651FE5 /* Wm4ImageConvert.h in Headers */,
+				3CC652140AE56F2600651FE5 /* Wm4Images.h in Headers */,
+				3CC652160AE56F2600651FE5 /* Wm4Lattice.h in Headers */,
+				3CC652170AE56F2600651FE5 /* Wm4TImage.h in Headers */,
+				3CC652180AE56F2600651FE5 /* Wm4TImage2D.h in Headers */,
+				3CC652190AE56F2600651FE5 /* Wm4TImage3D.h in Headers */,
+				3CC6527B0AE56F3F00651FE5 /* Wm4CurvatureFlow2.h in Headers */,
+				3CC6527D0AE56F3F00651FE5 /* Wm4CurvatureFlow3.h in Headers */,
+				3CC6527F0AE56F3F00651FE5 /* Wm4FastBlur.h in Headers */,
+				3CC652810AE56F3F00651FE5 /* Wm4GaussianBlur2.h in Headers */,
+				3CC652830AE56F3F00651FE5 /* Wm4GaussianBlur3.h in Headers */,
+				3CC652850AE56F3F00651FE5 /* Wm4GradientAnisotropic2.h in Headers */,
+				3CC652870AE56F3F00651FE5 /* Wm4GradientAnisotropic3.h in Headers */,
+				3CC652890AE56F3F00651FE5 /* Wm4PdeFilter.h in Headers */,
+				3CC6528B0AE56F3F00651FE5 /* Wm4PdeFilter2.h in Headers */,
+				3CC6528D0AE56F3F00651FE5 /* Wm4PdeFilter3.h in Headers */,
+				3CC652D10AE56F4C00651FE5 /* Wm4RasterDrawing.h in Headers */,
+				3CC653580AE56F5C00651FE5 /* Wm4FastMarch.h in Headers */,
+				3CC6535A0AE56F5C00651FE5 /* Wm4FastMarch2.h in Headers */,
+				3CC6535C0AE56F5C00651FE5 /* Wm4FastMarch3.h in Headers */,
+				3CC654000AE5705900651FE5 /* Wm4Imagics.h in Headers */,
+				3CC654010AE5705900651FE5 /* Wm4ImagicsLIB.h in Headers */,
+				3CC654030AE5705900651FE5 /* Wm4ImagicsPCH.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		742FFA1407F46DC300E4DBBA /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3CC651A50AE56EF800651FE5 /* Wm4Binary2D.h in Headers */,
+				3CC651A70AE56EF800651FE5 /* Wm4Binary3D.h in Headers */,
+				3CC651D20AE56F0E00651FE5 /* Wm4ExtractCurveSquares.h in Headers */,
+				3CC651D40AE56F0E00651FE5 /* Wm4ExtractCurveTris.h in Headers */,
+				3CC651D60AE56F0E00651FE5 /* Wm4ExtractSurfaceCubes.h in Headers */,
+				3CC651D80AE56F0E00651FE5 /* Wm4ExtractSurfaceTetra.h in Headers */,
+				3CC6521B0AE56F2600651FE5 /* Wm4Element.h in Headers */,
+				3CC6521D0AE56F2600651FE5 /* Wm4ImageConvert.h in Headers */,
+				3CC6521F0AE56F2600651FE5 /* Wm4Images.h in Headers */,
+				3CC652210AE56F2600651FE5 /* Wm4Lattice.h in Headers */,
+				3CC652220AE56F2600651FE5 /* Wm4TImage.h in Headers */,
+				3CC652230AE56F2600651FE5 /* Wm4TImage2D.h in Headers */,
+				3CC652240AE56F2600651FE5 /* Wm4TImage3D.h in Headers */,
+				3CC6528F0AE56F3F00651FE5 /* Wm4CurvatureFlow2.h in Headers */,
+				3CC652910AE56F3F00651FE5 /* Wm4CurvatureFlow3.h in Headers */,
+				3CC652930AE56F3F00651FE5 /* Wm4FastBlur.h in Headers */,
+				3CC652950AE56F3F00651FE5 /* Wm4GaussianBlur2.h in Headers */,
+				3CC652970AE56F3F00651FE5 /* Wm4GaussianBlur3.h in Headers */,
+				3CC652990AE56F3F00651FE5 /* Wm4GradientAnisotropic2.h in Headers */,
+				3CC6529B0AE56F3F00651FE5 /* Wm4GradientAnisotropic3.h in Headers */,
+				3CC6529D0AE56F3F00651FE5 /* Wm4PdeFilter.h in Headers */,
+				3CC6529F0AE56F3F00651FE5 /* Wm4PdeFilter2.h in Headers */,
+				3CC652A10AE56F3F00651FE5 /* Wm4PdeFilter3.h in Headers */,
+				3CC652D30AE56F4C00651FE5 /* Wm4RasterDrawing.h in Headers */,
+				3CC6537E0AE56F5C00651FE5 /* Wm4FastMarch.h in Headers */,
+				3CC653800AE56F5C00651FE5 /* Wm4FastMarch2.h in Headers */,
+				3CC653820AE56F5C00651FE5 /* Wm4FastMarch3.h in Headers */,
+				3CC654040AE5705900651FE5 /* Wm4Imagics.h in Headers */,
+				3CC654050AE5705900651FE5 /* Wm4ImagicsLIB.h in Headers */,
+				3CC654070AE5705900651FE5 /* Wm4ImagicsPCH.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		74B57E8907F3427D00913EC4 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3CC651990AE56EF800651FE5 /* Wm4Binary2D.h in Headers */,
+				3CC6519B0AE56EF800651FE5 /* Wm4Binary3D.h in Headers */,
+				3CC651BA0AE56F0E00651FE5 /* Wm4ExtractCurveSquares.h in Headers */,
+				3CC651BC0AE56F0E00651FE5 /* Wm4ExtractCurveTris.h in Headers */,
+				3CC651BE0AE56F0E00651FE5 /* Wm4ExtractSurfaceCubes.h in Headers */,
+				3CC651C00AE56F0E00651FE5 /* Wm4ExtractSurfaceTetra.h in Headers */,
+				3CC651FA0AE56F2600651FE5 /* Wm4Element.h in Headers */,
+				3CC651FC0AE56F2600651FE5 /* Wm4ImageConvert.h in Headers */,
+				3CC651FE0AE56F2600651FE5 /* Wm4Images.h in Headers */,
+				3CC652000AE56F2600651FE5 /* Wm4Lattice.h in Headers */,
+				3CC652010AE56F2600651FE5 /* Wm4TImage.h in Headers */,
+				3CC652020AE56F2600651FE5 /* Wm4TImage2D.h in Headers */,
+				3CC652030AE56F2600651FE5 /* Wm4TImage3D.h in Headers */,
+				3CC652530AE56F3F00651FE5 /* Wm4CurvatureFlow2.h in Headers */,
+				3CC652550AE56F3F00651FE5 /* Wm4CurvatureFlow3.h in Headers */,
+				3CC652570AE56F3F00651FE5 /* Wm4FastBlur.h in Headers */,
+				3CC652590AE56F3F00651FE5 /* Wm4GaussianBlur2.h in Headers */,
+				3CC6525B0AE56F3F00651FE5 /* Wm4GaussianBlur3.h in Headers */,
+				3CC6525D0AE56F3F00651FE5 /* Wm4GradientAnisotropic2.h in Headers */,
+				3CC6525F0AE56F3F00651FE5 /* Wm4GradientAnisotropic3.h in Headers */,
+				3CC652610AE56F3F00651FE5 /* Wm4PdeFilter.h in Headers */,
+				3CC652630AE56F3F00651FE5 /* Wm4PdeFilter2.h in Headers */,
+				3CC652650AE56F3F00651FE5 /* Wm4PdeFilter3.h in Headers */,
+				3CC652CD0AE56F4C00651FE5 /* Wm4RasterDrawing.h in Headers */,
+				3CC6530C0AE56F5C00651FE5 /* Wm4FastMarch.h in Headers */,
+				3CC6530E0AE56F5C00651FE5 /* Wm4FastMarch2.h in Headers */,
+				3CC653100AE56F5C00651FE5 /* Wm4FastMarch3.h in Headers */,
+				3CC653F80AE5705900651FE5 /* Wm4Imagics.h in Headers */,
+				3CC653F90AE5705900651FE5 /* Wm4ImagicsLIB.h in Headers */,
+				3CC653FB0AE5705900651FE5 /* Wm4ImagicsPCH.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		74D6DDFB07F342E200267169 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3CC6519D0AE56EF800651FE5 /* Wm4Binary2D.h in Headers */,
+				3CC6519F0AE56EF800651FE5 /* Wm4Binary3D.h in Headers */,
+				3CC651C20AE56F0E00651FE5 /* Wm4ExtractCurveSquares.h in Headers */,
+				3CC651C40AE56F0E00651FE5 /* Wm4ExtractCurveTris.h in Headers */,
+				3CC651C60AE56F0E00651FE5 /* Wm4ExtractSurfaceCubes.h in Headers */,
+				3CC651C80AE56F0E00651FE5 /* Wm4ExtractSurfaceTetra.h in Headers */,
+				3CC652050AE56F2600651FE5 /* Wm4Element.h in Headers */,
+				3CC652070AE56F2600651FE5 /* Wm4ImageConvert.h in Headers */,
+				3CC652090AE56F2600651FE5 /* Wm4Images.h in Headers */,
+				3CC6520B0AE56F2600651FE5 /* Wm4Lattice.h in Headers */,
+				3CC6520C0AE56F2600651FE5 /* Wm4TImage.h in Headers */,
+				3CC6520D0AE56F2600651FE5 /* Wm4TImage2D.h in Headers */,
+				3CC6520E0AE56F2600651FE5 /* Wm4TImage3D.h in Headers */,
+				3CC652670AE56F3F00651FE5 /* Wm4CurvatureFlow2.h in Headers */,
+				3CC652690AE56F3F00651FE5 /* Wm4CurvatureFlow3.h in Headers */,
+				3CC6526B0AE56F3F00651FE5 /* Wm4FastBlur.h in Headers */,
+				3CC6526D0AE56F3F00651FE5 /* Wm4GaussianBlur2.h in Headers */,
+				3CC6526F0AE56F3F00651FE5 /* Wm4GaussianBlur3.h in Headers */,
+				3CC652710AE56F3F00651FE5 /* Wm4GradientAnisotropic2.h in Headers */,
+				3CC652730AE56F3F00651FE5 /* Wm4GradientAnisotropic3.h in Headers */,
+				3CC652750AE56F3F00651FE5 /* Wm4PdeFilter.h in Headers */,
+				3CC652770AE56F3F00651FE5 /* Wm4PdeFilter2.h in Headers */,
+				3CC652790AE56F3F00651FE5 /* Wm4PdeFilter3.h in Headers */,
+				3CC652CF0AE56F4C00651FE5 /* Wm4RasterDrawing.h in Headers */,
+				3CC653320AE56F5C00651FE5 /* Wm4FastMarch.h in Headers */,
+				3CC653340AE56F5C00651FE5 /* Wm4FastMarch2.h in Headers */,
+				3CC653360AE56F5C00651FE5 /* Wm4FastMarch3.h in Headers */,
+				3CC653FC0AE5705900651FE5 /* Wm4Imagics.h in Headers */,
+				3CC653FD0AE5705900651FE5 /* Wm4ImagicsLIB.h in Headers */,
+				3CC653FF0AE5705900651FE5 /* Wm4ImagicsPCH.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		3CBB669D0A2AB89D001275CA /* Debug Memory */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3CBB66C20A2AB980001275CA /* Build configuration list for PBXNativeTarget "Debug Memory" */;
+			buildPhases = (
+				3CBB669A0A2AB89D001275CA /* Headers */,
+				3CBB669B0A2AB89D001275CA /* Sources */,
+				3CBB669C0A2AB89D001275CA /* Frameworks */,
+				3CBB66C50A2AB99C001275CA /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Debug Memory";
+			productName = "Debug Memory";
+			productReference = 3CBB669E0A2AB89D001275CA /* libWm4Imagicsmd.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		3CBB66CB0A2AB9CD001275CA /* Release Memory */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3CBB66F40A2ABADC001275CA /* Build configuration list for PBXNativeTarget "Release Memory" */;
+			buildPhases = (
+				3CBB66C80A2AB9CD001275CA /* Headers */,
+				3CBB66C90A2AB9CD001275CA /* Sources */,
+				3CBB66CA0A2AB9CD001275CA /* Frameworks */,
+				3CBB66EF0A2ABA8C001275CA /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Release Memory";
+			productName = "Release Memory";
+			productReference = 3CBB66CC0A2AB9CD001275CA /* libWm4Imagicsm.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		742FFA1107F46D6500E4DBBA /* Debug Dynamic */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3C02738B088FE67400A93309 /* Build configuration list for PBXNativeTarget "Debug Dynamic" */;
+			buildPhases = (
+				742FFA0E07F46D6500E4DBBA /* Headers */,
+				742FFA0F07F46D6500E4DBBA /* Sources */,
+				742FFA1007F46D6500E4DBBA /* Frameworks */,
+				3C6FBBD7083E65F50068AA05 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Debug Dynamic";
+			productName = "Dynamic Debug";
+			productReference = 742FFA1207F46D6500E4DBBA /* libWm4Imagicsd.dylib */;
+			productType = "com.apple.product-type.library.dynamic";
+		};
+		742FFA1307F46DC300E4DBBA /* Release Dynamic */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3C02738E088FE67400A93309 /* Build configuration list for PBXNativeTarget "Release Dynamic" */;
+			buildPhases = (
+				742FFA1407F46DC300E4DBBA /* Headers */,
+				742FFA1507F46DC300E4DBBA /* Sources */,
+				742FFA1607F46DC300E4DBBA /* Frameworks */,
+				3C6FBBDA083E66080068AA05 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Release Dynamic";
+			productName = "Dynamic Debug";
+			productReference = 742FFA1707F46DC300E4DBBA /* libWm4Imagics.dylib */;
+			productType = "com.apple.product-type.library.dynamic";
+		};
+		74B57E8C07F3427D00913EC4 /* Debug Static */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3C027382088FE67300A93309 /* Build configuration list for PBXNativeTarget "Debug Static" */;
+			buildPhases = (
+				74B57E8907F3427D00913EC4 /* Headers */,
+				74B57E8A07F3427D00913EC4 /* Sources */,
+				74B57E8B07F3427D00913EC4 /* Frameworks */,
+				3C6FBBCD083E65BF0068AA05 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Debug Static";
+			productName = "Static Debug";
+			productReference = 74B57E8D07F3427D00913EC4 /* libWm4Imagicsd.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		74D6DDFA07F342E200267169 /* Release Static */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3C027385088FE67300A93309 /* Build configuration list for PBXNativeTarget "Release Static" */;
+			buildPhases = (
+				74D6DDFB07F342E200267169 /* Headers */,
+				74D6DDFC07F342E200267169 /* Sources */,
+				74D6DDFD07F342E200267169 /* Frameworks */,
+				3C6FBBD0083E65D80068AA05 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Release Static";
+			productName = "Static Debug";
+			productReference = 74D6DDFE07F342E200267169 /* libWm4Imagics.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		74B57E8307F3425300913EC4 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 3C027397088FE67400A93309 /* Build configuration list for PBXProject "LibImagics" */;
+			compatibilityVersion = "Xcode 2.4";
+			hasScannedForEncodings = 0;
+			mainGroup = 74B57E7F07F3425300913EC4;
+			productRefGroup = 74B57E8E07F3427D00913EC4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				74B57E8C07F3427D00913EC4 /* Debug Static */,
+				74D6DDFA07F342E200267169 /* Release Static */,
+				742FFA1107F46D6500E4DBBA /* Debug Dynamic */,
+				742FFA1307F46DC300E4DBBA /* Release Dynamic */,
+				3CBB669D0A2AB89D001275CA /* Debug Memory */,
+				3CBB66CB0A2AB9CD001275CA /* Release Memory */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3C6FBBCD083E65BF0068AA05 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = ./CopySdkDebugStatic.sh;
+		};
+		3C6FBBD0083E65D80068AA05 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = ./CopySdkReleaseStatic.sh;
+		};
+		3C6FBBD7083E65F50068AA05 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = ./CopySdkDebugDynamic.sh;
+		};
+		3C6FBBDA083E66080068AA05 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = ./CopySdkReleaseDynamic.sh;
+		};
+		3CBB66C50A2AB99C001275CA /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = ./CopySdkDebugMemory.sh;
+		};
+		3CBB66EF0A2ABA8C001275CA /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = ./CopySdkReleaseMemory.sh;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3CBB669B0A2AB89D001275CA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3CC651A80AE56EF800651FE5 /* Wm4Binary2D.cpp in Sources */,
+				3CC651AA0AE56EF800651FE5 /* Wm4Binary3D.cpp in Sources */,
+				3CC651D90AE56F0E00651FE5 /* Wm4ExtractCurveSquares.cpp in Sources */,
+				3CC651DB0AE56F0E00651FE5 /* Wm4ExtractCurveTris.cpp in Sources */,
+				3CC651DD0AE56F0E00651FE5 /* Wm4ExtractSurfaceCubes.cpp in Sources */,
+				3CC651DF0AE56F0E00651FE5 /* Wm4ExtractSurfaceTetra.cpp in Sources */,
+				3CC652250AE56F2600651FE5 /* Wm4Element.cpp in Sources */,
+				3CC652270AE56F2600651FE5 /* Wm4ImageConvert.cpp in Sources */,
+				3CC652290AE56F2600651FE5 /* Wm4Images.cpp in Sources */,
+				3CC6522B0AE56F2600651FE5 /* Wm4Lattice.cpp in Sources */,
+				3CC652A20AE56F3F00651FE5 /* Wm4CurvatureFlow2.cpp in Sources */,
+				3CC652A40AE56F3F00651FE5 /* Wm4CurvatureFlow3.cpp in Sources */,
+				3CC652A60AE56F3F00651FE5 /* Wm4FastBlur.cpp in Sources */,
+				3CC652A80AE56F3F00651FE5 /* Wm4GaussianBlur2.cpp in Sources */,
+				3CC652AA0AE56F3F00651FE5 /* Wm4GaussianBlur3.cpp in Sources */,
+				3CC652AC0AE56F3F00651FE5 /* Wm4GradientAnisotropic2.cpp in Sources */,
+				3CC652AE0AE56F3F00651FE5 /* Wm4GradientAnisotropic3.cpp in Sources */,
+				3CC652B00AE56F3F00651FE5 /* Wm4PdeFilter.cpp in Sources */,
+				3CC652B20AE56F3F00651FE5 /* Wm4PdeFilter2.cpp in Sources */,
+				3CC652B40AE56F3F00651FE5 /* Wm4PdeFilter3.cpp in Sources */,
+				3CC652D40AE56F4C00651FE5 /* Wm4RasterDrawing.cpp in Sources */,
+				3CC653A30AE56F5C00651FE5 /* Wm4FastMarch.cpp in Sources */,
+				3CC653A50AE56F5C00651FE5 /* Wm4FastMarch2.cpp in Sources */,
+				3CC653A70AE56F5C00651FE5 /* Wm4FastMarch3.cpp in Sources */,
+				3CC6540A0AE5705900651FE5 /* Wm4ImagicsPCH.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3CBB66C90A2AB9CD001275CA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3CC651AC0AE56EF800651FE5 /* Wm4Binary2D.cpp in Sources */,
+				3CC651AE0AE56EF800651FE5 /* Wm4Binary3D.cpp in Sources */,
+				3CC651E10AE56F0E00651FE5 /* Wm4ExtractCurveSquares.cpp in Sources */,
+				3CC651E30AE56F0E00651FE5 /* Wm4ExtractCurveTris.cpp in Sources */,
+				3CC651E50AE56F0E00651FE5 /* Wm4ExtractSurfaceCubes.cpp in Sources */,
+				3CC651E70AE56F0E00651FE5 /* Wm4ExtractSurfaceTetra.cpp in Sources */,
+				3CC652300AE56F2600651FE5 /* Wm4Element.cpp in Sources */,
+				3CC652320AE56F2600651FE5 /* Wm4ImageConvert.cpp in Sources */,
+				3CC652340AE56F2600651FE5 /* Wm4Images.cpp in Sources */,
+				3CC652360AE56F2600651FE5 /* Wm4Lattice.cpp in Sources */,
+				3CC652B60AE56F3F00651FE5 /* Wm4CurvatureFlow2.cpp in Sources */,
+				3CC652B80AE56F3F00651FE5 /* Wm4CurvatureFlow3.cpp in Sources */,
+				3CC652BA0AE56F3F00651FE5 /* Wm4FastBlur.cpp in Sources */,
+				3CC652BC0AE56F3F00651FE5 /* Wm4GaussianBlur2.cpp in Sources */,
+				3CC652BE0AE56F3F00651FE5 /* Wm4GaussianBlur3.cpp in Sources */,
+				3CC652C00AE56F3F00651FE5 /* Wm4GradientAnisotropic2.cpp in Sources */,
+				3CC652C20AE56F3F00651FE5 /* Wm4GradientAnisotropic3.cpp in Sources */,
+				3CC652C40AE56F3F00651FE5 /* Wm4PdeFilter.cpp in Sources */,
+				3CC652C60AE56F3F00651FE5 /* Wm4PdeFilter2.cpp in Sources */,
+				3CC652C80AE56F3F00651FE5 /* Wm4PdeFilter3.cpp in Sources */,
+				3CC652D60AE56F4C00651FE5 /* Wm4RasterDrawing.cpp in Sources */,
+				3CC653C90AE56F5C00651FE5 /* Wm4FastMarch.cpp in Sources */,
+				3CC653CB0AE56F5C00651FE5 /* Wm4FastMarch2.cpp in Sources */,
+				3CC653CD0AE56F5C00651FE5 /* Wm4FastMarch3.cpp in Sources */,
+				3CC6540E0AE5705900651FE5 /* Wm4ImagicsPCH.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		742FFA0F07F46D6500E4DBBA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3CC651A00AE56EF800651FE5 /* Wm4Binary2D.cpp in Sources */,
+				3CC651A20AE56EF800651FE5 /* Wm4Binary3D.cpp in Sources */,
+				3CC651C90AE56F0E00651FE5 /* Wm4ExtractCurveSquares.cpp in Sources */,
+				3CC651CB0AE56F0E00651FE5 /* Wm4ExtractCurveTris.cpp in Sources */,
+				3CC651CD0AE56F0E00651FE5 /* Wm4ExtractSurfaceCubes.cpp in Sources */,
+				3CC651CF0AE56F0E00651FE5 /* Wm4ExtractSurfaceTetra.cpp in Sources */,
+				3CC6520F0AE56F2600651FE5 /* Wm4Element.cpp in Sources */,
+				3CC652110AE56F2600651FE5 /* Wm4ImageConvert.cpp in Sources */,
+				3CC652130AE56F2600651FE5 /* Wm4Images.cpp in Sources */,
+				3CC652150AE56F2600651FE5 /* Wm4Lattice.cpp in Sources */,
+				3CC6527A0AE56F3F00651FE5 /* Wm4CurvatureFlow2.cpp in Sources */,
+				3CC6527C0AE56F3F00651FE5 /* Wm4CurvatureFlow3.cpp in Sources */,
+				3CC6527E0AE56F3F00651FE5 /* Wm4FastBlur.cpp in Sources */,
+				3CC652800AE56F3F00651FE5 /* Wm4GaussianBlur2.cpp in Sources */,
+				3CC652820AE56F3F00651FE5 /* Wm4GaussianBlur3.cpp in Sources */,
+				3CC652840AE56F3F00651FE5 /* Wm4GradientAnisotropic2.cpp in Sources */,
+				3CC652860AE56F3F00651FE5 /* Wm4GradientAnisotropic3.cpp in Sources */,
+				3CC652880AE56F3F00651FE5 /* Wm4PdeFilter.cpp in Sources */,
+				3CC6528A0AE56F3F00651FE5 /* Wm4PdeFilter2.cpp in Sources */,
+				3CC6528C0AE56F3F00651FE5 /* Wm4PdeFilter3.cpp in Sources */,
+				3CC652D00AE56F4C00651FE5 /* Wm4RasterDrawing.cpp in Sources */,
+				3CC653570AE56F5C00651FE5 /* Wm4FastMarch.cpp in Sources */,
+				3CC653590AE56F5C00651FE5 /* Wm4FastMarch2.cpp in Sources */,
+				3CC6535B0AE56F5C00651FE5 /* Wm4FastMarch3.cpp in Sources */,
+				3CC654020AE5705900651FE5 /* Wm4ImagicsPCH.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		742FFA1507F46DC300E4DBBA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3CC651A40AE56EF800651FE5 /* Wm4Binary2D.cpp in Sources */,
+				3CC651A60AE56EF800651FE5 /* Wm4Binary3D.cpp in Sources */,
+				3CC651D10AE56F0E00651FE5 /* Wm4ExtractCurveSquares.cpp in Sources */,
+				3CC651D30AE56F0E00651FE5 /* Wm4ExtractCurveTris.cpp in Sources */,
+				3CC651D50AE56F0E00651FE5 /* Wm4ExtractSurfaceCubes.cpp in Sources */,
+				3CC651D70AE56F0E00651FE5 /* Wm4ExtractSurfaceTetra.cpp in Sources */,
+				3CC6521A0AE56F2600651FE5 /* Wm4Element.cpp in Sources */,
+				3CC6521C0AE56F2600651FE5 /* Wm4ImageConvert.cpp in Sources */,
+				3CC6521E0AE56F2600651FE5 /* Wm4Images.cpp in Sources */,
+				3CC652200AE56F2600651FE5 /* Wm4Lattice.cpp in Sources */,
+				3CC6528E0AE56F3F00651FE5 /* Wm4CurvatureFlow2.cpp in Sources */,
+				3CC652900AE56F3F00651FE5 /* Wm4CurvatureFlow3.cpp in Sources */,
+				3CC652920AE56F3F00651FE5 /* Wm4FastBlur.cpp in Sources */,
+				3CC652940AE56F3F00651FE5 /* Wm4GaussianBlur2.cpp in Sources */,
+				3CC652960AE56F3F00651FE5 /* Wm4GaussianBlur3.cpp in Sources */,
+				3CC652980AE56F3F00651FE5 /* Wm4GradientAnisotropic2.cpp in Sources */,
+				3CC6529A0AE56F3F00651FE5 /* Wm4GradientAnisotropic3.cpp in Sources */,
+				3CC6529C0AE56F3F00651FE5 /* Wm4PdeFilter.cpp in Sources */,
+				3CC6529E0AE56F3F00651FE5 /* Wm4PdeFilter2.cpp in Sources */,
+				3CC652A00AE56F3F00651FE5 /* Wm4PdeFilter3.cpp in Sources */,
+				3CC652D20AE56F4C00651FE5 /* Wm4RasterDrawing.cpp in Sources */,
+				3CC6537D0AE56F5C00651FE5 /* Wm4FastMarch.cpp in Sources */,
+				3CC6537F0AE56F5C00651FE5 /* Wm4FastMarch2.cpp in Sources */,
+				3CC653810AE56F5C00651FE5 /* Wm4FastMarch3.cpp in Sources */,
+				3CC654060AE5705900651FE5 /* Wm4ImagicsPCH.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		74B57E8A07F3427D00913EC4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3CC651980AE56EF800651FE5 /* Wm4Binary2D.cpp in Sources */,
+				3CC6519A0AE56EF800651FE5 /* Wm4Binary3D.cpp in Sources */,
+				3CC651B90AE56F0E00651FE5 /* Wm4ExtractCurveSquares.cpp in Sources */,
+				3CC651BB0AE56F0E00651FE5 /* Wm4ExtractCurveTris.cpp in Sources */,
+				3CC651BD0AE56F0E00651FE5 /* Wm4ExtractSurfaceCubes.cpp in Sources */,
+				3CC651BF0AE56F0E00651FE5 /* Wm4ExtractSurfaceTetra.cpp in Sources */,
+				3CC651F90AE56F2600651FE5 /* Wm4Element.cpp in Sources */,
+				3CC651FB0AE56F2600651FE5 /* Wm4ImageConvert.cpp in Sources */,
+				3CC651FD0AE56F2600651FE5 /* Wm4Images.cpp in Sources */,
+				3CC651FF0AE56F2600651FE5 /* Wm4Lattice.cpp in Sources */,
+				3CC652520AE56F3F00651FE5 /* Wm4CurvatureFlow2.cpp in Sources */,
+				3CC652540AE56F3F00651FE5 /* Wm4CurvatureFlow3.cpp in Sources */,
+				3CC652560AE56F3F00651FE5 /* Wm4FastBlur.cpp in Sources */,
+				3CC652580AE56F3F00651FE5 /* Wm4GaussianBlur2.cpp in Sources */,
+				3CC6525A0AE56F3F00651FE5 /* Wm4GaussianBlur3.cpp in Sources */,
+				3CC6525C0AE56F3F00651FE5 /* Wm4GradientAnisotropic2.cpp in Sources */,
+				3CC6525E0AE56F3F00651FE5 /* Wm4GradientAnisotropic3.cpp in Sources */,
+				3CC652600AE56F3F00651FE5 /* Wm4PdeFilter.cpp in Sources */,
+				3CC652620AE56F3F00651FE5 /* Wm4PdeFilter2.cpp in Sources */,
+				3CC652640AE56F3F00651FE5 /* Wm4PdeFilter3.cpp in Sources */,
+				3CC652CC0AE56F4C00651FE5 /* Wm4RasterDrawing.cpp in Sources */,
+				3CC6530B0AE56F5C00651FE5 /* Wm4FastMarch.cpp in Sources */,
+				3CC6530D0AE56F5C00651FE5 /* Wm4FastMarch2.cpp in Sources */,
+				3CC6530F0AE56F5C00651FE5 /* Wm4FastMarch3.cpp in Sources */,
+				3CC653FA0AE5705900651FE5 /* Wm4ImagicsPCH.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		74D6DDFC07F342E200267169 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3CC6519C0AE56EF800651FE5 /* Wm4Binary2D.cpp in Sources */,
+				3CC6519E0AE56EF800651FE5 /* Wm4Binary3D.cpp in Sources */,
+				3CC651C10AE56F0E00651FE5 /* Wm4ExtractCurveSquares.cpp in Sources */,
+				3CC651C30AE56F0E00651FE5 /* Wm4ExtractCurveTris.cpp in Sources */,
+				3CC651C50AE56F0E00651FE5 /* Wm4ExtractSurfaceCubes.cpp in Sources */,
+				3CC651C70AE56F0E00651FE5 /* Wm4ExtractSurfaceTetra.cpp in Sources */,
+				3CC652040AE56F2600651FE5 /* Wm4Element.cpp in Sources */,
+				3CC652060AE56F2600651FE5 /* Wm4ImageConvert.cpp in Sources */,
+				3CC652080AE56F2600651FE5 /* Wm4Images.cpp in Sources */,
+				3CC6520A0AE56F2600651FE5 /* Wm4Lattice.cpp in Sources */,
+				3CC652660AE56F3F00651FE5 /* Wm4CurvatureFlow2.cpp in Sources */,
+				3CC652680AE56F3F00651FE5 /* Wm4CurvatureFlow3.cpp in Sources */,
+				3CC6526A0AE56F3F00651FE5 /* Wm4FastBlur.cpp in Sources */,
+				3CC6526C0AE56F3F00651FE5 /* Wm4GaussianBlur2.cpp in Sources */,
+				3CC6526E0AE56F3F00651FE5 /* Wm4GaussianBlur3.cpp in Sources */,
+				3CC652700AE56F3F00651FE5 /* Wm4GradientAnisotropic2.cpp in Sources */,
+				3CC652720AE56F3F00651FE5 /* Wm4GradientAnisotropic3.cpp in Sources */,
+				3CC652740AE56F3F00651FE5 /* Wm4PdeFilter.cpp in Sources */,
+				3CC652760AE56F3F00651FE5 /* Wm4PdeFilter2.cpp in Sources */,
+				3CC652780AE56F3F00651FE5 /* Wm4PdeFilter3.cpp in Sources */,
+				3CC652CE0AE56F4C00651FE5 /* Wm4RasterDrawing.cpp in Sources */,
+				3CC653310AE56F5C00651FE5 /* Wm4FastMarch.cpp in Sources */,
+				3CC653330AE56F5C00651FE5 /* Wm4FastMarch2.cpp in Sources */,
+				3CC653350AE56F5C00651FE5 /* Wm4FastMarch3.cpp in Sources */,
+				3CC653FE0AE5705900651FE5 /* Wm4ImagicsPCH.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		3C027384088FE67300A93309 /* Default */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_ENABLE_CPP_RTTI = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Wm4ImagicsPCH.h;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					_DEBUG,
+					WM4_USE_PRECOMPILED_HEADERS,
+				);
+				HEADER_SEARCH_PATHS = "${SRCROOT}/../SDK/Include";
+				LIBRARY_STYLE = STATIC;
+				PREBINDING = NO;
+				PRODUCT_NAME = Wm4Imagicsd;
+				SHARED_PRECOMPS_DIR = "$(BUILD_DIR)/$(CONFIGURATION)/DebugStatic";
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = Default;
+		};
+		3C027387088FE67300A93309 /* Default */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_ENABLE_CPP_RTTI = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Wm4ImagicsPCH.h;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					NDEBUG,
+					WM4_USE_PRECOMPILED_HEADERS,
+				);
+				HEADER_SEARCH_PATHS = "${SRCROOT}/../SDK/Include";
+				LIBRARY_STYLE = STATIC;
+				PREBINDING = NO;
+				PRODUCT_NAME = Wm4Imagics;
+				SHARED_PRECOMPS_DIR = "$(BUILD_DIR)/$(CONFIGURATION)/ReleaseStatic";
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = Default;
+		};
+		3C02738D088FE67400A93309 /* Default */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				EXECUTABLE_PREFIX = lib;
+				GCC_ENABLE_CPP_RTTI = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Wm4ImagicsPCH.h;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					_DEBUG,
+					WM4_USE_PRECOMPILED_HEADERS,
+				);
+				HEADER_SEARCH_PATHS = "${SRCROOT}/../SDK/Include";
+				INSTALL_PATH = "${SRCROOT}/../SDK/Library/DebugDLL";
+				LIBRARY_SEARCH_PATHS = "${SRCROOT}/../SDK/Library/DebugDLL";
+				LIBRARY_STYLE = DYNAMIC;
+				MACH_O_TYPE = mh_dylib;
+				OTHER_LDFLAGS = (
+					"-seg1addr",
+					0x10000000,
+					"-framework",
+					Carbon,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = Wm4Imagicsd;
+				SHARED_PRECOMPS_DIR = "$(BUILD_DIR)/$(CONFIGURATION)/DebugDynamic";
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = Default;
+		};
+		3C027390088FE67400A93309 /* Default */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				EXECUTABLE_PREFIX = lib;
+				GCC_ENABLE_CPP_RTTI = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Wm4ImagicsPCH.h;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					NDEBUG,
+					WM4_USE_PRECOMPILED_HEADERS,
+				);
+				HEADER_SEARCH_PATHS = "${SRCROOT}/../SDK/Include";
+				INSTALL_PATH = "${SRCROOT}/../SDK/Library/ReleaseDLL";
+				LIBRARY_SEARCH_PATHS = (
+					"$(LIBRARY_SEARCH_PATHS)",
+					"$(SRCROOT)/../SDK/Library/ReleaseDLL",
+				);
+				LIBRARY_STYLE = DYNAMIC;
+				MACH_O_TYPE = mh_dylib;
+				OTHER_LDFLAGS = (
+					"-seg1addr",
+					0x10000000,
+					"-framework",
+					Carbon,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = Wm4Imagics;
+				SHARED_PRECOMPS_DIR = "$(BUILD_DIR)/$(CONFIGURATION)/ReleaseDynamic";
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = Default;
+		};
+		3C027399088FE67400A93309 /* Default */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "";
+				GCC_WARN_SIGN_COMPARE = NO;
+				GCC_WARN_UNINITIALIZED_AUTOS = NO;
+				GCC_WARN_UNUSED_PARAMETER = NO;
+				GCC_WARN_UNUSED_VALUE = NO;
+				GCC_WARN_UNUSED_VARIABLE = NO;
+			};
+			name = Default;
+		};
+		3CBB66C40A2AB980001275CA /* Default */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_ENABLE_CPP_RTTI = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_MODEL_TUNING = G4;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Wm4ImagicsPCH.h;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					_DEBUG,
+					WM4_USE_PRECOMPILED_HEADERS,
+					WM4_MEMORY_MANAGER,
+				);
+				HEADER_SEARCH_PATHS = "${SRCROOT}/../SDK/Include";
+				INSTALL_PATH = /usr/local/lib;
+				LIBRARY_STYLE = STATIC;
+				OTHER_LDFLAGS = "";
+				PREBINDING = NO;
+				PRODUCT_NAME = Wm4Imagicsmd;
+				SHARED_PRECOMPS_DIR = "$(BUILD_DIR)/$(CONFIGURATION)/DebugMemory";
+				SKIP_INSTALL = YES;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+				ZERO_LINK = NO;
+			};
+			name = Default;
+		};
+		3CBB66F60A2ABADC001275CA /* Default */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_ENABLE_CPP_RTTI = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_MODEL_TUNING = G4;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Wm4ImagicsPCH.h;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					NDEBUG,
+					WM4_USE_PRECOMPILED_HEADERS,
+					WM4_MEMORY_MANAGER,
+				);
+				HEADER_SEARCH_PATHS = "${SRCROOT}/../SDK/Include";
+				INSTALL_PATH = /usr/local/lib;
+				LIBRARY_STYLE = STATIC;
+				OTHER_LDFLAGS = "";
+				PREBINDING = NO;
+				PRODUCT_NAME = Wm4Imagicsm;
+				SEPARATE_STRIP = YES;
+				SHARED_PRECOMPS_DIR = "$(BUILD_DIR)/$(CONFIGURATION)/ReleaseMemory";
+				SKIP_INSTALL = YES;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+				ZERO_LINK = NO;
+			};
+			name = Default;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3C027382088FE67300A93309 /* Build configuration list for PBXNativeTarget "Debug Static" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3C027384088FE67300A93309 /* Default */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Default;
+		};
+		3C027385088FE67300A93309 /* Build configuration list for PBXNativeTarget "Release Static" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3C027387088FE67300A93309 /* Default */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Default;
+		};
+		3C02738B088FE67400A93309 /* Build configuration list for PBXNativeTarget "Debug Dynamic" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3C02738D088FE67400A93309 /* Default */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Default;
+		};
+		3C02738E088FE67400A93309 /* Build configuration list for PBXNativeTarget "Release Dynamic" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3C027390088FE67400A93309 /* Default */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Default;
+		};
+		3C027397088FE67400A93309 /* Build configuration list for PBXProject "LibImagics" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3C027399088FE67400A93309 /* Default */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Default;
+		};
+		3CBB66C20A2AB980001275CA /* Build configuration list for PBXNativeTarget "Debug Memory" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3CBB66C40A2AB980001275CA /* Default */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Default;
+		};
+		3CBB66F40A2ABADC001275CA /* Build configuration list for PBXNativeTarget "Release Memory" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3CBB66F60A2ABADC001275CA /* Default */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Default;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 74B57E8307F3425300913EC4 /* Project object */;
+}

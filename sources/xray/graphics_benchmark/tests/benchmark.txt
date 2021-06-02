@@ -1,0 +1,211 @@
+
+SETTINGS = 
+{
+	resolution_x = 500,
+	resolution_y = 500,
+	windowed 	 = true,
+	log_file_name = "file_name.log",
+}
+
+Elemental_op_vectors = 
+{
+	num_circles = 100,
+	num_skiped_circles = 10,
+	num_passes = 1000,
+	
+	class = "test_simple_ps_shader_op",
+	shader_template_file = "D:/shader_template.ps",
+	
+	BASE = {
+		code = "result = X",
+	},
+	adding_op = {
+		code = "result = X + Y + Z + W + i.Color",
+	},
+	multiply_op = {
+		code = "result = X * Y * Z * W * i.Color",
+	},
+	subtract_op = {
+		code = "result = X - Y - Z - W - i.Color",
+	},
+	devide_op = {
+		code = "result = X / Y / Z / W / i.Color",
+	},
+}
+
+Elemental_op = 
+{
+	num_passes = 1000,
+	class = "test_simple_ps_shader_op",
+	shader_template_file = "D:/shader_template.ps",
+	
+	BASE = {
+		code = "result = X.x",
+	},
+	adding_op = {
+		code = "result = X.x + X.y + X.z + X.w + i.Color.x",
+	},
+	multiply_op = {
+		code = "result = X.x * X.y * X.z * X.w * i.Color.x",
+	},
+	subtract_op = {
+		code = "result = X.x - X.y - X.z - X.w - i.Color.x",
+	},
+	devide_op = {
+		code = "result = X.x / X.y / X.z / X.w / i.Color.x",
+	},
+	remainder_op = {
+		code = "result = (uint)X.x % (uint)X.y % (uint)X.z % (uint)X.w % (uint)i.Color.x",
+	},
+}
+
+Math_op = 
+{
+	num_passes = 1000,
+	class = "test_simple_ps_shader_op",
+	shader_template_file = "D:/shader_template.ps",
+	
+	BASE = {
+		code = "result=1",
+	},
+	sin_op  = {
+		code = "result = sin(i.Color.x)",
+	},
+	cos_op = {
+		code = "result = cos(i.Color.x)",
+	},
+	abs_op  = {
+		code = "result = abs(i.Color.x)",
+	},
+	pow_op = {
+		code = "result = pow(i.Color.x,0.123)",
+	},
+	saturate_op = {
+		code = "result = saturate(i.Color.x)",
+	},
+	round_op = {
+		code = "result = round(i.Color.x)",
+	},
+	clamp_op = {
+		code = "result = clamp(i.Color.x,0.2,3.0)",
+	},
+	sqrt_op = {
+		code = "result = sqrt(i.Color.x)",
+	},
+	rsqrt_op = {
+		code = "result = rsqrt(i.Color.x)",
+	},
+	one_div_sqrt_op = {
+		code = "result = 1.0/sqrt(i.Color.x)",
+	},
+	lerp_op = {
+		code = "result = lerp(i.Color.x, i.Color.z, i.Color.y)",
+	},
+	frac_op = {
+		code = "result = frac(i.Color.x)",
+	},
+	ceil_op = {
+		code = "result = ceil(i.Color.x)",
+	},
+	floor_op = {
+		code = "result = floor(i.Color.x)",
+	},
+}
+
+Math_op_vectors = 
+{
+	num_passes = 1000,
+	class = "test_simple_ps_shader_op",
+	shader_template_file = "D:/shader_template.ps",
+	
+	BASE = {
+		code = "result=1",
+	},
+	sin_op  = {
+		code = "result = sin(i.Color)",
+	},
+	cos_op = {
+		code = "result = cos(i.Color)",
+	},
+	abs_op  = {
+		code = "result = abs(i.Color)",
+	},
+	pow_op = {
+		code = "result = pow(i.Color,0.123)",
+	},
+	saturate_op = {
+		code = "result = saturate(i.Color)",
+	},
+	round_op = {
+		code = "result = round(i.Color)",
+	},
+	clamp_op = {
+		code = "result = clamp(i.Color,0.2,3.0)",
+	},
+	sqrt_op = {
+		code = "result = sqrt(i.Color)",
+	},
+	rsqrt_op = {
+		code = "result = rsqrt(i.Color)",
+	},
+	one_div_sqrt_op = {
+		code = "result = 1.0/sqrt(i.Color)",
+	},
+	lerp_op = {
+		code = "result = lerp(i.Color, i.Tex0.x, i.Tex0.y)",
+	},
+	frac_op = {
+		code = "result = frac(i.Color)",
+	},
+	ceil_op = {
+		code = "result = ceil(i.Color)",
+	},
+	floor_op = {
+		code = "result = floor(i.Color)",
+	},
+	normalize_op = {
+		code = "result = normalize(i.Color)",
+	},
+	dot_op = {
+		code = "result = dot(i.Color,x)",
+	},
+}
+
+
+clearing_tests = 
+{
+	num_passes = 1000,
+	
+	clear_render_target = {	class = "test_clear_render_target",},
+	clear_depth_stencil = {	class = "test_clear_depth_stencil",
+	},
+}
+
+
+Texture_reading = 
+{
+	num_passes = 1000,
+	class = "test_texture_shader_reading",
+	texture_format = "rgba8",
+	shader_template_file = "D:/texture_shader_reading_template.ps",
+	
+	BASE = 	{	code = "",},
+	random_access = {	code = "result = testTexture.Sample( testSampler, i.Color.xy )", },
+	normal_access = {	code = "result = testTexture.Sample( testSampler, i.Tex0 )",	 },
+}
+
+
+Meshes = 
+{
+	num_passes = 10000,
+	num_circles = 10,
+	num_skipped_circles = 2,
+	
+	class = "test_3d_shader_op",
+	
+	BASE = 	{ code = "result = i.Color",},
+}
+
+
+
+

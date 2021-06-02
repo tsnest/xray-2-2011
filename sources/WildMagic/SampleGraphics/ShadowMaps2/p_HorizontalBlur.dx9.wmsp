@@ -1,0 +1,75 @@
+ps_2_0
+// cgc version 1.5.0014, build date Sep 18 2006 20:36:59
+// command line args: -profile ps_2_0
+// source file: ShadowMaps2.cg
+//vendor NVIDIA Corporation
+//version 1.5.0.14
+//profile ps_2_0
+//program p_HorizontalBlur
+//semantic p_HorizontalBlur.Weights
+//semantic p_HorizontalBlur.Offsets
+//semantic p_HorizontalBlur.BaseSampler
+//var float2 kTCoord : $vin.TEXCOORD0 : TEX0 : 0 : 1
+//var float4 kPixelColor : $vout.COLOR : COL : 1 : 1
+//var float3 Weights[0] :  : c[0] : 2 : 1
+//var float3 Weights[1] :  : c[1] : 2 : 1
+//var float3 Weights[2] :  : c[2] : 2 : 1
+//var float3 Weights[3] :  : c[3] : 2 : 1
+//var float3 Weights[4] :  : c[4] : 2 : 1
+//var float3 Weights[5] :  : c[5] : 2 : 1
+//var float3 Weights[6] :  : c[6] : 2 : 1
+//var float3 Weights[7] :  : c[7] : 2 : 1
+//var float3 Weights[8] :  : c[8] : 2 : 1
+//var float3 Weights[9] :  : c[9] : 2 : 1
+//var float3 Weights[10] :  : c[10] : 2 : 1
+//var float2 Offsets[0] :  : c[11] : 3 : 1
+//var float2 Offsets[1] :  : c[12] : 3 : 1
+//var float2 Offsets[2] :  : c[13] : 3 : 1
+//var float2 Offsets[3] :  : c[14] : 3 : 1
+//var float2 Offsets[4] :  : c[15] : 3 : 1
+//var float2 Offsets[5] :  : c[16] : 3 : 1
+//var float2 Offsets[6] :  : c[17] : 3 : 1
+//var float2 Offsets[7] :  : c[18] : 3 : 1
+//var float2 Offsets[8] :  : c[19] : 3 : 1
+//var float2 Offsets[9] :  : c[20] : 3 : 1
+//var float2 Offsets[10] :  : c[21] : 3 : 1
+//var sampler2D BaseSampler :  : texunit 0 : 4 : 1
+//const c[22] = 1
+dcl_2d s0
+def c22, 1.000000, 0, 0, 0
+dcl t0.xy
+add r10.xy, t0, c11
+add r9.xy, t0, c12
+add r8.xy, t0, c13
+add r7.xy, t0, c14
+add r6.xy, t0, c15
+add r5.xy, t0, c16
+add r4.xy, t0, c17
+add r3.xy, t0, c18
+add r2.xy, t0, c19
+add r0.xy, t0, c21
+add r1.xy, t0, c20
+texld r0, r0, s0
+texld r1, r1, s0
+texld r2, r2, s0
+texld r3, r3, s0
+texld r4, r4, s0
+texld r5, r5, s0
+texld r6, r6, s0
+texld r7, r7, s0
+texld r8, r8, s0
+texld r9, r9, s0
+texld r10, r10, s0
+mul r9.xyz, r9, c1
+mad r9.xyz, r10, c0, r9
+mad r8.xyz, r8, c2, r9
+mad r7.xyz, r7, c3, r8
+mad r6.xyz, r6, c4, r7
+mad r5.xyz, r5, c5, r6
+mad r4.xyz, r4, c6, r5
+mad r3.xyz, r3, c7, r4
+mad r2.xyz, r2, c8, r3
+mad r1.xyz, r1, c9, r2
+mad r0.xyz, r0, c10, r1
+mov r0.w, c22.x
+mov oC0, r0

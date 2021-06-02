@@ -1,0 +1,36 @@
+﻿<hypergraph:node x:Class="xray.editor.wpf_controls.hypergraph.properties_node"
+			 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+			 xmlns:ext="clr-namespace:xray.editor.wpf_controls.markup_extensions" 
+			 xmlns:hypergraph="clr-namespace:xray.editor.wpf_controls.hypergraph" 
+			 x:Name="this">
+	<hypergraph:node.Resources>
+		<BooleanToVisibilityConverter x:Key="bool_to_visibility_converter"/>
+	</hypergraph:node.Resources>
+    <DockPanel>
+		<ContentControl Name="m_above_header_content" DockPanel.Dock="Top" HorizontalAlignment="Left"/>
+		<Border CornerRadius="1" Name="m_node_border" Background="Khaki">
+			<DockPanel Name="m_content_panel">
+				<DockPanel DockPanel.Dock="Top" Name="m_header_panel">
+					<hypergraph:link_point x:Name="m_input_link_point" node="{ext:this}" id="input" DockPanel.Dock="Left" Visibility="Collapsed" />
+					<hypergraph:link_point x:Name="m_output_link_point" node="{ext:this}" id="output" DockPanel.Dock="Right" Visibility="Collapsed" />
+					<ToggleButton DockPanel.Dock="Left"
+								  Visibility="{Binding has_expanded, ElementName=this, Converter={StaticResource bool_to_visibility_converter}}"
+								  IsChecked="{Binding is_expanded, ElementName=this}">
+						C
+					</ToggleButton>
+					<Border Name="m_header" CornerRadius="1" Background="Transparent"
+						Tag="{ext:this}"
+						PreviewMouseLeftButtonDown="header_mouse_down"
+						MouseMove="header_mouse_move"
+						PreviewMouseLeftButtonUp="header_mouse_up">
+						<TextBlock Text="{Binding name, Source={ext:this}}" MinWidth="40" FontSize="12" FontStyle="Italic"  FontWeight="500" DockPanel.Dock="Top" VerticalAlignment="Center" HorizontalAlignment="Center" Tag="{ext:this}"/>
+					</Border>
+				</DockPanel>
+				<Border BorderThickness="0" BorderBrush="Black" CornerRadius="1" Background="SteelBlue" Visibility="{Binding is_expanded, ElementName=this, Converter={StaticResource bool_to_visibility_converter}}">
+					<hypergraph:properties_control x:Name="m_property_container" Grid.IsSharedSizeScope="True"/>
+				</Border>
+			</DockPanel>
+		</Border>
+	</DockPanel>
+</hypergraph:node>

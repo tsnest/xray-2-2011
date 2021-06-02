@@ -1,0 +1,14 @@
+////////////////////////////////////////////////////////////////////////////
+//	Created		: 03.03.2011
+//	Author		: Nikolay Partas
+//	Copyright (C) GSC Game World - 2011
+////////////////////////////////////////////////////////////////////////////
+
+#include "pch.h"
+#include "color_matrix.h"
+
+namespace xray {
+namespace particle {
+
+} // namespace particle
+} // namespace xray

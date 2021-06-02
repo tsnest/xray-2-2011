@@ -1,0 +1,46 @@
+﻿<UserControl x:Class="xray.editor.wpf_controls.time_layout"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:xray.editor.wpf_controls" xmlns:converters="clr-namespace:xray.editor.wpf_controls.converters" x:Name="time_layout_control" PreviewMouseWheel="time_layout_control_mouse_wheel">
+	<UserControl.Resources>
+        <local:time_layout_item_template_selector x:Key="time_layout_item_template_selector"/>
+        <converters:main_dock_panel_width_converter      x:Key="main_dock_panel_width_converter"/>
+        <DataTemplate x:Key="time_layout_item_template_odd">
+            <local:time_layout_item_control Background="Gray"/>
+        </DataTemplate>
+        <DataTemplate x:Key="time_layout_item_template_even">
+            <local:time_layout_item_control Background="DarkGray"/>
+        </DataTemplate>
+    </UserControl.Resources>
+    <ScrollViewer x:Name="horizontal_scroll" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Disabled" ScrollChanged="horizontal_scroll_scroll_changed">
+        <DockPanel x:Name="main_dock_panel" Background="DarkGray" HorizontalAlignment="Left" 
+                   PreviewMouseLeftButtonDown="dock_panel_mouse_left_button_down"
+                   MouseMove="dock_panel_mouse_move" 
+                   MouseLeftButtonUp="dock_panel_mouse_left_button_up" LastChildFill="True">
+            <DockPanel.Width>
+                <MultiBinding Converter="{StaticResource main_dock_panel_width_converter}">
+                    <Binding ElementName="parent_node_panel" Path="Width"></Binding>
+                    <Binding ElementName="time_layout_control" Path="ActualWidth"></Binding>
+                </MultiBinding>
+            </DockPanel.Width>
+            <DockPanel Background="CadetBlue" HorizontalAlignment="Left" x:Name="parent_node_panel"
+                       DockPanel.Dock="Top" LastChildFill="True">
+            	<TextBlock Text="0" TextAlignment="Left" DockPanel.Dock="Left" HorizontalAlignment="Center"></TextBlock>               
+                <UserControl Cursor="SizeWE" x:Name="parent_node_time_layout_right_edge" DockPanel.Dock="Right" Width="10" Background="Transparent" MouseLeftButtonDown="parent_node_time_layout_right_edge_mouse_left_button_down"></UserControl>
+                <TextBox x:Name="parent_length" BorderThickness="0" Background="Transparent" DockPanel.Dock="Right" TextAlignment="Right" KeyDown="parent_length_key_down" LostFocus="parent_length_lost_focus" MouseDoubleClick="parent_length_mouse_double_click"></TextBox>
+                <TextBlock Text="{Binding ElementName=time_layout_control, Path=parent_text}" TextAlignment="Center"/>
+            </DockPanel>           
+            <local:ruler x:Name="time_layout_ruler" SnapsToDevicePixels="True" Height="20" DockPanel.Dock="Bottom"/>
+            <ScrollViewer VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Disabled">
+				<Grid Name="items_grid_panel" MouseLeftButtonDown="items_grid_panel_preview_mouse_left_button_down" PreviewMouseMove="items_grid_panel_preview_mouse_move" PreviewMouseLeftButtonUp="items_grid_panel_preview_mouse_left_button_up">
+					<Canvas ZIndex="5">
+						<Path Name="selection_path" Stroke="Black" StrokeDashArray="3, 2" StrokeThickness="1" SnapsToDevicePixels="True"/>
+					</Canvas>
+					<ItemsControl x:Name="items" ItemTemplateSelector="{StaticResource time_layout_item_template_selector}"
+								  x:FieldModifier="public">                    
+					</ItemsControl>
+				</Grid>
+            </ScrollViewer>
+        </DockPanel>
+    </ScrollViewer>
+</UserControl>

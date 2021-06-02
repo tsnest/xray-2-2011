@@ -1,0 +1,104 @@
+﻿<ContentControl x:Class="xray.editor.wpf_controls.curve_editor.curve_editor_panel"
+				xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+				xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+				xmlns:curve_editor="clr-namespace:xray.editor.wpf_controls.curve_editor"
+				xmlns:converters="clr-namespace:xray.editor.wpf_controls.converters"
+				xmlns:wpf_controls="clr-namespace:xray.editor.wpf_controls"
+				Focusable="True"
+				KeyDown="preview_key_down"
+				Name="this"
+				wpf_controls:input.PreviewInputCommand="handle_input">
+	<ContentControl.Resources>
+		<ContextMenu x:Key="key_context_menu">
+			<MenuItem Header="Tangents">
+				<MenuItem Header="Linear"			Click="linear_click"/>
+				<MenuItem Header="Spline Auto"		Click="linked_auto_click"/>
+				<MenuItem Header="Spline Manual"	Click="linked_manual_click"/>
+				<MenuItem Header="Breaked"			Click="breaked_click"/>
+				<Separator/>
+				<MenuItem Header="Flat"				Click="step_click"/>
+			</MenuItem>
+			<MenuItem Header="View">
+				<MenuItem Header="Focus All"			Click="focus_click"/>
+				<MenuItem Header="Focus Default Range"	Click="focus_default_range_click"/>
+			</MenuItem>
+			<MenuItem Header="Remove Key" Click="remove_menu_item_click" />
+		</ContextMenu>
+		<Style TargetType="Image">
+			<Setter Property="Height" Value="24" />
+		</Style>
+		<converters:bool_to_visibility_converter x:Key="direct_visibility_converter"/>
+		<converters:bool_to_visibility_converter x:Key="reverse_visibility_converter" do_reverse="True"/>
+	</ContentControl.Resources>
+	<Border BorderBrush="Black" BorderThickness="1">
+		<DockPanel>
+			<Border DockPanel.Dock="Top" BorderThickness="0, 0, 0, 1" BorderBrush="Black" Visibility="{Binding is_toolbar_visible, ElementName=this, Converter={StaticResource direct_visibility_converter}}">
+				<ToolBar RadioButton.Checked="tool_changed" SnapsToDevicePixels="True">
+					<RadioButton Name="m_move_tool_button" IsChecked="True" ToolTip="Move Tool"><Image Source="icons/movenodes.png" /></RadioButton>
+					<RadioButton Name="m_scale_tool_button" ToolTip="Scale Tool"><Image Source="icons/scalenodes.png" /></RadioButton>
+					<RadioButton Name="m_move_range_tool_button" ToolTip="Move Range Tool"><Image Source="icons/moverange.png" /></RadioButton>
+					<RadioButton Name="m_add_tool_button" ToolTip="Add Tool"><Image Source="icons/addkey.png" /></RadioButton>
+					<RadioButton Name="m_remove_tool_button" ToolTip="Remove Tool"><Image Source="icons/removekey.png" /></RadioButton>
+					<Separator/>
+					<ToggleButton Name="m_snap_to_point_toggle" ToolTip="Toggle Snap To Point"><Image Source="icons/snaptonodes.png" /></ToggleButton>
+					<ToggleButton Name="m_snap_to_grid_toggle" ToolTip="Toggle Snap To Grid"><Image Source="icons/snaptogrid.png" /></ToggleButton>
+					<Separator/>
+					<StackPanel Orientation="Horizontal" Name="m_key_type_buttons" x:FieldModifier="private">
+						<StackPanel.Resources>
+							<Style BasedOn="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" TargetType="{x:Type Button}" />
+							<Style BasedOn="{StaticResource {x:Static ToolBar.ToggleButtonStyleKey}}" TargetType="{x:Type ToggleButton}" />
+							<Style BasedOn="{StaticResource {x:Static ToolBar.TextBoxStyleKey}}" TargetType="{x:Type TextBox}" />
+						</StackPanel.Resources>
+						
+						<TextBlock Text="X:" VerticalAlignment="Center"/>
+						<Border Focusable="True" >
+							<TextBox Name="m_keys_x_position_text_box" x:FieldModifier="private" Width="60" KeyDown="key_x_position_text_box_key_down" LostFocus="key_x_position_text_box_focus_lost"/>
+						</Border>
+						<TextBlock Text="Y:" VerticalAlignment="Center"/>
+						<Border Focusable="True" KeyboardNavigation.TabNavigation="Local" >
+							<TextBox Name="m_keys_y_position_text_box" x:FieldModifier="private" Width="60" KeyDown="key_y_position_text_box_key_down" LostFocus="key_y_position_text_box_focus_lost"/>
+						</Border>
+						<Separator/>
+						<ToggleButton Name="m_toggle_range_button" x:FieldModifier="private" Click="toggle_range_button_click" IsEnabled="False" ToolTip="Toggle Range" >
+							<Grid>
+								<Image Source="icons/togglerange1.png" Visibility="{Binding IsChecked, ElementName=m_toggle_range_button, Converter={StaticResource direct_visibility_converter}}" Height="24"/>
+								<Image Source="icons/togglerange0.png" Visibility="{Binding IsChecked, ElementName=m_toggle_range_button, Converter={StaticResource reverse_visibility_converter}}" Height="24"/>
+							</Grid>
+						</ToggleButton>
+						<Separator/>
+						<ToggleButton Click="linked_auto_click" Name="m_linked_auto_button" IsEnabled="False" ToolTip="Make Linked Auto"><Image Source="icons/nodetype1.png" /></ToggleButton>
+						<ToggleButton Click="linear_click" Name="m_linear_button" IsEnabled="False" ToolTip="Make Linear"><Image Source="icons/nodetype2.png" /></ToggleButton>
+						<ToggleButton Click="step_click" Name="m_step_button" IsEnabled="False" ToolTip="Make Step"><Image Source="icons/nodetype3.png" IsEnabled="True" /></ToggleButton>
+						<ToggleButton Click="linked_manual_click" Name="m_linked_manual_button"  IsEnabled="False" ToolTip="Make Linked Manual"><Image Source="icons/nodetype4.png" /></ToggleButton>
+						<ToggleButton Click="breaked_click" Name="m_breaked_button" IsEnabled="False" ToolTip="Make Breaked"><Image Source="icons/nodetype5.png" /></ToggleButton>
+					</StackPanel>
+					<Separator/>
+					<Button Click="focus_click" ToolTip="Focus"><Image Source="icons/focus.png"/></Button>
+					<Button Click="focus_default_range_click" ToolTip="Focus Default Range" Name="m_focus_range_button"><Image Source="icons/focustodefaultrange.png"/></Button>
+					<Separator/>
+					<Menu VerticalAlignment="Center">
+						<MenuItem Header="SetTemplate" Name="m_set_template_menu_item">
+							<MenuItem Header="Sinusoid" Click="set_sinusoid_template"/>
+							<MenuItem Header="Sqrt" Click="set_sqrt_template"/>
+							<Separator/>
+						</MenuItem>
+					</Menu>
+				</ToolBar>
+			</Border>
+			<Border DockPanel.Dock="Left" BorderThickness="0, 0, 1, 0" BorderBrush="Black" Visibility="{Binding is_hierarchy_visible, ElementName=this, Converter={StaticResource direct_visibility_converter}}">
+				<ItemsControl Name="m_curves_groups" FocusVisualStyle="{x:Null}" MouseDown="groups_panel_mouse_down" Background="Transparent" />
+			</Border>
+			<Border DockPanel.Dock="Bottom">
+				<ScrollBar Name="m_curves_scroll_bar" Orientation="Horizontal" ValueChanged="scroll_bar_value_changed" Visibility="Collapsed" Height="20" SizeChanged="scroll_bar_size_changed"/>
+			</Border>
+			<ContentControl Name="m_decorator_panel" x:FieldModifier="private">
+				<curve_editor:curves_panel x:Name="m_curves_panel" SnapsToDevicePixels="True" MinWidth="20" MinHeight="10"
+					MouseDown="mouse_down"
+					MouseMove="mouse_move"
+					MouseUp="mouse_up"
+					PreviewMouseDown="preview_mouse_down"
+					SizeChanged="size_changed"/>
+			</ContentControl>
+		</DockPanel>
+	</Border>
+</ContentControl>

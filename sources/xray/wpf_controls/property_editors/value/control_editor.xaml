@@ -1,0 +1,9 @@
+﻿<editors:value_editor_base
+	x:Class="xray.editor.wpf_controls.property_editors.value.control_editor"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:editors="clr-namespace:xray.editor.wpf_controls.property_editors.value">
+	
+	<DockPanel Name="m_panel" />
+	
+</editors:value_editor_base>

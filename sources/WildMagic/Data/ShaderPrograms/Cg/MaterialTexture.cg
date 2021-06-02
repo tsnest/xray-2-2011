@@ -1,0 +1,37 @@
+//----------------------------------------------------------------------------
+void v_MaterialTexture
+(
+    in float3        kModelPosition  : POSITION,
+    in float2        kInBaseTCoord : TEXCOORD0,
+    out float4       kClipPosition : POSITION,
+    out float4       kDiffuseColor : COLOR,
+    out float2       kOutBaseTCoord : TEXCOORD0,
+    uniform float4x4 WVPMatrix,
+    uniform float4   MaterialDiffuse)
+   
+{
+    // Transform the position from model space to clip space.
+    kClipPosition = mul(float4(kModelPosition,1.0f),WVPMatrix);
+
+    // Pass through the material diffuse color.
+    kDiffuseColor = MaterialDiffuse;
+
+    // Pass through the texture coordinate.
+    kOutBaseTCoord = kInBaseTCoord;
+}
+//----------------------------------------------------------------------------
+void p_MaterialTexture
+(
+    in float4         kDiffuseColor : COLOR,
+    in float2         kBaseTCoord : TEXCOORD0,
+    out float4        kPixelColor : COLOR,
+    uniform sampler2D BaseSampler)
+{
+    // Add the material and texture colors.
+    float4 kBaseColor = tex2D(BaseSampler,kBaseTCoord);
+    kPixelColor.rgb = saturate(kBaseColor.rgb + kDiffuseColor.rgb);
+    
+    // Multiply the material and texture alphas.
+    kPixelColor.a = kBaseColor.a*kDiffuseColor.a;
+}
+//----------------------------------------------------------------------------

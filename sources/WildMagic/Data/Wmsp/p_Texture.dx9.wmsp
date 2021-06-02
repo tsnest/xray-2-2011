@@ -1,0 +1,16 @@
+ps_2_0
+// cgc version 1.4.0000, build date Jun  9 2005 12:09:02
+// command line args: -profile ps_2_0
+// source file: Texture.cg
+//vendor NVIDIA Corporation
+//version 1.0.02
+//profile ps_2_0
+//program p_Texture
+//semantic p_Texture.BaseSampler
+//var float2 kBaseTCoord : $vin.TEXCOORD0 : TEX0 : 0 : 1
+//var float4 kPixelColor : $vout.COLOR : COL : 1 : 1
+//var sampler2D BaseSampler :  : texunit 0 : 2 : 1
+dcl_2d s0
+dcl t0.xy
+texld r0, t0, s0
+mov oC0, r0

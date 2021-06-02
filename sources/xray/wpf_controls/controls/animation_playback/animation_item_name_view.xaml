@@ -1,0 +1,7 @@
+﻿<UserControl x:Class="xray.editor.wpf_controls.animation_playback.animation_item_name_view"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Background="DarkGray" BorderThickness="1" BorderBrush="Black" SnapsToDevicePixels="True">
+	<Border Height="{Binding height}">
+		<TextBlock Text="{Binding name}" FontWeight="{Binding font_weight}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+	</Border>
+</UserControl>

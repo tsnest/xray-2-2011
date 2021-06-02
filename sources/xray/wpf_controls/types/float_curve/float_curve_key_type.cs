@@ -1,0 +1,17 @@
+﻿////////////////////////////////////////////////////////////////////////////
+//	Created		: 01.07.2010
+//	Author		: Evgeniy Obertyukh
+//	Copyright (C) GSC Game World - 2010
+////////////////////////////////////////////////////////////////////////////
+
+namespace xray.editor.wpf_controls
+{
+	public enum float_curve_key_type
+	{
+		locked_auto,
+		locked_manual,
+		breaked,
+		linear,
+		step
+	}
+}

@@ -1,0 +1,39 @@
+//----------------------------------------------------------------------------
+void v_SphereMap
+(
+    in float3        kModelPosition  : POSITION,
+    in float3        kModelNormal : NORMAL,
+    out float4       kClipPosition : POSITION,
+    out float2       kBaseTCoord : TEXCOORD0,
+    uniform float4x4 WVPMatrix,
+    uniform float4x4 WVMatrix)
+{
+    // Transform the position from model space to clip space.
+    float4 kHModelPosition = float4(kModelPosition,1.0f);
+    kClipPosition = mul(kHModelPosition,WVPMatrix);
+
+    // Transform the normal from model space to eye space.
+    float3 kESNormal = normalize(mul(kModelNormal,(float3x3)WVMatrix));
+
+    // Calculate the eye direction (in eye space).
+    float3 kEyeDirection = normalize(mul(kHModelPosition,WVMatrix).xyz);
+
+    // Calculate the reflection vector.
+    float3 kReflection = reflect(kEyeDirection,kESNormal);
+
+    // Calculate the texture coordinates.
+    float fOmRz = kReflection.z - 1.0f;
+    float fInvM = 1.0f/sqrt(kReflection.x*kReflection.x +
+        kReflection.y*kReflection.y + fOmRz*fOmRz);
+    kBaseTCoord = 0.5f*(kReflection.xy*fInvM + 1.0f);
+}
+//----------------------------------------------------------------------------
+void p_SphereMap
+(
+    in float2         kBaseTCoord : TEXCOORD0, 
+    out float4        kPixelColor : COLOR,
+    uniform sampler2D SphereMapSampler)
+{
+    kPixelColor = tex2D(SphereMapSampler,kBaseTCoord);
+}
+//----------------------------------------------------------------------------

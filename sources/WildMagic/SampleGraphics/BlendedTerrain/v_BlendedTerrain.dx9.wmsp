@@ -1,0 +1,33 @@
+vs_2_0
+// cgc version 1.5.0014, build date Sep 18 2006 20:36:59
+// command line args: -profile vs_2_0
+// source file: BlendedTerrain.cg
+//vendor NVIDIA Corporation
+//version 1.5.0.14
+//profile vs_2_0
+//program v_BlendedTerrain
+//semantic v_BlendedTerrain.WVPMatrix
+//semantic v_BlendedTerrain.FlowDirection
+//var float3 kModelPosition : $vin.POSITION : ATTR0 : 0 : 1
+//var float2 kInGroundTCoord : $vin.TEXCOORD0 : ATTR1 : 1 : 1
+//var float kInBlendTCoord : $vin.TEXCOORD1 : ATTR2 : 2 : 1
+//var float2 kInCloudTCoord : $vin.TEXCOORD2 : ATTR3 : 3 : 1
+//var float4 kClipPosition : $vout.POSITION : HPOS : 4 : 1
+//var float2 kOutGroundTCoord : $vout.TEXCOORD0 : TEX0 : 5 : 1
+//var float kOutBlendTCoord : $vout.TEXCOORD1 : TEX1 : 6 : 1
+//var float2 kOutCloudTCoord : $vout.TEXCOORD2 : TEX2 : 7 : 1
+//var float2 kOutFlowDirection : $vout.TEXCOORD3 : TEX3 : 8 : 1
+//var float4x4 WVPMatrix :  : c[0], 4 : 9 : 1
+//var float2 FlowDirection :  : c[4] : 10 : 1
+dcl_position v0
+dcl_texcoord0 v1
+dcl_texcoord1 v2
+dcl_texcoord2 v3
+mul r0, v0.y, c1
+mad r0, v0.x, c0, r0
+mad r0, v0.z, c2, r0
+add oPos, r0, c3
+mov oT0.xy, v1
+mov oT2.xy, v3
+mov oT3.xy, c4
+mov oT1.x, v2

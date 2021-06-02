@@ -1,0 +1,11 @@
+﻿<editors:value_editor_base
+	x:Class="xray.editor.wpf_controls.property_editors.value.combo_box_editor"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:editors="clr-namespace:xray.editor.wpf_controls.property_editors.value"
+	Loaded="user_control_loaded">
+	<ComboBox Name="m_combo_box"
+			  x:FieldModifier="private"
+			  DropDownOpened="combo_box_drop_down_opened"
+			  DropDownClosed="combo_box_drop_down_closed" />
+</editors:value_editor_base>

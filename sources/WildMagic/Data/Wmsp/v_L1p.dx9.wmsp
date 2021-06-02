@@ -1,0 +1,77 @@
+vs_2_0
+// cgc version 1.5.0014, build date Sep 18 2006 20:36:59
+// command line args: -profile vs_2_0
+// source file: Lighting.cg
+//vendor NVIDIA Corporation
+//version 1.5.0.14
+//profile vs_2_0
+//program v_L1p
+//semantic v_L1p.WVPMatrix
+//semantic v_L1p.WMatrix
+//semantic v_L1p.CameraModelPosition
+//semantic v_L1p.MaterialEmissive
+//semantic v_L1p.MaterialAmbient
+//semantic v_L1p.MaterialDiffuse
+//semantic v_L1p.MaterialSpecular
+//semantic v_L1p.Light0ModelPosition
+//semantic v_L1p.Light0Ambient
+//semantic v_L1p.Light0Diffuse
+//semantic v_L1p.Light0Specular
+//semantic v_L1p.Light0Attenuation
+//var float3 kModelPosition : $vin.POSITION : ATTR0 : 0 : 1
+//var float3 kModelNormal : $vin.NORMAL : ATTR1 : 1 : 1
+//var float4 kClipPosition : $vout.POSITION : HPOS : 2 : 1
+//var float4 kVertexColor : $vout.COLOR : COL0 : 3 : 1
+//var float4x4 WVPMatrix :  : c[0], 4 : 4 : 1
+//var float4x4 WMatrix :  : c[4], 4 : 5 : 1
+//var float3 CameraModelPosition :  : c[8] : 6 : 1
+//var float3 MaterialEmissive :  : c[9] : 7 : 1
+//var float3 MaterialAmbient :  : c[10] : 8 : 1
+//var float4 MaterialDiffuse :  : c[11] : 9 : 1
+//var float4 MaterialSpecular :  : c[12] : 10 : 1
+//var float3 Light0ModelPosition :  : c[13] : 11 : 1
+//var float3 Light0Ambient :  : c[14] : 12 : 1
+//var float3 Light0Diffuse :  : c[15] : 13 : 1
+//var float3 Light0Specular :  : c[16] : 14 : 1
+//var float4 Light0Attenuation :  : c[17] : 15 : 1
+dcl_position v0
+dcl_normal v1
+add r0.xyz, v0, -c13
+dp3 r0.w, r0, r0
+rsq r1.x, r0.w
+add r2.xyz, -v0, c8
+dp3 r0.w, r2, r2
+mul r3.xyz, r0.y, c5
+mul r1.xyz, r1.x, r0
+rsq r0.w, r0.w
+mad r2.xyz, r0.w, r2, -r1
+dp3 r0.w, r2, r2
+rsq r0.y, r0.w
+mul r2.xyz, r0.y, r2
+dp3 r2.y, v1, r2
+mad r3.xyz, r0.x, c4, r3
+mad r0.xyz, r0.z, c6, r3
+mul r0.y, r0, r0
+mad r0.x, r0, r0, r0.y
+mad r0.w, r0.z, r0.z, r0.x
+rsq r0.w, r0.w
+rcp r0.w, r0.w
+mad r1.w, r0, c17.z, c17.y
+mad r1.w, r0, r1, c17.x
+rcp r1.w, r1.w
+dp3 r2.x, v1, -r1
+mov r2.z, c12.w
+lit r2.yz, r2.xyzz
+mul r0.xyz, r2.y, c11
+mul r1.xyz, r2.z, c12
+mul r2.xyz, r0, c15
+mov r0.xyz, c10
+mad r0.xyz, c14, r0, r2
+mad r1.xyz, r1, c16, r0
+mul r0, v0.y, c1
+mad r0, v0.x, c0, r0
+mul r1.w, r1, c17
+mad r0, v0.z, c2, r0
+mad oD0.xyz, r1.w, r1, c9
+add oPos, r0, c3
+mov oD0.w, c11

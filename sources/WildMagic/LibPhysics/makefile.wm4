@@ -1,0 +1,17 @@
+build :
+	@mkdir -p ../SDK/Include
+	@mkdir -p ../SDK/Library/$(CFG)
+	@mkdir -p $(CFG)
+	@cp -fp *.h ../SDK/Include
+	cd Intersection      ; make -f ../makeprj.wm4 CFG=$(CFG) SYS=$(SYS)
+	cd LCPSolver         ; make -f ../makeprj.wm4 CFG=$(CFG) SYS=$(SYS)
+	cd ParticleSystem    ; make -f ../makeprj.wm4 CFG=$(CFG) SYS=$(SYS)
+	cd RigidBody         ; make -f ../makeprj.wm4 CFG=$(CFG) SYS=$(SYS)
+
+clean :
+	cd Intersection      ; make clean -f ../makeprj.wm4 CFG=$(CFG) SYS=$(SYS)
+	cd LCPSolver         ; make clean -f ../makeprj.wm4 CFG=$(CFG) SYS=$(SYS)
+	cd ParticleSystem    ; make clean -f ../makeprj.wm4 CFG=$(CFG) SYS=$(SYS)
+	cd RigidBody         ; make clean -f ../makeprj.wm4 CFG=$(CFG) SYS=$(SYS)
+	@rm -f $(CFG)/*.*
+	@rmdir $(CFG)

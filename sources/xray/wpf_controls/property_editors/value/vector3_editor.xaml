@@ -1,0 +1,22 @@
+﻿<value:value_editor_base 
+	x:Class="xray.editor.wpf_controls.property_editors.value.vector3_editor"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:value="clr-namespace:xray.editor.wpf_controls.property_editors.value"
+	xmlns:wpf_controls="clr-namespace:xray.editor.wpf_controls">
+	
+	<TextBox Name="m_text_box" BorderThickness="0" Background="Transparent"
+			 KeyDown="text_box_preview_key_down"
+			 LostFocus="text_box_lost_focus"
+			 wpf_controls:input.PreviewInputCommand="handle_input">
+		<TextBox.Style>
+			<Style>
+				<Style.Triggers>
+					<DataTrigger Binding="{Binding is_default_value}" Value="false">
+						<Setter Property="Control.FontWeight" Value="Bold" />
+					</DataTrigger>
+				</Style.Triggers>
+			</Style>
+		</TextBox.Style>
+	</TextBox>
+</value:value_editor_base>

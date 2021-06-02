@@ -1,0 +1,95 @@
+vs_2_0
+// cgc version 1.5.0014, build date Sep 18 2006 20:36:59
+// command line args: -profile vs_2_0
+// source file: Lighting.cg
+//vendor NVIDIA Corporation
+//version 1.5.0.14
+//profile vs_2_0
+//program v_L1s
+//semantic v_L1s.WVPMatrix
+//semantic v_L1s.WMatrix
+//semantic v_L1s.CameraModelPosition
+//semantic v_L1s.MaterialEmissive
+//semantic v_L1s.MaterialAmbient
+//semantic v_L1s.MaterialDiffuse
+//semantic v_L1s.MaterialSpecular
+//semantic v_L1s.Light0ModelPosition
+//semantic v_L1s.Light0ModelDirection
+//semantic v_L1s.Light0Ambient
+//semantic v_L1s.Light0Diffuse
+//semantic v_L1s.Light0Specular
+//semantic v_L1s.Light0SpotCutoff
+//semantic v_L1s.Light0Attenuation
+//var float3 kModelPosition : $vin.POSITION : ATTR0 : 0 : 1
+//var float3 kModelNormal : $vin.NORMAL : ATTR1 : 1 : 1
+//var float4 kClipPosition : $vout.POSITION : HPOS : 2 : 1
+//var float4 kVertexColor : $vout.COLOR : COL0 : 3 : 1
+//var float4x4 WVPMatrix :  : c[0], 4 : 4 : 1
+//var float4x4 WMatrix :  : c[4], 4 : 5 : 1
+//var float3 CameraModelPosition :  : c[8] : 6 : 1
+//var float3 MaterialEmissive :  : c[9] : 7 : 1
+//var float3 MaterialAmbient :  : c[10] : 8 : 1
+//var float4 MaterialDiffuse :  : c[11] : 9 : 1
+//var float4 MaterialSpecular :  : c[12] : 10 : 1
+//var float3 Light0ModelPosition :  : c[13] : 11 : 1
+//var float3 Light0ModelDirection :  : c[14] : 12 : 1
+//var float3 Light0Ambient :  : c[15] : 13 : 1
+//var float3 Light0Diffuse :  : c[16] : 14 : 1
+//var float3 Light0Specular :  : c[17] : 15 : 1
+//var float4 Light0SpotCutoff :  : c[18] : 16 : 1
+//var float4 Light0Attenuation :  : c[19] : 17 : 1
+//const c[20] = 0 1
+dcl_position v0
+dcl_normal v1
+def c20, 0.000000, 1.000000, 0, 0
+add r0.xyz, v0, -c13
+dp3 r0.w, r0, r0
+rsq r1.x, r0.w
+mul r1.xyz, r1.x, r0
+add r2.xyz, -v0, c8
+dp3 r0.w, r2, r2
+rsq r0.w, r0.w
+mad r2.xyz, r0.w, r2, -r1
+dp3 r0.w, r2, r2
+rsq r0.w, r0.w
+mul r2.xyz, r0.w, r2
+dp3 r2.y, v1, r2
+dp3 r1.w, r1, c14
+dp3 r2.x, -r1, v1
+mul r1.xyz, r0.y, c5
+mad r1.xyz, r0.x, c4, r1
+sge r0.y, r1.w, c18
+sge r0.x, c20, r0.y
+sge r0.y, r0, c20.x
+mov r2.z, c12.w
+mad r1.xyz, r0.z, c6, r1
+lit r2.yz, r2.xyzz
+mul r0.x, r0.y, r0
+max r2.x, -r0, r0
+pow r0, r1.w, c18.w
+slt r0.x, c20, r2
+mov r2.w, r0
+mul r0.w, r1.y, r1.y
+mad r1.x, r1, r1, r0.w
+add r0.x, -r0, c20.y
+mul r0.xyz, r0.x, r2.yzww
+mul r2.xyz, r0.x, c11
+mul r0.xyw, r0.y, c12.xyzz
+mad r1.w, r1.z, r1.z, r1.x
+mul r1.xyz, r0.xyww, c17
+rsq r0.x, r1.w
+rcp r0.w, r0.x
+mad r1.w, r0, c19.z, c19.y
+mad r1.w, r0, r1, c19.x
+mad r1.xyz, r2, c16, r1
+mul r1.xyz, r0.z, r1
+mov r0.xyz, c10
+mad r1.xyz, c15, r0, r1
+mul r0, v0.y, c1
+rcp r1.w, r1.w
+mad r0, v0.x, c0, r0
+mul r1.w, r1, c19
+mad r0, v0.z, c2, r0
+mad oD0.xyz, r1.w, r1, c9
+add oPos, r0, c3
+mov oD0.w, c11

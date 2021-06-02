@@ -1,0 +1,33 @@
+ps_2_0
+// cgc version 1.4.0000, build date Jun  9 2005 12:09:02
+// command line args: -profile ps_2_0
+// source file: BaseMulDetailFogExpSqr.cg
+//vendor NVIDIA Corporation
+//version 1.0.02
+//profile ps_2_0
+//program p_BaseMulDetailFogExpSqr
+//semantic p_BaseMulDetailFogExpSqr.FogColorDensity
+//semantic p_BaseMulDetailFogExpSqr.BaseSampler
+//semantic p_BaseMulDetailFogExpSqr.DetailSampler
+//var float2 kBaseTCoord : $vin.TEXCOORD0 : TEX0 : 0 : 1
+//var float2 kDetailTCoord : $vin.TEXCOORD1 : TEX1 : 1 : 1
+//var float fFogFactor : $vin.TEXCOORD2 : TEX2 : 2 : 1
+//var float4 kPixelColor : $vout.COLOR : COL : 3 : 1
+//var float4 FogColorDensity :  : c[1] : 4 : 1
+//var sampler2D BaseSampler :  : texunit 0 : 5 : 1
+//var sampler2D DetailSampler :  : texunit 1 : 6 : 1
+//const c[0] = 1
+dcl_2d s0
+dcl_2d s1
+def c0, 1.000000, 0.000000, 0.000000, 0.000000
+dcl t0.xy
+dcl t1.xy
+dcl t2.x
+texld r2, t1, s1
+mov r1.xyz, r2
+texld r2, t0, s0
+mov r0.xyz, r2
+mad r0.xyz, r0, r1, -c1
+mad r0.xyz, t2.x, r0, c1
+mov r0.w, c0.x
+mov oC0, r0

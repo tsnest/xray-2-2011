@@ -1,0 +1,36 @@
+//----------------------------------------------------------------------------
+void v_Texture2Color3
+(
+    in float3        kModelPosition  : POSITION,
+    in float3        kModelColor : COLOR,
+    in float2        kModelTCoord : TEXCOORD0,
+    out float4       kClipPosition : POSITION,
+    out float3       kVertexColor : COLOR,
+    out float2       kTCoord : TEXCOORD0,
+    uniform float4x4 WVPMatrix)
+{
+    // Transform the position from model space to clip space.
+    kClipPosition = mul(float4(kModelPosition,1.0f),WVPMatrix);
+
+    // Pass through the vertex color and texture coordinate.
+    kVertexColor = kModelColor;
+    kTCoord = kModelTCoord;
+}
+//----------------------------------------------------------------------------
+void p_Texture2Color3
+(
+    in float3         kVertexColor : COLOR,
+    in float2         kTCoord : TEXCOORD0,
+    out float4        kPixelColor : COLOR,
+    uniform sampler2D BaseSampler)
+{
+    // Sample the texture image.
+    float4 kTColor = tex2D(BaseSampler,kTCoord);
+    
+    // Modulate the texture color by the vertex color.
+    kPixelColor.r = kTColor.r * kVertexColor.r;
+    kPixelColor.g = kTColor.g * kVertexColor.g;
+    kPixelColor.b = kTColor.b * kVertexColor.b;
+    kPixelColor.a = 1.0f;
+}
+//----------------------------------------------------------------------------

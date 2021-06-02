@@ -1,0 +1,24 @@
+﻿<UserControl x:Class="xray.editor.wpf_controls.animation_lexeme_panel.animation_item_intervals_view"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:animation_lexeme_panel="clr-namespace:xray.editor.wpf_controls.animation_lexeme_panel"
+	Background="DarkGray" SnapsToDevicePixels="True"
+	MouseRightButtonDown="user_control_mouse_right_button_down">
+	<UserControl.Resources>
+		<DataTemplate x:Key="animation_interval">				
+			<animation_lexeme_panel:animation_interval_view/>
+		</DataTemplate>
+		<ContextMenu x:Key="context_menu">
+			<MenuItem Header="Remove animation" Click="remove_animation_click"/>
+		</ContextMenu>
+	</UserControl.Resources>
+	<Border HorizontalAlignment="Left" Width="{Binding length}" ClipToBounds="True" BorderBrush="Black" BorderThickness="1" SnapsToDevicePixels="True">
+		<ItemsControl Name="m_intervals_view" ItemTemplate="{StaticResource animation_interval}">
+			<ItemsControl.ItemsPanel>
+				<ItemsPanelTemplate>
+					<Canvas Height="40"/>
+				</ItemsPanelTemplate>
+			</ItemsControl.ItemsPanel>
+		</ItemsControl>
+	</Border>
+</UserControl>

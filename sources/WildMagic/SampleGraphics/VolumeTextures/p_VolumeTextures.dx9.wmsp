@@ -1,0 +1,20 @@
+ps_2_0
+// cgc version 1.4.0000, build date Jun  9 2005 12:09:02
+// command line args: -profile ps_2_0
+// source file: VolumeTextures.cg
+//vendor NVIDIA Corporation
+//version 1.0.02
+//profile ps_2_0
+//program p_VolumeTextures
+//semantic p_VolumeTextures.CommonAlpha
+//semantic p_VolumeTextures.BaseSampler
+//var float3 kTCoord : $vin.TEXCOORD0 : TEX0 : 0 : 1
+//var float4 kPixelColor : $vout.COLOR : COL : 1 : 1
+//var float CommonAlpha :  : c[0] : 2 : 1
+//var sampler3D BaseSampler :  : texunit 0 : 3 : 1
+dcl_volume s0
+dcl t0.xyz
+texld r1, t0, s0
+mov r0.xyz, r1
+mov r0.w, c0.x
+mov oC0, r0

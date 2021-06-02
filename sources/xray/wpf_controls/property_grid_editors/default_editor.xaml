@@ -1,0 +1,20 @@
+﻿<ResourceDictionary x:Class="xray.editor.wpf_controls.property_grid_editors.default_editor"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<DataTemplate x:Key="default_editor">
+		<TextBox VerticalAlignment="Center" IsReadOnly="True" BorderThickness="0" Foreground="Gray" >
+			<TextBox.Style>
+				<Style>
+					<Style.Triggers>
+						<DataTrigger Binding="{Binding is_multiple_values}" Value="true">
+							<Setter Property="TextBox.Text" Value="&lt;many&gt;"/>
+						</DataTrigger>
+						<DataTrigger Binding="{Binding is_multiple_values}" Value="false">
+							<Setter Property="TextBox.Text" Value="{Binding value, Mode=OneWay}"/>
+						</DataTrigger>
+					</Style.Triggers>
+				</Style>
+			</TextBox.Style>
+		</TextBox>
+	</DataTemplate>
+</ResourceDictionary>

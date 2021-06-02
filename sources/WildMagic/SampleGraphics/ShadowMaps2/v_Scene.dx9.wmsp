@@ -1,0 +1,59 @@
+vs_2_0
+// cgc version 1.5.0014, build date Sep 18 2006 20:36:59
+// command line args: -profile vs_2_0
+// source file: ShadowMaps2.cg
+//vendor NVIDIA Corporation
+//version 1.5.0.14
+//profile vs_2_0
+//program v_Scene
+//semantic v_Scene.WVPMatrix
+//semantic v_Scene.WMatrix
+//semantic v_Scene.LightVPMatrix
+//semantic v_Scene.LightVPBSMatrix
+//semantic v_Scene.LightWorldPosition
+//semantic v_Scene.CameraWorldPosition
+//var float3 kModelPosition : $vin.POSITION : ATTR0 : 0 : 1
+//var float3 kModelNormal : $vin.NORMAL : ATTR1 : 1 : 1
+//var float2 kModelTCoord : $vin.TEXCOORD0 : ATTR2 : 2 : 1
+//var float4 kClipPosition : $vout.POSITION : HPOS : 3 : 1
+//var float2 kTCoord : $vout.TEXCOORD0 : TEX0 : 4 : 1
+//var float4 kProjTCoord : $vout.TEXCOORD1 : TEX1 : 5 : 1
+//var float4 kScreenTCoord : $vout.TEXCOORD2 : TEX2 : 6 : 1
+//var float3 kNormal : $vout.TEXCOORD3 : TEX3 : 7 : 1
+//var float3 kLightVector : $vout.TEXCOORD4 : TEX4 : 8 : 1
+//var float3 kEyeVector : $vout.TEXCOORD5 : TEX5 : 9 : 1
+//var float4x4 WVPMatrix :  : c[0], 4 : 10 : 1
+//var float4x4 WMatrix :  : c[4], 4 : 11 : 1
+//var float4x4 LightVPMatrix :  : c[8], 4 : 12 : 0
+//var float4x4 LightVPBSMatrix :  : c[12], 4 : 13 : 1
+//var float3 LightWorldPosition :  : c[16] : 14 : 1
+//var float3 CameraWorldPosition :  : c[17] : 15 : 1
+//const c[18] = 0.5
+dcl_position v0
+dcl_texcoord0 v2
+dcl_normal v1
+def c18, 0.500000, 0, 0, 0
+mul r0, v0.y, c5
+mad r0, v0.x, c4, r0
+mad r0, v0.z, c6, r0
+add r1, r0, c7
+mul r0, v0.y, c1
+mul r2, r1.y, c13
+mad r0, v0.x, c0, r0
+mad r2, r1.x, c12, r2
+mad r0, v0.z, c2, r0
+add r0, r0, c3
+mov oPos, r0
+add r0.y, r0, r0.w
+add r0.x, r0, r0.w
+mad r2, r1.z, c14, r2
+mul oT2.y, r0, c18.x
+mul oT2.x, r0, c18
+mul r0.xyz, v1.y, c5
+mad r0.xyz, v1.x, c4, r0
+mad oT1, r1.w, c15, r2
+mov oT2.zw, r0.w
+add oT4.xyz, -r1, c16
+add oT5.xyz, -r1, c17
+mad oT3.xyz, v1.z, c6, r0
+mov oT0.xy, v2

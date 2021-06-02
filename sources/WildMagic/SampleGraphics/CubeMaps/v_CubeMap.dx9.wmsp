@@ -1,0 +1,45 @@
+vs_2_0
+// cgc version 1.5.0014, build date Sep 18 2006 20:36:59
+// command line args: -profile vs_2_0
+// source file: CubeMap.cg
+//vendor NVIDIA Corporation
+//version 1.5.0.14
+//profile vs_2_0
+//program v_CubeMap
+//semantic v_CubeMap.WVPMatrix
+//semantic v_CubeMap.WMatrix
+//semantic v_CubeMap.CameraWorldPosition
+//var float3 kModelPosition : $vin.POSITION : ATTR0 : 0 : 1
+//var float3 kModelNormal : $vin.NORMAL : ATTR1 : 1 : 1
+//var float3 kModelColor : $vin.COLOR : ATTR2 : 2 : 1
+//var float4 kClipPosition : $vout.POSITION : HPOS : 3 : 1
+//var float4 kVertexColor : $vout.COLOR : COL0 : 4 : 1
+//var float3 kReflectTCoord : $vout.TEXCOORD0 : TEX0 : 5 : 1
+//var float4x4 WVPMatrix :  : c[0], 4 : 6 : 1
+//var float4x4 WMatrix :  : c[4], 4 : 7 : 1
+//var float3 CameraWorldPosition :  : c[8] : 8 : 1
+//const c[9] = 1 2
+dcl_position v0
+dcl_normal v1
+dcl_color v2
+def c9, 1.000000, 2.000000, 0, 0
+mul r0, v0.y, c1
+mul r1.xyz, v1.y, c5
+mul r2.xyz, v0.y, c5
+mad r1.xyz, v1.x, c4, r1
+mad r1.xyz, v1.z, c6, r1
+dp3 r1.w, r1, r1
+rsq r1.w, r1.w
+mad r2.xyz, v0.x, c4, r2
+mad r2.xyz, v0.z, c6, r2
+add r2.xyz, r2, c7
+mad r0, v0.x, c0, r0
+mad r0, v0.z, c2, r0
+mul r1.xyz, r1.w, r1
+add r2.xyz, r2, -c8
+dp3 r1.w, r1, r2
+mul r1.xyz, r1, r1.w
+mad oT0.xyz, -r1, c9.y, r2
+add oPos, r0, c3
+mov oD0.xyz, v2
+mov oD0.w, c9.x

@@ -1,0 +1,24 @@
+//----------------------------------------------------------------------------
+// Texture 0:
+//   srcBlend = SBF_ONE
+//   dstBlend = DBF_ZERO
+//   output   = C0
+// Texture 1:
+//   srcBlend = SBF_DST_COLOR
+//   dstBlend = DBF_ZERO
+//   output   = C0*C1
+//----------------------------------------------------------------------------
+void p_T0s1d0T1s2d0
+(
+    in float2         kTCoord0 : TEXCOORD0,
+    in float2         kTCoord1 : TEXCOORD1,
+    out float4        kPixelColor : COLOR,
+    uniform sampler2D Sampler0,
+    uniform sampler2D Sampler1)
+{
+    // Sample the texture images and multiply the results.
+    float4 kColor0 = tex2D(Sampler0,kTCoord0);
+    float4 kColor1 = tex2D(Sampler1,kTCoord1);
+    kPixelColor = kColor0*kColor1;
+}
+//----------------------------------------------------------------------------

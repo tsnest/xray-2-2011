@@ -1,0 +1,17 @@
+////////////////////////////////////////////////////////////////////////////
+//	Created		: 10.08.2010
+//	Author		: Konstantin Slipchenko
+//	Copyright (C) GSC Game World - 2010
+////////////////////////////////////////////////////////////////////////////
+
+#include "pch.h"
+
+namespace xray {
+namespace math {
+
+void on_thread_spawn	( )
+{
+}
+
+} // namespace math
+} // namespace xray

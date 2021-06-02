@@ -1,0 +1,20 @@
+﻿<UserControl x:Class="xray.editor.wpf_controls.property_grid_editors.collection_editor"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:local="clr-namespace:xray.editor.wpf_controls.property_grid_editors">
+	<UserControl.Resources>
+		<local:collection_editor_is_fixed_size_checker x:Key="collection_editor_is_fixed_size_checker"/>
+	</UserControl.Resources>
+    <DockPanel>
+		<Button DockPanel.Dock="Right" Width="11" Height="11" Click="add_Click"
+				Visibility="{Binding value, Converter={StaticResource collection_editor_is_fixed_size_checker}}"
+				IsEnabled="{Binding is_expanded}"
+				ToolTip="Add new item into collection">
+			<Grid>
+				<Line X2="5" Y1="2.5" Y2="2.5" StrokeThickness="1" Stroke="Black" X1="0" SnapsToDevicePixels="True" />
+				<Line X2="2.5" X1="2.5" Y1="0" Y2="5" StrokeThickness="1" Stroke="Black" SnapsToDevicePixels="True"/>
+			</Grid>
+		</Button>
+		<TextBox Text="collection" IsReadOnly="True" BorderThickness="0" />
+	</DockPanel>
+</UserControl>

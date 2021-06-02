@@ -1,0 +1,30 @@
+!!ARBfp1.0
+# cgc version 1.4.0000, build date Jun  9 2005 12:09:02
+# command line args: -profile arbfp1
+# source file: SimpleBumpMap.cg
+#vendor NVIDIA Corporation
+#version 1.0.02
+#profile arbfp1
+#program p_SimpleBumpMap
+#semantic p_SimpleBumpMap.BaseSampler
+#semantic p_SimpleBumpMap.NormalSampler
+#var float3 kLightDir : $vin.COLOR : COL0 : 0 : 1
+#var float2 kBaseTCoord : $vin.TEXCOORD0 : TEX0 : 1 : 1
+#var float2 kNormalTCoord : $vin.TEXCOORD1 : TEX1 : 2 : 1
+#var float4 kPixelColor : $vout.COLOR : COL : 3 : 1
+#var sampler2D BaseSampler :  : texunit 1 : 4 : 1
+#var sampler2D NormalSampler :  : texunit 0 : 5 : 1
+#const c[0] = 1 2
+PARAM c[1] = { { 1, 2 } };
+TEMP R0;
+TEMP R1;
+TEMP R2;
+TEX R1.xyz, fragment.texcoord[1], texture[0], 2D;
+MAD R2.xyz, R1, c[0].y, -c[0].x;
+MAD R1.xyz, fragment.color.primary, c[0].y, -c[0].x;
+TEX R0.xyz, fragment.texcoord[0], texture[1], 2D;
+DP3_SAT R0.w, R1, R2;
+MUL result.color.xyz, R0.w, R0;
+MOV result.color.w, c[0].x;
+END
+# 7 instructions, 3 R-regs

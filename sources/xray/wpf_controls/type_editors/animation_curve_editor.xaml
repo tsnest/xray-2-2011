@@ -1,0 +1,88 @@
+﻿<UserControl x:Class="xray.editor.wpf_controls.animation_curve_editor"
+			 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+			 xmlns:local="clr-namespace:xray.editor.wpf_controls" 
+			 xmlns:panels="clr-namespace:xray.editor.wpf_controls.panels" 
+			 xmlns:curve_editor="clr-namespace:xray.editor.wpf_controls.curve_editor"
+			 Loaded="loaded"
+			 MinHeight="120">
+	<UserControl.Resources>
+		<ContextMenu x:Key="settings_context_menu" Placement="MousePoint">
+			<MenuItem Header="Snap To Frames" IsCheckable="True" IsChecked="True" Unchecked="snap_to_frames_unchecked" Checked="snap_to_frames_checked" />
+			<DockPanel>
+				<TextBlock Text="Fps: " DockPanel.Dock="Left"/>
+				<TextBox x:Name="m_fps_text_box" TextChanged="fps_changed"/>
+			</DockPanel>
+		</ContextMenu>		
+	</UserControl.Resources>
+	<Border BorderThickness="1" BorderBrush="Black">
+		<Grid ClipToBounds="True">
+			<Grid.RowDefinitions>
+				<RowDefinition/>
+				<RowDefinition Height="Auto"/>
+			</Grid.RowDefinitions>
+			<panels:single_place_panel x:Name="own_grid">
+				<DockPanel>
+					<Border Height="20" Background="Gray" DockPanel.Dock="Top" PreviewMouseDown="timeline_mouse_down" Name="m_timeline_border" >
+						<local:ruler name="frames" x:Name="m_time_ruler_frames" top_to_down="false" SnapsToDevicePixels="True" Height="20" divide_factor_min="1" />
+					</Border>
+					<Border Height="20" Background="Gray" DockPanel.Dock="Bottom" PreviewMouseDown="timeline_mouse_down">
+						<local:ruler name="seconds" x:Name="m_time_ruler_seconds" PreviewMouseDown="timeline_mouse_down" SnapsToDevicePixels="True" Height="20"/>
+					</Border>
+					<curve_editor:curves_panel_presenter />
+				</DockPanel>
+				<Canvas ClipToBounds="True">
+					<Thumb Name="m_time_thumb" Width="200" Canvas.Left="-100" Height="{Binding ActualHeight, ElementName=own_grid}" Background="Red" DragDelta="thumb_drag_delta">
+						<Thumb.Template>
+							<ControlTemplate>
+								<Grid>
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition Width="1*"/>
+										<ColumnDefinition Width="1*"/>
+									</Grid.ColumnDefinitions>
+									<Border Grid.ColumnSpan="2" HorizontalAlignment="Center" Width="1" BorderBrush="Red" BorderThickness="1" SnapsToDevicePixels="True"/>
+									<Path Grid.ColumnSpan="2" HorizontalAlignment="Center" Data="M2 15 L8 15 L8 25 L 2 25 Z" Stroke="Black" Fill="Red" SnapsToDevicePixels="True" />
+									<TextBlock Margin="0, 0, 5, 2" Grid.Column="0" Text="{Binding current_time_text_frames}"  VerticalAlignment="Bottom" HorizontalAlignment="Right"/>
+									<TextBlock Margin="5, 0, 0, 2"  Grid.Column="1" Text="{Binding current_time_text_seconds}" VerticalAlignment="Bottom" HorizontalAlignment="Left"/>
+								</Grid>
+							</ControlTemplate>
+						</Thumb.Template>
+					</Thumb>
+				</Canvas>
+			</panels:single_place_panel>
+			<curve_editor:curve_editor_panel x:Name="m_curves_panel"
+											 is_frequently_changed="True"
+											 is_default_range_enabled="False"
+											 field_left_limit="0"
+											 scale_changed="curves_panel_scale_changed"
+											 pan_changed="curves_panel_pan_changed"
+											 float_curve_changed="curves_panel_float_curve_changed"
+											 decorator="{Binding ElementName=own_grid, Mode=OneTime}"
+											 divide_factor_x_min="1" grid_x_scale_multiplier="0.0333333333"
+											 focus_default_range_visibility="Collapsed"
+											 is_horizontal_numbers_visible="False"
+											 toggle_range_visibility="Collapsed"
+											 scroll_bar_visibility="Visible"/> 
+			<DockPanel Grid.Row="1" Grid.ColumnSpan="3">
+				<Button DockPanel.Dock="Right" Content="..." Width="26" ToolTip="Settings" Click="settings_click"/>
+				<WrapPanel Orientation="Horizontal" >
+					<Button Name="m_focus_fake" Width="0" />
+					<Button Content="Play" Width="80" Click="play_click" ToolTip="Play from current animation marker location"/>
+					<Button Content="Stop" Width="80" Click="stop_click" ToolTip="Stop Animation"/>
+					<Button Content="Set Key" Width="80" Click="set_key" ToolTip="Set Key on current animation marker location"/>
+					<Button Content="Selected To Camera" Width="120" Click="selected_to_camera_click" ToolTip="Translate currently selected key to camera location"/>
+					<Button Content="Camera To Selected" Width="120" Click="camera_to_selected_click" ToolTip="Translate camera to currently selected key location"/>
+					<Button Width="20" Click="prev_key_click" ToolTip="Go to Previous key"><Path Data="M8 0 L0 7 L8 14 Z" Fill="Black"/></Button>
+					<ToggleButton Content="Select Keys" Name="m_select_keys_toggle" ToolTip="If Checked, keys will be selected on move" />
+					<Button Width="20" Click="next_key_click" ToolTip="Go to Next key"><Path Data="M0 0 L8 7 L0 14 Z" Fill="Black"/></Button>
+                    <ToggleButton Name="m_camera_view_button" Content="Camera View" Width="80" Click="camera_view_click"/>
+					<DockPanel>
+						<TextBlock Text="Play Speed" Margin="5, 0, 5, 0" VerticalAlignment="Center" />
+						<TextBox Width="40" Text="{Binding Value, ElementName=m_speed_slider}" KeyDown="speed_text_box_key_down" />
+						<Slider Name="m_speed_slider" MinWidth="50"  Minimum="0" Maximum="8" SmallChange="0.1" LargeChange="1" Value="1" IsSnapToTickEnabled="True" TickFrequency="0.1" IsMoveToPointEnabled="True" FocusVisualStyle="{x:Null}"/>
+					</DockPanel>
+				</WrapPanel>
+			</DockPanel>
+		</Grid>
+	</Border>
+</UserControl>

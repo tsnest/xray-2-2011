@@ -1,0 +1,88 @@
+vs_2_0
+// cgc version 1.5.0014, build date Sep 18 2006 20:36:59
+// command line args: -profile vs_2_0
+// source file: GlossMap.cg
+//vendor NVIDIA Corporation
+//version 1.5.0.14
+//profile vs_2_0
+//program v_GlossMap
+//semantic v_GlossMap.WVPMatrix
+//semantic v_GlossMap.CameraModelPosition
+//semantic v_GlossMap.MaterialEmissive
+//semantic v_GlossMap.MaterialAmbient
+//semantic v_GlossMap.MaterialDiffuse
+//semantic v_GlossMap.MaterialSpecular
+//semantic v_GlossMap.Light0ModelDirection
+//semantic v_GlossMap.Light0Ambient
+//semantic v_GlossMap.Light0Diffuse
+//semantic v_GlossMap.Light0Specular
+//var float3 kModelPosition : $vin.POSITION : ATTR0 : 0 : 1
+//var float3 kModelNormal : $vin.NORMAL : ATTR1 : 1 : 1
+//var float2 kModelTCoord : $vin.TEXCOORD0 : ATTR2 : 2 : 1
+//var float4 kClipPosition : $vout.POSITION : HPOS : 3 : 1
+//var float3 kEADColor : $vout.COLOR : COL0 : 4 : 1
+//var float2 kTCoord : $vout.TEXCOORD0 : TEX0 : 5 : 1
+//var float3 kSpecularColor : $vout.TEXCOORD1 : TEX1 : 6 : 1
+//var float4x4 WVPMatrix :  : c[0], 4 : 7 : 1
+//var float3 CameraModelPosition :  : c[4] : 8 : 1
+//var float3 MaterialEmissive :  : c[5] : 9 : 1
+//var float3 MaterialAmbient :  : c[6] : 10 : 1
+//var float4 MaterialDiffuse :  : c[7] : 11 : 1
+//var float4 MaterialSpecular :  : c[8] : 12 : 1
+//var float3 Light0ModelDirection :  : c[9] : 13 : 1
+//var float3 Light0Ambient :  : c[10] : 14 : 1
+//var float3 Light0Diffuse :  : c[11] : 15 : 1
+//var float3 Light0Specular :  : c[12] : 16 : 1
+//const c[13] = 0 1
+dcl_position v0
+dcl_normal v1
+dcl_texcoord0 v2
+def c13, 0.000000, 1.000000, 0, 0
+dp3 r1.x, v1, c9
+add r0.xyz, -v0, c4
+dp3 r0.w, r0, r0
+rsq r0.w, r0.w
+mad r0.xyz, r0.w, r0, -c9
+dp3 r0.w, r0, r0
+rsq r0.w, r0.w
+mul r0.xyz, r0.w, r0
+dp3 r1.z, v1, r0
+slt r1.y, c13.x, -r1.x
+sge r0.x, c13, r1.z
+mul r0.x, r1.y, r0
+max r0.x, -r0, r0
+slt r0.x, c13, r0
+add r1.w, -r0.x, c13.y
+pow r0, r1.z, c8.w
+sge r0.z, r1.y, c13.x
+sge r0.y, c13.x, r1
+mul r0.y, r0.z, r0
+max r0.y, -r0, r0
+mul r0.z, r1.w, r0.x
+slt r0.y, c13.x, r0
+add r0.x, -r0.y, c13.y
+mul r1.w, r0.x, r0.z
+mul r0.x, r0, -r1
+mov r1.xyz, c6
+mul r1.xyz, c10, r1
+slt r0.w, c13.x, r0.x
+slt r0.y, c13.x, r1.w
+mul r0.y, r0.w, r0
+max r2.w, -r0.y, r0.y
+max r0.w, -r0, r0
+slt r0.w, c13.x, r0
+add r1.xyz, r1, c5
+add r2.x, -r0.w, c13.y
+mul r0.xyz, r0.x, c7
+mad r0.xyz, r0, c11, r1
+mul r2.xyz, r1, r2.x
+mad oD0.xyz, r0.w, r0, r2
+mul r0, v0.y, c1
+mul r1.xyz, r1.w, c8
+mad r0, v0.x, c0, r0
+mad r0, v0.z, c2, r0
+slt r2.x, c13, r2.w
+mul r1.xyz, r1, c12
+mul oT1.xyz, r2.x, r1
+add oPos, r0, c3
+mov oT0.xy, v2

@@ -1,0 +1,28 @@
+void v_HeightEffect
+(
+    in float3 kModelPosition : POSITION,
+    in float2 kTCoord0 : TEXCOORD0,
+    out float4 kClipPosition : POSITION,
+    out float2 kOutTCoord0 : TEXCOORD0,
+    uniform float4x4 WVPMatrix,
+    uniform sampler2D HeightSampler
+)
+{
+    float4 kFullPosition;
+    kFullPosition.xy = kModelPosition.xy;
+    kFullPosition.z = tex2D(HeightSampler,kTCoord0).r;
+    kFullPosition.w = 1.0f;
+    kClipPosition = mul(kFullPosition,WVPMatrix);
+
+    kOutTCoord0 = kTCoord0;
+}
+
+void p_HeightEffect
+(
+    in float2         kBaseTCoord : TEXCOORD0,
+    out float4        kPixelColor : COLOR,
+    uniform sampler2D BaseSampler
+)
+{
+    kPixelColor = tex2D(BaseSampler,kBaseTCoord);
+}

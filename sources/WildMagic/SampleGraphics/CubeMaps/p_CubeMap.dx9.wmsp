@@ -1,0 +1,22 @@
+ps_2_0
+// cgc version 1.4.0000, build date Jun  9 2005 12:09:02
+// command line args: -profile ps_2_0
+// source file: CubeMap.cg
+//vendor NVIDIA Corporation
+//version 1.0.02
+//profile ps_2_0
+//program p_CubeMap
+//semantic p_CubeMap.Reflectivity
+//semantic p_CubeMap.CubeMapSampler
+//var float4 kVertexColor : $vin.COLOR : COL0 : 0 : 1
+//var float3 kReflectTCoord : $vin.TEXCOORD0 : TEX0 : 1 : 1
+//var float4 kPixelColor : $vout.COLOR : COL : 2 : 1
+//var float Reflectivity :  : c[0] : 3 : 1
+//var samplerCUBE CubeMapSampler :  : texunit 0 : 4 : 1
+dcl_cube s0
+dcl t0.xyz
+dcl v0
+texld r0, t0, s0
+add r0, r0, -v0
+mad r0, r0, c0.x, v0
+mov oC0, r0

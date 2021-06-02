@@ -1,0 +1,6 @@
+﻿<Canvas x:Class="xray.editor.wpf_controls.curve_editor.visual_curve"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	Focusable="True" Panel.ZIndex="500"
+	Name="curve_elements_container" SnapsToDevicePixels="False" ClipToBounds="True">
+</Canvas >

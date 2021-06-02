@@ -1,0 +1,103 @@
+//----------------------------------------------------------------------------
+void GetDirectionalLightFactors
+(
+    float3    kModelPosition,
+    float3    kModelNormal,
+    float3    kCameraPosition,
+    float3    kLightDirection,
+    float     fSpecularExponent,
+    out float fDiffuseFactor,
+    out float fSpecularFactor)
+{
+    float fDiff, fSpec;
+
+    fDiff = -dot(kModelNormal,kLightDirection);
+    if (fDiff > 0.0f)
+    {
+        float3 kViewVector = normalize(kCameraPosition - kModelPosition);
+        float3 kHalfVector = normalize(kViewVector - kLightDirection);
+        fSpec = dot(kModelNormal,kHalfVector);
+        if (fSpec > 0.0f)
+        {
+            fSpec = pow(fSpec,fSpecularExponent);
+        }
+        else
+        {
+            fSpec = 0.0f;
+        }
+    }
+    else
+    {
+        fDiff = 0.0f;
+        fSpec = 0.0f;
+    }
+    
+    fDiffuseFactor = fDiff;
+    fSpecularFactor = fSpec;
+}
+//----------------------------------------------------------------------------
+void v_GlossMap
+(
+    in float3        kModelPosition  : POSITION,
+    in float3        kModelNormal : NORMAL,
+    in float2        kModelTCoord : TEXCOORD0,
+    out float4       kClipPosition : POSITION,
+    out float3       kEADColor : COLOR,
+    out float2       kTCoord : TEXCOORD0,
+    out float3       kSpecularColor : TEXCOORD1,
+    uniform float4x4 WVPMatrix,
+    uniform float3   CameraModelPosition,
+    uniform float3   MaterialEmissive,
+    uniform float3   MaterialAmbient,
+    uniform float4   MaterialDiffuse,
+    uniform float4   MaterialSpecular,
+    uniform float3   Light0ModelDirection,
+    uniform float3   Light0Ambient,
+    uniform float3   Light0Diffuse,
+    uniform float3   Light0Specular)
+{
+    // Transform the position from model space to clip space.
+    kClipPosition = mul(float4(kModelPosition,1.0f),WVPMatrix);
+
+    // Compute the specular color for the lit material.
+    float fDiff, fSpec;
+    GetDirectionalLightFactors(kModelPosition,kModelNormal,
+        CameraModelPosition,Light0ModelDirection,MaterialSpecular.a,
+        fDiff,fSpec);
+
+    kEADColor = MaterialEmissive + MaterialAmbient*Light0Ambient;
+    kSpecularColor = 0.0f;
+    if (fDiff > 0.0f)
+    {
+        kEADColor += fDiff*MaterialDiffuse.rgb*Light0Diffuse;
+        if (fSpec > 0.0f)
+        {
+            kSpecularColor += fSpec*MaterialSpecular.rgb*Light0Specular;
+        }
+    }
+
+    // Pass through the texture coordinate.
+    kTCoord = kModelTCoord;
+}
+//----------------------------------------------------------------------------
+void p_GlossMap
+(
+    in float3         kEADColor : COLOR,
+    in float2         kTCoord : TEXCOORD0,
+    in float3         kSpecularColor : TEXCOORD1,
+    out float4        kPixelColor : COLOR,
+    uniform sampler2D BaseSampler)
+{
+    // The blending equation is
+    //   (rf,gf,bf) = (rt,gt,bt)*(re,ge,be) + at*(rs,gs,bs)
+    // where (rf,gf,bf) is the final color, (rt,gt,bt) is the texture color,
+    // (re,ge,be) is the emissive-ambient-diffuse color, and (rs,gs,bs) is
+    // the specular color.
+
+    // Sample the texture image.
+    float4 kTextureColor = tex2D(BaseSampler,kTCoord);
+    kPixelColor.rgb = kTextureColor.rgb*kEADColor +
+        kTextureColor.a*kSpecularColor;
+    kPixelColor.a = 1.0f;
+}
+//----------------------------------------------------------------------------

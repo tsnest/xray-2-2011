@@ -1,0 +1,85 @@
+CFLAGS := -c
+ARFLAGS := rs
+INCPATH := -I .. -I ./Wmsp -I ../../SDK/Include
+INCDIR := ../../SDK/Include
+
+ifeq (linux,$(findstring linux,$(SYS)))
+CC := /usr/bin/g++
+GCC := /usr/bin/gcc
+EGL := XSoft
+AR := /usr/bin/ar
+INCPATH += -I /usr/X11R6/include
+endif
+
+ifeq (mingw,$(findstring mingw,$(SYS)))
+CC := /mingw/bin/g++
+GCC := /mingw/bin/gcc
+EGL := WinSoft
+AR := /mingw/bin/ar
+CFLAGS += -DMINGW
+INCPATH += -I /mingw/include
+endif
+
+ifeq (cygwin,$(findstring cygwin,$(SYS)))
+CC := /usr/bin/g++
+GCC := /usr/bin/gcc
+EGL := Wgl
+AR := /usr/bin/ar
+INCPATH += -I /usr/include
+endif
+
+ifeq (sgi,$(findstring sgi,$(SYS)))
+CC := /usr/freeware/bin/g++
+GCC := /usr/freeware/bin/gcc
+EGL := XSoft
+AR := /usr/bin/ar
+INCPATH += -I /usr/X11R6/include
+endif
+
+ifeq (Debug,$(findstring Debug,$(CFG)))
+CFLAGS += -g -D_DEBUG
+else
+CFLAGS += -O2 -DNDEBUG
+endif
+
+ifeq (Memory,$(findstring Memory,$(CFG)))
+CFLAGS += -DWM4_MEMORY_MANAGER
+endif
+
+INC := ../Wm4ApplicationPCH.h \
+       ../Wm4Application.h \
+       ../Wm4ApplicationMCR.h \
+       ../Wm4ConsoleApplication.h \
+       ../Wm4WindowApplication.h \
+       ../Wm4WindowApplication.inl \
+       ../Wm4WindowApplication2.h \
+       ../Wm4WindowApplication3.h
+SRC := Wm4Application.cpp \
+       Wm4ConsoleApplication.cpp \
+       Wm4WindowApplication.cpp \
+       Wm4WindowApplication2.cpp \
+       Wm4WindowApplication3.cpp
+ifeq (mingw,$(findstring mingw,$(SYS)))
+SRC += TreeControl.cpp
+endif
+ifeq (cygwin,$(findstring cygwin,$(SYS)))
+SRC += TreeControl.cpp
+endif
+OBJ := $(SRC:%.cpp=$(CFG)/%.o)
+LIB := ../../SDK/Library/$(CFG)/libWm4SoftApplication.a
+
+build : $(OBJ) $(CFG)/Wm4$(EGL)Application.o
+	$(AR) $(ARFLAGS) $(LIB) $(OBJ) $(CFG)/Wm4$(EGL)Application.o
+	cp -fp $(INC) $(INCDIR) 
+
+$(CFG)/Wm4$(EGL)Application.o : Wm4$(EGL)Application.cpp
+	@mkdir -p $(CFG)
+	$(CC) $(INCPATH) $(CFLAGS) $< -o $@
+
+$(CFG)/%.o : ../%.cpp
+	@mkdir -p $(CFG)
+	$(CC) $(INCPATH) $(CFLAGS) $< -o $@
+
+clean :
+	rm -f $(LIB)
+	rm -f $(CFG)/*.o

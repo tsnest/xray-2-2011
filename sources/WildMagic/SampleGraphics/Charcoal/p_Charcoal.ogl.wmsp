@@ -1,0 +1,36 @@
+!!ARBfp1.0
+# cgc version 1.4.0000, build date Jun  9 2005 12:09:02
+# command line args: -profile arbfp1
+# source file: Charcoal.cg
+#vendor NVIDIA Corporation
+#version 1.0.02
+#profile arbfp1
+#program p_Charcoal
+#semantic p_Charcoal.ConstrastSampler
+#semantic p_Charcoal.RandomSampler
+#semantic p_Charcoal.PaperSampler
+#semantic p_Charcoal.Constants
+#var float4 kVertexColor : $vin.COLOR : COL0 : 0 : 1
+#var float2 kContrastTCoord : $vin.TEXCOORD0 : TEX0 : 1 : 1
+#var float2 kRandomTCoord : $vin.TEXCOORD1 : TEX1 : 2 : 1
+#var float2 kPaperTCoord : $vin.TEXCOORD2 : TEX2 : 3 : 1
+#var float4 kPixelColor : $vout.COLOR : COL : 4 : 1
+#var sampler2D ConstrastSampler :  : texunit 2 : 5 : 1
+#var sampler2D RandomSampler :  : texunit 0 : 6 : 1
+#var sampler2D PaperSampler :  : texunit 1 : 7 : 1
+#var float2 Constants :  : c[0] : 8 : 1
+PARAM c[1] = { program.local[0] };
+TEMP R0;
+TEMP R1;
+TEMP R2;
+TEX R0.x, fragment.texcoord[1], texture[0], 2D;
+MOV R0.y, fragment.texcoord[0];
+ADD R0.x, fragment.texcoord[0], R0;
+TEX R1, R0, texture[2], 2D;
+ADD R2, fragment.color.primary, -R1;
+TEX R0, fragment.texcoord[2], texture[1], 2D;
+MAD R1, R2, c[0].x, R1;
+ADD_SAT R0, R0, c[0].y;
+MUL result.color, R0, R1;
+END
+# 9 instructions, 3 R-regs

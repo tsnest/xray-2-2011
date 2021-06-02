@@ -1,0 +1,26 @@
+!!ARBfp1.0
+# cgc version 1.4.0000, build date Jun  9 2005 12:09:02
+# command line args: -profile arbfp1
+# source file: T0s1d0T1s3d1.cg
+#vendor NVIDIA Corporation
+#version 1.0.02
+#profile arbfp1
+#program p_T0s1d0T1s3d1
+#semantic p_T0s1d0T1s3d1.Sampler0
+#semantic p_T0s1d0T1s3d1.Sampler1
+#var float2 kTCoord0 : $vin.TEXCOORD0 : TEX0 : 0 : 1
+#var float2 kTCoord1 : $vin.TEXCOORD1 : TEX1 : 1 : 1
+#var float4 kPixelColor : $vout.COLOR : COL : 2 : 1
+#var sampler2D Sampler0 :  : texunit 0 : 3 : 1
+#var sampler2D Sampler1 :  : texunit 1 : 4 : 1
+#const c[0] = 1
+PARAM c[1] = { { 1 } };
+TEMP R0;
+TEMP R1;
+TEMP R2;
+TEX R0, fragment.texcoord[0], texture[0], 2D;
+TEX R1, fragment.texcoord[1], texture[1], 2D;
+ADD R2, -R0, c[0].x;
+MAD result.color, R2, R1, R0;
+END
+# 4 instructions, 3 R-regs

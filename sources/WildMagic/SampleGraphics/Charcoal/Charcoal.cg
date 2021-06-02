@@ -1,0 +1,121 @@
+//----------------------------------------------------------------------------
+// This is an implementation of Charcoal-style NPR rendering written by 
+// Michael Riegger (mikeriegger@yahoo.ca) for cgshaders.org.  The
+// implementation is based on the paper "Hardware Accelerated Real Time
+// Charcoal Rendering" by Aditi Majumder of the Department of Computer
+// Science at the University of North Carolina at Chapel Hill and by M. Gopi
+// of the Department of Information and Computer Science at the University of
+// of California at Irvine.  The shader has been changed slightly for use in
+// Wild Magic.
+//----------------------------------------------------------------------------
+void v_Charcoal
+(
+    in float3        kModelPosition : POSITION,
+    in float3        kModelNormal : NORMAL,
+    in float2        kInRandomTCoord : TEXCOORD0,
+    out float4       kClipPosition : POSITION,
+    out float4       kVertexColor : COLOR,
+    out float2       kContrastTCoord : TEXCOORD0,
+    out float2       kOutRandomTCoord : TEXCOORD1,
+    out float2       kPaperTCoord : TEXCOORD2,
+    uniform float4x4 WVPMatrix,
+    uniform float3   Light0ModelDirection,
+    uniform float3   Light1ModelDirection,
+    uniform float2   Constants)  // ambient_intensity = Constants.x
+                                 // contrast_exponent = Constants.y
+{
+    // Transform the position from model space to clip space.
+    kClipPosition = mul(float4(kModelPosition,1.0f),WVPMatrix);
+
+    // Calculate lighting intensity with two diffuse lights and ambient light.
+    // Only the intensity is computed so that the output color is gray scale.
+    float fDiffuse1 = saturate(-dot(kModelNormal,Light0ModelDirection));
+    float fDiffuse2 = saturate(-dot(kModelNormal,Light1ModelDirection));
+    float fIllumination = saturate(fDiffuse1 + fDiffuse2 + Constants.x);
+
+    // Enhance the contrast of the computed color.
+    float fContrastIllumination = pow(fIllumination,Constants.y);
+
+    kVertexColor = fContrastIllumination;
+
+    // The first texture coordinate is a lookup into a 2D texture image of
+    // random values.  The coordinate will be used to find the s coordinate
+    // for lookup into the contrast texture.  The random map produces a
+    // random s coordinate at each fragment, as sometimes the given model st
+    // coordinates produce nasty banding artifacts if they are just
+    // interpolated across the polygons.  The t coordinate is the gray scale
+    // color value of the fragment.
+    kOutRandomTCoord = kInRandomTCoord;
+
+    // Compute the texture coordinate for the contrast map using the lookup
+    // produced by the random map.
+    kContrastTCoord.x = 0.0f;
+    kContrastTCoord.y = fContrastIllumination;
+
+    // The second texture is a paper texture that is overlaid on the screen.
+    // Determine the screen-space texture coordinates for this vertex.  Some
+    // of the models looked odd if alpha blending was ued, so instead just
+    // draw with no blending.
+    float fInverseW = 1.0f/kClipPosition.w;
+    float2 kClipCoordinates = kClipPosition.xy * fInverseW;
+    
+    // Convert screen coordinates from [-1,1] to [0,1] for texture lookup.
+    kPaperTCoord.xy = (kClipCoordinates + 1.0f)*0.5f;
+}
+//----------------------------------------------------------------------------
+void p_Charcoal
+(
+    in float4         kVertexColor : COLOR,
+    in float2         kContrastTCoord : TEXCOORD0,
+    in float2         kRandomTCoord : TEXCOORD1,
+    in float2         kPaperTCoord : TEXCOORD2,
+    out float4        kPixelColor : COLOR,
+    uniform sampler2D ConstrastSampler,
+    uniform sampler2D RandomSampler,
+    uniform sampler2D PaperSampler,
+    uniform float2    Constants)
+{
+    // Generate a random number in [0,1] for this fragment.
+    float4 kRandomColor = tex2D(RandomSampler,kRandomTCoord);
+    
+    // Sample the overlaying paper texture.
+    float4 kPaperColor = tex2D(PaperSampler,kPaperTCoord);
+
+    // The constants allow for Boolean logic with creative use of floats.
+    // Smudge:
+    //   0.5 = normal smudge
+    //   0.0 = no lighting smudging
+    //   1.0 = no contrast map, only diffuse lighting
+    float fSmudgeFactor = Constants.x;
+
+    // Paper:
+    //   0.0 = display paper
+    //   1.0 = no paper
+    float fPaperFactor = Constants.y;
+
+    // Perform a lookup into the contrast-enhanced texture map.
+    // s' = 0 + RandomNumber.x 
+    // t' = t, the contrast-enhanced color from the vertex shader
+    kContrastTCoord.x += kRandomColor.x;
+    float4 kContrastColor = tex2D(ConstrastSampler,kContrastTCoord);
+
+    // Blend the contrast-enhanced texel with the contrast-enhanced vertex 
+    // color.
+    float4 kSmudgedColor = lerp(kContrastColor,kVertexColor,fSmudgeFactor);
+
+    // We may want to just display the object without the paper.  If
+    // fPaperFactor is large enough it will saturate the paper color to 
+    // white which cancels out the alpha blending in the next step.
+    kPaperColor = saturate(kPaperColor + fPaperFactor);
+
+    // Do alpha blending with the background.  The background is drawn as a
+    // screen polygon in the distance.  However, there is the chance that
+    // whatever is drawn on top of the background will touch the same pixel
+    // multiple times and the alpha blending will not look right.  What we
+    // really want is to have only those pixels that are visible without
+    // alpha blending to be drawn with blending.  The alpha blending is done
+    // with the background and the z-buffer can sort out the work of which
+    //  pixel is actually on top.
+    kPixelColor = kPaperColor*kSmudgedColor;
+}
+//----------------------------------------------------------------------------

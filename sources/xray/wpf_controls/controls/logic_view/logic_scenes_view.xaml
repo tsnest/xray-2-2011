@@ -1,0 +1,45 @@
+﻿<Border x:Class="xray.editor.wpf_controls.logic_view.logic_scenes_view"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:hypergraph="clr-namespace:xray.editor.wpf_controls.hypergraph" 
+	BorderThickness ="4"
+	Focusable="true"
+	Height="150"
+	Background="Transparent"
+	BorderBrush="DarkRed"
+	>
+	<DockPanel>
+		<Border BorderThickness="0, 0, 0, 4" BorderBrush="DarkRed"  DockPanel.Dock="Top" Height="30">
+			<TextBlock Text="S C E N E S" Foreground="Gray"  TextAlignment="Center" FontSize="18" Background="LightGray"></TextBlock>
+		</Border>
+		<Thumb x:Name="bottom_grip"  DragDelta="on_bottom_drag" DockPanel.Dock="Bottom" Cursor="SizeNS">
+			<Thumb.Template>
+				<ControlTemplate>
+					<Border Height="10" Background="LightBlue" BorderBrush="Gray" BorderThickness="3">
+					</Border>
+				</ControlTemplate>
+			</Thumb.Template>
+		</Thumb>
+		<DockPanel DockPanel.Dock="Left">
+			<Border DockPanel.Dock="Top" Name="logic_entity_resource_top"  Height="20" Width="150"  BorderThickness="2 2 2 0" Background="LightGray" Focusable="True" BorderBrush="SteelBlue">
+				<TextBlock x:Name="item_text"  Text="ItemName" TextAlignment="Center" x:FieldModifier="public"/>
+			</Border>
+			<Border DockPanel.Dock="Bottom" BorderThickness="2 0 2 2" Background="LightGray" BorderBrush="SteelBlue"/>
+		</DockPanel>
+		<hypergraph:hypergraph_control 
+			DockPanel.Dock="Right"
+			top_limit="0" 
+			left_limit="0" 
+			need_expand_to_field="true" 
+			viewport_origin="0,0" 
+			is_zoomable="false" 
+			is_panable="false"  
+			is_nodes_moveable="True" 
+			x:Name="logic_hypergraph" 
+			is_fix_min_field_size="false" 
+			field_bounds_inflate="0,0" 
+			is_grid_enabled="false" 
+			x:FieldModifier="public" 
+			FontSize="10">			
+		</hypergraph:hypergraph_control>
+	</DockPanel>
+</Border>

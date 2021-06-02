@@ -1,0 +1,30 @@
+!!ARBvp1.0
+# cgc version 1.5.0014, build date Sep 18 2006 20:36:59
+# command line args: -profile arbvp1
+# source file: ShadowMaps2.cg
+#vendor NVIDIA Corporation
+#version 1.5.0.14
+#profile arbvp1
+#program v_Shadow
+#semantic v_Shadow.WMatrix
+#semantic v_Shadow.LightVPMatrix
+#var float3 kModelPosition : $vin.POSITION : POSITION : 0 : 1
+#var float4 kLSPosition : $vout.POSITION : HPOS : 1 : 1
+#var float fDepth : $vout.TEXCOORD0 : TEX0 : 2 : 1
+#var float4x4 WMatrix :  : c[1], 4 : 3 : 1
+#var float4x4 LightVPMatrix :  : c[5], 4 : 4 : 1
+PARAM c[9] = { program.local[0..8] };
+TEMP R0;
+TEMP R1;
+MUL R0, vertex.position.y, c[2];
+MAD R0, vertex.position.x, c[1], R0;
+MAD R0, vertex.position.z, c[3], R0;
+ADD R0, R0, c[4];
+MUL R1, R0.y, c[6];
+MAD R1, R0.x, c[5], R1;
+MAD R1, R0.z, c[7], R1;
+MAD R0, R0.w, c[8], R1;
+MOV result.position, R0;
+MOV result.texcoord[0].x, R0.z;
+END
+# 10 instructions, 2 R-regs

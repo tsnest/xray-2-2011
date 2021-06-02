@@ -1,0 +1,274 @@
+//----------------------------------------------------------------------------
+// Motivated by the article "Soft-Edged Shadows"
+// http://www.gamedev.net/reference/articles/article2193.asp
+//----------------------------------------------------------------------------
+void v_Shadow
+(
+    in float3 kModelPosition : POSITION,
+    out float4 kLSPosition : POSITION,
+    out float fDepth : TEXCOORD0,
+    uniform float4x4 WMatrix,
+    uniform float4x4 LightVPMatrix
+)
+{
+    // Transform the position from model space to light space.
+    float4 kHModelPosition = float4(kModelPosition,1.0f);
+    float4 kWorldPosition = mul(kHModelPosition,WMatrix);
+    kLSPosition = mul(kWorldPosition,LightVPMatrix);
+
+    // Output the distance from the light source to the vertex.
+    fDepth = kLSPosition.z;
+}
+//----------------------------------------------------------------------------
+void p_Shadow
+(
+    in float fDepth : TEXCOORD0,
+    out float4 kPixelColor : COLOR
+)
+{
+    kPixelColor.rgb = fDepth;
+    kPixelColor.a = 1.0f;
+}
+//----------------------------------------------------------------------------
+void v_Unlit
+(
+    in float3 kModelPosition : POSITION,
+    out float4 kClipPosition : POSITION,
+    out float4 kProjTCoord : TEXCOORD0,
+    out float fDepth : TEXCOORD1,
+    uniform float4x4 WVPMatrix,
+    uniform float4x4 WMatrix,
+    uniform float4x4 LightVPMatrix,
+    uniform float4x4 LightVPBSMatrix
+)
+{
+    // Transform the position from model space to clip space.
+    float4 kHModelPosition = float4(kModelPosition,1.0f);
+    kClipPosition = mul(kHModelPosition,WVPMatrix);
+
+    // Transform the position from model space to light space.
+    float4 kWorldPosition = mul(kHModelPosition,WMatrix);
+    float4 kLSPosition = mul(kWorldPosition,LightVPMatrix);
+
+    // Compute the projected texture coordinates.
+    kProjTCoord = mul(kWorldPosition,LightVPBSMatrix);
+
+    // Output the distance from the light source.
+    fDepth = kLSPosition.z;
+}
+//----------------------------------------------------------------------------
+void p_Unlit
+(
+    in float4 kProjTCoord : TEXCOORD0,
+    in float fDepth : TEXCOORD1,
+    out float4 kPixelColor : COLOR,
+    uniform float DepthBias,
+    uniform float TexelSize,  // 1.0f/textureWidth (square texture)
+    uniform sampler2D ShadowSampler
+)
+{
+    // Generate the texture coordinates for the specified depth-map size.
+    float4 akTexCoords[9];
+    akTexCoords[0] = kProjTCoord;
+    akTexCoords[1] = kProjTCoord + float4(-TexelSize, 0, 0, 0);
+    akTexCoords[2] = kProjTCoord + float4(TexelSize, 0, 0, 0);
+    akTexCoords[3] = kProjTCoord + float4(0, -TexelSize, 0, 0);
+    akTexCoords[4] = kProjTCoord + float4(-TexelSize, -TexelSize, 0, 0);
+    akTexCoords[5] = kProjTCoord + float4(TexelSize, -TexelSize, 0, 0);
+    akTexCoords[6] = kProjTCoord + float4(0, TexelSize, 0, 0);
+    akTexCoords[7] = kProjTCoord + float4(-TexelSize, TexelSize, 0, 0);
+    akTexCoords[8] = kProjTCoord + float4(TexelSize, TexelSize, 0, 0);
+
+    // Sample each of them, checking whether or not the pixel is shadowed.
+    float fB = fDepth - DepthBias;
+    float fShadowTerm = 0.0f;
+    for (int i = 0; i < 9; i++)
+    {
+        float fA = tex2Dproj(ShadowSampler,akTexCoords[i]).r;
+        if (fA >= fB)
+        {
+            fShadowTerm += 1.0f;
+        }
+    }
+
+    fShadowTerm /= 9.0f;
+    kPixelColor = fShadowTerm;
+}
+//----------------------------------------------------------------------------
+void v_Blur
+(
+    in float3 kModelPosition : POSITION,
+    in float2 kModelTCoord : TEXCOORD0,
+    out float4 kClipPosition : POSITION,
+    out float2 kTCoord : TEXCOORD0,
+    uniform float4x4 WVPMatrix
+)
+{
+    // Transform the position from model space to clip space.
+    kClipPosition = mul(float4(kModelPosition,1.0f),WVPMatrix);
+    
+    // Pass through the texture coordinates.
+    kTCoord = kModelTCoord;
+}
+//----------------------------------------------------------------------------
+void p_HorizontalBlur
+(
+    in float2 kTCoord : TEXCOORD0,
+    out float4 kPixelColor : COLOR,
+    uniform float3 Weights[11],
+    uniform float2 Offsets[11],
+    uniform sampler2D BaseSampler
+)
+{
+    kPixelColor = 0.0f;
+    for (int i = 0; i < 11; i++)
+    {
+        kPixelColor.rgb +=
+            Weights[i]*tex2D(BaseSampler, kTCoord + Offsets[i]).rgb;
+    }
+    kPixelColor.a = 1.0f;
+}
+//----------------------------------------------------------------------------
+void p_VerticalBlur
+(
+    in float2 kTCoord : TEXCOORD0,
+    out float4 kPixelColor : COLOR,
+    uniform float3 Weights[11],
+    uniform float2 Offsets[11],
+    uniform sampler2D BaseSampler
+)
+{
+    kPixelColor = 0.0f;
+    for (int i = 0; i < 11; i++)
+    {
+        kPixelColor.rgb +=
+            Weights[i]*tex2D(BaseSampler, kTCoord + Offsets[i]).rgb;
+    }
+    kPixelColor.a = 1.0f;
+}
+//----------------------------------------------------------------------------
+void v_Scene
+(
+    in float3 kModelPosition : POSITION,
+    in float3 kModelNormal : NORMAL,
+    in float2 kModelTCoord : TEXCOORD0,
+    out float4 kClipPosition : POSITION,
+    out float2 kTCoord : TEXCOORD0,
+    out float4 kProjTCoord : TEXCOORD1,
+    out float4 kScreenTCoord : TEXCOORD2,
+    out float3 kNormal : TEXCOORD3,
+    out float3 kLightVector : TEXCOORD4,
+    out float3 kEyeVector : TEXCOORD5,
+    uniform float4x4 WVPMatrix,
+    uniform float4x4 WMatrix,
+    uniform float4x4 LightVPMatrix,
+    uniform float4x4 LightVPBSMatrix,
+    uniform float3 LightWorldPosition,
+    uniform float3 CameraWorldPosition
+)
+{
+    // Transform the position from model space to clip space.
+    float4 kHModelPosition = float4(kModelPosition,1.0f);
+    kClipPosition = mul(kHModelPosition,WVPMatrix);
+    
+    // Pass through the texture coordinates.
+    kTCoord = kModelTCoord;
+    
+    // Transform the position from model space to world space.
+    float4 kWorldPosition = mul(kHModelPosition,WMatrix);
+    
+    // Transform the normal from model space to world space.
+    kNormal = mul(kModelNormal,(float3x3)WMatrix);
+
+    // Transform the position from world space to light space.
+    float4 kLSPosition = mul(kWorldPosition,LightVPMatrix);
+
+    // Compute the projected texture coordinates.
+    kProjTCoord = mul(kWorldPosition,LightVPBSMatrix);
+    
+    // Compute the screen-space texture coordinates.
+    kScreenTCoord.x = 0.5f*(kClipPosition.x + kClipPosition.w);
+    kScreenTCoord.y = 0.5f*(kClipPosition.y + kClipPosition.w);
+    kScreenTCoord.z = kClipPosition.w;
+    kScreenTCoord.w = kClipPosition.w;
+    
+    // Transform the light vector to tangent space.
+    kLightVector = LightWorldPosition - kWorldPosition.xyz;
+    
+    // Transform the eye vector into tangent space.
+    kEyeVector = CameraWorldPosition - kWorldPosition.xyz;
+}
+//----------------------------------------------------------------------------
+void p_Scene
+(
+    in float2 kTCoord : TEXCOORD0,
+    in float4 kProjTCoord : TEXCOORD1,
+    in float4 kScreenTCoord : TEXCOORD2,
+    in float3 kNormal : TEXCOORD3,
+    in float3 kLightVector : TEXCOORD4,
+    in float3 kEyeVector : TEXCOORD5,
+    out float4 kPixelColor : COLOR,
+    uniform float4 LightColor,
+    uniform sampler2D ColorSampler,
+    uniform sampler2D BlurSampler,
+    uniform sampler2D SpotSampler
+)
+{
+    // Normalize some vectors.
+    kNormal = normalize(kNormal);
+    kLightVector = normalize(kLightVector);
+    kEyeVector = normalize(kEyeVector);
+    
+    // Get the base color.
+    float4 kBaseColor = tex2D(ColorSampler,kTCoord);
+    
+    // Compute the ambient lighting term (zero, for this example).
+    float fAmbient = 0.0f;
+    
+    // Compute the diffuse lighting term.
+    float fNdL = dot(kNormal,kLightVector);
+    float fDiffuse = max(fNdL,0.0f);
+    
+    // Compute the specular lighting term.
+    float fSpecular;
+    if (fDiffuse != 0.0f)
+    {
+        float3 kTmp = 2.0f*fNdL*kNormal - kLightVector;
+        fSpecular = pow(max(dot(kTmp,kLightVector),0.0f),8.0f);
+    }
+    else
+    {
+        fSpecular = 0.0f;
+    }
+    
+    // Get the shadow term.
+    float fShadow = tex2Dproj(BlurSampler,kScreenTCoord).r;
+    
+    // Clamp the spot texture to a disk centered in the texture in
+    // order to give the appearance of a spotlight cone.
+    float fU = kProjTCoord.x/kProjTCoord.w;
+    float fV = kProjTCoord.y/kProjTCoord.w;
+    float fDU = fU - 0.5f;
+    float fDV = fV - 0.5f;
+    float fRSqr = fDU*fDU + fDV*fDV;
+    
+    if (fRSqr <= 0.25f)
+    {
+        float4 kSpot = tex2D(SpotSampler,float2(fU,fV));
+        
+        kPixelColor =
+            fAmbient * kBaseColor +
+            fDiffuse * kBaseColor * LightColor * fShadow * kSpot +
+            fSpecular * kBaseColor * LightColor.a * fShadow * kSpot;
+    }
+    else
+    {
+        kPixelColor =
+            fAmbient * kBaseColor +
+            fDiffuse * kBaseColor * LightColor +
+            fSpecular * kBaseColor * LightColor.a;
+    }
+
+    kPixelColor.a = 1.0f;
+}
+//----------------------------------------------------------------------------

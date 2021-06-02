@@ -1,0 +1,16 @@
+////////////////////////////////////////////////////////////////////////////
+//	Created		: 24.03.2010
+//	Author		: Andrew Kolomiets
+//	Copyright (C) GSC Game World - 2010
+////////////////////////////////////////////////////////////////////////////
+
+#include "pch.h"
+#include "game_scene.h"
+
+namespace stalker2 {
+
+game_scene::game_scene( ) 
+:m_is_active( false )
+{}
+
+} // namespace stalker2

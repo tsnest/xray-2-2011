@@ -1,0 +1,10 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<ResourceDictionary.MergedDictionaries>
+		<ResourceDictionary Source="/wpf_controls;component/property_editors/item/themes/custom_item_editor_theme.xaml" />
+		<ResourceDictionary Source="/wpf_controls;component/property_editors/item/themes/data_source_editor_theme.xaml" />
+		<ResourceDictionary Source="/wpf_controls;component/property_editors/item/themes/material_stage_editor_theme.xaml" />
+		<ResourceDictionary Source="/wpf_controls;component/property_editors/item/themes/material_stage_effect_editor_theme.xaml" />
+		<ResourceDictionary Source="/wpf_controls;component/property_editors/item/themes/named_item_editor_theme.xaml" />
+	</ResourceDictionary.MergedDictionaries>
+</ResourceDictionary>

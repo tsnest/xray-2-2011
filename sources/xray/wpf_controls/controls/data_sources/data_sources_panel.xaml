@@ -1,0 +1,17 @@
+﻿<UserControl x:Class="xray.editor.wpf_controls.data_sources.data_sources_panel"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+	xmlns:local="clr-namespace:xray.editor.wpf_controls.data_sources">
+	<UserControl.Resources>
+		<DataTemplate x:Key="data_source_item_template">
+			<local:data_source_item/>
+		</DataTemplate>
+	</UserControl.Resources>
+	<ItemsControl Margin="0,30,0,0"  x:Name="data_sources" ItemTemplate="{StaticResource data_source_item_template}" >		
+		<ItemsControl.ItemsPanel>			
+			<ItemsPanelTemplate>
+				<WrapPanel Orientation="Horizontal"/>				
+			</ItemsPanelTemplate>
+		</ItemsControl.ItemsPanel>
+	</ItemsControl>
+</UserControl>

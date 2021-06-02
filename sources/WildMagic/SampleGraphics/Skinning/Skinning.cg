@@ -1,0 +1,37 @@
+void v_Skinning
+(
+    in float3        kModelPosition  : POSITION,
+    in float3        kModelColor : COLOR,
+    in float4        kWeight : TEXCOORD0,
+    out float4       kClipPosition : POSITION,
+    out float3       kVertexColor : COLOR,
+    uniform float4x4 WVPMatrix,
+    uniform float4x4 SkinningMatrix0,
+    uniform float4x4 SkinningMatrix1,
+    uniform float4x4 SkinningMatrix2,
+    uniform float4x4 SkinningMatrix3)
+{
+    // This is just one way to do skinning in a shader (by passing in four
+    // [or more, if you want to use more instructions] skinning matrices
+    // to transform the vertices.  Another way is to pass in an arbitrary
+    // number of skinning matrices as constants, and then use the texture
+    // coordinates as indices into the global array of constants to select
+    // the correct skinning matrix.  If you only have a small number of
+    // skinning matrices, the method shown here is the easiest way to handle
+    // skinning.
+
+    // Calculate the position by adding together a convex combination of
+    // transformed positions.
+    float4 kHModelPosition = float4(kModelPosition,1.0f);
+    float4 kSkinPos0 = mul(kHModelPosition,SkinningMatrix0)*kWeight.x;
+    float4 kSkinPos1 = mul(kHModelPosition,SkinningMatrix1)*kWeight.y;
+    float4 kSkinPos2 = mul(kHModelPosition,SkinningMatrix2)*kWeight.z;
+    float4 kSkinPos3 = mul(kHModelPosition,SkinningMatrix3)*kWeight.w;
+    float4 kSkinPosition = kSkinPos0 + kSkinPos1 + kSkinPos2 + kSkinPos3;
+
+    // Transform the position from model space to clip space.
+    kClipPosition = mul(kSkinPosition,WVPMatrix);
+
+    // Pass through the color.
+    kVertexColor = kModelColor;
+}

@@ -1,0 +1,9 @@
+﻿<UserControl x:Class="xray.editor.wpf_controls.hypergraph.groups_editor_node_above_header_content"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:extToolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit/extended">
+	<DockPanel>
+		<extToolkit:DoubleUpDown Name="m_up_down" DockPanel.Dock="Top" Value="0.0" Minimum="0.0" Maximum="10000.0" Background="LightGray"/>
+		<Path Data="M0 0 L0 20" HorizontalAlignment="Center" Stroke="Black" StrokeThickness="3"/>
+	</DockPanel>
+</UserControl>

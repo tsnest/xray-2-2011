@@ -1,0 +1,19 @@
+//----------------------------------------------------------------------------
+void v_T0d2T1d2PassThrough
+(
+    in float3        kModelPosition  : POSITION,
+    in float2        kInTCoord0 : TEXCOORD0,
+    in float2        kInTCoord1 : TEXCOORD1,
+    out float4       kClipPosition : POSITION,
+    out float2       kOutTCoord0 : TEXCOORD0,
+    out float2       kOutTCoord1 : TEXCOORD1,
+    uniform float4x4 WVPMatrix)
+{
+    // Transform the position from model space to clip space.
+    kClipPosition = mul(float4(kModelPosition,1.0f),WVPMatrix);
+
+    // Pass through the texture coordinates.
+    kOutTCoord0 = kInTCoord0;
+    kOutTCoord1 = kInTCoord1;
+}
+//----------------------------------------------------------------------------

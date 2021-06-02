@@ -1,0 +1,32 @@
+vs_2_0
+// cgc version 1.5.0014, build date Sep 18 2006 20:36:59
+// command line args: -profile vs_2_0
+// source file: SimpleBumpMap.cg
+//vendor NVIDIA Corporation
+//version 1.5.0.14
+//profile vs_2_0
+//program v_SimpleBumpMap
+//semantic v_SimpleBumpMap.WVPMatrix
+//var float3 kModelPosition : $vin.POSITION : ATTR0 : 0 : 1
+//var float3 kModelNormal : $vin.NORMAL :  : 1 : 0
+//var float3 kInLightDir : $vin.COLOR : ATTR1 : 2 : 1
+//var float2 kInBaseTCoord : $vin.TEXCOORD0 : ATTR2 : 3 : 1
+//var float2 kInNormalTCoord : $vin.TEXCOORD1 : ATTR3 : 4 : 1
+//var float4 kClipPosition : $vout.POSITION : HPOS : 5 : 1
+//var float3 kOutLightDir : $vout.COLOR : COL0 : 6 : 1
+//var float2 kOutBaseTCoord : $vout.TEXCOORD0 : TEX0 : 7 : 1
+//var float2 kOutNormalTCoord : $vout.TEXCOORD1 : TEX1 : 8 : 1
+//var float4x4 WVPMatrix :  : c[0], 4 : 9 : 1
+//const c[4] = 0.5
+dcl_position v0
+dcl_texcoord0 v2
+dcl_texcoord1 v3
+dcl_color v1
+def c4, 0.500000, 0, 0, 0
+mul r0, v0.y, c1
+mad r0, v0.x, c0, r0
+mad r0, v0.z, c2, r0
+add oPos, r0, c3
+mad oD0.xyz, v1, c4.x, c4.x
+mov oT0.xy, v2
+mov oT1.xy, v3

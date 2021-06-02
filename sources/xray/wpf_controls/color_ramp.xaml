@@ -1,0 +1,20 @@
+﻿<UserControl x:Class="xray.editor.wpf_controls.color_ramp"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Width="180" Height="80" >
+	<Border BorderThickness="1" BorderBrush="Black">
+		<Grid Name="m_grid">
+			<Border Margin="5" Name="m_gradient_box" MouseLeftButtonDown="m_gradient_box_MouseLeftButtonDown">
+				<Border.Background>
+					<LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+						<GradientStop Color="Bisque" Offset="0" />
+						<GradientStop Color="Beige" Offset="0.5" />
+						<GradientStop Color="Cyan" Offset="1" />
+					</LinearGradientBrush>
+				</Border.Background>
+			</Border>
+			<Canvas Name="m_canvas">
+				
+			</Canvas>
+		</Grid>
+	</Border>
+</UserControl>

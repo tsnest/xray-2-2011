@@ -1,0 +1,16 @@
+ps_3_0
+// cgc version 1.5.0014, build date Sep 18 2006 20:36:59
+// command line args: -profile ps_3_0
+// source file: HeightEffect.cg
+//vendor NVIDIA Corporation
+//version 1.5.0.14
+//profile ps_3_0
+//program p_HeightEffect
+//semantic p_HeightEffect.BaseSampler
+//var float2 kBaseTCoord : $vin.TEXCOORD0 : ATTR0 : 0 : 1
+//var float4 kPixelColor : $vout.COLOR : COL : 1 : 1
+//var sampler2D BaseSampler :  : texunit 0 : 2 : 1
+dcl_2d s0
+dcl_texcoord0 v0.xy
+texld r0, v0, s0
+mov oC0, r0

@@ -1,0 +1,52 @@
+//----------------------------------------------------------------------------
+float3 MapToUnit (float3 kVector)
+{
+    // map [-1,1] to [0,1]
+    return 0.5f*kVector + 0.5f;
+}
+//----------------------------------------------------------------------------
+float3 MapFromUnit (float3 kVector)
+{
+    // map [0,1] to [-1,1]
+    return 2.0f*kVector - 1.0f;
+}
+//----------------------------------------------------------------------------
+void v_SimpleBumpMap
+(
+    in float3        kModelPosition : POSITION,
+    in float3        kModelNormal : NORMAL,
+    in float3        kInLightDir : COLOR,
+    in float2        kInBaseTCoord : TEXCOORD0,
+    in float2        kInNormalTCoord : TEXCOORD1,
+    out float4       kClipPosition : POSITION,
+    out float3       kOutLightDir : COLOR,
+    out float2       kOutBaseTCoord : TEXCOORD0,
+    out float2       kOutNormalTCoord : TEXCOORD1,
+    uniform float4x4 WVPMatrix)
+{
+    // Transform the position from model space to clip space.
+    kClipPosition = mul(float4(kModelPosition,1.0f),WVPMatrix);
+
+    // Pass through the parameters.
+    kOutBaseTCoord = kInBaseTCoord;
+    kOutNormalTCoord = kInNormalTCoord;
+    kOutLightDir = MapToUnit(kInLightDir);
+}
+//----------------------------------------------------------------------------
+void p_SimpleBumpMap
+(
+    in float3         kLightDir : COLOR,
+    in float2         kBaseTCoord : TEXCOORD0,
+    in float2         kNormalTCoord : TEXCOORD1,
+    out float4        kPixelColor : COLOR,
+    uniform sampler2D BaseSampler,
+    uniform sampler2D NormalSampler)
+{
+    float3 kLDir = MapFromUnit(kLightDir);
+    float3 kNDir = MapFromUnit(tex2D(NormalSampler,kNormalTCoord).rgb);
+    float fDot = saturate(dot(kLDir,kNDir));
+    float3 kBaseColor = tex2D(BaseSampler,kBaseTCoord).rgb;
+    kPixelColor.rgb = fDot*kBaseColor;
+    kPixelColor.a = 1.0f;
+}
+//----------------------------------------------------------------------------

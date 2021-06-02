@@ -1,0 +1,19 @@
+!!ARBfp1.0
+# cgc version 1.4.0000, build date Jun  9 2005 12:09:02
+# command line args: -profile arbfp1
+# source file: ProjectedTexture.cg
+#vendor NVIDIA Corporation
+#version 1.0.02
+#profile arbfp1
+#program p_ProjectedTexture
+#semantic p_ProjectedTexture.ProjectorSampler
+#var float4 kVertexColor : $vin.COLOR : COL0 : 0 : 1
+#var float4 kTCoord : $vin.TEXCOORD0 : TEX0 : 1 : 1
+#var float4 kPixelColor : $vout.COLOR : COL : 2 : 1
+#var sampler2DSHADOW ProjectorSampler :  : texunit 0 : 3 : 1
+PARAM c[1] = { program.local[0] };
+TEMP R0;
+TXP R0, fragment.texcoord[0], texture[0], 2D;
+MUL result.color, R0, fragment.color.primary;
+END
+# 2 instructions, 1 R-regs

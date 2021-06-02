@@ -1,0 +1,42 @@
+!!ARBvp1.0
+# cgc version 1.5.0014, build date Sep 18 2006 20:36:59
+# command line args: -profile arbvp1
+# source file: BaseMulDetailFogExpSqr.cg
+#vendor NVIDIA Corporation
+#version 1.5.0.14
+#profile arbvp1
+#program v_BaseMulDetailFogExpSqr
+#semantic v_BaseMulDetailFogExpSqr.WVPMatrix
+#semantic v_BaseMulDetailFogExpSqr.WVMatrix
+#semantic v_BaseMulDetailFogExpSqr.FogColorDensity
+#var float3 kModelPosition : $vin.POSITION : POSITION : 0 : 1
+#var float2 kInBaseTCoord : $vin.TEXCOORD0 : TEXCOORD0 : 1 : 1
+#var float2 kInDetailTCoord : $vin.TEXCOORD1 : TEXCOORD1 : 2 : 1
+#var float4 kClipPosition : $vout.POSITION : HPOS : 3 : 1
+#var float2 kOutBaseTCoord : $vout.TEXCOORD0 : TEX0 : 4 : 1
+#var float2 kOutDetailTCoord : $vout.TEXCOORD1 : TEX1 : 5 : 1
+#var float fFogFactor : $vout.TEXCOORD2 : TEX2 : 6 : 1
+#var float4x4 WVPMatrix :  : c[1], 4 : 7 : 1
+#var float4x4 WVMatrix :  : c[5], 4 : 8 : 1
+#var float4 FogColorDensity :  : c[9] : 9 : 1
+#const c[0] = 2.718282
+PARAM c[10] = { { 2.7182817 },
+		program.local[1..9] };
+TEMP R0;
+TEMP R1;
+MUL R0.xyz, vertex.position.y, c[6];
+MAD R1.xyz, vertex.position.x, c[5], R0;
+MUL R0, vertex.position.y, c[2];
+MAD R1.xyz, vertex.position.z, c[7], R1;
+ADD R1.xyz, R1, c[8];
+DP3 R1.x, R1, R1;
+MAD R0, vertex.position.x, c[1], R0;
+MAD R0, vertex.position.z, c[3], R0;
+MUL R1.y, -c[9].w, c[9].w;
+MUL R1.x, R1.y, R1;
+ADD result.position, R0, c[4];
+POW result.texcoord[2].x, c[0].x, R1.x;
+MOV result.texcoord[0].xy, vertex.texcoord[0];
+MOV result.texcoord[1].xy, vertex.texcoord[1];
+END
+# 14 instructions, 2 R-regs

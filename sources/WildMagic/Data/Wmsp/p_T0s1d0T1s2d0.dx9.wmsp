@@ -1,0 +1,23 @@
+ps_2_0
+// cgc version 1.4.0000, build date Jun  9 2005 12:09:02
+// command line args: -profile ps_2_0
+// source file: T0s1d0T1s2d0.cg
+//vendor NVIDIA Corporation
+//version 1.0.02
+//profile ps_2_0
+//program p_T0s1d0T1s2d0
+//semantic p_T0s1d0T1s2d0.Sampler0
+//semantic p_T0s1d0T1s2d0.Sampler1
+//var float2 kTCoord0 : $vin.TEXCOORD0 : TEX0 : 0 : 1
+//var float2 kTCoord1 : $vin.TEXCOORD1 : TEX1 : 1 : 1
+//var float4 kPixelColor : $vout.COLOR : COL : 2 : 1
+//var sampler2D Sampler0 :  : texunit 0 : 3 : 1
+//var sampler2D Sampler1 :  : texunit 1 : 4 : 1
+dcl_2d s0
+dcl_2d s1
+dcl t0.xy
+dcl t1.xy
+texld r1, t1, s1
+texld r0, t0, s0
+mul r0, r0, r1
+mov oC0, r0

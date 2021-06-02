@@ -1,0 +1,8 @@
+﻿<editors:value_editor_base x:Class="xray.editor.wpf_controls.property_editors.value.string_select_file_editor"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:editors="clr-namespace:xray.editor.wpf_controls.property_editors.value">
+    <DockPanel>
+		<Button Name="Browse" Click="browse_click" Width="18"  DockPanel.Dock="Right" Content="..." Padding="0,-2,0,-2"/>
+		<TextBox Name="file_path" Foreground="Gray" BorderThickness="0"/>
+    </DockPanel>
+</editors:value_editor_base>

@@ -1,0 +1,109 @@
+﻿<UserControl x:Class="xray.editor.wpf_controls.color_picker.hsv_circle"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:color_picker="clr-namespace:xray.editor.wpf_controls.color_picker"
+	xmlns:panels="clr-namespace:xray.editor.wpf_controls.panels"
+	Width="265" Height="265" Name="this_control" x:ClassModifier="internal">
+	<UserControl.Resources>
+		<color_picker:color_rgb_component_extracter x:Key="opacity_extractor"/>
+	</UserControl.Resources>
+    <Grid>
+		<color_picker:hue_spectrum x:Name="m_hue_spectrum" Grid.ZIndex="150" hue_changed="m_hue_spectrum_hue_changed" />
+		<panels:single_place_panel x:Name="m_saturation_brightness_spectrum" Grid.ZIndex="300" ClipToBounds="False"
+								   Width="180" Height="156" Margin="0, 51, 0, 0"
+								   PreviewMouseDown="saturation_brightness_mouse_down"
+								   PreviewMouseMove="saturation_brightness_mouse_move"
+								   PreviewMouseUp="saturation_brightness_mouse_up">
+			<!--<Grid.LayoutTransform>
+				<RotateTransform Angle="30.0"/>
+			</Grid.LayoutTransform>-->
+			<Path>
+				<Path.Data>
+					<PathGeometry>
+						<PathFigure StartPoint="0, 0">
+							<LineSegment Point="180, 0"/>
+							<LineSegment Point="90, 156"/>
+							<LineSegment Point="0, 0"/>
+						</PathFigure>
+					</PathGeometry>
+				</Path.Data>
+				<Path.Fill>
+					<DrawingBrush Viewport="0,0,0.15,0.15" TileMode="Tile">
+						<!--<DrawingBrush.RelativeTransform>
+							<RotateTransform Angle="-27.0"/>
+						</DrawingBrush.RelativeTransform>-->
+						<DrawingBrush.Drawing>
+							<DrawingGroup>
+								<GeometryDrawing Brush="White">
+									<GeometryDrawing.Geometry>
+										<RectangleGeometry Rect="0,0,180,156" />
+									</GeometryDrawing.Geometry>
+								</GeometryDrawing>
+
+								<GeometryDrawing Brush="Black">
+									<GeometryDrawing.Geometry>
+										<GeometryGroup>
+											<RectangleGeometry Rect="0,0,90,78" />
+											<RectangleGeometry Rect="90,78,90,78" />
+										</GeometryGroup>
+									</GeometryDrawing.Geometry>
+								</GeometryDrawing>
+							</DrawingGroup>
+						</DrawingBrush.Drawing>
+					</DrawingBrush>
+				</Path.Fill>
+			</Path>
+			<Path Stroke="Black" StrokeThickness="1">
+				<Path.Data>
+					<PathGeometry>
+						<PathFigure StartPoint="0, 0">
+							<LineSegment Point="180, 0"/>
+							<LineSegment Point="90, 156"/>
+							<LineSegment Point="0, 0"/>
+						</PathFigure>
+					</PathGeometry>
+				</Path.Data>
+				<Path.Fill>
+					<DrawingBrush Opacity="{Binding selected_color, ElementName=this_control, Converter={StaticResource opacity_extractor}, ConverterParameter=3, Mode=OneWay }">
+						<DrawingBrush.Drawing>
+							<DrawingGroup>
+								<GeometryDrawing>
+									<GeometryDrawing.Geometry>
+										<RectangleGeometry Rect="0, 0, 180, 156"/>
+									</GeometryDrawing.Geometry>
+									<GeometryDrawing.Brush>
+										<SolidColorBrush x:Name="m_triangle_hue_color"/>
+									</GeometryDrawing.Brush>
+								</GeometryDrawing>
+								<ImageDrawing ImageSource="Saturation.png">
+									<ImageDrawing.Rect>
+										<Rect X="0" Y="0" Width="180" Height="156"/>
+									</ImageDrawing.Rect>
+								</ImageDrawing>
+								<GeometryDrawing>
+									<GeometryDrawing.Geometry>
+										<RectangleGeometry Rect="0, 0, 180, 156"/>
+									</GeometryDrawing.Geometry>
+									<GeometryDrawing.Brush>
+										<LinearGradientBrush StartPoint="0.5, 1" EndPoint="0.50,0">
+											<GradientStop Offset="0.0" Color="Black" />
+											<GradientStop Offset="1.0" Color="#00000000" />
+										</LinearGradientBrush>
+									</GeometryDrawing.Brush>
+								</GeometryDrawing>
+							</DrawingGroup>
+						</DrawingBrush.Drawing>
+					</DrawingBrush>
+				</Path.Fill>
+			</Path>
+			<Path Name="m_saturation_brightness_marker" StrokeThickness="2" Cursor="Cross" Fill="Transparent">
+				<Path.Data>
+					<EllipseGeometry RadiusX="7" RadiusY="7"/>
+				</Path.Data>
+				<Path.Stroke>
+					<SolidColorBrush x:Name="markerBrush" Color="Black" />
+				</Path.Stroke>
+			</Path>
+		</panels:single_place_panel>
+	</Grid>
+</UserControl>

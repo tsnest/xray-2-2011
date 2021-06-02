@@ -1,0 +1,34 @@
+ps_2_0
+// cgc version 1.4.0000, build date Jun  9 2005 12:09:02
+// command line args: -profile ps_2_0
+// source file: ProjectedShadow.cg
+//vendor NVIDIA Corporation
+//version 1.0.02
+//profile ps_2_0
+//program p_ShadowMap
+//semantic p_ShadowMap.DepthBias
+//semantic p_ShadowMap.ColorSampler
+//semantic p_ShadowMap.DepthSampler
+//var float4 kProjectedTCoord : $vin.TEXCOORD0 : TEX0 : 0 : 1
+//var float4 kPixelColor : $vout.COLOR : COL : 1 : 1
+//var float DepthBias :  : c[0] : 2 : 1
+//var sampler2DSHADOW ColorSampler :  : texunit 0 : 3 : 1
+//var sampler2DSHADOW DepthSampler :  : texunit 1 : 4 : 1
+//const c[1] = 1 0
+dcl_2d s0
+dcl_2d s1
+def c1, 1.000000, 0.000000, 0.000000, 0.000000
+dcl t0
+texldp r2, t0, s0
+texldp r3, t0, s1
+mov r1.x, r3
+rcp r0.x, t0.w
+mad r0.x, t0.z, r0, -r1
+mov_pp r0.y, c1
+add r0.x, r0, -c0
+cmp_pp r0.x, r0, c1, r0.y
+mov r1.w, r2
+mov r1.xyz, c1.y
+abs_pp r0.x, r0
+cmp r0, -r0.x, r2, r1
+mov oC0, r0

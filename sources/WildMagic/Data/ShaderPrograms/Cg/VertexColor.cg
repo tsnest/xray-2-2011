@@ -1,0 +1,31 @@
+//----------------------------------------------------------------------------
+void v_VertexColor3
+(
+    in float3        kModelPosition  : POSITION,
+    in float3        kModelColor : COLOR,
+    out float4       kClipPosition : POSITION,
+    out float3       kVertexColor : COLOR,
+    uniform float4x4 WVPMatrix)
+{
+    // Transform the position from model space to clip space.
+    kClipPosition = mul(float4(kModelPosition,1.0f),WVPMatrix);
+
+    // Pass through the vertex color.
+    kVertexColor = kModelColor;
+}
+//----------------------------------------------------------------------------
+void v_VertexColor4
+(
+    in float3        kModelPosition  : POSITION,
+    in float4        kModelColor : COLOR,
+    out float4       kClipPosition : POSITION,
+    out float4       kVertexColor : COLOR,
+    uniform float4x4 WVPMatrix)
+{
+    // Transform the position from model space to clip space.
+    kClipPosition = mul(float4(kModelPosition,1.0f),WVPMatrix);
+
+    // Pass through the vertex color.
+    kVertexColor = kModelColor;
+}
+//----------------------------------------------------------------------------

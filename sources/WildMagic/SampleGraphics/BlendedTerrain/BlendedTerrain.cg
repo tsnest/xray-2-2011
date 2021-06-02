@@ -1,0 +1,54 @@
+//----------------------------------------------------------------------------
+void v_BlendedTerrain
+(
+    in float3        kModelPosition  : POSITION,
+    in float2        kInGroundTCoord : TEXCOORD0,
+    in float         kInBlendTCoord : TEXCOORD1,
+    in float2        kInCloudTCoord : TEXCOORD2,
+    out float4       kClipPosition : POSITION,
+    out float2       kOutGroundTCoord : TEXCOORD0,
+    out float        kOutBlendTCoord : TEXCOORD1,
+    out float2       kOutCloudTCoord : TEXCOORD2,
+    out float2       kOutFlowDirection : TEXCOORD3,
+    uniform float4x4 WVPMatrix,
+    uniform float2   FlowDirection)
+{
+    // Transform the position from model space to clip space.
+    kClipPosition = mul(float4(kModelPosition,1.0f),WVPMatrix);
+
+    // Pass through the texture coordinates.
+    kOutGroundTCoord = kInGroundTCoord;
+    kOutBlendTCoord = kInBlendTCoord;
+    kOutCloudTCoord = kInCloudTCoord;
+    
+    // Pass through the flow direction, to be used as an offset in the pixel
+    // program.
+    kOutFlowDirection = FlowDirection;
+}
+//----------------------------------------------------------------------------
+void p_BlendedTerrain
+(
+    in float2         kGroundTCoord : TEXCOORD0,
+    in float          kBlendTCoord : TEXCOORD1,
+    in float2         kCloudTCoord : TEXCOORD2,
+    in float2         kFlowDirection : TEXCOORD3,
+    out float4        kPixelColor : COLOR,
+    uniform float     PowerFactor,
+    uniform sampler2D GrassSampler,
+    uniform sampler2D StoneSampler,
+    uniform sampler1D BlendSampler,
+    uniform sampler2D CloudSampler)
+{
+    float4 kGrassColor = tex2D(GrassSampler,kGroundTCoord);
+    float4 kStoneColor = tex2D(StoneSampler,kGroundTCoord);
+    float4 kBlendColor = tex1D(BlendSampler,kBlendTCoord);
+
+    float2 kOffsetCloudTCoord = kCloudTCoord + kFlowDirection;    
+    float4 kCloudColor = tex2D(CloudSampler,kOffsetCloudTCoord);
+
+    float fStoneWeight = pow(kBlendColor.r,PowerFactor);
+    float fGrassWeight = 1.0f - fStoneWeight;
+    kPixelColor = kCloudColor*(fGrassWeight*kGrassColor +
+        fStoneWeight*kStoneColor);
+}
+//----------------------------------------------------------------------------

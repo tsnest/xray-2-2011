@@ -1,0 +1,13 @@
+﻿<UserControl x:Class="xray.editor.wpf_controls.data_sources.data_source_item"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+	Width="200" Margin="5">
+    <DockPanel>
+		<Border DockPanel.Dock="Top" BorderBrush="DarkBlue" BorderThickness="2" Height="20">
+			<TextBlock Text="{Binding name}" TextAlignment="Center"></TextBlock>
+		</Border>
+		<Border DockPanel.Dock="Bottom"  BorderBrush="DarkBlue" BorderThickness="1" VerticalAlignment="Bottom">
+			<ContentControl Name="m_data_source_editor" Focusable="False"/>
+		</Border>
+	</DockPanel>
+</UserControl>

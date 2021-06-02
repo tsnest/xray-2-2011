@@ -1,0 +1,29 @@
+﻿<UserControl x:Class="xray.editor.wpf_controls.animation_lexeme_panel.animation_interval_view"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" SnapsToDevicePixels="True"
+	xmlns:as="clr-namespace:xray.editor.wpf_controls.animation_setup"
+	Width="{Binding length}" Height="40"
+	MouseRightButtonDown="user_control_mouse_right_button_down"
+	MouseLeftButtonDown="user_control_mouse_left_button_down">
+	<UserControl.Resources>
+		<as:animation_channel_partition_type_to_visibility_converter x:Key="type_to_v_c"/>
+		<ContextMenu x:Key="context_menu">
+			<MenuItem Header="Cycle lexeme from this interval" Click="cycle_click"/>
+			<MenuItem Header="Remove cycling" Click="uncycle_click"/>
+			<MenuItem Header="Remove interval" Click="remove_interval_click"/>
+			<MenuItem Header="Remove animation" Click="remove_animation_click"/>
+		</ContextMenu>
+	</UserControl.Resources>
+    <Border HorizontalAlignment="Left" Width="{Binding length}" SnapsToDevicePixels="True" Background="Transparent" BorderBrush="Black" BorderThickness="1">
+		<DockPanel>
+			<Grid>
+				<Border SnapsToDevicePixels="True" Visibility="{Binding type, Converter={StaticResource type_to_v_c}, ConverterParameter=undefined}" Background="Transparent"/>
+				<Border SnapsToDevicePixels="True" Visibility="{Binding type, Converter={StaticResource type_to_v_c}, ConverterParameter=none}" Background="Transparent"/>
+				<Border SnapsToDevicePixels="True" VerticalAlignment="Top" Visibility="{Binding type, Converter={StaticResource type_to_v_c}, ConverterParameter=left}" Background="Green" Height="20"/>
+				<Border SnapsToDevicePixels="True" VerticalAlignment="Bottom" Visibility="{Binding type, Converter={StaticResource type_to_v_c}, ConverterParameter=right}" Background="Green" Height="20"/>
+				<Border SnapsToDevicePixels="True" Visibility="{Binding type, Converter={StaticResource type_to_v_c}, ConverterParameter=both}" Background="Green"/>
+				<TextBlock Text="{Binding text}" HorizontalAlignment="Right" VerticalAlignment="Top"/>
+			</Grid>
+		</DockPanel>
+    </Border>
+</UserControl>

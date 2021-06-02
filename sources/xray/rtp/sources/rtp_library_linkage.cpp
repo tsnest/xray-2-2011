@@ -1,0 +1,10 @@
+////////////////////////////////////////////////////////////////////////////
+//	Created		: 23.04.2010
+//	Author		: Dmitriy Iassenev
+//	Copyright (C) GSC Game World - 2010
+////////////////////////////////////////////////////////////////////////////
+
+#include "pch.h"
+//#include <xray/core/library_linkage.h>
+//#include <xray/animation/library_linkage.h>
+#include <xray/engine/pc/library_linkage.h>

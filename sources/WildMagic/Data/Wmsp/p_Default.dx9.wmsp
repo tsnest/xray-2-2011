@@ -1,0 +1,14 @@
+ps_2_0
+// cgc version 1.4.0000, build date Jun  9 2005 12:09:02
+// command line args: -profile ps_2_0
+// source file: Default.cg
+//vendor NVIDIA Corporation
+//version 1.0.02
+//profile ps_2_0
+//program p_Default
+//var float4 kPixelColor : $vout.COLOR : COL : 0 : 1
+//const c[0] = 1 0
+def c0, 1.000000, 0.000000, 0.000000, 0.000000
+mov r0.y, c0
+mov r0.xzw, c0.x
+mov oC0, r0

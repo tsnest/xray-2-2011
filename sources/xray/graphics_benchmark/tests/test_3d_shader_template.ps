@@ -1,0 +1,45 @@
+
+#include "graphics_benchmark_common.h"
+
+
+%s /* Used for textures declaration. */
+
+#define max3(x,y,z)   max(x,max(y,z))
+#define max4(x,y,z,w) max(x,max(y,max(z,w)))
+
+
+void main( v2p_GB_Test i, 
+		   %s /*Outputs*/
+		  )
+{
+	float sX0 = i.Color0.x, sY0 = i.Color0.y, sZ0 = i.Color0.z, sW0 = i.Color0.w,
+		  sX1 = i.Color1.x, sY1 = i.Color1.y, sZ1 = i.Color1.z, sW1 = i.Color1.w,
+		  sX2 = i.Color2.x, sY2 = i.Color2.y, sZ2 = i.Color2.z, sW2 = i.Color2.w,
+		  sX3 = i.Color3.x, sY3 = i.Color3.y, sZ3 = i.Color3.z, sW3 = i.Color3.w,
+		  sX4 = i.Color4.x, sY4 = i.Color4.y, sZ4 = i.Color4.z, sW4 = i.Color4.w,
+		  sX5 = i.Color5.x, sY5 = i.Color5.y, sZ5 = i.Color5.z, sW5 = i.Color5.w,
+		  sX6 = i.Color6.x, sY6 = i.Color6.y, sZ6 = i.Color6.z, sW6 = i.Color6.w;
+	
+	float4 vX0 = i.Color0, 
+		   vY0 = i.Color1,
+		   vZ0 = i.Color2,
+		   vW0 = i.Color3,
+		   vX1 = i.Color4,
+		   vY1 = i.Color5,
+		   vZ1 = i.Color6,
+		   vW1 = i.Color,
+		   vX = vX0, 
+		   vY = vY0,
+		   vZ = vZ0,
+		   vW = vW0;
+	
+	float4 Hard = vX0/vY0*vZ0*vW0*i.Color/dot(vX0,vY0)/dot(vZ0,vW0);
+	
+	float4 Base = max( max4(vX0,vY0,vZ0,vW0), max4(vX1,vY1,vZ1,vW1) );
+	
+	%s;
+}
+
+
+
+

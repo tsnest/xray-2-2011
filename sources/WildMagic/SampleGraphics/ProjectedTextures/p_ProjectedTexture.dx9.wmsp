@@ -1,0 +1,19 @@
+ps_2_0
+// cgc version 1.4.0000, build date Jun  9 2005 12:09:02
+// command line args: -profile ps_2_0
+// source file: ProjectedTexture.cg
+//vendor NVIDIA Corporation
+//version 1.0.02
+//profile ps_2_0
+//program p_ProjectedTexture
+//semantic p_ProjectedTexture.ProjectorSampler
+//var float4 kVertexColor : $vin.COLOR : COL0 : 0 : 1
+//var float4 kTCoord : $vin.TEXCOORD0 : TEX0 : 1 : 1
+//var float4 kPixelColor : $vout.COLOR : COL : 2 : 1
+//var sampler2DSHADOW ProjectorSampler :  : texunit 0 : 3 : 1
+dcl_2d s0
+dcl t0
+dcl v0
+texldp r0, t0, s0
+mul r0, r0, v0
+mov oC0, r0

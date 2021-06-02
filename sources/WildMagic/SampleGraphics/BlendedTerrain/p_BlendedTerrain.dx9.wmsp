@@ -1,0 +1,48 @@
+ps_2_0
+// cgc version 1.4.0000, build date Jun  9 2005 12:09:02
+// command line args: -profile ps_2_0
+// source file: BlendedTerrain.cg
+//vendor NVIDIA Corporation
+//version 1.0.02
+//profile ps_2_0
+//program p_BlendedTerrain
+//semantic p_BlendedTerrain.PowerFactor
+//semantic p_BlendedTerrain.GrassSampler
+//semantic p_BlendedTerrain.StoneSampler
+//semantic p_BlendedTerrain.BlendSampler
+//semantic p_BlendedTerrain.CloudSampler
+//var float2 kGroundTCoord : $vin.TEXCOORD0 : TEX0 : 0 : 1
+//var float kBlendTCoord : $vin.TEXCOORD1 : TEX1 : 1 : 1
+//var float2 kCloudTCoord : $vin.TEXCOORD2 : TEX2 : 2 : 1
+//var float2 kFlowDirection : $vin.TEXCOORD3 : TEX3 : 3 : 1
+//var float4 kPixelColor : $vout.COLOR : COL : 4 : 1
+//var float PowerFactor :  : c[1] : 5 : 1
+//var sampler2D GrassSampler :  : texunit 0 : 6 : 1
+//var sampler2D StoneSampler :  : texunit 1 : 7 : 1
+//var sampler2D BlendSampler :  : texunit 2 : 8 : 1
+//var sampler2D CloudSampler :  : texunit 3 : 9 : 1
+//const c[0] = 0.5 1
+dcl_2d s0
+dcl_2d s1
+dcl_2d s2
+dcl_2d s3
+def c0, 0.500000, 1.000000, 0.000000, 0.000000
+dcl t0.xy
+dcl t1.x
+dcl t2.xy
+dcl t3.xy
+texld r2, t0, s0
+texld r3, t0, s1
+mov r0.xy, t3
+add r1.xy, t2, r0
+mov r0.y, c0.x
+mov r0.x, t1
+texld r4, r0, s2
+mov r0.x, r4
+texld r1, r1, s3
+pow r0.x, r0.x, c1.x
+mul r3, r0.x, r3
+add r0.x, -r0, c0.y
+mad r0, r0.x, r2, r3
+mul r0, r1, r0
+mov oC0, r0

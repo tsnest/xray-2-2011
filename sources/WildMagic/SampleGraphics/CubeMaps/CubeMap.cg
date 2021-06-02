@@ -1,0 +1,43 @@
+//----------------------------------------------------------------------------
+void v_CubeMap
+(
+    in float3        kModelPosition  : POSITION,
+    in float3        kModelNormal : NORMAL,
+    in float3        kModelColor : COLOR,
+    out float4       kClipPosition : POSITION,
+    out float4       kVertexColor : COLOR,
+    out float3       kReflectTCoord : TEXCOORD0,
+    uniform float4x4 WVPMatrix,
+    uniform float4x4 WMatrix,
+    uniform float3   CameraWorldPosition)
+{
+    // Transform the position from model space to clip space.
+    kClipPosition = mul(float4(kModelPosition,1.0f),WVPMatrix);
+    
+    // Transform the position from model space to world space.
+    float3 kWorldPosition = mul(float4(kModelPosition,1.0f),WMatrix).xyz;
+    float3 kWorldNormal = normalize(mul(kModelNormal,(float3x3)WMatrix));
+
+    // Calculate the eye direction.
+    float3 kEyeDirection = kWorldPosition - CameraWorldPosition;
+    
+    // Pass through the model color.
+    kVertexColor.rgb = kModelColor;
+    kVertexColor.a = 1.0f;
+
+    // Calculate the reflected vector.
+    kReflectTCoord = reflect(kEyeDirection,kWorldNormal);
+}
+//----------------------------------------------------------------------------
+void p_CubeMap
+(
+    in float4 kVertexColor : COLOR,
+    in float3 kReflectTCoord : TEXCOORD0,
+    out float4 kPixelColor : COLOR,
+    uniform float Reflectivity,
+    uniform samplerCUBE CubeMapSampler)
+{
+    float4 kReflectedColor = texCUBE(CubeMapSampler,kReflectTCoord);
+    kPixelColor = lerp(kVertexColor,kReflectedColor,Reflectivity);
+}
+//----------------------------------------------------------------------------

@@ -1,0 +1,15 @@
+﻿<UserControl x:Class="xray.editor.wpf_controls.color_picker.hue_spectrum"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Width="265" Height="265" x:ClassModifier="internal">
+	<Grid Name="m_hue_spectrum" Cursor="Cross"
+				PreviewMouseDown="spector_mouse_down"
+				PreviewMouseMove="spector_mouse_move"
+				PreviewMouseUp="spector_mouse_up">
+		<Image Source="HueCircle.png"/>
+		<Path Name="m_hue_marker" Margin="50, 50, 0, 0" Stroke="Black" StrokeThickness="2" Cursor="Cross" VerticalAlignment="Top" HorizontalAlignment="Left">
+			<Path.Data>
+				<EllipseGeometry RadiusX="7" RadiusY="7"  />
+			</Path.Data>
+		</Path>
+	</Grid>
+</UserControl>

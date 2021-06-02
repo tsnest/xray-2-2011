@@ -1,0 +1,43 @@
+vs_2_0
+// cgc version 1.5.0014, build date Sep 18 2006 20:36:59
+// command line args: -profile vs_2_0
+// source file: Fresnel.cg
+//vendor NVIDIA Corporation
+//version 1.5.0.14
+//profile vs_2_0
+//program v_Fresnel
+//semantic v_Fresnel.WVPMatrix
+//semantic v_Fresnel.WMatrix
+//semantic v_Fresnel.CameraWorldPosition
+//var float3 kModelPosition : $vin.POSITION : ATTR0 : 0 : 1
+//var float3 kModelNormal : $vin.NORMAL : ATTR1 : 1 : 1
+//var float4 kClipPosition : $vout.POSITION : HPOS : 2 : 1
+//var float3 kWorldNormal : $vout.TEXCOORD0 : TEX0 : 3 : 1
+//var float3 kEyeDirection : $vout.TEXCOORD1 : TEX1 : 4 : 1
+//var float4x4 WVPMatrix :  : c[0], 4 : 5 : 1
+//var float4x4 WMatrix :  : c[4], 4 : 6 : 1
+//var float3 CameraWorldPosition :  : c[8] : 7 : 1
+//const c[9] = 0.5
+dcl_position v0
+dcl_normal v1
+def c9, 0.500000, 0, 0, 0
+mul r0, v0.y, c1
+mad r0, v0.x, c0, r0
+mad r0, v0.z, c2, r0
+add oPos, r0, c3
+mul r1.xyz, v0.y, c5
+mad r1.xyz, v0.x, c4, r1
+mul r0.xyz, v1.y, c5
+mad r1.xyz, v0.z, c6, r1
+mad r0.xyz, v1.x, c4, r0
+mad r0.xyz, v1.z, c6, r0
+dp3 r1.w, r0, r0
+add r1.xyz, r1, c7
+add r1.xyz, r1, -c8
+dp3 r0.w, r1, r1
+rsq r1.w, r1.w
+rsq r0.w, r0.w
+mul r0.xyz, r1.w, r0
+mul r1.xyz, r0.w, r1
+mad oT0.xyz, r0, c9.x, c9.x
+mad oT1.xyz, r1, c9.x, c9.x

@@ -1,0 +1,71 @@
+CFLAGS := -c
+ARFLAGS := rs
+
+ifeq (linux,$(findstring linux,$(SYS)))
+CC := /usr/bin/g++
+AR := /usr/bin/ar
+INCPATH += -I /usr/include
+endif
+
+ifeq (mingw,$(findstring mingw,$(SYS)))
+CC := /mingw/bin/g++
+AR := /mingw/bin/ar
+INCPATH += -I /mingw/include
+endif
+
+ifeq (cygwin,$(findstring cygwin,$(SYS)))
+CC := /usr/bin/g++
+AR := /usr/bin/ar
+INCPATH += -I /usr/include
+endif
+
+ifeq (sgi,$(findstring sgi,$(SYS)))
+CC := /usr/freeware/bin/g++
+AR := /usr/bin/ar
+INCPATH += -I /usr/include
+endif
+
+ifeq (Debug,$(findstring Debug,$(CFG)))
+CFLAGS += -g -D_DEBUG
+else
+CFLAGS += -O2 -DNDEBUG
+endif
+
+ifeq (Memory,$(findstring Memory,$(CFG)))
+CFLAGS += -DWM4_MEMORY_MANAGER
+endif
+
+INCPATH := \
+    -I ../.\
+    -I ../Approximation\
+    -I ../ComputationalGeometry\
+    -I ../Containment\
+    -I ../Curves\
+    -I ../Distance\
+    -I ../Interpolation\
+    -I ../Intersection\
+    -I ../Mathematics\
+    -I ../Meshes\
+    -I ../Miscellaneous\
+    -I ../NumericalAnalysis\
+    -I ../Surfaces\
+    -I ../System
+    
+INCDIR := ../../SDK/Include
+INC := $(wildcard Wm4*.h) $(wildcard Wm4*.inl)
+INC := $(notdir $(INC))
+SRC := $(wildcard Wm4*.cpp)
+SRC := $(notdir $(SRC))
+OBJDIR := ../$(CFG)
+OBJ := $(SRC:%.cpp=$(OBJDIR)/%.o)
+LIB := ../../SDK/Library/$(CFG)/libWm4Foundation.a
+
+build : $(OBJ)
+	$(AR) $(ARFLAGS) $(LIB) $(OBJDIR)/*.o
+	cp -fp $(INC) $(INCDIR)
+
+$(OBJDIR)/%.o : %.cpp
+	$(CC) $(INCPATH) $(CFLAGS) $< -o $@
+
+clean :
+	rm -f $(OBJDIR)/*.o

@@ -1,0 +1,12 @@
+ps_2_0
+// cgc version 1.4.0000, build date Jun  9 2005 12:09:02
+// command line args: -profile ps_2_0
+// source file: PassThrough.cg
+//vendor NVIDIA Corporation
+//version 1.0.02
+//profile ps_2_0
+//program p_PassThrough4
+//var float4 kInPixelColor : $vin.COLOR : COL0 : 0 : 1
+//var float4 kPixelColor : $vout.COLOR : COL : 1 : 1
+dcl v0
+mov oC0, v0

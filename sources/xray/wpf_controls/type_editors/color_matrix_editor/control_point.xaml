@@ -1,0 +1,15 @@
+﻿<UserControl x:Class="xray.editor.wpf_controls.color_matrix_editor.control_point"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Height="6" Width="6" Background="Gray" BorderBrush="Black" BorderThickness="1"
+	MouseDoubleClick="mouse_double_click"
+	MouseDown="mouse_down"
+	MouseMove="mouse_move"
+	MouseUp="mouse_up">
+	<UserControl.ContextMenu>
+		<ContextMenu Opened="context_menu_opened">
+			<MenuItem Name="m_remove_horizontal" x:FieldModifier="private" Header="Remove Horizontal" Click="remove_horizontal_click"/>
+			<MenuItem Name="m_remove_vertical" x:FieldModifier="private" Header="Remove Vertical" Click="remove_vertical_click" />
+		</ContextMenu>
+	</UserControl.ContextMenu>
+</UserControl>

@@ -1,0 +1,64 @@
+﻿<Thumb x:Class="xray.editor.wpf_controls.logic_view.event_control"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:logic_view="clr-namespace:xray.editor.wpf_controls.logic_view" 
+	DragDelta="thumb_drag_delta"
+	PreviewMouseDown="on_event_control_preview_mouse_down"
+	Cursor="SizeWE"
+	x:Name="parent_control">
+	<Thumb.ContextMenu>
+		<ContextMenu Name="m_context_menu">
+			<MenuItem Name="cm_delete_selected_events" Header="Delete selected event(s)" Click="delete_selected_click" Visibility="Visible" />
+			<MenuItem Name="cm_view_event_properties" Header="Properties" Click="view_event_properties_click" Visibility="Visible" />
+			<!--MenuItem Name="cm_remove" Header="Remove" Click="context_menu_remove_click" Visibility="Collapsed"/-->
+		</ContextMenu>
+	</Thumb.ContextMenu>
+	<Thumb.Template>
+			<ControlTemplate TargetType="logic_view:event_control">
+				<Grid>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="1*"/>
+						<ColumnDefinition Width="1*"/>
+					</Grid.ColumnDefinitions>
+					<Border Margin="3, 31, 0, 0"  Grid.ColumnSpan="2" VerticalAlignment="Stretch"  HorizontalAlignment="Center" Width="2" BorderThickness="2" SnapsToDevicePixels="True">
+						<Border.Style>
+							<Style>
+								<Style.Triggers>
+									<DataTrigger Binding="{Binding Path=is_selected, ElementName=parent_control}" Value="true">
+										<Setter Property="Border.BorderBrush" Value="Bisque"/>
+									</DataTrigger>
+								</Style.Triggers>
+								<Setter Property="Border.BorderBrush" Value="DarkGray"/>
+							</Style>
+						</Border.Style>
+					</Border>
+						<Path Name="m_event_border"  Grid.ColumnSpan="2" HorizontalAlignment="Center" Data="M4 4 L18 4 L18 26 L 4 26 Z" StrokeThickness="2"  Fill="SteelBlue" SnapsToDevicePixels="True">
+						<Path.Style>
+							<Style>
+								<Style.Triggers>
+									<DataTrigger Binding="{Binding Path=is_selected, ElementName=parent_control}" Value="true">
+										<Setter Property="Path.Stroke" Value="Bisque"/>		
+									</DataTrigger>
+								</Style.Triggers>
+								<Setter Property="Path.Stroke" Value="DarkGray"/>							
+							</Style>
+						</Path.Style> 
+					</Path>
+					<Canvas VerticalAlignment="Top">
+						<TextBox Canvas.Top="6" Canvas.Left="20"  Margin="0, 0, 0, 6" Grid.Column="1" Text="{Binding event_name, RelativeSource={RelativeSource TemplatedParent}}" FontSize="12" HorizontalAlignment="Left" Background="Transparent" BorderThickness="0" Opacity="1" KeyDown="text_key_down">
+							<TextBox.Style>
+								<Style>
+									<Style.Triggers>
+										<DataTrigger Binding="{Binding Path=IsMouseOver, ElementName=parent_control}" Value="true">
+											<Setter Property="Panel.ZIndex" Value="2"/>
+										</DataTrigger>
+									</Style.Triggers>
+									<Setter Property="TextBlock.Foreground" Value="Black"/>
+									<Setter Property="Panel.ZIndex" Value="0"/>
+								</Style>
+							</TextBox.Style>
+						</TextBox>
+					</Canvas>
+				</Grid>
+			</ControlTemplate>
+		</Thumb.Template>		
+</Thumb>

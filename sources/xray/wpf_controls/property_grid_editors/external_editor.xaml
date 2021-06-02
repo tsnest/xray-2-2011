@@ -1,0 +1,21 @@
+﻿<ResourceDictionary x:Class="xray.editor.wpf_controls.property_grid_editors.external_editor"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<DataTemplate x:Key="external_editor">
+		<DockPanel Name="Panel" PreviewKeyDown="Panel_PreviewKeyDown">
+			<Button DockPanel.Dock="Right" Padding="0,-2,0,-2" Tag="{Binding}" Name="run_editor_button"
+						 Click="run_editor_button_Click" Width="18" Content="...">
+				<Button.ToolTip>
+					Run Editor
+				</Button.ToolTip>
+			</Button>
+			<Button DockPanel.Dock="Right" Padding="0,-2,0,-2" Name="Clear" Content="C"
+						Click="Clear_Click" Tag="{Binding ElementName=externalEditorTextBox}" Width="18">
+				<Button.ToolTip>
+					Clear Value
+				</Button.ToolTip>
+			</Button>
+			<TextBox Name="externalEditorTextBox" Text="{Binding value, Mode=OneWay}"  Foreground="Gray" IsReadOnly="True" BorderThickness="0"/>
+		</DockPanel>
+	</DataTemplate>
+</ResourceDictionary>

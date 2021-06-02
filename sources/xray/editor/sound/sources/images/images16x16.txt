@@ -1,0 +1,6 @@
+single_sound_icon,
+composite_sound_icon,
+sound_collection_icon,
+single_sound_icon_modified,
+composite_sound_icon_modified,
+sound_collection_icon_modified,

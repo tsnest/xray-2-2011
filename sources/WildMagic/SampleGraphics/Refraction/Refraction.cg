@@ -1,0 +1,64 @@
+//----------------------------------------------------------------------------
+void v_Refraction
+(
+    in float3        kModelPosition : POSITION,
+    in float3        kModelNormal : NORMAL,
+    out float4       kClipPosition : POSITION,
+    out float        fReflectFactor : COLOR,
+    out float2       kRefractVector : TEXCOORD0,
+    out float2       kReflectVector : TEXCOORD1,
+    uniform float4x4 WVPMatrix,
+    uniform float4x4 WMatrix,
+    uniform float3   CameraWorldPosition,
+    uniform float4   FresnelConstants)
+{
+    // Transform the position from model space to clip space.
+    kClipPosition = mul(float4(kModelPosition,1.0f),WVPMatrix);
+
+    // Transform the position from model space to world space.
+    float3 kWorldPosition = mul(float4(kModelPosition,1.0f),WMatrix).xyz;
+
+    // Transform the normal from model space to world space.
+    float3 kWorldNormal = normalize(mul(kModelNormal,(float3x3)WMatrix));
+
+    // Calculate the eye direction.
+    float3 kEyeDirection = normalize(kWorldPosition - CameraWorldPosition);
+
+    // Calculate the reflection vector.  Since the eye direction and the
+    // world normal are unit length vectors, the reflection vector is already
+    // unit length.
+    kReflectVector = 0.5f*reflect(kEyeDirection,kWorldNormal).yz +
+        float2(0.5f,0.5f);
+
+    // Get the incident vector and transform into spherical coordinates.
+    // Because we are using a sphere map that is in the x direction, we will
+    // transform the y and z coordinates into the texture coordinates.  Since
+    // the eye direction and the world normal are unit length vectors, the
+    // refraction vector is already unit length.
+    kRefractVector = 0.5f*refract(kEyeDirection,kWorldNormal,
+        FresnelConstants.w).yz + float2(0.5f,0.5f);
+
+    // Calculate the reflection factor.
+    fReflectFactor = FresnelConstants.x + FresnelConstants.y *
+        pow(1.0f+dot(kEyeDirection,kWorldNormal),FresnelConstants.z);
+}
+//----------------------------------------------------------------------------
+void p_Refraction
+(
+    in float          fReflectFactor : COLOR,
+    in float2         kRefractVector : TEXCOORD0,
+    in float2         kReflectVector : TEXCOORD1,
+    out float4        kPixelColor : COLOR,
+    uniform sampler2D EnvMap0Sampler,
+    uniform sampler2D EnvMap1Sampler)
+{
+    // We have already computed spherical coordinates for both the refraction
+    // and reflection vectors in the vertex program.  So, just do the texture
+    // look up and linearly interpolate between them based on the previously
+    // computed reflection factor.
+
+    float4 kRefractColor = tex2D(EnvMap0Sampler,kRefractVector);
+    float4 kReflectColor = tex2D(EnvMap1Sampler,kReflectVector);
+    kPixelColor = lerp(kRefractColor,kReflectColor,fReflectFactor);
+}
+//----------------------------------------------------------------------------

@@ -1,0 +1,15 @@
+﻿////////////////////////////////////////////////////////////////////////////
+//	Created		: 30.06.2011
+//	Author		: Evgeniy Obertyukh
+//	Copyright (C) GSC Game World - 2011
+////////////////////////////////////////////////////////////////////////////
+
+namespace xray.editor.wpf_controls.hypergraph
+{
+	public enum pan_direction
+	{
+		both,
+		vertical,
+		horizontal
+	}
+}

@@ -1,0 +1,11 @@
+﻿<editors:value_editor_base
+	x:Class="xray.editor.wpf_controls.property_editors.value.Enum_editor"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:editors="clr-namespace:xray.editor.wpf_controls.property_editors.value"
+	xmlns:converters="clr-namespace:xray.editor.wpf_controls.converters">
+	<UserControl.Resources>
+		<converters:Enum_to_String_converter x:Key="enum_converter"/>
+	</UserControl.Resources>
+    <ComboBox Name="combo_box" SelectedItem="{Binding value, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay, Converter={StaticResource enum_converter}}" />
+</editors:value_editor_base>

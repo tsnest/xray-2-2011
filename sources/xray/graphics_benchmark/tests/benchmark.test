@@ -1,0 +1,1588 @@
+SETTINGS = 
+{
+	target		 = "general",
+	resolution_x = 512,
+	resolution_y = 512,
+	windowed 	 = true,
+	log_file_name = "benchmark.log",
+	
+	
+	-- if true results can be inaccurate 
+	show_preview_window = false,
+	--
+	show_realtime_counter_results = true,
+}
+
+local counter = 0
+
+local function get_order	( )
+	counter			= counter + 1;
+	local result	= counter;
+	return 			result;
+end
+
+
+local g_num_circles 		= 200
+local g_num_skipped_circles = 20
+-- for ATI cards can be 50
+local g_num_passes 			= 200
+
+
+local enable_all_groups					= true;
+
+
+local enable_gbuffer_depth_group 		= false  or enable_all_groups;
+local enable_gbuffer_normals_group 		= false  or enable_all_groups;
+local enable_gbuffer_group 				= false  or enable_all_groups;
+local enable_bitwise_s_op_group 		= false or enable_all_groups;
+local enable_lighting_models_group 		= false or enable_all_groups;
+local enable_elemental_s_op_group 		= false or enable_all_groups;
+local enable_elemental_v_op_group 		= false or enable_all_groups;
+local enable_math_group 				= false or enable_all_groups;
+local enable_reading_access_group 		= false or enable_all_groups;
+local enable_texture_formats_group		= false or enable_all_groups;
+local enable_write_gbuffer_group		= false or enable_all_groups;
+local enable_read_gbuffer_group			= false or enable_all_groups;
+local enable_clearing_test_group		= false or enable_all_groups;
+local enable_3d_mesh_group 				= false-- or enable_all_groups;
+local enable_elemental_find_s_op_group 	= false-- or enable_all_groups;
+local enable_elemental_find_v_op_group 	= false-- or enable_all_groups;
+local enable_find_time_targets_group 	= false-- or enable_all_groups;
+
+local path_to_shader_template_file = "../../sources/xray/graphics_benchmark/tests/test_shader_template.ps";
+
+GBufferDepth = {
+	order = get_order(),
+	enabled = enable_gbuffer_depth_group,
+	shader_template_file = path_to_shader_template_file,
+	num_circles = g_num_circles,
+	num_skipped_circles = g_num_skipped_circles,
+	num_passes = g_num_passes,
+	class = "test_2d_shader_op",
+	
+	BASE = 	{
+		order = get_order(),
+		code = "result = i.Color",
+	},
+	FriteToDepthRT = 	{
+		order = get_order(),
+		rt0 = "DXGI_FORMAT_D24_UNORM_S8_UINT",
+		--depth_rt = 
+		code = "result = 0",
+	},
+	
+}
+
+
+
+UniformConstants = {
+	order = get_order(),
+	enabled = false,
+	shader_template_file = path_to_shader_template_file,
+	num_circles = g_num_circles,
+	num_skipped_circles = g_num_skipped_circles,
+	num_passes = g_num_passes,
+	class = "test_2d_shader_op",
+	
+	BASE = 	{
+		order = get_order(),
+		code = "result = BaseMath + BaseMath.x",
+	},
+	
+	Variable = 	{
+		order = get_order(),
+		code = "result = BaseMath + 5 * ( gsX / (gsX - gsY) ) - gsX*gsY / (gsX - gsY) * ( gsZ + 1.6)",
+	},
+	Constant = 	{
+		order = get_order(),
+		code = "result = BaseMath + 5 * ( 1000.0 / (1000.0 - 0.2) ) - 1000.0*0.2 / (1000.0 - 0.2) * ( gsZ + 1.6)",
+	},
+}
+
+GBufferDepth = {
+	order = get_order(),
+	enabled = enable_gbuffer_depth_group,
+	shader_template_file = path_to_shader_template_file,
+	num_circles = g_num_circles,
+	num_skipped_circles = g_num_skipped_circles,
+	num_passes = g_num_passes,
+	class = "test_2d_shader_op",
+	
+	BASE = 	{
+		order = get_order(),
+		code = "result = i.Color;",
+	},
+	
+	ToGBuffer_BASE = 	{
+		class = "test_3d_shader_op",
+		order = get_order(),
+		rt0 = "DXGI_FORMAT_R8G8B8A8_UNORM",
+		code = "result = 0;",
+	},
+	
+	
+
+	
+	ToGBuffer0 = 	{
+		class = "test_3d_shader_op",
+		order = get_order(),
+		base  = "ToGBuffer_BASE",
+		rt0 = "DXGI_FORMAT_R16G16B16A16_FLOAT",
+		code = "result = i.HPos;",
+	},
+	rgba16f = 	{
+		order = get_order(),
+		texture0 = "$user$GBufferDepth.ToGBuffer0.rt0",
+		code = "result = texture0.Sample(s_first_mip, i.Tex0);",
+	},
+	
+	
+		--[[
+	
+	ToGBuffer1 = 	{
+		class = "test_3d_shader_op",
+		order = get_order(),
+		base  = "ToGBuffer_BASE",
+		rt0 = "DXGI_FORMAT_R8G8B8A8_UNORM",
+		code = "result = 0; result.xyz = f24_to_rgb8( NormalizeZ(i.HPos.z) );",
+	},
+	rgb8unorm = 	{
+		order = get_order(),
+		texture0 = "$user$GBufferDepth.ToGBuffer1.rt0",
+		code = "result = rgb8_to_f24( texture0.Sample(s_first_mip, i.Tex0).xyz );",
+	},
+	]]--
+	
+	ToGBuffer2 = 	{
+		class = "test_3d_shader_op",
+		order = get_order(),
+		base  = "ToGBuffer_BASE",
+		rt0 = "DXGI_FORMAT_R8G8B8A8_UNORM",
+		code = "result = float4(f16_to_rg8( sqrt(NormalizeZ(i.HPos.z)) ),0,0);",
+	},
+	rgba8unorm = 	{
+		order = get_order(),
+		texture0 = "$user$GBufferDepth.ToGBuffer2.rt0",
+		code = "\
+				float4 pos  = texture0.Sample(s_first_mip, i.Tex0);\
+				pos.xy 		= pow(rg8_to_f16(pos.xy),2);\
+				result 		= pos;",
+	},
+	
+	--[[
+	ToGBuffer3 = 	{
+		class = "test_3d_shader_op",
+		order = get_order(),
+		base  = "ToGBuffer_BASE",
+		rt0 = "DXGI_FORMAT_R16G16_UNORM",
+		code = "result = NormalizeZ( i.HPos.z );",
+	},
+	rg16unorm = 	{
+		order = get_order(),
+		texture0 = "$user$GBufferDepth.ToGBuffer3.rt0",
+		code = "result = texture0.Sample(s_first_mip, i.Tex0);",
+	},
+	]]--
+	
+	
+	
+	ToGBuffer4 = 	{
+		class = "test_3d_shader_op",
+		order = get_order(),
+		base  = "ToGBuffer_BASE",
+		rt0 = "DXGI_FORMAT_R16G16_UNORM",
+		code = "result = float4(sqrt(NormalizeZ( i.HPos.z )),0.0f,0.0f,0.0f);",
+	},
+	rg16unorm_pow = 	{
+		order = get_order(),
+		texture0 = "$user$GBufferDepth.ToGBuffer4.rt0",
+		code = "\
+				float4 pos 	= texture0.Sample(s_first_mip, i.Tex0);\
+				pos.x 		= pos.x*pos.x;\
+				result 		= pos;",
+	},
+	--result = pow(texture0.Sample(s_first_mip, i.Tex0).x,2)
+	
+	--[[ToGBuffer6 = 	{
+		class = "test_3d_shader_op",
+		order = get_order(),
+		base  = "ToGBuffer_BASE",
+		rt0 = "DXGI_FORMAT_R16G16_UNORM",
+		code = "result = sqrtf(NormalizeZ( i.HPos.z ));",
+	},
+	rg16unorm_fpow = 	{
+		order = get_order(),
+		texture0 = "$user$GBufferDepth.ToGBuffer6.rt0",
+		code = "\
+				float4 pos 	= texture0.Sample(s_first_mip, i.Tex0);\
+				pos.x 		= pow(pos.x,2);\
+				result 		= pos;",
+	},]]--
+}
+
+GBufferNormals = {
+	order = get_order(),
+	enabled = enable_gbuffer_normals_group,
+	shader_template_file = path_to_shader_template_file,
+	num_circles = g_num_circles,
+	num_skipped_circles = g_num_skipped_circles,
+	num_passes = g_num_passes,
+	class = "test_2d_shader_op",
+	
+	BASE = 	{
+		code = "result = i.Color",
+	},
+	
+	
+	--[[ToGBuffer = 	{
+		class = "test_3d_shader_op",
+		num_circles = 1,
+		num_skipped_circles = 0,
+		num_passes = 1,
+		order = get_order(),
+		rt0 = "DXGI_FORMAT_R16G16B16A16_FLOAT", -- normal
+		rt1 = "DXGI_FORMAT_R16G16B16A16_FLOAT", -- color
+		rt2 = "DXGI_FORMAT_R8G8B8A8_UNORM",		-- position
+		code = "result2    = i.HPos; \
+				result1    = 0;\
+				result1.xy = i.Color.xyz; \
+				result0    = i.Normal.xyzz",
+	},
+	rgba16f_xyz = 	{
+		order = get_order(),
+		texture0 = "$user$GBufferNormals.ToGBuffer.rt0",
+		code = "float3 normal 				= normalize(texture0.Sample(s_first_mip, i.Tex0)).xyz;\
+				float3 view_dir 			= vX0.xyz;/*normalize(-float3(1,1,1));*/\
+				float3 light_dir 			= vY0.xyz;/*normalize(float3(0,1,0));*/\
+				float3 diffuse_color 		= vZ0.xyz;/*float3(0.7,0.7,0.7);*/\
+				float3 specular_color 		= vW0.xyz;/*float3(1,2,5);*/\
+				float specular_power 		= vW1.x;/*8;*/\
+				result 						= Phong(diffuse_color,specular_color,normal,light_dir,view_dir,specular_power).xyzz",
+	},
+	rgba16f_xy_sqrt_z = 	{
+		order = get_order(),
+		texture0 = "$user$GBufferNormals.ToGBuffer.rt0",
+		code = "float3 normal 				= 0;\
+					   normal.xy 			= normalize(texture0.Sample(s_first_mip, i.Tex0)).xy;\
+					   normal.z 			= sqrt(1 - normal.x*normal.x - normal.y*normal.y);\
+				float3 view_dir 			= vX0.xyz;/*normalize(-float3(1,1,1));*/\
+				float3 light_dir 			= vY0.xyz;/*normalize(float3(0,1,0));*/\
+				float3 diffuse_color 		= vZ0.xyz;/*float3(0.7,0.7,0.7);*/\
+				float3 specular_color 		= vW0.xyz;/*float3(1,2,5);*/\
+				float specular_power 		= vW1.x;/*8;*/\
+				result 						= Phong(diffuse_color,specular_color,normal,light_dir,view_dir,specular_power).xyzz",
+	},
+	ToGBuffer2 = 	{
+		class = "test_3d_shader_op",
+		num_circles = 1,
+		num_skipped_circles = 0,
+		num_passes = 1,
+		order = get_order(),
+		rt0 = "DXGI_FORMAT_R16G16_FLOAT", 		-- normal
+		rt1 = "DXGI_FORMAT_R16G16B16A16_FLOAT", -- color
+		rt2 = "DXGI_FORMAT_R8G8B8A8_UNORM",		-- position
+		code = "result2    = i.HPos; \
+				result1    = 0;\
+				result1.xy = i.Color.xyz; \
+				result0    = i.Normal.xyzz",
+	},
+	rg16f_xy_sqrt_z = 	{
+		order = get_order(),
+		texture0 = "$user$GBufferNormals.ToGBuffer2.rt0",
+		code = "float3 normal 				= 0;\
+					   normal.xy 			= normalize(texture0.Sample(s_first_mip, i.Tex0)).xy;\
+					   normal.z 			= sqrt(1 - normal.x*normal.x - normal.y*normal.y);\
+				float3 view_dir 			= vX0.xyz;/*normalize(-float3(1,1,1));*/\
+				float3 light_dir 			= vY0.xyz;/*normalize(float3(0,1,0));*/\
+				float3 diffuse_color 		= vZ0.xyz;/*float3(0.7,0.7,0.7);*/\
+				float3 specular_color 		= vW0.xyz;/*float3(1,2,5);*/\
+				float specular_power 		= vW1.x;/*8;*/\
+				result 						= Phong(diffuse_color,specular_color,normal,light_dir,view_dir,specular_power).xyzz",
+	},
+	]]--
+	--[[ToGBufferMy = 	{
+		class = "test_3d_shader_op",
+		num_circles = 1,
+		num_skipped_circles = 0,
+		num_passes = 1,
+		order = get_order(),
+		rt0 = "DXGI_FORMAT_R8G8B8A8_UNORM", 	-- normal
+		rt1 = "DXGI_FORMAT_R16G16B16A16_FLOAT", -- color
+		rt2 = "DXGI_FORMAT_R8G8B8A8_UNORM",		-- position
+		code = "result2    = i.HPos; \
+				result1    = 0;\
+				result1.xy = i.Color.xyz; \
+				result0    = 0;\
+				result0.xy = (normalize(i.Normal.xy)*0.5+0.5)*255.0;\
+				result0.z  = length(i.Normal.xy)*sqrt(i.Normal.z*0.5+0.5);",
+	},
+	rgba8f_xyl = 	{
+		order = get_order(),
+		texture0 = "$user$GBufferNormals.ToGBuffer2.rt0",
+		code = "float3 normal 				= 0;\
+				float3 GB					= texture0.Sample(s_first_mip, i.Tex0).xyz;\
+					   normal.xy 			= texture0.Sample(s_first_mip, i.Tex0).xy;\
+					   normal.z 			= GB.z * 2.0 - 1.0;\
+				float3 view_dir 			= vX0.xyz;/*normalize(-float3(1,1,1));*/\
+				float3 light_dir 			= vY0.xyz;/*normalize(float3(0,1,0));*/\
+				float3 diffuse_color 		= vZ0.xyz;/*float3(0.7,0.7,0.7);*/\
+				float3 specular_color 		= vW0.xyz;/*float3(1,2,5);*/\
+				float specular_power 		= vW1.x;/*8;*/\
+				result 						= Phong(diffuse_color,specular_color,normal,light_dir,view_dir,specular_power).xyzz",
+	},]]--
+	
+	ToGBuffer3 = 	{
+		class = "test_3d_shader_op",
+		num_circles = 1,
+		num_skipped_circles = 0,
+		num_passes = 1,
+		order = get_order(),
+		rt0 = "DXGI_FORMAT_R32_UINT", 			-- normal
+		rt1 = "DXGI_FORMAT_R16G16B16A16_FLOAT", -- color
+		rt2 = "DXGI_FORMAT_R8G8B8A8_UNORM",		-- position
+		code = "result2    = i.HPos; \
+				result1    = 0;\
+				result1.xy = i.Color.xyz; \
+				result0    = i.Normal.xyzz",
+	},
+	rg32u_xy_sqrt_z = 	{
+		order = get_order(),
+		texture0 = "$user$GBufferNormals.ToGBuffer3.rt0",
+		code = "uint   U 					= texture0.Sample(s_first_mip, i.Tex0).x;\
+				float sign_x				= ((U >> 31) & 0x1)*2-1; \
+				float sign_y				= ((U >> 21) & 0x1)*2-1; \
+				float sign_z				= ((U >> 11) & 0x1)*2-1; \
+				float X 					= sign_x * ((U >> 21) & 0x4) / 1024.0f; \
+				float Y 					= sign_y * ((U >> 10) & 0x4) / 1024.0f; \
+				float3 normal				= (float3(X,Y,sign_z * sqrt(1 - X*X - Y*Y)));\
+				float3 view_dir 			= vX0.xyz;/*normalize(-float3(1,1,1));*/\
+				float3 light_dir 			= vY0.xyz;/*normalize(float3(0,1,0));*/\
+				float3 diffuse_color 		= vZ0.xyz;/*float3(0.7,0.7,0.7);*/\
+				float3 specular_color 		= vW0.xyz;/*float3(1,2,5);*/\
+				float specular_power 		= vW1.x;/*8;*/\
+				result 						= Phong(diffuse_color,specular_color,normal,light_dir,view_dir,specular_power).xyzz",
+	},
+	rg32u_xy_sqrt_z_2 = 	{
+		order = get_order(),
+		texture0 = "$user$GBufferNormals.ToGBuffer3.rt0",
+		code = "uint  U 					= texture0.Sample(s_first_mip, i.Tex0).x;\
+				float sign_z				= (U & 0x1) * 2 - 1;\
+				float2 XY 					= float2( (U >> 21) & 0x7FF, (U >> 10) & 0x7FF) / 1024.0f - 1.0f;\
+				float3 normal				= float3(XY,sign_z * sqrt(1 - dot(XY,XY)));\
+				float3 view_dir 			= vX0.xyz;\
+				float3 light_dir 			= vY0.xyz;\
+				float3 diffuse_color 		= vZ0.xyz;\
+				float3 specular_color 		= vW0.xyz;\
+				float specular_power 		= vW1.x;\
+				result 						= Phong(diffuse_color,specular_color,normal,light_dir,view_dir,specular_power).xyzz",
+	},
+	
+	--	/*float2 XY 				= float2( (U&0xFFC00000) >> 21, (U&0x1FFC00) >> 10) / 1024.0f - 1.0f;*/
+	-- 2^22 = 4194304
+	
+	rg32u_xy_sqrt_z_3 = 	{
+		order = get_order(),
+		texture0 = "$user$GBufferNormals.ToGBuffer3.rt0",
+		code = "uint  U 					= texture0.Sample(s_first_mip, i.Tex0).x;\
+				float X						= (U & 0x7FF) / 1024.0f - 1.0f;\
+				float Y						= (U & 0x3FF800) / 2048.0f / 1024.0f - 1.0f;\
+				float sign_z				= ((U >> 22) & 0x1) * 2.0f - 1.0f; \
+				float3 normal				= float3(X, Y, sign_z * sqrt(1 - X*X - Y*Y));\
+				float3 view_dir 			= vX0.xyz;\
+				float3 light_dir 			= vY0.xyz;\
+				float3 diffuse_color 		= vZ0.xyz;\
+				float3 specular_color 		= vW0.xyz;\
+				float specular_power 		= vW1.x;\
+				result 						= Phong(diffuse_color,specular_color,normal,light_dir,view_dir,specular_power).xyzz",
+	},
+	ToGBuffer4 = 	{
+		class = "test_3d_shader_op",
+		num_circles = 1,
+		num_skipped_circles = 0,
+		num_passes = 1,
+		order = get_order(),
+		rt0 = "DXGI_FORMAT_R10G10B10A2_UNORM",   -- normal
+		rt1 = "DXGI_FORMAT_R16G16B16A16_FLOAT", -- color
+		rt2 = "DXGI_FORMAT_R8G8B8A8_UNORM",		-- position
+		code = "result2    = i.HPos; \
+				result1    = 0;\
+				result1.xy = i.Color.xyz; \
+				result0    = i.Normal.xyzz",
+	},
+	rgba10u_xy_sqrt_z = 	{
+		order = get_order(),
+		texture0 = "$user$GBufferNormals.ToGBuffer4.rt0",
+		code = "uint4 U 					= texture0.Sample(s_first_mip, i.Tex0) * 1024;\
+				float3 sign					= float3((U.w >> 0) & 0x1, (U.w >> 1) & 0x1, (U.z >> 0) & 0x1)*(2.f/1024.f)-1.f/1024.f; \
+				float2 XY 					= U.xy;\
+				float3 normal				= (float3(XY,sqrt(1 - dot(XY,XY))));\
+				normal 						*= sign;\
+				float3 view_dir 			= vX0.xyz;\
+				float3 light_dir 			= vY0.xyz;\
+				float3 diffuse_color 		= vZ0.xyz;\
+				float3 specular_color 		= vW0.xyz;\
+				float specular_power 		= vW1.x;\
+				result 						= Phong(diffuse_color,specular_color,normal,light_dir,view_dir,specular_power).xyzz",
+	},
+	rgba10u_xy_sqrt_z_2 = 	{
+		order = get_order(),
+		texture0 = "$user$GBufferNormals.ToGBuffer4.rt0",
+		code = "float4 U 					= texture0.Sample(s_first_mip, i.Tex0);\
+				float sign					= U.w * 2 - 1;\
+				float2 XY 					= U.xy * 2 - 1;\
+				float3 normal				= (float3(XY, sign * sqrt(1 - dot(XY,XY))));\
+				float3 view_dir 			= vX0.xyz;\
+				float3 light_dir 			= vY0.xyz;\
+				float3 diffuse_color 		= vZ0.xyz;\
+				float3 specular_color 		= vW0.xyz;\
+				float specular_power 		= vW1.x;\
+				result 						= Phong(diffuse_color,specular_color,normal,light_dir,view_dir,specular_power).xyzz",
+	},
+}
+
+GBuffer = {
+	order = get_order(),
+	enabled = enable_gbuffer_group,
+	shader_template_file = path_to_shader_template_file,
+	num_circles = g_num_circles,
+	num_skipped_circles = g_num_skipped_circles,
+	num_passes = g_num_passes,
+	class = "test_2d_shader_op",
+	
+	BASE = 	{
+		code = "result = i.Color",
+	},
+	ToGBuffer = 	{
+		class = "test_3d_shader_op",
+		num_circles = 1,
+		num_skipped_circles = 0,
+		num_passes = 1,
+		order = get_order(),
+		rt0 = "DXGI_FORMAT_R16G16B16A16_FLOAT", -- position
+		rt1 = "DXGI_FORMAT_R16G16B16A16_FLOAT", -- normal
+		rt2 = "DXGI_FORMAT_R8G8B8A8_UNORM",		-- color
+		code = "result2    = i.HPos; \
+				result1    = 0;\
+				result1.xy = i.Color.xyz; \
+				result0    = i.Normal.xyzz",
+	},
+	Phong = 	{
+		order = get_order(),
+		texture0 = "$user$GBuffer.ToGBuffer.rt0", texture1 = "$user$GBuffer.ToGBuffer.rt1", texture2 = "$user$GBuffer.ToGBuffer.rt2",
+		code = "float3 normal 				= normalize(texture0.Sample(s_first_mip, i.Tex0)).xyz;\
+				float3 view_dir 			= vX0.xyz;/*normalize(-float3(1,1,1));*/\
+				float3 light_dir 			= vY0.xyz;/*normalize(float3(0,1,0));*/\
+				float3 diffuse_color 		= vZ0.xyz;/*float3(0.7,0.7,0.7);*/\
+				float3 specular_color 		= vW0.xyz;/*float3(1,2,5);*/\
+				float specular_power 		= vW1.x;/*8;*/\
+				result 						= Phong(diffuse_color,specular_color,normal,light_dir,view_dir,specular_power).xyzz",
+	},
+	Phong_OtherPower = 	{
+		order = get_order(),
+		texture0 = "$user$GBuffer.ToGBuffer.rt0",texture1 = "$user$GBuffer.ToGBuffer.rt1",texture2 = "$user$GBuffer.ToGBuffer.rt2",
+		code = "float3 normal 				= normalize(texture0.Sample(s_first_mip, i.Tex0)).xyz;\
+				float3 view_dir 			= vX0.xyz;/*normalize(-float3(1,1,1));*/\
+				float3 light_dir 			= vY0.xyz;/*normalize(float3(0,1,0));*/\
+				float3 diffuse_color 		= vZ0.xyz;/*float3(0.7,0.7,0.7);*/\
+				float3 specular_color 		= vW0.xyz;/*float3(1,2,5);*/\
+				float specular_power 		= vW1.x;/*8;*/\
+				result 						= Phong_OtherPower(diffuse_color,specular_color,normal,light_dir,view_dir,specular_power).xyzz",
+	},
+
+	Blinn = 	{
+		order = get_order(),
+		texture0 = "$user$GBuffer.ToGBuffer.rt0",texture1 = "$user$GBuffer.ToGBuffer.rt1",texture2 = "$user$GBuffer.ToGBuffer.rt2",
+		code = "float3 normal 				= normalize(texture0.Sample(s_first_mip, i.Tex0)).xyz;\
+				float3 view_dir 			= vX0.xyz;/*normalize(-float3(1,1,1));*/\
+				float3 light_dir 			= vY0.xyz;/*normalize(float3(0,1,0));*/\
+				float3 diffuse_color 		= vZ0.xyz;/*float3(0.7,0.7,0.7);*/\
+				float3 specular_color 		= vW0.xyz;/*float3(1,2,5);*/\
+				float specular_power 		= vW1.x;/*8;*/\
+				result 						= Blinn(diffuse_color,specular_color,normal,light_dir,view_dir,specular_power).xyzz",
+	},
+	CookTorrance = 	{
+		order = get_order(),
+		texture0 = "$user$GBuffer.ToGBuffer.rt0",texture1 = "$user$GBuffer.ToGBuffer.rt1",texture2 = "$user$GBuffer.ToGBuffer.rt2",
+		code = "float3 normal 				= normalize(texture0.Sample(s_first_mip, i.Tex0)).xyz;\
+				float3 view_dir 			= vX0.xyz;/*normalize(-float3(1,1,1));*/\
+				float3 light_dir 			= vY0.xyz;/*normalize(float3(0,1,0));*/\
+				float3 diffuse_color 		= vZ0.xyz;/*float3(0.7,0.7,0.7);*/\
+				float3 specular_color 		= vW0.xyz;/*float3(1,2,5);*/\
+				float specular_power 		= vW1.x;/*8;*/\
+				result 						= BaseMath + CookTorrance(diffuse_color,specular_color,normal,light_dir,view_dir,specular_power).xyzz",
+	},
+}
+
+LightingModels = {
+	
+	order = get_order(),
+	enabled = enable_lighting_models_group,
+	num_circles = g_num_circles,
+	num_skipped_circles = g_num_skipped_circles,
+	num_passes = g_num_passes,
+	
+	class = "test_2d_shader_op",
+	shader_template_file = path_to_shader_template_file,
+	
+	BASE 			= {order = get_order(),code = "result = 0",},
+	
+	Phong 				= {order = get_order(),code = "result = Phong(vX0.xyz, vY0.xyz, vZ0.xyz, normalize(vW0.xyz), vX1.xyz, vW1.x).xyzz",},
+	Phong_OtherReflect 	= {order = get_order(),code = "result = Phong_OtherReflect(vX0.xyz, vY0.xyz, vZ0.xyz, normalize(vW0.xyz), vX1.xyz, vW1.x).xyzz",},
+	Phong_OtherPower 	= {order = get_order(),code = "result = Phong_OtherPower(vX0.xyz, vY0.xyz, vZ0.xyz, normalize(vW0.xyz), vX1.xyz, vW1.x).xyzz",},
+	Phong_Mul 	= {order = get_order(),code = "result = Phong_Mul(vX0.xyz, vY0.xyz, vZ0.xyz, normalize(vW0.xyz), vX1.xyz, vW1.x).xyzz",},
+	
+	Blinn 				= {order = get_order(),code = "result = Blinn(vX0.xyz, vY0.xyz, vZ0.xyz, normalize(vW0.xyz), vX1.xyz, vW1.x).xyzz",},
+	CookTorrance 		= {order = get_order(),code = "result = CookTorrance(vX0.xyz, vY0.xyz, vZ0.xyz, vW0.xyz, vX1.xyz, vY1.x).xyzz",},
+	OrenNayar 			= {order = get_order(),code = "result = OrenNayar(vX0.xyz, vY0.xyz, vZ0.xyz, vW0.xyz, vX1.xyz, vY1.x).xyzz",},
+	Strauss 			= {order = get_order(),code = "result = Strauss(vX0.xyz, vY0.xyz, vZ0.xyz, vW0.xyz, vX1.xyz, vY1.x, vY1.y, vY1.z).xyzz",},	
+	
+}
+
+Objectivity = {
+	order = get_order(),
+	enabled 			 = false,
+	num_circles 		 = g_num_circles,
+	num_skipped_circles  = g_num_skipped_circles,
+	num_passes 			 = g_num_passes,
+	class 				 = "test_2d_shader_op",
+	
+	shader_template_file = path_to_shader_template_file,
+	
+	BASE    	= {order = get_order(),code = "result.xyz = BaseMath.xyz; result.w = sX1",},
+	BASE0    	= {order = get_order(),code = "result.xyz = BaseMath.xyz; result.w = 0",},
+	_0    		= {order = get_order(),code = "result.xyz = BaseMath.xyz; result.w = sX1 + sY1",},
+	_1    		= {order = get_order(),code = "result.xyz = BaseMath.xyz; result.w = sX1 + sY1 + sZ1",},
+	_2    		= {order = get_order(),code = "result.xyz = BaseMath.xyz; result.w = sX1 + sY1 + sZ1 + sW1",},
+	_3    		= {order = get_order(),code = "result.xyz = BaseMath.xyz; result.w = sX1 + sY1 + sZ1 + sW1 + sX0",},
+	_4    		= {order = get_order(),code = "result.xyz = BaseMath.xyz; result.w = sX1 + sY1 + sZ1 + sW1 + sX0 + sY0",},
+	_5    		= {order = get_order(),code = "result.xyz = BaseMath.xyz; result.w = sX1 + sY1 + sZ1 + sW1 + sX0 + sY0 + sZ0",},
+	_6    		= {order = get_order(),code = "result.xyz = BaseMath.xyz; result.w = sX1 + sY1 + sZ1 + sW1 + sX0 + sY0 + sZ0 + sW0",},
+	_7    		= {order = get_order(),code = "result.xyz = BaseMath.xyz; result.w = sX1 - sY1",},
+	_8    		= {order = get_order(),code = "result.xyz = BaseMath.xyz; result.w = sX1 * sY1",},
+	_9    		= {order = get_order(),code = "result.xyz = BaseMath.xyz; result.w = sX1 / sY1",},
+}
+--[[
+Test1 = {
+	order = get_order(),
+	
+	enabled = enable_bitwise_s_op_group,
+	num_circles = g_num_circles,
+	num_skipped_circles = g_num_skipped_circles,
+	num_passes = g_num_passes,
+	class = "test_2d_shader_op",
+	shader_template_file = path_to_shader_template_file,
+	
+	BASE  		= {order = get_order(),code = "result.xyz = BaseMathUint.xyz; result.w = U0",},
+	LeftShift1  	= {order = get_order(),code = "result.xyz = BaseMathUint.xyz; result.w = U0 + U1",},
+	LeftShift2  	= {order = get_order(),code = "result.xyz = BaseMathUint.xyz; result.w = U0 + U1 + U2",},
+	LeftShift3  	= {order = get_order(),code = "result.xyz = BaseMathUint.xyz; result.w = U0 + U1 + U2 + U3",},
+	LeftShift4  	= {order = get_order(),code = "result.xyz = BaseMathUint.xyz; result.w = U0 + U1 + U2 + U3 + U4",},
+	LeftShift5  	= {order = get_order(),code = "result.xyz = BaseMathUint.xyz; result.w = U0 + U1 + U2 + U3 + U4 + U5",},
+}
+Test2 = {
+	order = get_order(),
+	
+	enabled = enable_bitwise_s_op_group,
+	num_circles = g_num_circles,
+	num_skipped_circles = g_num_skipped_circles,
+	num_passes = g_num_passes,
+	class = "test_2d_shader_op",
+	shader_template_file = path_to_shader_template_file,
+	
+	BASE  		= {order = get_order(),code = "result.xyz = BaseMath.xyz; result.w = U0",},
+	LeftShift1  	= {order = get_order(),code = "result.xyz = BaseMath.xyz; result.w = U0 + U1",},
+	LeftShift2  	= {order = get_order(),code = "result.xyz = BaseMath.xyz; result.w = U0 + U1 + U2",},
+	LeftShift3  	= {order = get_order(),code = "result.xyz = BaseMath.xyz; result.w = U0 + U1 + U2 + U3",},
+	LeftShift4  	= {order = get_order(),code = "result.xyz = BaseMath.xyz; result.w = U0 + U1 + U2 + U3 + U4",},
+	LeftShift5  	= {order = get_order(),code = "result.xyz = BaseMath.xyz; result.w = U0 + U1 + U2 + U3 + U4 + U5",},
+}
+Test3 = {
+	order = get_order(),
+	
+	enabled = enable_bitwise_s_op_group,
+	num_circles = g_num_circles,
+	num_skipped_circles = g_num_skipped_circles,
+	num_passes = g_num_passes,
+	class = "test_2d_shader_op",
+	shader_template_file = path_to_shader_template_file,
+	
+	BASE  		= {order = get_order(),code = "result.xyz = 1; result.w = U0",},
+	LeftShift1  	= {order = get_order(),code = "result.xyz = 1; result.w = U0 + U1",},
+	LeftShift2  	= {order = get_order(),code = "result.xyz = 1; result.w = U0 + U1 + U2",},
+	LeftShift3  	= {order = get_order(),code = "result.xyz = 1; result.w = U0 + U1 + U2 + U3",},
+	LeftShift4  	= {order = get_order(),code = "result.xyz = 1; result.w = U0 + U1 + U2 + U3 + U4",},
+	LeftShift5  	= {order = get_order(),code = "result.xyz = 1; result.w = U0 + U1 + U2 + U3 + U4 + U5",},
+}
+]]--
+BitwiseOperators_Scalars = {
+	order = get_order(),
+	
+	enabled = enable_bitwise_s_op_group,
+	num_circles = g_num_circles,
+	num_skipped_circles = g_num_skipped_circles,
+	num_passes = g_num_passes,
+	class = "test_2d_shader_op",
+	shader_template_file = path_to_shader_template_file,
+	
+	BASE  			= {order = get_order(),code = "result.xy = BaseMath.xy; result.zw = U0",},
+	Not  			= {order = get_order(),code = "result.xy = BaseMath.xy; result.zw = ~U0",},
+	LeftShiftConst0	= {order = get_order(),code = "result.xy = BaseMath.xy; result.zw = U0 << 2",},
+	--LeftShiftConst1	= {order = get_order(),code = "result.xyz = BaseMathUint.xyz; result.w = U0 << 16",},
+	--LeftShiftConst2	= {order = get_order(),code = "result.xyz = BaseMathUint.xyz; result.w = U0 << 255",},
+	--LeftShift1  	= {order = get_order(),code = "result.xyz = BaseMathUint.xyz; result.w = U0 << U1",},
+	
+
+	--LeftShiftTexture= {
+	--	order = get_order(),
+	--	code = "result.xyz = BaseMathUint.xyz; \
+	--	uint4 uC4 = texture_uint8.Sample(s_first_mip,i.Tex0);\
+	--	result.w = uC4.x << uC4.y",
+	--},
+	--LeftShiftTexture0= {
+	--	order = get_order(),
+	--	code = "result.xyz = BaseMathUint.xyz; \
+	--	uint4 uC4 = texture_uint8.Sample(s_first_mip,i.Tex0);\
+	--	result.w = uC4.x + uC4.y",
+	--},
+
+	Add  		= {order = get_order(),code = "result.xy = BaseMath.xy; result.zw = U0 + U1",},
+	Sub  		= {order = get_order(),code = "result.xy = BaseMath.xy; result.zw = U0 - U1",},
+	Mul  		= {order = get_order(),code = "result.xy = BaseMath.xy; result.zw = U0 * U1",},
+	Div  		= {order = get_order(),code = "result.xy = BaseMath.xy; result.zw = U0 / U1",},
+	                                                                            
+	Addf  		= {order = get_order(),code = "result.xy = BaseMath.xy; result.zw = (float)U0 + (float)U1",},
+	Subf  		= {order = get_order(),code = "result.xy = BaseMath.xy; result.zw = (float)U0 - (float)U1",},
+	Mulf  		= {order = get_order(),code = "result.xy = BaseMath.xy; result.zw = (float)U0 * (float)U1",},
+	Divf  		= {order = get_order(),code = "result.xy = BaseMath.xy; result.zw = (float)U0 / (float)U1",},
+	                                                                            
+	RightShift  = {order = get_order(),code = "result.xy = BaseMath.xy; result.zw = U0 >> U1",},
+	And  		= {order = get_order(),code = "result.xy = BaseMath.xy; result.zw = U0 & U1",},
+	Or  		= {order = get_order(),code = "result.xy = BaseMath.xy; result.zw = U0 | U1",},
+	Xor  		= {order = get_order(),code = "result.xy = BaseMath.xy; result.zw = U0 ^ U1",},
+	Op  		= {order = get_order(),code = "result.xy = BaseMath.xy; result.zw = (U0 >> 2) & 0xff ",},	
+}
+
+
+ElementalOp_Scalars = {
+	order = get_order(),
+	
+	enabled = enable_elemental_s_op_group,
+	num_circles = g_num_circles,
+	num_skipped_circles = g_num_skipped_circles,
+	num_passes = g_num_passes,
+	class = "test_2d_shader_op",
+	shader_template_file = path_to_shader_template_file,
+	
+	BASE 	  	= {order = get_order(),code = "result.xy = BaseMath.xy; result.zw = sX0",},
+	--[[BASE= {
+		order = get_order(),
+		code = "result.xyz = BaseMath.xyz + BaseMathUint.xyz; \
+		float4 uC4 = random_texture.Sample(s_first_mip,i.Tex0);\
+		result.w = uC4.x",
+	},
+	Add= {
+		order = get_order(),
+		code = "result.xyz = BaseMath.xyz + BaseMathUint.xyz; \
+		float4 uC4 = random_texture.Sample(s_first_mip,i.Tex0);\
+		result.w = uC4.x + uC4.y",
+	},
+	Mul= {
+		order = get_order(),
+		code = "result.xyz = BaseMath.xyz + BaseMathUint.xyz; \
+		float4 uC4 = random_texture.Sample(s_first_mip,i.Tex0);\
+		result.w = uC4.x * uC4.y",
+	},]]--
+	
+	Adding  	= {order = get_order(),code = "result.xy = BaseMath.xy; result.zw = sX0 + sY0",},
+	Multiply  	= {order = get_order(),code = "result.xy = BaseMath.xy; result.zw = sX0 * sY0",},
+	Subtract  	= {order = get_order(),code = "result.xy = BaseMath.xy; result.zw = sX0 - sY0",},
+	Devide  	= {order = get_order(),code = "result.xy = BaseMath.xy; result.zw = sX0 / sY0",},
+	ToUINT  	= {order = get_order(),code = "result.xy = BaseMath.xy; result.zw = (uint)sX0",},
+	
+}
+
+ElementalOp_Vectors = {
+	order = get_order(),
+	
+	enabled = enable_elemental_v_op_group,
+	num_circles = g_num_circles,
+	num_skipped_circles = g_num_skipped_circles,
+	num_passes = g_num_passes,
+	class = "test_2d_shader_op",
+	shader_template_file = path_to_shader_template_file,
+	
+	BASE 	  	= {order = get_order(),code = "result = BaseMath",},
+	Adding  	= {order = get_order(),code = "result = BaseMath + vY",},
+	Multiply0  	= {order = get_order(),code = "result = BaseMath * vY",},
+	Subtract  	= {order = get_order(),code = "result = BaseMath - vY",},
+	Devide  	= {order = get_order(),code = "result = BaseMath / vY",},
+}
+
+MathOp = {
+	order = get_order(),
+	
+	enabled = enable_math_group,
+	num_circles = g_num_circles,
+	num_skipped_circles = g_num_skipped_circles,
+	num_passes = g_num_passes,
+	class = "test_2d_shader_op",
+	shader_template_file = path_to_shader_template_file,
+	
+	BASE 			= {code = "result = A",},
+	sin_op  		= {code = "result = sin(A)",},
+	cos_op 			= {code = "result = cos(A)",},
+	abs_op  		= {code = "result = abs(A)",},
+	pow_op 			= {code = "result = pow(A,0.123)",},
+	saturate_op 	= {code = "result = saturate(A)",},
+	round_op 		= {code = "result = round(A)",},
+	sign_op 		= {code = "result = sign(A)",},
+	clamp_op 		= {code = "result = clamp(A,0.2,3.0)",},
+	sqrt_op 		= {code = "result = sqrt(A)",},
+	rsqrt_op 		= {code = "result = rsqrt(A)",},
+	one_div_sqrt_op = {code = "result = 1.0/sqrt(A)",},
+	lerp_op 		= {code = "result = lerp(A, vX0.z, vX0.y)",},
+	frac_op 		= {code = "result = frac(A)",},
+	ceil_op 		= {code = "result = ceil(A)",},
+	floor_op 		= {code = "result = floor(A)",},
+	sqrt_new 		= {code = "result = fsqrt(A)",},
+	pow_new 		= {code = "result = A/(A+0.123*(1-A))",},
+}
+
+MathOp_Vectors = {
+	order = get_order(),
+	
+	enabled = enable_math_group,
+	num_circles = g_num_circles,
+	num_skipped_circles = g_num_skipped_circles,
+	num_passes = g_num_passes,
+	class = "test_2d_shader_op",
+	shader_template_file = path_to_shader_template_file,
+	
+	BASE 			= {order = get_order(),code = "result = BaseMath",},
+	--[[sin_op  		= {order = get_order(),code = "result = sin(BaseMath)",},
+	cos_op 			= {order = get_order(),code = "result = cos(BaseMath)",},
+	abs_op  		= {order = get_order(),code = "result = abs(BaseMath)",},
+	pow_op 			= {order = get_order(),code = "result = pow(BaseMath,0.123)",},]]--
+	fpow_op 		= {order = get_order(),code = "result = fpow4(BaseMath,0.123)",},
+	dot_op 			= {order = get_order(),code = "result = dot(BaseMath,vX0)",},
+	reflect_op 		= {order = get_order(),code = "result = reflect(BaseMath,vX0)",},
+	normalize_op 	= {order = get_order(),code = "result = normalize(BaseMath)",},
+	mul_mtx_vec_op	= {order = get_order(),code = "result = mul(m_WVP,BaseMath)",},
+	saturate_op 	= {order = get_order(),code = "result = saturate(BaseMath)",},
+	round_op 		= {order = get_order(),code = "result = round(BaseMath)",},
+	clamp_op 		= {order = get_order(),code = "result = clamp(BaseMath,0.2,3.0)",},
+	sqrt_op 		= {order = get_order(),code = "result = sqrt(BaseMath)",},
+	fsqrt_op 		= {order = get_order(),code = "result = fsqrt4(BaseMath)",},
+	rsqrt_op 		= {order = get_order(),code = "result = rsqrt(BaseMath)",},
+	one_div_sqrt_op = {order = get_order(),code = "result = 1.0/sqrt(BaseMath)",},
+	lerp_op 		= {order = get_order(),code = "result = lerp(BaseMath, BaseMath.x, BaseMath.y)",},
+	frac_op 		= {order = get_order(),code = "result = frac(BaseMath)",},
+	ceil_op 		= {order = get_order(),code = "result = ceil(BaseMath)",},
+	floor_op 		= {order = get_order(),code = "result = floor(BaseMath)",},
+}
+
+TextureReadingAccess1024x1024 = {
+	order = get_order(),
+	
+	enabled = enable_reading_access_group,
+	num_circles = g_num_circles,
+	num_skipped_circles = g_num_skipped_circles,
+	num_passes = g_num_passes,
+	
+	class = "test_2d_shader_op",
+	
+	shader_template_file = path_to_shader_template_file,
+	
+	BASE = 	{	
+		texture0 = "detail/detail_grnd_asphalt",
+		order = get_order(),
+		code = "result = texture0.Sample(s_first_mip, get_coord_offset(lookup_texture,i.Tex0, 0.00000000001))",
+	},
+	random_1px = 	{	
+		texture0 = "detail/detail_grnd_asphalt",
+		order = get_order(),
+		code = "result = texture0.Sample(s_first_mip, get_coord_offset(lookup_texture,i.Tex0, 1.0))",
+	},
+	random_2px = 	{	
+		texture0 = "detail/detail_grnd_asphalt",
+		order = get_order(),
+		code = "result = texture0.Sample(s_first_mip, get_coord_offset(lookup_texture,i.Tex0, 2.0))",
+	},
+	random_4px = 	{	
+		texture0 = "detail/detail_grnd_asphalt",
+		order = get_order(),
+		code = "result = texture0.Sample(s_first_mip, get_coord_offset(lookup_texture,i.Tex0, 4.0))",
+	},
+	random_8px = 	{	
+		texture0 = "detail/detail_grnd_asphalt",
+		order = get_order(),
+		code = "result = texture0.Sample(s_first_mip, get_coord_offset(lookup_texture,i.Tex0, 8.0))",
+	},
+	random_16px = 	{	
+		texture0 = "detail/detail_grnd_asphalt",
+		order = get_order(),
+		code = "result = texture0.Sample(s_first_mip, get_coord_offset(lookup_texture,i.Tex0, 16.0))",
+	},
+	random_32px = 	{	
+		texture0 = "detail/detail_grnd_asphalt",
+		order = get_order(),
+		code = "result = texture0.Sample(s_first_mip, get_coord_offset(lookup_texture,i.Tex0, 32.0))",
+	},
+	random_64px = 	{	
+		texture0 = "detail/detail_grnd_asphalt",
+		order = get_order(),
+		code = "result = texture0.Sample(s_first_mip, get_coord_offset(lookup_texture,i.Tex0, 64.0))",
+	},
+	random_128px = 	{	
+		texture0 = "detail/detail_grnd_asphalt",
+		order = get_order(),
+		code = "result = texture0.Sample(s_first_mip, get_coord_offset(lookup_texture,i.Tex0, 128.0))",
+	},
+	random_256px = 	{	
+		texture0 = "detail/detail_grnd_asphalt",
+		order = get_order(),
+		code = "result = texture0.Sample(s_first_mip, get_coord_offset(lookup_texture,i.Tex0, 256.0))",
+	},
+	random_512px = 	{	
+		texture0 = "detail/detail_grnd_asphalt",
+		order = get_order(),
+		code = "result = texture0.Sample(s_first_mip, get_coord_offset(lookup_texture,i.Tex0, 512.0))",
+	},
+	random_1024px = 	{	
+		texture0 = "detail/detail_grnd_asphalt",
+		order = get_order(),
+		code = "result = texture0.Sample(s_first_mip, get_coord_offset(lookup_texture,i.Tex0, 1024.0))",
+	},
+	random_2048px = 	{	
+		texture0 = "detail/detail_grnd_asphalt",
+		order = get_order(),
+		code = "result = texture0.Sample(s_first_mip, get_coord_offset(lookup_texture,i.Tex0, 2048.0))",
+	},
+}
+
+WritingToGBuffer1024x1024 = {
+	order = get_order(),
+	enabled = enable_write_gbuffer_group,
+	num_circles = g_num_circles,
+	num_skipped_circles = g_num_skipped_circles,
+	num_passes = g_num_passes,
+	class = "test_2d_shader_op",
+	shader_template_file = path_to_shader_template_file,
+	
+	BASE = 	{
+		order = get_order(),
+		code = "result = 0",
+	},
+	r8 = 	{
+		order = get_order(),
+		rt0 = "DXGI_FORMAT_R8_UNORM",
+		code = "result = i.Color",
+	},
+	rg8 = 	{
+		order = get_order(),
+		rt0 = "DXGI_FORMAT_R8G8_UNORM",
+		code = "result = i.Color",
+	},
+	rgba8 = 	{
+		order = get_order(),
+		rt0 = "DXGI_FORMAT_R8G8B8A8_UNORM",
+		code = "result = i.Color",
+	},
+	rgba8_rgba8 = 	{
+		order = get_order(),
+		rt0 = "DXGI_FORMAT_R8G8B8A8_UNORM",
+		rt1 = "DXGI_FORMAT_R8G8B8A8_UNORM",
+		code = "result0 = i.Color; result1 = i.Color;",
+	},
+	rgba8_rgba16uint = 	{
+		order = get_order(),
+		rt0 = "DXGI_FORMAT_R8G8B8A8_UNORM",
+		rt1 = "DXGI_FORMAT_R16G16B16A16_UINT",
+		code = "result0 = i.Color; result1 = (uint4)i.Color;",
+	},
+	rgba8_rgba16f = 	{
+		order = get_order(),
+		rt0 = "DXGI_FORMAT_R8G8B8A8_UNORM",
+		rt1 = "DXGI_FORMAT_R16G16B16A16_FLOAT",
+		code = "result0 = i.Color; result1 = i.Color;",
+	},
+	rgba16f_rgba16f = 	{
+		order = get_order(),
+		rt0 = "DXGI_FORMAT_R16G16B16A16_FLOAT",
+		rt1 = "DXGI_FORMAT_R16G16B16A16_FLOAT",
+		code = "result0 = i.Color; result1 = i.Color;",
+	},
+	rgba16f_rgba16f_rgba16f = 	{
+		order = get_order(),
+		
+		rt0 = "DXGI_FORMAT_R16G16B16A16_FLOAT",
+		rt1 = "DXGI_FORMAT_R16G16B16A16_FLOAT",
+		rt2 = "DXGI_FORMAT_R16G16B16A16_FLOAT",
+		
+		--texture0 = "$user$WritingToGBuffer1024x1024.rgba16f_rgba16f.rt0",
+		--texture1 = "$user$WritingToGBuffer1024x1024.rgba16f_rgba16f.rt1",
+		
+		code = "result0 = i.Color; result1 = i.Color; result2 = i.Color;",
+	},
+	r16f_r16f = 	{
+		order = get_order(),
+		rt0 = "DXGI_FORMAT_R16_UNORM",
+		rt1 = "DXGI_FORMAT_R16_UNORM",
+		code = "result0 = i.Color; result1 = i.Color",
+	},
+	rgba8_rgba8_rgba8 = 	{
+		order = get_order(),
+		rt0 = "DXGI_FORMAT_R8G8B8A8_UNORM",
+		rt1 = "DXGI_FORMAT_R8G8B8A8_UNORM",
+		rt2 = "DXGI_FORMAT_R8G8B8A8_UNORM",
+		code = "result0 = i.Color; result1 = i.Color; result2 = i.Color;",
+	},
+	r16f = 	{
+		order = get_order(),
+		rt0 = "DXGI_FORMAT_R16_FLOAT",
+		code = "result = i.Color;",
+	},
+	rg16f = 	{
+		order = get_order(),
+		rt0 = "DXGI_FORMAT_R16G16_FLOAT",
+		code = "result = i.Color;",
+	},
+	rg16f_rg16f = 	{
+		order = get_order(),
+		rt0 = "DXGI_FORMAT_R16G16_UNORM",
+		rt1 = "DXGI_FORMAT_R16G16_UNORM",
+		code = "result0 = i.Color; result1 = i.Color",
+	},
+	rg16f_rg16f_rg16f = 	{
+		order = get_order(),
+		rt0 = "DXGI_FORMAT_R16G16_UNORM",
+		rt1 = "DXGI_FORMAT_R16G16_UNORM",
+		rt2 = "DXGI_FORMAT_R16G16_UNORM",
+		code = "result0 = i.Color; result1 = i.Color; result2 = i.Color;",
+	},
+	rgba16f = 	{
+		order = get_order(),
+		rt0 = "DXGI_FORMAT_R16G16B16A16_FLOAT",
+		code = "result = i.Color",
+	},
+	rgba16f_rgba16f_rgba8 = 	{
+		order = get_order(),
+		rt0 = "DXGI_FORMAT_R16G16B16A16_FLOAT",
+		rt1 = "DXGI_FORMAT_R16G16B16A16_FLOAT",
+		rt2 = "DXGI_FORMAT_R8G8B8A8_UNORM",
+		code = "result0 = i.Color; result1 = i.Color; result2 = i.Color;",
+	},
+	rgb10f_rgb10f_rgb10f = 	{
+		order = get_order(),
+		rt0 = "DXGI_FORMAT_R10G10B10A2_UNORM",
+		rt1 = "DXGI_FORMAT_R10G10B10A2_UNORM",
+		rt2 = "DXGI_FORMAT_R10G10B10A2_UNORM",
+		code = "result0 = i.Color; result1 = i.Color; result2 = i.Color;",
+	},
+	rgba32f = 	{
+		order = get_order(),
+		rt0 = "DXGI_FORMAT_R32G32B32A32_FLOAT",
+		code = "result = i.Color",
+	},
+	rgba32f_rgba32f = 	{
+		order = get_order(),
+		rt0 = "DXGI_FORMAT_R32G32B32A32_FLOAT",
+		rt1 = "DXGI_FORMAT_R32G32B32A32_FLOAT",
+		code = "result0 = i.Color; result1 = i.Color;",
+	},
+	rgba32f_rgba32f_rgba8 = 	{
+		order = get_order(),
+		rt0 = "DXGI_FORMAT_R32G32B32A32_FLOAT",
+		rt1 = "DXGI_FORMAT_R32G32B32A32_FLOAT",
+		rt2 = "DXGI_FORMAT_R8G8B8A8_UNORM",
+		code = "result0 = i.Color; result1 = i.Color; result2 = i.Color;",
+	},
+	rgba32f_rgba32f_rgba32f = 	{
+		order = get_order(),
+		rt0 = "DXGI_FORMAT_R32G32B32A32_FLOAT",
+		rt1 = "DXGI_FORMAT_R32G32B32A32_FLOAT",
+		rt2 = "DXGI_FORMAT_R32G32B32A32_FLOAT",
+		code = "result0 = i.Color; result1 = i.Color; result2 = i.Color;",
+	},
+	r16_rg16_rgba8	 		= 	{
+		order = get_order(),
+		rt0="DXGI_FORMAT_R16_FLOAT",
+		rt1="DXGI_FORMAT_R16G16_FLOAT",
+		rt2="DXGI_FORMAT_R8G8B8A8_UNORM",
+		code = "result0 = i.Color; result1 = i.Color; result2 = i.Color",
+	},
+}
+
+ReadFromGBuffer1024x1024 = {
+	order = get_order(),
+	enabled = enable_read_gbuffer_group,
+	num_circles = g_num_circles,
+	num_skipped_circles = g_num_skipped_circles,
+	num_passes = g_num_passes,
+	class = "test_2d_shader_op",
+	shader_template_file = path_to_shader_template_file,
+	
+	BASE	 		= 	{
+		order = get_order(),
+		code = "result = 0",
+	},
+	rgba8		 		= 	{
+		order = get_order(),
+		texture0="DXGI_FORMAT_R8G8B8A8_UNORM",
+		code = "result = texture0.Sample(s_first_mip, i.Tex0)",
+	},
+	rgba8_rgba8		 		= 	{
+		order = get_order(),
+		texture0="DXGI_FORMAT_R8G8B8A8_UNORM",
+		texture1="DXGI_FORMAT_R8G8B8A8_UNORM",
+		code = "result = texture0.Sample(s_first_mip, i.Tex0)+texture1.Sample(s_first_mip, i.Tex0)",
+	},
+	rgba16uint 		= 	{
+		order = get_order(),
+		texture0="DXGI_FORMAT_R16G16B16A16_UINT",
+		code = "result = texture0.Sample(s_first_mip, i.Tex0)",
+	},
+	rgba16f 		= 	{
+		order = get_order(),
+		texture0="DXGI_FORMAT_R16G16B16A16_FLOAT",
+		code = "result = texture0.Sample(s_first_mip, i.Tex0)",
+	},
+	rgba16f_z 		= 	{
+		order = get_order(),
+		texture0="DXGI_FORMAT_R16G16B16A16_FLOAT",
+		code = "result = texture0.Sample(s_first_mip, i.Tex0)",
+	},
+	rgba10f = 	{
+		order = get_order(),
+		texture0 = "DXGI_FORMAT_R10G10B10A2_UNORM",
+		code = "result = result = texture0.Sample(s_first_mip, i.Tex0)",
+	},
+	rgba10uint = 	{
+		order = get_order(),
+		texture0 = "DXGI_FORMAT_R10G10B10A2_UINT",
+		code = "result = result = texture0.Sample(s_first_mip, i.Tex0)",
+	},
+	rgba11f = 	{
+		order = get_order(),
+		texture0 = "DXGI_FORMAT_R11G11B10_FLOAT",
+		code = "result = result = texture0.Sample(s_first_mip, i.Tex0)",
+	},
+	rgba8_rgba16uint 		= 	{
+		order = get_order(),
+		texture0="DXGI_FORMAT_R8G8B8A8_UNORM",
+		texture1="DXGI_FORMAT_R16G16B16A16_UINT",
+		code = "result = texture0.Sample(s_first_mip, i.Tex0)+(float4)texture1.Sample(s_first_mip, i.Tex0)",
+	},
+	rgba8_rgba16	 		= 	{
+		order = get_order(),
+		texture0="DXGI_FORMAT_R8G8B8A8_UNORM",
+		texture1="DXGI_FORMAT_R16G16B16A16_FLOAT",
+		code = "result = texture0.Sample(s_first_mip, i.Tex0)+texture1.Sample(s_first_mip, i.Tex0)",
+	},
+	rgba16_rgba16	 		= 	{
+		order = get_order(),
+		texture0="DXGI_FORMAT_R16G16B16A16_FLOAT",
+		texture1="DXGI_FORMAT_R16G16B16A16_FLOAT",
+		code = "result = texture0.Sample(s_first_mip, i.Tex0)+texture1.Sample(s_first_mip, i.Tex0)",
+	},
+	rgba16_rgba16_rgba16	 		= 	{
+		order = get_order(),
+		texture0="DXGI_FORMAT_R16G16B16A16_FLOAT",
+		texture1="DXGI_FORMAT_R16G16B16A16_FLOAT",
+		texture2="DXGI_FORMAT_R16G16B16A16_FLOAT",
+		code = "result = texture0.Sample(s_first_mip, i.Tex0)+texture1.Sample(s_first_mip, i.Tex0)+texture2.Sample(s_first_mip, i.Tex0)",
+	},
+	rgba16_rgba16_rgba8	 		= 	{
+		order = get_order(),
+		texture0="DXGI_FORMAT_R16G16B16A16_FLOAT",
+		texture1="DXGI_FORMAT_R16G16B16A16_FLOAT",
+		texture2="DXGI_FORMAT_R8G8B8A8_UNORM",
+		code = "result = texture0.Sample(s_first_mip, i.Tex0)+texture1.Sample(s_first_mip, i.Tex0)+texture2.Sample(s_first_mip, i.Tex0)",
+	},
+	rg16_rg16_rgba8	 		= 	{
+		order = get_order(),
+		texture0="DXGI_FORMAT_R16G16_FLOAT",
+		texture1="DXGI_FORMAT_R16G16_FLOAT",
+		texture2="DXGI_FORMAT_R8G8B8A8_UNORM",
+		code = "result = texture0.Sample(s_first_mip, i.Tex0)+texture1.Sample(s_first_mip, i.Tex0)+texture2.Sample(s_first_mip, i.Tex0)",
+	},
+	r16_rg16_rgba8	 		= 	{
+		order = get_order(),
+		texture0="DXGI_FORMAT_R16_FLOAT",
+		texture1="DXGI_FORMAT_R16G16_FLOAT",
+		texture2="DXGI_FORMAT_R8G8B8A8_UNORM",
+		code = "result = texture0.Sample(s_first_mip, i.Tex0)+texture1.Sample(s_first_mip, i.Tex0)+texture2.Sample(s_first_mip, i.Tex0)",
+	},
+	r16_rgba8_rgba8	 		= 	{
+		order = get_order(),
+		texture0="DXGI_FORMAT_R16_FLOAT",
+		texture1="DXGI_FORMAT_R8G8B8A8_UNORM",
+		texture2="DXGI_FORMAT_R8G8B8A8_UNORM",
+		code = "result = texture0.Sample(s_first_mip, i.Tex0)+texture1.Sample(s_first_mip, i.Tex0)+texture2.Sample(s_first_mip, i.Tex0)",
+	},
+	rgba8_rgba8_rgba8	 		= 	{
+		order = get_order(),
+		texture0="DXGI_FORMAT_R8G8B8A8_UNORM",
+		texture1="DXGI_FORMAT_R8G8B8A8_UNORM",
+		texture2="DXGI_FORMAT_R8G8B8A8_UNORM",
+		code = "result = texture0.Sample(s_first_mip, i.Tex0)+texture1.Sample(s_first_mip, i.Tex0)+texture2.Sample(s_first_mip, i.Tex0)",
+	},
+}
+ClearingTests = {
+	order = get_order(),
+	
+	enabled = enable_clearing_test_group,
+	num_circles = g_num_circles,
+	num_skipped_circles = g_num_skipped_circles,
+	num_passes = g_num_passes,
+	
+	clear_render_target = {	class = "test_clear_render_target",},
+	clear_depth_stencil = {	class = "test_clear_depth_stencil",},
+}
+
+Meshes = {
+	order = get_order(),
+	
+	enabled = enable_3d_mesh_group,
+	num_passes = g_num_passes,
+	num_circles = g_num_circles,
+	num_skipped_circles = g_num_skipped_circles,
+	shader_template_file = path_to_shader_template_file,
+	class = "test_3d_shader_op",
+	
+	BASE = 	{ 
+		code = "result = i.Color;",
+	},
+}
+
+TextureFormatsSamplers1024x1024 = {
+	order = get_order(),
+	
+	enabled = enable_texture_formats_group,
+	num_circles = g_num_circles,
+	num_skipped_circles = g_num_skipped_circles,
+	num_passes = g_num_passes,
+	
+	class = "test_2d_shader_op",
+	
+	shader_template_file = path_to_shader_template_file,
+	
+	BASE = 	{order = get_order(),code = "result = BaseTextures + i.Color",},
+	BASE_0 = 	{order = get_order(),code = "result = i.Color",},
+	BASE_1 = 	{order = get_order(),code = "result = 0",},
+
+	r8_Point	 		= 	{order = get_order(),texture0="DXGI_FORMAT_R8_UNORM",code = "result = BaseTextures + texture0.Sample(s_normal, i.Tex0)",},
+	rg8_Point	 		= 	{order = get_order(),texture0="DXGI_FORMAT_R8G8_UNORM",code = "result = BaseTextures + texture0.Sample(s_normal, i.Tex0)",},
+	
+	argb8_Anisotropic16	= 	{order = get_order(),code = "result = BaseTextures + texture_argb8.Sample(s_base, i.Tex0)",},
+	argb8_Anisotropic8	= 	{order = get_order(),code = "result = BaseTextures + texture_argb8.Sample(s_base_hud, i.Tex0)",},
+	argb8_Anisotropic1	= 	{order = get_order(),code = "result = BaseTextures + texture_argb8.Sample(s_detail, i.Tex0)",},
+	argb8_Linear 		= 	{order = get_order(),code = "result = BaseTextures + texture_argb8.Sample(s_material, i.Tex0)",},
+	argb8_Point	 		= 	{order = get_order(),code = "result = BaseTextures + texture_argb8.Sample(smp_nofilter, i.Tex0)",},
+	
+	r16f_Point	 		= 	{order = get_order(),texture0="DXGI_FORMAT_R16_FLOAT",code = "result = BaseTextures + texture0.Sample(s_normal, i.Tex0)",},
+	rg16f_Point	 		= 	{order = get_order(),texture0="DXGI_FORMAT_R16G16_FLOAT",code = "result = BaseTextures + texture0.Sample(s_normal, i.Tex0)",},
+	r32f_Point	 		= 	{order = get_order(),texture0="DXGI_FORMAT_R32_FLOAT",code = "result = BaseTextures + texture0.Sample(s_normal, i.Tex0)",},
+	rg32f_Point	 		= 	{order = get_order(),texture0="DXGI_FORMAT_R32G32_FLOAT",code = "result = BaseTextures + texture0.Sample(s_normal, i.Tex0)",},
+	
+	argb16_Anisotropic16= 	{order = get_order(),code = "result = BaseTextures + texture_argb16.Sample(s_base, i.Tex0)",},
+	argb16_Anisotropic8	= 	{order = get_order(),code = "result = BaseTextures + texture_argb16.Sample(s_base_hud, i.Tex0)",},
+	argb16_Anisotropic1	= 	{order = get_order(),code = "result = BaseTextures + texture_argb16.Sample(s_detail, i.Tex0)",},
+	argb16_Linear 		= 	{order = get_order(),code = "result = BaseTextures + texture_argb16.Sample(s_position, i.Tex0)",},
+	argb16_Point	 	= 	{order = get_order(),code = "result = BaseTextures + texture_argb16.Sample(s_normal, i.Tex0)",},
+	
+	dxt1_Anisotropic16	= 	{order = get_order(),texture0 = "detail/detail_grnd_asphalt",code = "result = BaseTextures + texture0.Sample(s_base, i.Tex0)",},
+	dxt1_Anisotropic8	= 	{order = get_order(),texture0 = "detail/detail_grnd_asphalt",code = "result = BaseTextures + texture0.Sample(s_base_hud, i.Tex0)",},
+	dxt1_Anisotropic1	= 	{order = get_order(),texture0 = "detail/detail_grnd_asphalt",code = "result = BaseTextures + texture0.Sample(s_detail, i.Tex0)",},
+	dxt1_Linear 		= 	{order = get_order(),texture0 = "detail/detail_grnd_asphalt",code = "result = BaseTextures + texture0.Sample(s_position, i.Tex0)",},
+	dxt1_Point	 		= 	{order = get_order(),texture0 = "detail/detail_grnd_asphalt",code = "result = BaseTextures + texture0.Sample(s_normal, i.Tex0)",},
+	
+	dxt5_Anisotropic16 	=	{order = get_order(),texture0 = "detail/detail_grnd_asphalt",code = "result = BaseTextures + texture0.Sample(s_base, i.Tex0)",},
+	dxt5_Anisotropic8 	= 	{order = get_order(),texture0 = "detail/detail_grnd_asphalt",code = "result = BaseTextures + texture0.Sample(s_base_hud, i.Tex0)",},
+	dxt5_Anisotropic1 	=	{order = get_order(),texture0 = "detail/detail_grnd_asphalt",code = "result = BaseTextures + texture0.Sample(s_detail, i.Tex0)",},
+	dxt5_Linear 		= 	{order = get_order(),texture0 = "detail/detail_grnd_asphalt",code = "result = BaseTextures + texture0.Sample(s_position, i.Tex0)",},
+	dxt5_Point	 		=	{order = get_order(),texture0 = "detail/detail_grnd_asphalt",code = "result = BaseTextures + texture0.Sample(s_normal, i.Tex0)",},
+} 
+
+--[[
+TextureFormatsSamplers1024x1024_BaseMath = {
+	order = get_order(),
+	
+	enabled = enable_texture_formats_group,
+	num_circles = g_num_circles,
+	num_skipped_circles = g_num_skipped_circles,
+	num_passes = g_num_passes,
+	
+	class = "test_2d_shader_op",
+	
+	shader_template_file = path_to_shader_template_file,
+	
+	BASE = 	{order = get_order(),code = "result = BaseMath + i.Color",},
+	BASE_0 = 	{order = get_order(),code = "result = i.Color",},
+	BASE_1 = 	{order = get_order(),code = "result = 0",},
+
+	r8_Point	 		= 	{order = get_order(),texture0="DXGI_FORMAT_R8_UNORM",code = "result = BaseMath + texture0.Sample(s_normal, i.Tex0)",},
+	rg8_Point	 		= 	{order = get_order(),texture0="DXGI_FORMAT_R8G8_UNORM",code = "result = BaseMath + texture0.Sample(s_normal, i.Tex0)",},
+	
+	argb8_Anisotropic16	= 	{order = get_order(),code = "result = BaseMath + texture_argb8.Sample(s_base, i.Tex0)",},
+	argb8_Anisotropic8	= 	{order = get_order(),code = "result = BaseMath + texture_argb8.Sample(s_base_hud, i.Tex0)",},
+	argb8_Anisotropic1	= 	{order = get_order(),code = "result = BaseMath + texture_argb8.Sample(s_detail, i.Tex0)",},
+	argb8_Linear 		= 	{order = get_order(),code = "result = BaseMath + texture_argb8.Sample(s_material, i.Tex0)",},
+	argb8_Point	 		= 	{order = get_order(),code = "result = BaseMath + texture_argb8.Sample(smp_nofilter, i.Tex0)",},
+	
+	r16f_Point	 		= 	{order = get_order(),texture0="DXGI_FORMAT_R16_FLOAT",code = "result = BaseMath + texture0.Sample(s_normal, i.Tex0)",},
+	rg16f_Point	 		= 	{order = get_order(),texture0="DXGI_FORMAT_R16G16_FLOAT",code = "result = BaseMath + texture0.Sample(s_normal, i.Tex0)",},
+	r32f_Point	 		= 	{order = get_order(),texture0="DXGI_FORMAT_R32_FLOAT",code = "result = BaseMath + texture0.Sample(s_normal, i.Tex0)",},
+	rg32f_Point	 		= 	{order = get_order(),texture0="DXGI_FORMAT_R32G32_FLOAT",code = "result = BaseMath + texture0.Sample(s_normal, i.Tex0)",},
+	
+	argb16_Anisotropic16= 	{order = get_order(),code = "result = BaseMath + texture_argb16.Sample(s_base, i.Tex0)",},
+	argb16_Anisotropic8	= 	{order = get_order(),code = "result = BaseMath + texture_argb16.Sample(s_base_hud, i.Tex0)",},
+	argb16_Anisotropic1	= 	{order = get_order(),code = "result = BaseMath + texture_argb16.Sample(s_detail, i.Tex0)",},
+	argb16_Linear 		= 	{order = get_order(),code = "result = BaseMath + texture_argb16.Sample(s_position, i.Tex0)",},
+	argb16_Point	 	= 	{order = get_order(),code = "result = BaseMath + texture_argb16.Sample(s_normal, i.Tex0)",},
+	
+	dxt1_Anisotropic16	= 	{order = get_order(),texture0 = "briks/briks_br2_1",code = "result = BaseMath + texture0.Sample(s_base, i.Tex0)",},
+	dxt1_Anisotropic8	= 	{order = get_order(),texture0 = "briks/briks_br2_1",code = "result = BaseMath + texture0.Sample(s_base_hud, i.Tex0)",},
+	dxt1_Anisotropic1	= 	{order = get_order(),texture0 = "briks/briks_br2_1",code = "result = BaseMath + texture0.Sample(s_detail, i.Tex0)",},
+	dxt1_Linear 		= 	{order = get_order(),texture0 = "briks/briks_br2_1",code = "result = BaseMath + texture0.Sample(s_position, i.Tex0)",},
+	dxt1_Point	 		= 	{order = get_order(),texture0 = "briks/briks_br2_1",code = "result = BaseMath + texture0.Sample(s_normal, i.Tex0)",},
+	
+	dxt5_Anisotropic16 	=	{order = get_order(),texture0 = "briks/briks_br2_bump",code = "result = BaseMath + texture0.Sample(s_base, i.Tex0)",},
+	dxt5_Anisotropic8 	= 	{order = get_order(),texture0 = "briks/briks_br2_bump",code = "result = BaseMath + texture0.Sample(s_base_hud, i.Tex0)",},
+	dxt5_Anisotropic1 	=	{order = get_order(),texture0 = "briks/briks_br2_bump",code = "result = BaseMath + texture0.Sample(s_detail, i.Tex0)",},
+	dxt5_Linear 		= 	{order = get_order(),texture0 = "briks/briks_br2_bump",code = "result = BaseMath + texture0.Sample(s_position, i.Tex0)",},
+	dxt5_Point	 		=	{order = get_order(),texture0 = "briks/briks_br2_bump",code = "result = BaseMath + texture0.Sample(s_normal, i.Tex0)",},
+} 
+
+TextureFormatsSamplers1024x1024_NoBase = {
+	order = get_order(),
+	
+	enabled = enable_texture_formats_group,
+	num_circles = g_num_circles,
+	num_skipped_circles = g_num_skipped_circles,
+	num_passes = g_num_passes,
+	
+	class = "test_2d_shader_op",
+	
+	shader_template_file = path_to_shader_template_file,
+	
+	BASE = 	{order = get_order(),code = "result = i.Color",},
+	BASE_0 = 	{order = get_order(),code = "result = i.Color",},
+	BASE_1 = 	{order = get_order(),code = "result = 0",},
+
+	r8_Point	 		= 	{order = get_order(),texture0="DXGI_FORMAT_R8_UNORM",code = "result = texture0.Sample(s_normal, i.Tex0)",},
+	rg8_Point	 		= 	{order = get_order(),texture0="DXGI_FORMAT_R8G8_UNORM",code = "result = texture0.Sample(s_normal, i.Tex0)",},
+	
+	argb8_Anisotropic16	= 	{order = get_order(),code = "result = texture_argb8.Sample(s_base, i.Tex0)",},
+	argb8_Anisotropic8	= 	{order = get_order(),code = "result = texture_argb8.Sample(s_base_hud, i.Tex0)",},
+	argb8_Anisotropic1	= 	{order = get_order(),code = "result = texture_argb8.Sample(s_detail, i.Tex0)",},
+	argb8_Linear 		= 	{order = get_order(),code = "result = texture_argb8.Sample(s_material, i.Tex0)",},
+	argb8_Point	 		= 	{order = get_order(),code = "result = texture_argb8.Sample(smp_nofilter, i.Tex0)",},
+	
+	r16f_Point	 		= 	{order = get_order(),texture0="DXGI_FORMAT_R16_FLOAT",code = "result = texture0.Sample(s_normal, i.Tex0)",},
+	rg16f_Point	 		= 	{order = get_order(),texture0="DXGI_FORMAT_R16G16_FLOAT",code = "result = texture0.Sample(s_normal, i.Tex0)",},
+	r32f_Point	 		= 	{order = get_order(),texture0="DXGI_FORMAT_R32_FLOAT",code = "result = texture0.Sample(s_normal, i.Tex0)",},
+	rg32f_Point	 		= 	{order = get_order(),texture0="DXGI_FORMAT_R32G32_FLOAT",code = "result = texture0.Sample(s_normal, i.Tex0)",},
+	
+	argb16_Anisotropic16= 	{order = get_order(),code = "result = texture_argb16.Sample(s_base, i.Tex0)",},
+	argb16_Anisotropic8	= 	{order = get_order(),code = "result = texture_argb16.Sample(s_base_hud, i.Tex0)",},
+	argb16_Anisotropic1	= 	{order = get_order(),code = "result = texture_argb16.Sample(s_detail, i.Tex0)",},
+	argb16_Linear 		= 	{order = get_order(),code = "result = texture_argb16.Sample(s_position, i.Tex0)",},
+	argb16_Point	 	= 	{order = get_order(),code = "result = texture_argb16.Sample(s_normal, i.Tex0)",},
+	
+	dxt1_Anisotropic16	= 	{order = get_order(),texture0 = "briks/briks_br2_1",code = "result = texture0.Sample(s_base, i.Tex0)",},
+	dxt1_Anisotropic8	= 	{order = get_order(),texture0 = "briks/briks_br2_1",code = "result = texture0.Sample(s_base_hud, i.Tex0)",},
+	dxt1_Anisotropic1	= 	{order = get_order(),texture0 = "briks/briks_br2_1",code = "result = texture0.Sample(s_detail, i.Tex0)",},
+	dxt1_Linear 		= 	{order = get_order(),texture0 = "briks/briks_br2_1",code = "result = texture0.Sample(s_position, i.Tex0)",},
+	dxt1_Point	 		= 	{order = get_order(),texture0 = "briks/briks_br2_1",code = "result = texture0.Sample(s_normal, i.Tex0)",},
+	
+	dxt5_Anisotropic16 	=	{order = get_order(),texture0 = "briks/briks_br2_bump",code = "result = texture0.Sample(s_base, i.Tex0)",},
+	dxt5_Anisotropic8 	= 	{order = get_order(),texture0 = "briks/briks_br2_bump",code = "result = texture0.Sample(s_base_hud, i.Tex0)",},
+	dxt5_Anisotropic1 	=	{order = get_order(),texture0 = "briks/briks_br2_bump",code = "result = texture0.Sample(s_detail, i.Tex0)",},
+	dxt5_Linear 		= 	{order = get_order(),texture0 = "briks/briks_br2_bump",code = "result = texture0.Sample(s_position, i.Tex0)",},
+	dxt5_Point	 		=	{order = get_order(),texture0 = "briks/briks_br2_bump",code = "result = texture0.Sample(s_normal, i.Tex0)",},
+} 
+]]--
+
+
+ElementalOp_Find_Scalars = {
+	order = get_order(),
+	
+	enabled = enable_elemental_find_s_op_group,
+	num_circles = g_num_circles,
+	num_skipped_circles = g_num_skipped_circles,
+	num_passes = g_num_passes,
+	class = "test_2d_shader_op",
+	shader_template_file = path_to_shader_template_file,
+	
+	BASE 	  	= {order = get_order(),code = "result = sX0",},
+	
+	Adding  	= {order = get_order(),code = "result = sX0",},
+	Adding0  	= {order = get_order(),code = "result = sX0 + sY0",},
+	Adding1  	= {order = get_order(),code = "result = sX0 + sY0 + sZ0",},
+	Adding2  	= {order = get_order(),code = "result = sX0 + sY0 + sZ0 + sW0",},
+	Adding3  	= {order = get_order(),code = "result = sX0 + sY0 + sZ0 + sW0 + sX1",},
+	Adding4  	= {order = get_order(),code = "result = sX0 + sY0 + sZ0 + sW0 + sX1 + sY1",},
+	Adding5  	= {order = get_order(),code = "result = sX0 + sY0 + sZ0 + sW0 + sX1 + sY1 + sZ1",},
+	Adding6  	= {order = get_order(),code = "result = sX0 + sY0 + sZ0 + sW0 + sX1 + sY1 + sZ1 + sW1",},
+	
+	Multiply  	= {order = get_order(),code = "result = sX0",},
+	Multiply0  	= {order = get_order(),code = "result = sX0 * sY0",},
+	Multiply1  	= {order = get_order(),code = "result = sX0 * sY0 * sZ0",},
+	Multiply2  	= {order = get_order(),code = "result = sX0 * sY0 * sZ0 * sW0",},
+	Multiply3  	= {order = get_order(),code = "result = sX0 * sY0 * sZ0 * sW0 * sX1",},
+	Multiply4  	= {order = get_order(),code = "result = sX0 * sY0 * sZ0 * sW0 * sX1 * sY1",},
+	Multiply5  	= {order = get_order(),code = "result = sX0 * sY0 * sZ0 * sW0 * sX1 * sY1 * sZ1",},
+	Multiply6  	= {order = get_order(),code = "result = sX0 * sY0 * sZ0 * sW0 * sX1 * sY1 * sZ1 * sW1",},
+	
+	Subtract  	= {order = get_order(),code = "result = sX0",},
+	Subtract0  	= {order = get_order(),code = "result = sX0 - sY0",},
+	Subtract1  	= {order = get_order(),code = "result = sX0 - sY0 - sZ0",},
+	Subtract2  	= {order = get_order(),code = "result = sX0 - sY0 - sZ0 - sW0",},
+	Subtract3  	= {order = get_order(),code = "result = sX0 - sY0 - sZ0 - sW0 - sX1",},
+	Subtract4  	= {order = get_order(),code = "result = sX0 - sY0 - sZ0 - sW0 - sX1 - sY1",},
+	Subtract5  	= {order = get_order(),code = "result = sX0 - sY0 - sZ0 - sW0 - sX1 - sY1 - sZ1",},
+	Subtract6  	= {order = get_order(),code = "result = sX0 - sY0 - sZ0 - sW0 - sX1 - sY1 - sZ1 - sW1",},	
+	
+	Devide  	= {order = get_order(),code = "result = sX0",},
+	Devide0  	= {order = get_order(),code = "result = sX0 / sY0",},
+	Devide1  	= {order = get_order(),code = "result = sX0 / sY0 / sZ0",},
+}
+
+
+
+ElementalOp_Find_Vectors = {
+	order = get_order(),
+	
+	enabled = enable_elemental_find_v_op_group,
+	num_circles = g_num_circles,
+	num_skipped_circles = g_num_skipped_circles,
+	num_passes = g_num_passes,
+	class = "test_2d_shader_op",
+	shader_template_file = path_to_shader_template_file,
+	
+	BASE 	  	= {order = get_order(),code = "result = vX0",},
+	
+	Adding  	= {order = get_order(),code = "result = vX0",},
+	Adding0  	= {order = get_order(),code = "result = vX0 + vY0",},
+	Adding1  	= {order = get_order(),code = "result = vX0 + vY0 + vZ0",},
+	Adding2  	= {order = get_order(),code = "result = vX0 + vY0 + vZ0 + vW0",},
+	Adding3  	= {order = get_order(),code = "result = vX0 + vY0 + vZ0 + vW0 + vX1",},
+	Adding4  	= {order = get_order(),code = "result = vX0 + vY0 + vZ0 + vW0 + vX1 + vY1",},
+	Adding5  	= {order = get_order(),code = "result = vX0 + vY0 + vZ0 + vW0 + vX1 + vY1 + vZ1",},
+	Adding6  	= {order = get_order(),code = "result = vX0 + vY0 + vZ0 + vW0 + vX1 + vY1 + vZ1 + vW1",},
+	
+	Multiply  	= {order = get_order(),code = "result = vX0",},
+	Multiply0  	= {order = get_order(),code = "result = vX0 * vY0",},
+	Multiply1  	= {order = get_order(),code = "result = vX0 * vY0 * vZ0",},
+	Multiply2  	= {order = get_order(),code = "result = vX0 * vY0 * vZ0 * vW0",},
+	Multiply3  	= {order = get_order(),code = "result = vX0 * vY0 * vZ0 * vW0 * vX1",},
+	Multiply4  	= {order = get_order(),code = "result = vX0 * vY0 * vZ0 * vW0 * vX1 * vY1",},
+	Multiply5  	= {order = get_order(),code = "result = vX0 * vY0 * vZ0 * vW0 * vX1 * vY1 * vZ1",},
+	Multiply6  	= {order = get_order(),code = "result = vX0 * vY0 * vZ0 * vW0 * vX1 * vY1 * vZ1 * vW1",},
+	
+	Subtract  	= {order = get_order(),code = "result = vX0",},
+	Subtract0  	= {order = get_order(),code = "result = vX0 - vY0",},
+	Subtract1  	= {order = get_order(),code = "result = vX0 - vY0 - vZ0",},
+	Subtract2  	= {order = get_order(),code = "result = vX0 - vY0 - vZ0 - vW0",},
+	Subtract3  	= {order = get_order(),code = "result = vX0 - vY0 - vZ0 - vW0 - vX1",},
+	Subtract4  	= {order = get_order(),code = "result = vX0 - vY0 - vZ0 - vW0 - vX1 - vY1",},
+	Subtract5  	= {order = get_order(),code = "result = vX0 - vY0 - vZ0 - vW0 - vX1 - vY1 - vZ1",},
+	Subtract6  	= {order = get_order(),code = "result = vX0 - vY0 - vZ0 - vW0 - vX1 - vY1 - vZ1 - vW1",},	
+	
+	Devide0  	= {order = get_order(),code = "result = vX0",},
+	Devide0  	= {order = get_order(),code = "result = vX0 / vY0",},
+	Devide1  	= {order = get_order(),code = "result = vX0 / vY0 / vZ0",},
+	Devide2  	= {order = get_order(),code = "result = vX0 / vY0 / vZ0 / vW1",},
+}
+
+FindOpTime_Vectors_Targets_rgba8 = {
+	order = get_order(),
+	
+	enabled = enable_find_time_targets_group,
+	num_circles = g_num_circles,
+	num_skipped_circles = g_num_skipped_circles,
+	num_passes = g_num_passes,
+	class = "test_2d_shader_op",
+	shader_template_file = path_to_shader_template_file,
+	
+	BASE 	  	= {order = get_order(),code = "result = 0",},
+	
+	rt0 = "DXGI_FORMAT_R8G8B8A8_UNORM",
+	
+	MatrixMul0	= {order = get_order(),code = "result = mul(m_WVP, vX0)",},
+	MatrixMul1  = {order = get_order(),code = "result = mul(m_WVP, vX0) + mul(m_WVP, vY0)",},
+	MatrixMul2  = {order = get_order(),code = "result = mul(m_WVP, vX0) + mul(m_WVP, vY0) + mul(m_WVP, vZ0)",},
+	MatrixMul3  = {order = get_order(),code = "result = mul(m_WVP, vX0) + mul(m_WVP, vY0) + mul(m_WVP, vZ0) + mul(m_WVP, vW0)",},
+	MatrixMul4  = {order = get_order(),code = "result = mul(m_WVP, vX0) + mul(m_WVP, vY0) + mul(m_WVP, vZ0) + mul(m_WVP, vW0) + mul(m_WVP, vX1)",},
+	MatrixMul5  = {order = get_order(),code = "result = mul(m_WVP, vX0) + mul(m_WVP, vY0) + mul(m_WVP, vZ0) + mul(m_WVP, vW0) + mul(m_WVP, vX1) + mul(m_WVP, vY1)",},
+	MatrixMul6  = {order = get_order(),code = "result = mul(m_WVP, vX0) + mul(m_WVP, vY0) + mul(m_WVP, vZ0) + mul(m_WVP, vW0) + mul(m_WVP, vX1) + mul(m_WVP, vY1) + mul(m_WVP, vZ1)",},
+	MatrixMul7  = {order = get_order(),code = "result = mul(m_WVP, vX0) + mul(m_WVP, vY0) + mul(m_WVP, vZ0) + mul(m_WVP, vW0) + mul(m_WVP, vX1) + mul(m_WVP, vY1) + mul(m_WVP, vZ1) + mul(m_WVP, vW1)",},
+	
+	Dot0  		= {order = get_order(),code = "result = dot(vX0,vY0)",},
+	Dot1  		= {order = get_order(),code = "result = dot(vX0,vY0) + dot(vY0,vZ0)",},
+	Dot2  		= {order = get_order(),code = "result = dot(vX0,vY0) + dot(vY0,vZ0) + dot(vZ0,vW0)",},
+	Dot3  		= {order = get_order(),code = "result = dot(vX0,vY0) + dot(vY0,vZ0) + dot(vZ0,vW0) + dot(vW0,vX1)",},
+	Dot4  		= {order = get_order(),code = "result = dot(vX0,vY0) + dot(vY0,vZ0) + dot(vZ0,vW0) + dot(vW0,vX1) + dot(vX1,vY1)",},
+	Dot5  		= {order = get_order(),code = "result = dot(vX0,vY0) + dot(vY0,vZ0) + dot(vZ0,vW0) + dot(vW0,vX1) + dot(vX1,vY1) + dot(vZ1,vY1)",},
+	Dot6  		= {order = get_order(),code = "result = dot(vX0,vY0) + dot(vY0,vZ0) + dot(vZ0,vW0) + dot(vW0,vX1) + dot(vX1,vY1) + dot(vZ1,vY1) + dot(vZ1,vW1)",},
+	Dot7  		= {order = get_order(),code = "result = dot(vX0,vY0) + dot(vY0,vZ0) + dot(vZ0,vW0) + dot(vW0,vX1) + dot(vX1,vY1) + dot(vZ1,vY1) + dot(vZ1,vW1) + dot(vX0,vW1)",},
+
+	Adding  	= {order = get_order(),code = "result = vX0",},
+	Adding0  	= {order = get_order(),code = "result = vX0 + vY0",},
+	Adding1  	= {order = get_order(),code = "result = vX0 + vY0 + vZ0",},
+	Adding2  	= {order = get_order(),code = "result = vX0 + vY0 + vZ0 + vW0",},
+	Adding3  	= {order = get_order(),code = "result = vX0 + vY0 + vZ0 + vW0 + vX1",},
+	Adding4  	= {order = get_order(),code = "result = vX0 + vY0 + vZ0 + vW0 + vX1 + vY1",},
+	Adding5  	= {order = get_order(),code = "result = vX0 + vY0 + vZ0 + vW0 + vX1 + vY1 + vZ1",},
+	Adding6  	= {order = get_order(),code = "result = vX0 + vY0 + vZ0 + vW0 + vX1 + vY1 + vZ1 + vW1",},
+	Adding7  	= {order = get_order(),code = "result = vX0 + vY0 + vZ0 + vW0 + vX1 + vY1 + vZ1 + vW1 + vX2",},
+	Adding8  	= {order = get_order(),code = "result = vX0 + vY0 + vZ0 + vW0 + vX1 + vY1 + vZ1 + vW1 + vX2 + vY2",},
+	Adding9  	= {order = get_order(),code = "result = vX0 + vY0 + vZ0 + vW0 + vX1 + vY1 + vZ1 + vW1 + vX2 + vY2 + vZ2",},
+	Adding10  	= {order = get_order(),code = "result = vX0 + vY0 + vZ0 + vW0 + vX1 + vY1 + vZ1 + vW1 + vX2 + vY2 + vZ2 + vW2",},
+	Adding11  	= {order = get_order(),code = "result = vX0 + vY0 + vZ0 + vW0 + vX1 + vY1 + vZ1 + vW1 + vX2 + vY2 + vZ2 + vW2 + vX3",},
+	Adding12  	= {order = get_order(),code = "result = vX0 + vY0 + vZ0 + vW0 + vX1 + vY1 + vZ1 + vW1 + vX2 + vY2 + vZ2 + vW2 + vX3 + vY3",},
+	Adding13  	= {order = get_order(),code = "result = vX0 + vY0 + vZ0 + vW0 + vX1 + vY1 + vZ1 + vW1 + vX2 + vY2 + vZ2 + vW2 + vX3 + vY3 + vZ3",},
+	Adding14  	= {order = get_order(),code = "result = vX0 + vY0 + vZ0 + vW0 + vX1 + vY1 + vZ1 + vW1 + vX2 + vY2 + vZ2 + vW2 + vX3 + vY3 + vZ3 + vW3",},
+	
+	Adding2_  	= {order = get_order(),code = "result = i.Color0",},
+	Adding2_0  	= {order = get_order(),code = "result = i.Color0 + i.Color1",},
+	Adding2_1  	= {order = get_order(),code = "result = i.Color0 + i.Color1 + i.Color2",},
+	Adding2_2  	= {order = get_order(),code = "result = i.Color0 + i.Color1 + i.Color2 + i.Color3",},
+	Adding2_3  	= {order = get_order(),code = "result = i.Color0 + i.Color1 + i.Color2 + i.Color3 + i.Color4",},
+	Adding2_4  	= {order = get_order(),code = "result = i.Color0 + i.Color1 + i.Color2 + i.Color3 + i.Color4 + i.Color5",},
+	Adding2_5  	= {order = get_order(),code = "result = i.Color0 + i.Color1 + i.Color2 + i.Color3 + i.Color4 + i.Color5 + i.Color6",},
+	Adding2_6  	= {order = get_order(),code = "result = i.Color0 + i.Color1 + i.Color2 + i.Color3 + i.Color4 + i.Color5 + i.Color6 + i.Color",},	
+	
+	Devide0  	= {order = get_order(),code = "result = sX0 / sY0",},
+	Devide1  	= {order = get_order(),code = "result = sX0 / sY0 / sZ0",},
+	Devide2  	= {order = get_order(),code = "result = sX0 / sY0 / sZ0 / sW1",},
+}
+
+FindOpTime_Vectors_Targets_rgba16 = {
+	order = get_order(),
+	
+	enabled = enable_find_time_targets_group,
+	num_circles = g_num_circles,
+	num_skipped_circles = g_num_skipped_circles,
+	num_passes = g_num_passes,
+	class = "test_2d_shader_op",
+	shader_template_file = path_to_shader_template_file,
+	
+	BASE 	  	= {order = get_order(),code = "result = 0",},
+	
+	rt0 = "DXGI_FORMAT_R16G16B16A16_FLOAT",
+	
+	MatrixMul0	= {order = get_order(),code = "result = mul(m_WVP, vX0)",},
+	MatrixMul1  = {order = get_order(),code = "result = mul(m_WVP, vX0) + mul(m_WVP, vY0)",},
+	MatrixMul2  = {order = get_order(),code = "result = mul(m_WVP, vX0) + mul(m_WVP, vY0) + mul(m_WVP, vZ0)",},
+	MatrixMul3  = {order = get_order(),code = "result = mul(m_WVP, vX0) + mul(m_WVP, vY0) + mul(m_WVP, vZ0) + mul(m_WVP, vW0)",},
+	MatrixMul4  = {order = get_order(),code = "result = mul(m_WVP, vX0) + mul(m_WVP, vY0) + mul(m_WVP, vZ0) + mul(m_WVP, vW0) + mul(m_WVP, vX1)",},
+	MatrixMul5  = {order = get_order(),code = "result = mul(m_WVP, vX0) + mul(m_WVP, vY0) + mul(m_WVP, vZ0) + mul(m_WVP, vW0) + mul(m_WVP, vX1) + mul(m_WVP, vY1)",},
+	MatrixMul6  = {order = get_order(),code = "result = mul(m_WVP, vX0) + mul(m_WVP, vY0) + mul(m_WVP, vZ0) + mul(m_WVP, vW0) + mul(m_WVP, vX1) + mul(m_WVP, vY1) + mul(m_WVP, vZ1)",},
+	MatrixMul7  = {order = get_order(),code = "result = mul(m_WVP, vX0) + mul(m_WVP, vY0) + mul(m_WVP, vZ0) + mul(m_WVP, vW0) + mul(m_WVP, vX1) + mul(m_WVP, vY1) + mul(m_WVP, vZ1) + mul(m_WVP, vW1)",},
+	
+	Dot0  		= {order = get_order(),code = "result = dot(vX0,vY0)",},
+	Dot1  		= {order = get_order(),code = "result = dot(vX0,vY0) + dot(vY0,vZ0)",},
+	Dot2  		= {order = get_order(),code = "result = dot(vX0,vY0) + dot(vY0,vZ0) + dot(vZ0,vW0)",},
+	Dot3  		= {order = get_order(),code = "result = dot(vX0,vY0) + dot(vY0,vZ0) + dot(vZ0,vW0) + dot(vW0,vX1)",},
+	Dot4  		= {order = get_order(),code = "result = dot(vX0,vY0) + dot(vY0,vZ0) + dot(vZ0,vW0) + dot(vW0,vX1) + dot(vX1,vY1)",},
+	Dot5  		= {order = get_order(),code = "result = dot(vX0,vY0) + dot(vY0,vZ0) + dot(vZ0,vW0) + dot(vW0,vX1) + dot(vX1,vY1) + dot(vZ1,vY1)",},
+	Dot6  		= {order = get_order(),code = "result = dot(vX0,vY0) + dot(vY0,vZ0) + dot(vZ0,vW0) + dot(vW0,vX1) + dot(vX1,vY1) + dot(vZ1,vY1) + dot(vZ1,vW1)",},
+	Dot7  		= {order = get_order(),code = "result = dot(vX0,vY0) + dot(vY0,vZ0) + dot(vZ0,vW0) + dot(vW0,vX1) + dot(vX1,vY1) + dot(vZ1,vY1) + dot(vZ1,vW1) + dot(vX0,vW1)",},
+	
+	Adding  	= {order = get_order(),code = "result = vX0",},
+	Adding0  	= {order = get_order(),code = "result = vX0 + vY0",},
+	Adding1  	= {order = get_order(),code = "result = vX0 + vY0 + vZ0",},
+	Adding2  	= {order = get_order(),code = "result = vX0 + vY0 + vZ0 + vW0",},
+	Adding3  	= {order = get_order(),code = "result = vX0 + vY0 + vZ0 + vW0 + vX1",},
+	Adding4  	= {order = get_order(),code = "result = vX0 + vY0 + vZ0 + vW0 + vX1 + vY1",},
+	Adding5  	= {order = get_order(),code = "result = vX0 + vY0 + vZ0 + vW0 + vX1 + vY1 + vZ1",},
+	Adding6  	= {order = get_order(),code = "result = vX0 + vY0 + vZ0 + vW0 + vX1 + vY1 + vZ1 + vW1",},
+	Adding7  	= {order = get_order(),code = "result = vX0 + vY0 + vZ0 + vW0 + vX1 + vY1 + vZ1 + vW1 + vX2",},
+	Adding8  	= {order = get_order(),code = "result = vX0 + vY0 + vZ0 + vW0 + vX1 + vY1 + vZ1 + vW1 + vX2 + vY2",},
+	Adding9  	= {order = get_order(),code = "result = vX0 + vY0 + vZ0 + vW0 + vX1 + vY1 + vZ1 + vW1 + vX2 + vY2 + vZ2",},
+	Adding10  	= {order = get_order(),code = "result = vX0 + vY0 + vZ0 + vW0 + vX1 + vY1 + vZ1 + vW1 + vX2 + vY2 + vZ2 + vW2",},
+	Adding11  	= {order = get_order(),code = "result = vX0 + vY0 + vZ0 + vW0 + vX1 + vY1 + vZ1 + vW1 + vX2 + vY2 + vZ2 + vW2 + vX3",},
+	Adding12  	= {order = get_order(),code = "result = vX0 + vY0 + vZ0 + vW0 + vX1 + vY1 + vZ1 + vW1 + vX2 + vY2 + vZ2 + vW2 + vX3 + vY3",},
+	Adding13  	= {order = get_order(),code = "result = vX0 + vY0 + vZ0 + vW0 + vX1 + vY1 + vZ1 + vW1 + vX2 + vY2 + vZ2 + vW2 + vX3 + vY3 + vZ3",},
+	Adding14  	= {order = get_order(),code = "result = vX0 + vY0 + vZ0 + vW0 + vX1 + vY1 + vZ1 + vW1 + vX2 + vY2 + vZ2 + vW2 + vX3 + vY3 + vZ3 + vW3",},
+
+	Adding2_  	= {order = get_order(),code = "result = i.Color0",},
+	Adding2_0  	= {order = get_order(),code = "result = i.Color0 + i.Color1",},
+	Adding2_1  	= {order = get_order(),code = "result = i.Color0 + i.Color1 + i.Color2",},
+	Adding2_2  	= {order = get_order(),code = "result = i.Color0 + i.Color1 + i.Color2 + i.Color3",},
+	Adding2_3  	= {order = get_order(),code = "result = i.Color0 + i.Color1 + i.Color2 + i.Color3 + i.Color4",},
+	Adding2_4  	= {order = get_order(),code = "result = i.Color0 + i.Color1 + i.Color2 + i.Color3 + i.Color4 + i.Color5",},
+	Adding2_5  	= {order = get_order(),code = "result = i.Color0 + i.Color1 + i.Color2 + i.Color3 + i.Color4 + i.Color5 + i.Color6",},
+	Adding2_6  	= {order = get_order(),code = "result = i.Color0 + i.Color1 + i.Color2 + i.Color3 + i.Color4 + i.Color5 + i.Color6 + i.Color",},	
+	
+	Devide0  	= {order = get_order(),code = "result = sX0 / sY0",},
+	Devide1  	= {order = get_order(),code = "result = sX0 / sY0 / sZ0",},
+	Devide2  	= {order = get_order(),code = "result = sX0 / sY0 / sZ0 / sW1",},
+}
+
+FindOpTime_Vectors_Targets_rgba16_rgba16_rgba8 = {
+	order = get_order(),
+	
+	enabled = enable_find_time_targets_group,
+	num_circles = g_num_circles,
+	num_skipped_circles = g_num_skipped_circles,
+	num_passes = g_num_passes,
+	class = "test_2d_shader_op",
+	shader_template_file = path_to_shader_template_file,
+	
+	BASE 	  	= {order = get_order(),code = "result0 = result1 = result2 = 0",},
+	
+	rt0 = "DXGI_FORMAT_R16G16B16A16_FLOAT",
+	rt1 = "DXGI_FORMAT_R16G16B16A16_FLOAT",
+	rt2 = "DXGI_FORMAT_R8G8B8A8_UNORM",
+	
+	MatrixMul0	= {order = get_order(),code = "result0 = result1 = result2 = mul(m_WVP, vX0);",},
+	MatrixMul1  = {order = get_order(),code = "result0 = result1 = result2 = mul(m_WVP, vX0) + mul(m_WVP, vY0)",},
+	MatrixMul2  = {order = get_order(),code = "result0 = result1 = result2 = mul(m_WVP, vX0) + mul(m_WVP, vY0) + mul(m_WVP, vZ0)",},
+	MatrixMul3  = {order = get_order(),code = "result0 = result1 = result2 = mul(m_WVP, vX0) + mul(m_WVP, vY0) + mul(m_WVP, vZ0) + mul(m_WVP, vW0)",},
+	MatrixMul4  = {order = get_order(),code = "result0 = result1 = result2 = mul(m_WVP, vX0) + mul(m_WVP, vY0) + mul(m_WVP, vZ0) + mul(m_WVP, vW0) + mul(m_WVP, vX1)",},
+	MatrixMul5  = {order = get_order(),code = "result0 = result1 = result2 = mul(m_WVP, vX0) + mul(m_WVP, vY0) + mul(m_WVP, vZ0) + mul(m_WVP, vW0) + mul(m_WVP, vX1) + mul(m_WVP, vY1)",},
+	MatrixMul6  = {order = get_order(),code = "result0 = result1 = result2 = mul(m_WVP, vX0) + mul(m_WVP, vY0) + mul(m_WVP, vZ0) + mul(m_WVP, vW0) + mul(m_WVP, vX1) + mul(m_WVP, vY1) + mul(m_WVP, vZ1)",},
+	MatrixMul7  = {order = get_order(),code = "result0 = result1 = result2 = mul(m_WVP, vX0) + mul(m_WVP, vY0) + mul(m_WVP, vZ0) + mul(m_WVP, vW0) + mul(m_WVP, vX1) + mul(m_WVP, vY1) + mul(m_WVP, vZ1) + mul(m_WVP, vW1)",},
+	
+	Dot0  		= {order = get_order(),code = "result0 = result1 = result2 = dot(vX0,vY0)",},
+	Dot1  		= {order = get_order(),code = "result0 = result1 = result2 = dot(vX0,vY0) + dot(vY0,vZ0)",},
+	Dot2  		= {order = get_order(),code = "result0 = result1 = result2 = dot(vX0,vY0) + dot(vY0,vZ0) + dot(vZ0,vW0)",},
+	Dot3  		= {order = get_order(),code = "result0 = result1 = result2 = dot(vX0,vY0) + dot(vY0,vZ0) + dot(vZ0,vW0) + dot(vW0,vX1)",},
+	Dot4  		= {order = get_order(),code = "result0 = result1 = result2 = dot(vX0,vY0) + dot(vY0,vZ0) + dot(vZ0,vW0) + dot(vW0,vX1) + dot(vX1,vY1)",},
+	Dot5  		= {order = get_order(),code = "result0 = result1 = result2 = dot(vX0,vY0) + dot(vY0,vZ0) + dot(vZ0,vW0) + dot(vW0,vX1) + dot(vX1,vY1) + dot(vZ1,vY1)",},
+	Dot6  		= {order = get_order(),code = "result0 = result1 = result2 = dot(vX0,vY0) + dot(vY0,vZ0) + dot(vZ0,vW0) + dot(vW0,vX1) + dot(vX1,vY1) + dot(vZ1,vY1) + dot(vZ1,vW1)",},
+	Dot7  		= {order = get_order(),code = "result0 = result1 = result2 = dot(vX0,vY0) + dot(vY0,vZ0) + dot(vZ0,vW0) + dot(vW0,vX1) + dot(vX1,vY1) + dot(vZ1,vY1) + dot(vZ1,vW1) + dot(vX0,vW1)",},
+	
+	Adding  	= {order = get_order(),code = "result0 = result1 = result2 = vX0",},
+	Adding0  	= {order = get_order(),code = "result0 = result1 = result2 = vX0 + vY0",},
+	Adding1  	= {order = get_order(),code = "result0 = result1 = result2 = vX0 + vY0 + vZ0",},
+	Adding2  	= {order = get_order(),code = "result0 = result1 = result2 = vX0 + vY0 + vZ0 + vW0",},
+	Adding3  	= {order = get_order(),code = "result0 = result1 = result2 = vX0 + vY0 + vZ0 + vW0 + vX1",},
+	Adding4  	= {order = get_order(),code = "result0 = result1 = result2 = vX0 + vY0 + vZ0 + vW0 + vX1 + vY1",},
+	Adding5  	= {order = get_order(),code = "result0 = result1 = result2 = vX0 + vY0 + vZ0 + vW0 + vX1 + vY1 + vZ1",},
+	Adding6  	= {order = get_order(),code = "result0 = result1 = result2 = vX0 + vY0 + vZ0 + vW0 + vX1 + vY1 + vZ1 + vW1",},
+	Adding7  	= {order = get_order(),code = "result0 = result1 = result2 = vX0 + vY0 + vZ0 + vW0 + vX1 + vY1 + vZ1 + vW1 + vX2",},
+	Adding8  	= {order = get_order(),code = "result0 = result1 = result2 = vX0 + vY0 + vZ0 + vW0 + vX1 + vY1 + vZ1 + vW1 + vX2 + vY2",},
+	Adding9  	= {order = get_order(),code = "result0 = result1 = result2 = vX0 + vY0 + vZ0 + vW0 + vX1 + vY1 + vZ1 + vW1 + vX2 + vY2 + vZ2",},
+	Adding10  	= {order = get_order(),code = "result0 = result1 = result2 = vX0 + vY0 + vZ0 + vW0 + vX1 + vY1 + vZ1 + vW1 + vX2 + vY2 + vZ2 + vW2",},
+	Adding11  	= {order = get_order(),code = "result0 = result1 = result2 = vX0 + vY0 + vZ0 + vW0 + vX1 + vY1 + vZ1 + vW1 + vX2 + vY2 + vZ2 + vW2 + vX3",},
+	Adding12  	= {order = get_order(),code = "result0 = result1 = result2 = vX0 + vY0 + vZ0 + vW0 + vX1 + vY1 + vZ1 + vW1 + vX2 + vY2 + vZ2 + vW2 + vX3 + vY3",},
+	Adding13  	= {order = get_order(),code = "result0 = result1 = result2 = vX0 + vY0 + vZ0 + vW0 + vX1 + vY1 + vZ1 + vW1 + vX2 + vY2 + vZ2 + vW2 + vX3 + vY3 + vZ3",},
+	Adding14  	= {order = get_order(),code = "result0 = result1 = result2 = vX0 + vY0 + vZ0 + vW0 + vX1 + vY1 + vZ1 + vW1 + vX2 + vY2 + vZ2 + vW2 + vX3 + vY3 + vZ3 + vW3",},
+
+	Adding2_  	= {order = get_order(),code = "result0 = result1 = result2 = i.Color0",},
+	Adding2_0  	= {order = get_order(),code = "result0 = result1 = result2 = i.Color0 + i.Color1",},
+	Adding2_1  	= {order = get_order(),code = "result0 = result1 = result2 = i.Color0 + i.Color1 + i.Color2",},
+	Adding2_2  	= {order = get_order(),code = "result0 = result1 = result2 = i.Color0 + i.Color1 + i.Color2 + i.Color3",},
+	Adding2_3  	= {order = get_order(),code = "result0 = result1 = result2 = i.Color0 + i.Color1 + i.Color2 + i.Color3 + i.Color4",},
+	Adding2_4  	= {order = get_order(),code = "result0 = result1 = result2 = i.Color0 + i.Color1 + i.Color2 + i.Color3 + i.Color4 + i.Color5",},
+	Adding2_5  	= {order = get_order(),code = "result0 = result1 = result2 = i.Color0 + i.Color1 + i.Color2 + i.Color3 + i.Color4 + i.Color5 + i.Color6",},
+	Adding2_6  	= {order = get_order(),code = "result0 = result1 = result2 = i.Color0 + i.Color1 + i.Color2 + i.Color3 + i.Color4 + i.Color5 + i.Color6 + i.Color",},	
+	
+	Devide0  	= {order = get_order(),code = "result0 = result1 = result2 = sX0 / sY0",},
+	Devide1  	= {order = get_order(),code = "result0 = result1 = result2 = sX0 / sY0 / sZ0",},
+	Devide2  	= {order = get_order(),code = "result0 = result1 = result2 = sX0 / sY0 / sZ0 / sW1",},
+}

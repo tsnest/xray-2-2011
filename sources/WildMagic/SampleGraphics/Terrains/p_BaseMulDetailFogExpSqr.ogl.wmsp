@@ -1,0 +1,30 @@
+!!ARBfp1.0
+# cgc version 1.4.0000, build date Jun  9 2005 12:09:02
+# command line args: -profile arbfp1
+# source file: BaseMulDetailFogExpSqr.cg
+#vendor NVIDIA Corporation
+#version 1.0.02
+#profile arbfp1
+#program p_BaseMulDetailFogExpSqr
+#semantic p_BaseMulDetailFogExpSqr.FogColorDensity
+#semantic p_BaseMulDetailFogExpSqr.BaseSampler
+#semantic p_BaseMulDetailFogExpSqr.DetailSampler
+#var float2 kBaseTCoord : $vin.TEXCOORD0 : TEX0 : 0 : 1
+#var float2 kDetailTCoord : $vin.TEXCOORD1 : TEX1 : 1 : 1
+#var float fFogFactor : $vin.TEXCOORD2 : TEX2 : 2 : 1
+#var float4 kPixelColor : $vout.COLOR : COL : 3 : 1
+#var float4 FogColorDensity :  : c[1] : 4 : 1
+#var sampler2D BaseSampler :  : texunit 0 : 5 : 1
+#var sampler2D DetailSampler :  : texunit 1 : 6 : 1
+#const c[0] = 1
+PARAM c[2] = { { 1 },
+		program.local[1] };
+TEMP R0;
+TEMP R1;
+TEX R1.xyz, fragment.texcoord[1], texture[1], 2D;
+TEX R0.xyz, fragment.texcoord[0], texture[0], 2D;
+MAD R0.xyz, R0, R1, -c[1];
+MAD result.color.xyz, fragment.texcoord[2].x, R0, c[1];
+MOV result.color.w, c[0].x;
+END
+# 5 instructions, 2 R-regs

@@ -1,0 +1,15 @@
+﻿////////////////////////////////////////////////////////////////////////////
+//	Created		: 17.02.2011
+//	Author		: Jes Obertyukh
+//	Copyright (C) GSC Game World - 2011
+////////////////////////////////////////////////////////////////////////////
+
+namespace xray.editor.wpf_controls
+{
+	public enum select_behavior
+	{
+		select,
+		do_not_select,
+		select_parent
+	}
+}

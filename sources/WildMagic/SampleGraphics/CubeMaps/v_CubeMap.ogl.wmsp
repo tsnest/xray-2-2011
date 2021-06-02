@@ -1,0 +1,48 @@
+!!ARBvp1.0
+# cgc version 1.5.0014, build date Sep 18 2006 20:36:59
+# command line args: -profile arbvp1
+# source file: CubeMap.cg
+#vendor NVIDIA Corporation
+#version 1.5.0.14
+#profile arbvp1
+#program v_CubeMap
+#semantic v_CubeMap.WVPMatrix
+#semantic v_CubeMap.WMatrix
+#semantic v_CubeMap.CameraWorldPosition
+#var float3 kModelPosition : $vin.POSITION : POSITION : 0 : 1
+#var float3 kModelNormal : $vin.NORMAL : NORMAL : 1 : 1
+#var float3 kModelColor : $vin.COLOR : COLOR0 : 2 : 1
+#var float4 kClipPosition : $vout.POSITION : HPOS : 3 : 1
+#var float4 kVertexColor : $vout.COLOR : COL0 : 4 : 1
+#var float3 kReflectTCoord : $vout.TEXCOORD0 : TEX0 : 5 : 1
+#var float4x4 WVPMatrix :  : c[1], 4 : 6 : 1
+#var float4x4 WMatrix :  : c[5], 4 : 7 : 1
+#var float3 CameraWorldPosition :  : c[9] : 8 : 1
+#const c[0] = 1 2
+PARAM c[10] = { { 1, 2 },
+		program.local[1..9] };
+TEMP R0;
+TEMP R1;
+TEMP R2;
+MUL R0, vertex.position.y, c[2];
+MUL R1.xyz, vertex.normal.y, c[6];
+MUL R2.xyz, vertex.position.y, c[6];
+MAD R1.xyz, vertex.normal.x, c[5], R1;
+MAD R1.xyz, vertex.normal.z, c[7], R1;
+DP3 R1.w, R1, R1;
+RSQ R1.w, R1.w;
+MAD R2.xyz, vertex.position.x, c[5], R2;
+MAD R2.xyz, vertex.position.z, c[7], R2;
+ADD R2.xyz, R2, c[8];
+MAD R0, vertex.position.x, c[1], R0;
+MAD R0, vertex.position.z, c[3], R0;
+MUL R1.xyz, R1.w, R1;
+ADD R2.xyz, R2, -c[9];
+DP3 R1.w, R1, R2;
+MUL R1.xyz, R1, R1.w;
+MAD result.texcoord[0].xyz, -R1, c[0].y, R2;
+ADD result.position, R0, c[4];
+MOV result.color.xyz, vertex.color;
+MOV result.color.w, c[0].x;
+END
+# 20 instructions, 3 R-regs

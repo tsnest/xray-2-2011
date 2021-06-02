@@ -1,0 +1,85 @@
+﻿<ContentControl x:Class="xray.editor.wpf_controls.property_grid"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:local="clr-namespace:xray.editor.wpf_controls"
+	xmlns:controls="clr-namespace:System.Windows.Controls;assembly=PresentationFramework"
+	xmlns:editors="clr-namespace:xray.editor.wpf_controls.property_grid_editors"
+	xmlns:item_editors="clr-namespace:xray.editor.wpf_controls.property_grid_item_editors"
+	xmlns:converters="clr-namespace:xray.editor.wpf_controls.converters"
+    MinHeight="23" MinWidth="50" Name="this_ctrl"
+	GotFocus="this_ctrl_GotFocus"
+	LostFocus="this_ctrl_LostFocus">
+	<Control.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<!-- S T A N D A R T   E D I T O R S   -->
+				<ResourceDictionary Source="property_grid_editors/default_editor.xaml"/>
+				<ResourceDictionary Source="property_grid_editors/external_editor.xaml"/>
+				<ResourceDictionary Source="property_grid_editors/many_editor.xaml"/>
+				<ResourceDictionary Source="property_grid_editors/String_editor.xaml"/>
+			</ResourceDictionary.MergedDictionaries>
+
+			<DataTemplate x:Key="Boolean_editor">				<editors:Boolean_editor/></DataTemplate>
+			<DataTemplate x:Key="combo_box_editor">				<editors:combo_box_editor/></DataTemplate>
+			<DataTemplate x:Key="collection_editor">			<editors:collection_editor/></DataTemplate>
+			<DataTemplate x:Key="Int32_editor">					<editors:Int32_editor/></DataTemplate>
+			<DataTemplate x:Key="Single_editor">				<editors:Single_editor/></DataTemplate>
+			<DataTemplate x:Key="string_select_file_editor">	<editors:string_select_file_editor /></DataTemplate>
+			
+			<!-- S T A N D A R T   I T E M   E D I T O R S  -->
+			<DataTemplate x:Key="common_item_editor">			<item_editors:common_item_editor/></DataTemplate>
+			<DataTemplate x:Key="color_range_editor">			<item_editors:color_range_editor/></DataTemplate>
+
+			<local:property_grid_item_editor_selector_extracter x:Key="item_editor_selector_extracter"/>
+			
+		</ResourceDictionary>
+	</Control.Resources>
+	<!-- Property grid body -->
+	<Border BorderBrush="{x:Static SystemColors.InactiveCaptionBrush}" BorderThickness="1" Background="White" >
+		<ScrollViewer VerticalScrollBarVisibility="Auto" BorderThickness="0">
+			<ItemsControl Grid.IsSharedSizeScope="True" Name="PropertiesPanel" BorderThickness="0"
+						  ItemTemplateSelector="{Binding 
+								Converter={StaticResource item_editor_selector_extracter},
+								RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:property_grid}}}">
+				<!-- Themplate for Group brousing -->
+				<ItemsControl.GroupStyle>
+					<GroupStyle>
+						<GroupStyle.ContainerStyle>
+							<Style>
+								<Setter Property="Control.Template">
+									<Setter.Value>
+										<ControlTemplate>
+											<StackPanel>
+												<DockPanel Background="{x:Static SystemColors.InactiveCaptionBrush}">
+													<!-- group expand button -->
+													<Border DockPanel.Dock="Left" BorderThickness="2, 0, 0, 0">
+														<Grid>
+															<Button Width="11" Height="11" Click="expand_collapse_group_Click" Visibility="Collapsed">
+																<Grid>
+																	<Line X2="5" Y1="2.5" Y2="2.5" StrokeThickness="1" Stroke="Black" X1="0" SnapsToDevicePixels="True" />
+																	<Line X2="2.5" X1="2.5" Y1="0" Y2="5" StrokeThickness="1" Stroke="Black" SnapsToDevicePixels="True"/>
+																</Grid>
+															</Button>
+															<Button Width="11" Height="11" Click="expand_collapse_group_Click">
+																<Grid>
+																	<Line X2="5" Y1="0" Y2="0" StrokeThickness="1" Stroke="Black" X1="0" SnapsToDevicePixels="True" />
+																</Grid>
+															</Button>
+														</Grid>
+													</Border>
+													<!-- group name -->
+													<TextBlock Text="{Binding Name}" FontWeight="Bold" Foreground="{x:Static SystemColors.InactiveCaptionTextBrush}" VerticalAlignment="Center" Padding="15, 0, 0, 2"/>
+												</DockPanel>
+												<ItemsPresenter/>
+											</StackPanel>
+										</ControlTemplate>
+									</Setter.Value>
+								</Setter> 
+							</Style>
+						</GroupStyle.ContainerStyle>
+					</GroupStyle>
+				</ItemsControl.GroupStyle>
+			</ItemsControl>
+		</ScrollViewer>
+	</Border>
+</ContentControl>

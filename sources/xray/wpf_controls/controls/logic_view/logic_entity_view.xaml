@@ -1,0 +1,58 @@
+﻿<Border x:Name="parent_control"  x:Class="xray.editor.wpf_controls.logic_view.logic_entity_view"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:hypergraph="clr-namespace:xray.editor.wpf_controls.hypergraph" 
+	BorderThickness ="4"
+	Focusable="true"
+	Height="150"
+	Background="Transparent"
+	PreviewMouseLeftButtonDown="parent_control_mouse_left_button_down">
+	<Border.Style>
+		<Style>
+			<Style.Triggers>
+				<DataTrigger Binding="{Binding Path=IsMouseOver, ElementName=parent_control}" Value="true">
+					<Setter Property="Border.BorderBrush" Value="LightBlue" />
+				</DataTrigger>
+				<DataTrigger Binding="{Binding Path=is_selected, ElementName=parent_control}" Value="true">
+					<Setter Property="Border.BorderBrush" Value="Bisque" />
+				</DataTrigger>				
+			</Style.Triggers>
+			<Setter Property="Border.BorderBrush" Value="DarkGray" />
+		</Style>
+	</Border.Style>
+	<DockPanel>
+		<Thumb x:Name="bottom_grip"  DragDelta="on_bottom_drag" DockPanel.Dock="Bottom" Cursor="SizeNS">
+			<Thumb.Template>
+				<ControlTemplate>
+					<Border Height="10" Background="LightBlue" BorderBrush="Gray" BorderThickness="3">
+					</Border>
+				</ControlTemplate>
+			</Thumb.Template>
+		</Thumb>
+		<DockPanel DockPanel.Dock="Left">
+			<Border DockPanel.Dock="Top" Name="logic_entity_resource_top"  Height="20" Width="150"  BorderThickness="2 2 2 0" Background="LightGray" Focusable="True" BorderBrush="SteelBlue">
+				<TextBlock x:Name="item_text"  Text="ItemName" TextAlignment="Center" x:FieldModifier="public"/>
+			</Border>
+			<Border DockPanel.Dock="Top" Width="150" Height="26"  BorderBrush="SteelBlue" BorderThickness="2" Background="SteelBlue">
+				<Button HorizontalContentAlignment="Stretch" SnapsToDevicePixels="True" Click="on_add_behaviour_button_clicked">					
+					<TextBlock Text="Add Behaviour" TextAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap"/>					
+				</Button>
+			</Border>
+			<Border DockPanel.Dock="Bottom" Height="30" Width="150" BorderThickness="2 0 2 2" Background="LightGray" Focusable="True" BorderBrush="SteelBlue">
+				<DockPanel>
+					<TextBlock Height="20"  DockPanel.Dock="Left" Text="StartEvent: " VerticalAlignment="Center" TextAlignment="Center"/>
+					<ComboBox VerticalAlignment="Center"  x:Name="start_event_combobox" PreviewMouseDown="on_start_event_combo_box_down"  DropDownClosed="start_event_combo_box_drop_down_closed" SelectionChanged="on_start_event_combobox_selection_changed" x:FieldModifier="public"/>
+				</DockPanel>
+			</Border>
+			<Border DockPanel.Dock="Bottom" Width="150"  BorderBrush="SteelBlue" BorderThickness="2" Background="SteelBlue">
+				<Button VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" x:Name="logic_entity_resource_button" SnapsToDevicePixels="True" Click="on_select_object_button_clicked" x:FieldModifier="public">
+					<Border x:Name="logic_entity_resource_button_border" BorderThickness="3" Background="LightGray" BorderBrush="SteelBlue" x:FieldModifier="public">
+						<TextBlock x:Name="selected_resource"  Text="Selected Resource: none" TextAlignment="Center" VerticalAlignment="Center" x:FieldModifier="public" TextWrapping="Wrap"/>
+					</Border>					
+				</Button>
+			</Border>			
+		</DockPanel>	
+		
+		<hypergraph:hypergraph_control top_limit="0" left_limit="0" need_expand_to_field="true" viewport_origin="0,0" is_zoomable="false" is_panable="false"  is_nodes_moveable="True" x:Name="logic_hypergraph" is_fix_min_field_size="false" field_bounds_inflate="0,0" is_grid_enabled="false" x:FieldModifier="public" FontSize="10">			
+		</hypergraph:hypergraph_control>
+	</DockPanel>
+</Border>

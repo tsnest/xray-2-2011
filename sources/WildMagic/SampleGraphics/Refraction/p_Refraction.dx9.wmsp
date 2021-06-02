@@ -1,0 +1,26 @@
+ps_2_0
+// cgc version 1.4.0000, build date Jun  9 2005 12:09:02
+// command line args: -profile ps_2_0
+// source file: Refraction.cg
+//vendor NVIDIA Corporation
+//version 1.0.02
+//profile ps_2_0
+//program p_Refraction
+//semantic p_Refraction.EnvMap0Sampler
+//semantic p_Refraction.EnvMap1Sampler
+//var float fReflectFactor : $vin.COLOR : COL0 : 0 : 1
+//var float2 kRefractVector : $vin.TEXCOORD0 : TEX0 : 1 : 1
+//var float2 kReflectVector : $vin.TEXCOORD1 : TEX1 : 2 : 1
+//var float4 kPixelColor : $vout.COLOR : COL : 3 : 1
+//var sampler2D EnvMap0Sampler :  : texunit 0 : 4 : 1
+//var sampler2D EnvMap1Sampler :  : texunit 1 : 5 : 1
+dcl_2d s0
+dcl_2d s1
+dcl t0.xy
+dcl t1.xy
+dcl v0.x
+texld r1, t0, s0
+texld r0, t1, s1
+add r0, r0, -r1
+mad r0, v0.x, r0, r1
+mov oC0, r0

@@ -1,0 +1,31 @@
+vs_3_0
+// cgc version 1.5.0014, build date Sep 18 2006 20:36:59
+// command line args: -profile vs_3_0
+// source file: HeightEffect.cg
+//vendor NVIDIA Corporation
+//version 1.5.0.14
+//profile vs_3_0
+//program v_HeightEffect
+//semantic v_HeightEffect.WVPMatrix
+//semantic v_HeightEffect.HeightSampler
+//var float3 kModelPosition : $vin.POSITION : ATTR0 : 0 : 1
+//var float2 kTCoord0 : $vin.TEXCOORD0 : ATTR1 : 1 : 1
+//var float4 kClipPosition : $vout.POSITION : ATTR0 : 2 : 1
+//var float2 kOutTCoord0 : $vout.TEXCOORD0 : ATTR1 : 3 : 1
+//var float4x4 WVPMatrix :  : c[0], 4 : 4 : 1
+//var sampler2D HeightSampler :  : texunit 0 : 5 : 1
+//const c[4] = 0
+dcl_position o0
+dcl_texcoord0 o1
+dcl_texcoord0 v1
+dcl_2d s0
+dcl_position v0
+def c4, 0.000000, 0, 0, 0
+mul r0, v0.y, c1
+mad r1, v0.x, c0, r0
+mov r0.z, c4.x
+mov r0.xy, v1
+texldl r0.x, r0.xyzz, s0
+mad r0, r0.x, c2, r1
+add o0, r0, c3
+mov o1.xy, v1

@@ -1,0 +1,30 @@
+!!ARBvp1.0
+OPTION NV_vertex_program3;
+# cgc version 1.5.0014, build date Sep 18 2006 20:36:59
+# command line args: -profile vp40
+# source file: HeightEffect.cg
+#vendor NVIDIA Corporation
+#version 1.5.0.14
+#profile vp40
+#program v_HeightEffect
+#semantic v_HeightEffect.WVPMatrix
+#semantic v_HeightEffect.HeightSampler
+#var float3 kModelPosition : $vin.POSITION : ATTR0 : 0 : 1
+#var float2 kTCoord0 : $vin.TEXCOORD0 : ATTR8 : 1 : 1
+#var float4 kClipPosition : $vout.POSITION : HPOS : 2 : 1
+#var float2 kOutTCoord0 : $vout.TEXCOORD0 : TEX0 : 3 : 1
+#var float4x4 WVPMatrix :  : c[0], 4 : 4 : 1
+#var sampler2D HeightSampler :  : texunit 0 : 5 : 1
+PARAM c[4] = { program.local[0..3] };
+TEMP R0;
+TEMP R1;
+TEMP RC, HC;
+BB1:
+MUL   R0, vertex.attrib[0].y, c[1];
+MAD   R1, vertex.attrib[0].x, c[0], R0;
+TEX   R0.x, vertex.attrib[8], texture[0], 2D;
+MAD   R0, R0.x, c[2], R1;
+ADD   result.position, R0, c[3];
+MOV   result.texcoord[0].xy, vertex.attrib[8];
+END
+# 6 instructions, 2 R-regs

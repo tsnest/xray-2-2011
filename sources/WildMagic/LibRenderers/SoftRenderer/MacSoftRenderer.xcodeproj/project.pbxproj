@@ -1,0 +1,1302 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 42;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3C6FBA2A083E492C0068AA05 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C6FBA29083E492C0068AA05 /* Carbon.framework */; };
+		3C6FBA2B083E492C0068AA05 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C6FBA29083E492C0068AA05 /* Carbon.framework */; };
+		3CBD73590A01126900AFB0E7 /* libWm4Foundationd.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CBD73570A01126900AFB0E7 /* libWm4Foundationd.dylib */; };
+		3CBD735A0A01126900AFB0E7 /* libWm4Graphicsd.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CBD73580A01126900AFB0E7 /* libWm4Graphicsd.dylib */; };
+		3CBD735D0A01128200AFB0E7 /* libWm4Foundation.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CBD735B0A01128200AFB0E7 /* libWm4Foundation.dylib */; };
+		3CBD735E0A01128200AFB0E7 /* libWm4Graphics.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CBD735C0A01128200AFB0E7 /* libWm4Graphics.dylib */; };
+		3CBF38C30A2B2C2A002AAB19 /* Wm4MacSoftRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D09880A222B11006B73CD /* Wm4MacSoftRenderer.cpp */; };
+		3CBF38C40A2B2C2B002AAB19 /* Wm4MacSoftRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 748D09890A222B11006B73CD /* Wm4MacSoftRenderer.h */; };
+		3CBF38C50A2B2C2B002AAB19 /* Wm4SoftArray.h in Headers */ = {isa = PBXBuildFile; fileRef = 748D098A0A222B11006B73CD /* Wm4SoftArray.h */; };
+		3CBF38C60A2B2C2C002AAB19 /* Wm4SoftClipper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D098C0A222B11006B73CD /* Wm4SoftClipper.cpp */; };
+		3CBF38C70A2B2C2D002AAB19 /* Wm4SoftDrawElements.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D098D0A222B11006B73CD /* Wm4SoftDrawElements.cpp */; };
+		3CBF38C80A2B2C2D002AAB19 /* Wm4SoftEdgeBuffers.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D098E0A222B11006B73CD /* Wm4SoftEdgeBuffers.cpp */; };
+		3CBF38C90A2B2C2E002AAB19 /* Wm4SoftFrameBuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D098F0A222B11006B73CD /* Wm4SoftFrameBuffer.cpp */; };
+		3CBF38CA0A2B2C2F002AAB19 /* Wm4SoftFrameBuffer.h in Headers */ = {isa = PBXBuildFile; fileRef = 748D09900A222B11006B73CD /* Wm4SoftFrameBuffer.h */; };
+		3CBF38CB0A2B2C31002AAB19 /* Wm4SoftPixelShader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D09920A222B11006B73CD /* Wm4SoftPixelShader.cpp */; };
+		3CBF38CC0A2B2C32002AAB19 /* Wm4SoftPolygonOffsetState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D09930A222B11006B73CD /* Wm4SoftPolygonOffsetState.cpp */; };
+		3CBF38CD0A2B2C33002AAB19 /* Wm4SoftRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D09940A222B11006B73CD /* Wm4SoftRenderer.cpp */; };
+		3CBF38CE0A2B2C33002AAB19 /* Wm4SoftRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 748D09950A222B11006B73CD /* Wm4SoftRenderer.h */; };
+		3CBF38D50A2B2C37002AAB19 /* Wm4SoftRendererLIB.h in Headers */ = {isa = PBXBuildFile; fileRef = 748D09970A222B11006B73CD /* Wm4SoftRendererLIB.h */; };
+		3CBF38D60A2B2C37002AAB19 /* Wm4SoftRendererPCH.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D09980A222B11006B73CD /* Wm4SoftRendererPCH.cpp */; };
+		3CBF38D70A2B2C38002AAB19 /* Wm4SoftRendererPCH.h in Headers */ = {isa = PBXBuildFile; fileRef = 748D09990A222B11006B73CD /* Wm4SoftRendererPCH.h */; };
+		3CBF38D80A2B2C39002AAB19 /* Wm4SoftResources.h in Headers */ = {isa = PBXBuildFile; fileRef = 748D099A0A222B11006B73CD /* Wm4SoftResources.h */; };
+		3CBF38D90A2B2C39002AAB19 /* Wm4SoftResourcesED.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D099B0A222B11006B73CD /* Wm4SoftResourcesED.cpp */; };
+		3CBF38DA0A2B2C3A002AAB19 /* Wm4SoftResourcesLR.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D099C0A222B11006B73CD /* Wm4SoftResourcesLR.cpp */; };
+		3CBF38DB0A2B2C3A002AAB19 /* Wm4SoftSampler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D099D0A222B11006B73CD /* Wm4SoftSampler.cpp */; };
+		3CBF38DC0A2B2C3B002AAB19 /* Wm4SoftSampler.h in Headers */ = {isa = PBXBuildFile; fileRef = 748D099E0A222B11006B73CD /* Wm4SoftSampler.h */; };
+		3CBF38DD0A2B2C3C002AAB19 /* Wm4SoftSampler1.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D099F0A222B11006B73CD /* Wm4SoftSampler1.cpp */; };
+		3CBF38DE0A2B2C3D002AAB19 /* Wm4SoftSampler1.h in Headers */ = {isa = PBXBuildFile; fileRef = 748D09A00A222B11006B73CD /* Wm4SoftSampler1.h */; };
+		3CBF38DF0A2B2C3D002AAB19 /* Wm4SoftSampler2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D09A10A222B11006B73CD /* Wm4SoftSampler2.cpp */; };
+		3CBF38E00A2B2C3E002AAB19 /* Wm4SoftSampler2.h in Headers */ = {isa = PBXBuildFile; fileRef = 748D09A20A222B11006B73CD /* Wm4SoftSampler2.h */; };
+		3CBF38E10A2B2C40002AAB19 /* Wm4SoftSampler3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D09A40A222B11006B73CD /* Wm4SoftSampler3.cpp */; };
+		3CBF38E20A2B2C41002AAB19 /* Wm4SoftSampler3.h in Headers */ = {isa = PBXBuildFile; fileRef = 748D09A50A222B11006B73CD /* Wm4SoftSampler3.h */; };
+		3CBF38E30A2B2C41002AAB19 /* Wm4SoftSamplerCube.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D09A70A222B11006B73CD /* Wm4SoftSamplerCube.cpp */; };
+		3CBF38E40A2B2C42002AAB19 /* Wm4SoftSamplerCube.h in Headers */ = {isa = PBXBuildFile; fileRef = 748D09A80A222B11006B73CD /* Wm4SoftSamplerCube.h */; };
+		3CBF38E50A2B2C42002AAB19 /* Wm4SoftSamplerProj.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D09A90A222B11006B73CD /* Wm4SoftSamplerProj.cpp */; };
+		3CBF38E60A2B2C43002AAB19 /* Wm4SoftSamplerProj.h in Headers */ = {isa = PBXBuildFile; fileRef = 748D09AA0A222B11006B73CD /* Wm4SoftSamplerProj.h */; };
+		3CBF38E70A2B2C45002AAB19 /* Wm4SoftShaderLibrary.h in Headers */ = {isa = PBXBuildFile; fileRef = 748D09AC0A222B11006B73CD /* Wm4SoftShaderLibrary.h */; };
+		3CBF38E80A2B2C45002AAB19 /* Wm4SoftShaderLibraryMCR.h in Headers */ = {isa = PBXBuildFile; fileRef = 748D09AD0A222B11006B73CD /* Wm4SoftShaderLibraryMCR.h */; };
+		3CBF38E90A2B2C46002AAB19 /* Wm4SoftShaderUtility.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D09AE0A222B11006B73CD /* Wm4SoftShaderUtility.cpp */; };
+		3CBF38EA0A2B2C46002AAB19 /* Wm4SoftShaderUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = 748D09AF0A222B11006B73CD /* Wm4SoftShaderUtility.h */; };
+		3CBF38EB0A2B2C47002AAB19 /* Wm4SoftTransformation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D09B00A222B11006B73CD /* Wm4SoftTransformation.cpp */; };
+		3CBF38EC0A2B2C48002AAB19 /* Wm4SoftUtilityMCR.h in Headers */ = {isa = PBXBuildFile; fileRef = 748D09B10A222B11006B73CD /* Wm4SoftUtilityMCR.h */; };
+		3CBF38ED0A2B2C48002AAB19 /* Wm4SoftVertexShader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D09B20A222B11006B73CD /* Wm4SoftVertexShader.cpp */; };
+		3CBF38EE0A2B2C49002AAB19 /* WmspWrapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D09B30A222B11006B73CD /* WmspWrapper.cpp */; };
+		3CBF39010A2B2F69002AAB19 /* Wm4MacSoftRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D09880A222B11006B73CD /* Wm4MacSoftRenderer.cpp */; };
+		3CBF39020A2B2F6A002AAB19 /* Wm4MacSoftRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 748D09890A222B11006B73CD /* Wm4MacSoftRenderer.h */; };
+		3CBF39030A2B2F6A002AAB19 /* Wm4SoftArray.h in Headers */ = {isa = PBXBuildFile; fileRef = 748D098A0A222B11006B73CD /* Wm4SoftArray.h */; };
+		3CBF39040A2B2F6B002AAB19 /* Wm4SoftClipper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D098C0A222B11006B73CD /* Wm4SoftClipper.cpp */; };
+		3CBF39050A2B2F6C002AAB19 /* Wm4SoftDrawElements.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D098D0A222B11006B73CD /* Wm4SoftDrawElements.cpp */; };
+		3CBF39060A2B2F6D002AAB19 /* Wm4SoftEdgeBuffers.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D098E0A222B11006B73CD /* Wm4SoftEdgeBuffers.cpp */; };
+		3CBF39070A2B2F6E002AAB19 /* Wm4SoftFrameBuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D098F0A222B11006B73CD /* Wm4SoftFrameBuffer.cpp */; };
+		3CBF39080A2B2F6E002AAB19 /* Wm4SoftFrameBuffer.h in Headers */ = {isa = PBXBuildFile; fileRef = 748D09900A222B11006B73CD /* Wm4SoftFrameBuffer.h */; };
+		3CBF39090A2B2F71002AAB19 /* Wm4SoftPixelShader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D09920A222B11006B73CD /* Wm4SoftPixelShader.cpp */; };
+		3CBF390A0A2B2F71002AAB19 /* Wm4SoftPolygonOffsetState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D09930A222B11006B73CD /* Wm4SoftPolygonOffsetState.cpp */; };
+		3CBF390B0A2B2F72002AAB19 /* Wm4SoftRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D09940A222B11006B73CD /* Wm4SoftRenderer.cpp */; };
+		3CBF390C0A2B2F73002AAB19 /* Wm4SoftRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 748D09950A222B11006B73CD /* Wm4SoftRenderer.h */; };
+		3CBF390D0A2B2F73002AAB19 /* Wm4SoftRendererLIB.h in Headers */ = {isa = PBXBuildFile; fileRef = 748D09970A222B11006B73CD /* Wm4SoftRendererLIB.h */; };
+		3CBF390E0A2B2F74002AAB19 /* Wm4SoftRendererPCH.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D09980A222B11006B73CD /* Wm4SoftRendererPCH.cpp */; };
+		3CBF390F0A2B2F75002AAB19 /* Wm4SoftRendererPCH.h in Headers */ = {isa = PBXBuildFile; fileRef = 748D09990A222B11006B73CD /* Wm4SoftRendererPCH.h */; };
+		3CBF39100A2B2F76002AAB19 /* Wm4SoftResources.h in Headers */ = {isa = PBXBuildFile; fileRef = 748D099A0A222B11006B73CD /* Wm4SoftResources.h */; };
+		3CBF39110A2B2F76002AAB19 /* Wm4SoftResourcesED.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D099B0A222B11006B73CD /* Wm4SoftResourcesED.cpp */; };
+		3CBF39120A2B2F77002AAB19 /* Wm4SoftResourcesLR.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D099C0A222B11006B73CD /* Wm4SoftResourcesLR.cpp */; };
+		3CBF39130A2B2F78002AAB19 /* Wm4SoftSampler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D099D0A222B11006B73CD /* Wm4SoftSampler.cpp */; };
+		3CBF39140A2B2F78002AAB19 /* Wm4SoftSampler.h in Headers */ = {isa = PBXBuildFile; fileRef = 748D099E0A222B11006B73CD /* Wm4SoftSampler.h */; };
+		3CBF39150A2B2F79002AAB19 /* Wm4SoftSampler1.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D099F0A222B11006B73CD /* Wm4SoftSampler1.cpp */; };
+		3CBF39160A2B2F7A002AAB19 /* Wm4SoftSampler1.h in Headers */ = {isa = PBXBuildFile; fileRef = 748D09A00A222B11006B73CD /* Wm4SoftSampler1.h */; };
+		3CBF39170A2B2F7E002AAB19 /* Wm4SoftSampler2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D09A10A222B11006B73CD /* Wm4SoftSampler2.cpp */; };
+		3CBF39180A2B2F7E002AAB19 /* Wm4SoftSampler2.h in Headers */ = {isa = PBXBuildFile; fileRef = 748D09A20A222B11006B73CD /* Wm4SoftSampler2.h */; };
+		3CBF39190A2B2F7F002AAB19 /* Wm4SoftSampler3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D09A40A222B11006B73CD /* Wm4SoftSampler3.cpp */; };
+		3CBF391A0A2B2F80002AAB19 /* Wm4SoftSampler3.h in Headers */ = {isa = PBXBuildFile; fileRef = 748D09A50A222B11006B73CD /* Wm4SoftSampler3.h */; };
+		3CBF391B0A2B2F81002AAB19 /* Wm4SoftSamplerCube.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D09A70A222B11006B73CD /* Wm4SoftSamplerCube.cpp */; };
+		3CBF391C0A2B2F81002AAB19 /* Wm4SoftSamplerCube.h in Headers */ = {isa = PBXBuildFile; fileRef = 748D09A80A222B11006B73CD /* Wm4SoftSamplerCube.h */; };
+		3CBF391D0A2B2F82002AAB19 /* Wm4SoftSamplerProj.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D09A90A222B11006B73CD /* Wm4SoftSamplerProj.cpp */; };
+		3CBF391E0A2B2F83002AAB19 /* Wm4SoftSamplerProj.h in Headers */ = {isa = PBXBuildFile; fileRef = 748D09AA0A222B11006B73CD /* Wm4SoftSamplerProj.h */; };
+		3CBF391F0A2B2F83002AAB19 /* Wm4SoftShaderLibrary.h in Headers */ = {isa = PBXBuildFile; fileRef = 748D09AC0A222B11006B73CD /* Wm4SoftShaderLibrary.h */; };
+		3CBF39200A2B2F84002AAB19 /* Wm4SoftShaderLibraryMCR.h in Headers */ = {isa = PBXBuildFile; fileRef = 748D09AD0A222B11006B73CD /* Wm4SoftShaderLibraryMCR.h */; };
+		3CBF39210A2B2F85002AAB19 /* Wm4SoftShaderUtility.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D09AE0A222B11006B73CD /* Wm4SoftShaderUtility.cpp */; };
+		3CBF39220A2B2F85002AAB19 /* Wm4SoftShaderUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = 748D09AF0A222B11006B73CD /* Wm4SoftShaderUtility.h */; };
+		3CBF39230A2B2F86002AAB19 /* Wm4SoftTransformation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D09B00A222B11006B73CD /* Wm4SoftTransformation.cpp */; };
+		3CBF39240A2B2F87002AAB19 /* Wm4SoftUtilityMCR.h in Headers */ = {isa = PBXBuildFile; fileRef = 748D09B10A222B11006B73CD /* Wm4SoftUtilityMCR.h */; };
+		3CBF39250A2B2F87002AAB19 /* Wm4SoftVertexShader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D09B20A222B11006B73CD /* Wm4SoftVertexShader.cpp */; };
+		3CBF39260A2B2F88002AAB19 /* WmspWrapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D09B30A222B11006B73CD /* WmspWrapper.cpp */; };
+		748D09B40A222B11006B73CD /* Wm4MacSoftRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D09880A222B11006B73CD /* Wm4MacSoftRenderer.cpp */; };
+		748D09B50A222B11006B73CD /* Wm4MacSoftRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 748D09890A222B11006B73CD /* Wm4MacSoftRenderer.h */; };
+		748D09B60A222B11006B73CD /* Wm4SoftArray.h in Headers */ = {isa = PBXBuildFile; fileRef = 748D098A0A222B11006B73CD /* Wm4SoftArray.h */; };
+		748D09B70A222B11006B73CD /* Wm4SoftClipper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D098C0A222B11006B73CD /* Wm4SoftClipper.cpp */; };
+		748D09B80A222B11006B73CD /* Wm4SoftDrawElements.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D098D0A222B11006B73CD /* Wm4SoftDrawElements.cpp */; };
+		748D09B90A222B11006B73CD /* Wm4SoftEdgeBuffers.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D098E0A222B11006B73CD /* Wm4SoftEdgeBuffers.cpp */; };
+		748D09BA0A222B11006B73CD /* Wm4SoftFrameBuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D098F0A222B11006B73CD /* Wm4SoftFrameBuffer.cpp */; };
+		748D09BB0A222B11006B73CD /* Wm4SoftFrameBuffer.h in Headers */ = {isa = PBXBuildFile; fileRef = 748D09900A222B11006B73CD /* Wm4SoftFrameBuffer.h */; };
+		748D09BC0A222B11006B73CD /* Wm4SoftPixelShader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D09920A222B11006B73CD /* Wm4SoftPixelShader.cpp */; };
+		748D09BD0A222B11006B73CD /* Wm4SoftPolygonOffsetState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D09930A222B11006B73CD /* Wm4SoftPolygonOffsetState.cpp */; };
+		748D09BE0A222B11006B73CD /* Wm4SoftRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D09940A222B11006B73CD /* Wm4SoftRenderer.cpp */; };
+		748D09BF0A222B11006B73CD /* Wm4SoftRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 748D09950A222B11006B73CD /* Wm4SoftRenderer.h */; };
+		748D09C00A222B11006B73CD /* Wm4SoftRendererLIB.h in Headers */ = {isa = PBXBuildFile; fileRef = 748D09970A222B11006B73CD /* Wm4SoftRendererLIB.h */; };
+		748D09C10A222B11006B73CD /* Wm4SoftRendererPCH.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D09980A222B11006B73CD /* Wm4SoftRendererPCH.cpp */; };
+		748D09C20A222B11006B73CD /* Wm4SoftRendererPCH.h in Headers */ = {isa = PBXBuildFile; fileRef = 748D09990A222B11006B73CD /* Wm4SoftRendererPCH.h */; };
+		748D09C30A222B11006B73CD /* Wm4SoftResources.h in Headers */ = {isa = PBXBuildFile; fileRef = 748D099A0A222B11006B73CD /* Wm4SoftResources.h */; };
+		748D09C40A222B11006B73CD /* Wm4SoftResourcesED.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D099B0A222B11006B73CD /* Wm4SoftResourcesED.cpp */; };
+		748D09C50A222B11006B73CD /* Wm4SoftResourcesLR.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D099C0A222B11006B73CD /* Wm4SoftResourcesLR.cpp */; };
+		748D09C60A222B11006B73CD /* Wm4SoftSampler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D099D0A222B11006B73CD /* Wm4SoftSampler.cpp */; };
+		748D09C70A222B11006B73CD /* Wm4SoftSampler.h in Headers */ = {isa = PBXBuildFile; fileRef = 748D099E0A222B11006B73CD /* Wm4SoftSampler.h */; };
+		748D09C80A222B11006B73CD /* Wm4SoftSampler1.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D099F0A222B11006B73CD /* Wm4SoftSampler1.cpp */; };
+		748D09C90A222B11006B73CD /* Wm4SoftSampler1.h in Headers */ = {isa = PBXBuildFile; fileRef = 748D09A00A222B11006B73CD /* Wm4SoftSampler1.h */; };
+		748D09CA0A222B11006B73CD /* Wm4SoftSampler2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D09A10A222B11006B73CD /* Wm4SoftSampler2.cpp */; };
+		748D09CB0A222B11006B73CD /* Wm4SoftSampler2.h in Headers */ = {isa = PBXBuildFile; fileRef = 748D09A20A222B11006B73CD /* Wm4SoftSampler2.h */; };
+		748D09CC0A222B11006B73CD /* Wm4SoftSampler3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D09A40A222B11006B73CD /* Wm4SoftSampler3.cpp */; };
+		748D09CD0A222B11006B73CD /* Wm4SoftSampler3.h in Headers */ = {isa = PBXBuildFile; fileRef = 748D09A50A222B11006B73CD /* Wm4SoftSampler3.h */; };
+		748D09CE0A222B11006B73CD /* Wm4SoftSamplerCube.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D09A70A222B11006B73CD /* Wm4SoftSamplerCube.cpp */; };
+		748D09CF0A222B11006B73CD /* Wm4SoftSamplerCube.h in Headers */ = {isa = PBXBuildFile; fileRef = 748D09A80A222B11006B73CD /* Wm4SoftSamplerCube.h */; };
+		748D09D00A222B11006B73CD /* Wm4SoftSamplerProj.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D09A90A222B11006B73CD /* Wm4SoftSamplerProj.cpp */; };
+		748D09D10A222B11006B73CD /* Wm4SoftSamplerProj.h in Headers */ = {isa = PBXBuildFile; fileRef = 748D09AA0A222B11006B73CD /* Wm4SoftSamplerProj.h */; };
+		748D09D20A222B11006B73CD /* Wm4SoftShaderLibrary.h in Headers */ = {isa = PBXBuildFile; fileRef = 748D09AC0A222B11006B73CD /* Wm4SoftShaderLibrary.h */; };
+		748D09D30A222B11006B73CD /* Wm4SoftShaderLibraryMCR.h in Headers */ = {isa = PBXBuildFile; fileRef = 748D09AD0A222B11006B73CD /* Wm4SoftShaderLibraryMCR.h */; };
+		748D09D40A222B11006B73CD /* Wm4SoftShaderUtility.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D09AE0A222B11006B73CD /* Wm4SoftShaderUtility.cpp */; };
+		748D09D50A222B11006B73CD /* Wm4SoftShaderUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = 748D09AF0A222B11006B73CD /* Wm4SoftShaderUtility.h */; };
+		748D09D60A222B11006B73CD /* Wm4SoftTransformation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D09B00A222B11006B73CD /* Wm4SoftTransformation.cpp */; };
+		748D09D70A222B11006B73CD /* Wm4SoftUtilityMCR.h in Headers */ = {isa = PBXBuildFile; fileRef = 748D09B10A222B11006B73CD /* Wm4SoftUtilityMCR.h */; };
+		748D09D80A222B11006B73CD /* Wm4SoftVertexShader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D09B20A222B11006B73CD /* Wm4SoftVertexShader.cpp */; };
+		748D09D90A222B11006B73CD /* WmspWrapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D09B30A222B11006B73CD /* WmspWrapper.cpp */; };
+		748D09DA0A222B11006B73CD /* Wm4MacSoftRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D09880A222B11006B73CD /* Wm4MacSoftRenderer.cpp */; };
+		748D09DB0A222B11006B73CD /* Wm4MacSoftRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 748D09890A222B11006B73CD /* Wm4MacSoftRenderer.h */; };
+		748D09DC0A222B11006B73CD /* Wm4SoftArray.h in Headers */ = {isa = PBXBuildFile; fileRef = 748D098A0A222B11006B73CD /* Wm4SoftArray.h */; };
+		748D09DD0A222B11006B73CD /* Wm4SoftClipper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D098C0A222B11006B73CD /* Wm4SoftClipper.cpp */; };
+		748D09DE0A222B11006B73CD /* Wm4SoftDrawElements.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D098D0A222B11006B73CD /* Wm4SoftDrawElements.cpp */; };
+		748D09DF0A222B11006B73CD /* Wm4SoftEdgeBuffers.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D098E0A222B11006B73CD /* Wm4SoftEdgeBuffers.cpp */; };
+		748D09E00A222B11006B73CD /* Wm4SoftFrameBuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D098F0A222B11006B73CD /* Wm4SoftFrameBuffer.cpp */; };
+		748D09E10A222B11006B73CD /* Wm4SoftFrameBuffer.h in Headers */ = {isa = PBXBuildFile; fileRef = 748D09900A222B11006B73CD /* Wm4SoftFrameBuffer.h */; };
+		748D09E20A222B11006B73CD /* Wm4SoftPixelShader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D09920A222B11006B73CD /* Wm4SoftPixelShader.cpp */; };
+		748D09E30A222B11006B73CD /* Wm4SoftPolygonOffsetState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D09930A222B11006B73CD /* Wm4SoftPolygonOffsetState.cpp */; };
+		748D09E40A222B11006B73CD /* Wm4SoftRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D09940A222B11006B73CD /* Wm4SoftRenderer.cpp */; };
+		748D09E50A222B11006B73CD /* Wm4SoftRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 748D09950A222B11006B73CD /* Wm4SoftRenderer.h */; };
+		748D09E60A222B11006B73CD /* Wm4SoftRendererLIB.h in Headers */ = {isa = PBXBuildFile; fileRef = 748D09970A222B11006B73CD /* Wm4SoftRendererLIB.h */; };
+		748D09E70A222B11006B73CD /* Wm4SoftRendererPCH.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D09980A222B11006B73CD /* Wm4SoftRendererPCH.cpp */; };
+		748D09E80A222B11006B73CD /* Wm4SoftRendererPCH.h in Headers */ = {isa = PBXBuildFile; fileRef = 748D09990A222B11006B73CD /* Wm4SoftRendererPCH.h */; };
+		748D09E90A222B11006B73CD /* Wm4SoftResources.h in Headers */ = {isa = PBXBuildFile; fileRef = 748D099A0A222B11006B73CD /* Wm4SoftResources.h */; };
+		748D09EA0A222B11006B73CD /* Wm4SoftResourcesED.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D099B0A222B11006B73CD /* Wm4SoftResourcesED.cpp */; };
+		748D09EB0A222B11006B73CD /* Wm4SoftResourcesLR.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D099C0A222B11006B73CD /* Wm4SoftResourcesLR.cpp */; };
+		748D09EC0A222B11006B73CD /* Wm4SoftSampler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D099D0A222B11006B73CD /* Wm4SoftSampler.cpp */; };
+		748D09ED0A222B11006B73CD /* Wm4SoftSampler.h in Headers */ = {isa = PBXBuildFile; fileRef = 748D099E0A222B11006B73CD /* Wm4SoftSampler.h */; };
+		748D09EE0A222B11006B73CD /* Wm4SoftSampler1.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D099F0A222B11006B73CD /* Wm4SoftSampler1.cpp */; };
+		748D09EF0A222B11006B73CD /* Wm4SoftSampler1.h in Headers */ = {isa = PBXBuildFile; fileRef = 748D09A00A222B11006B73CD /* Wm4SoftSampler1.h */; };
+		748D09F00A222B11006B73CD /* Wm4SoftSampler2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D09A10A222B11006B73CD /* Wm4SoftSampler2.cpp */; };
+		748D09F10A222B11006B73CD /* Wm4SoftSampler2.h in Headers */ = {isa = PBXBuildFile; fileRef = 748D09A20A222B11006B73CD /* Wm4SoftSampler2.h */; };
+		748D09F20A222B11006B73CD /* Wm4SoftSampler3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D09A40A222B11006B73CD /* Wm4SoftSampler3.cpp */; };
+		748D09F30A222B11006B73CD /* Wm4SoftSampler3.h in Headers */ = {isa = PBXBuildFile; fileRef = 748D09A50A222B11006B73CD /* Wm4SoftSampler3.h */; };
+		748D09F40A222B11006B73CD /* Wm4SoftSamplerCube.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D09A70A222B11006B73CD /* Wm4SoftSamplerCube.cpp */; };
+		748D09F50A222B11006B73CD /* Wm4SoftSamplerCube.h in Headers */ = {isa = PBXBuildFile; fileRef = 748D09A80A222B11006B73CD /* Wm4SoftSamplerCube.h */; };
+		748D09F60A222B11006B73CD /* Wm4SoftSamplerProj.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D09A90A222B11006B73CD /* Wm4SoftSamplerProj.cpp */; };
+		748D09F70A222B11006B73CD /* Wm4SoftSamplerProj.h in Headers */ = {isa = PBXBuildFile; fileRef = 748D09AA0A222B11006B73CD /* Wm4SoftSamplerProj.h */; };
+		748D09F80A222B11006B73CD /* Wm4SoftShaderLibrary.h in Headers */ = {isa = PBXBuildFile; fileRef = 748D09AC0A222B11006B73CD /* Wm4SoftShaderLibrary.h */; };
+		748D09F90A222B11006B73CD /* Wm4SoftShaderLibraryMCR.h in Headers */ = {isa = PBXBuildFile; fileRef = 748D09AD0A222B11006B73CD /* Wm4SoftShaderLibraryMCR.h */; };
+		748D09FA0A222B11006B73CD /* Wm4SoftShaderUtility.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D09AE0A222B11006B73CD /* Wm4SoftShaderUtility.cpp */; };
+		748D09FB0A222B11006B73CD /* Wm4SoftShaderUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = 748D09AF0A222B11006B73CD /* Wm4SoftShaderUtility.h */; };
+		748D09FC0A222B11006B73CD /* Wm4SoftTransformation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D09B00A222B11006B73CD /* Wm4SoftTransformation.cpp */; };
+		748D09FD0A222B11006B73CD /* Wm4SoftUtilityMCR.h in Headers */ = {isa = PBXBuildFile; fileRef = 748D09B10A222B11006B73CD /* Wm4SoftUtilityMCR.h */; };
+		748D09FE0A222B11006B73CD /* Wm4SoftVertexShader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D09B20A222B11006B73CD /* Wm4SoftVertexShader.cpp */; };
+		748D09FF0A222B11006B73CD /* WmspWrapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D09B30A222B11006B73CD /* WmspWrapper.cpp */; };
+		748D0A000A222B11006B73CD /* Wm4MacSoftRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D09880A222B11006B73CD /* Wm4MacSoftRenderer.cpp */; };
+		748D0A010A222B11006B73CD /* Wm4MacSoftRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 748D09890A222B11006B73CD /* Wm4MacSoftRenderer.h */; };
+		748D0A020A222B11006B73CD /* Wm4SoftArray.h in Headers */ = {isa = PBXBuildFile; fileRef = 748D098A0A222B11006B73CD /* Wm4SoftArray.h */; };
+		748D0A030A222B11006B73CD /* Wm4SoftClipper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D098C0A222B11006B73CD /* Wm4SoftClipper.cpp */; };
+		748D0A040A222B11006B73CD /* Wm4SoftDrawElements.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D098D0A222B11006B73CD /* Wm4SoftDrawElements.cpp */; };
+		748D0A050A222B11006B73CD /* Wm4SoftEdgeBuffers.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D098E0A222B11006B73CD /* Wm4SoftEdgeBuffers.cpp */; };
+		748D0A060A222B11006B73CD /* Wm4SoftFrameBuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D098F0A222B11006B73CD /* Wm4SoftFrameBuffer.cpp */; };
+		748D0A070A222B11006B73CD /* Wm4SoftFrameBuffer.h in Headers */ = {isa = PBXBuildFile; fileRef = 748D09900A222B11006B73CD /* Wm4SoftFrameBuffer.h */; };
+		748D0A080A222B11006B73CD /* Wm4SoftPixelShader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D09920A222B11006B73CD /* Wm4SoftPixelShader.cpp */; };
+		748D0A090A222B11006B73CD /* Wm4SoftPolygonOffsetState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D09930A222B11006B73CD /* Wm4SoftPolygonOffsetState.cpp */; };
+		748D0A0A0A222B11006B73CD /* Wm4SoftRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D09940A222B11006B73CD /* Wm4SoftRenderer.cpp */; };
+		748D0A0B0A222B11006B73CD /* Wm4SoftRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 748D09950A222B11006B73CD /* Wm4SoftRenderer.h */; };
+		748D0A0C0A222B11006B73CD /* Wm4SoftRendererLIB.h in Headers */ = {isa = PBXBuildFile; fileRef = 748D09970A222B11006B73CD /* Wm4SoftRendererLIB.h */; };
+		748D0A0D0A222B11006B73CD /* Wm4SoftRendererPCH.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D09980A222B11006B73CD /* Wm4SoftRendererPCH.cpp */; };
+		748D0A0E0A222B11006B73CD /* Wm4SoftRendererPCH.h in Headers */ = {isa = PBXBuildFile; fileRef = 748D09990A222B11006B73CD /* Wm4SoftRendererPCH.h */; };
+		748D0A0F0A222B11006B73CD /* Wm4SoftResources.h in Headers */ = {isa = PBXBuildFile; fileRef = 748D099A0A222B11006B73CD /* Wm4SoftResources.h */; };
+		748D0A100A222B11006B73CD /* Wm4SoftResourcesED.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D099B0A222B11006B73CD /* Wm4SoftResourcesED.cpp */; };
+		748D0A110A222B11006B73CD /* Wm4SoftResourcesLR.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D099C0A222B11006B73CD /* Wm4SoftResourcesLR.cpp */; };
+		748D0A120A222B11006B73CD /* Wm4SoftSampler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D099D0A222B11006B73CD /* Wm4SoftSampler.cpp */; };
+		748D0A130A222B11006B73CD /* Wm4SoftSampler.h in Headers */ = {isa = PBXBuildFile; fileRef = 748D099E0A222B11006B73CD /* Wm4SoftSampler.h */; };
+		748D0A140A222B11006B73CD /* Wm4SoftSampler1.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D099F0A222B11006B73CD /* Wm4SoftSampler1.cpp */; };
+		748D0A150A222B11006B73CD /* Wm4SoftSampler1.h in Headers */ = {isa = PBXBuildFile; fileRef = 748D09A00A222B11006B73CD /* Wm4SoftSampler1.h */; };
+		748D0A160A222B11006B73CD /* Wm4SoftSampler2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D09A10A222B11006B73CD /* Wm4SoftSampler2.cpp */; };
+		748D0A170A222B11006B73CD /* Wm4SoftSampler2.h in Headers */ = {isa = PBXBuildFile; fileRef = 748D09A20A222B11006B73CD /* Wm4SoftSampler2.h */; };
+		748D0A180A222B11006B73CD /* Wm4SoftSampler3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D09A40A222B11006B73CD /* Wm4SoftSampler3.cpp */; };
+		748D0A190A222B11006B73CD /* Wm4SoftSampler3.h in Headers */ = {isa = PBXBuildFile; fileRef = 748D09A50A222B11006B73CD /* Wm4SoftSampler3.h */; };
+		748D0A1A0A222B11006B73CD /* Wm4SoftSamplerCube.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D09A70A222B11006B73CD /* Wm4SoftSamplerCube.cpp */; };
+		748D0A1B0A222B11006B73CD /* Wm4SoftSamplerCube.h in Headers */ = {isa = PBXBuildFile; fileRef = 748D09A80A222B11006B73CD /* Wm4SoftSamplerCube.h */; };
+		748D0A1C0A222B11006B73CD /* Wm4SoftSamplerProj.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D09A90A222B11006B73CD /* Wm4SoftSamplerProj.cpp */; };
+		748D0A1D0A222B11006B73CD /* Wm4SoftSamplerProj.h in Headers */ = {isa = PBXBuildFile; fileRef = 748D09AA0A222B11006B73CD /* Wm4SoftSamplerProj.h */; };
+		748D0A1E0A222B11006B73CD /* Wm4SoftShaderLibrary.h in Headers */ = {isa = PBXBuildFile; fileRef = 748D09AC0A222B11006B73CD /* Wm4SoftShaderLibrary.h */; };
+		748D0A1F0A222B11006B73CD /* Wm4SoftShaderLibraryMCR.h in Headers */ = {isa = PBXBuildFile; fileRef = 748D09AD0A222B11006B73CD /* Wm4SoftShaderLibraryMCR.h */; };
+		748D0A200A222B11006B73CD /* Wm4SoftShaderUtility.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D09AE0A222B11006B73CD /* Wm4SoftShaderUtility.cpp */; };
+		748D0A210A222B11006B73CD /* Wm4SoftShaderUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = 748D09AF0A222B11006B73CD /* Wm4SoftShaderUtility.h */; };
+		748D0A220A222B11006B73CD /* Wm4SoftTransformation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D09B00A222B11006B73CD /* Wm4SoftTransformation.cpp */; };
+		748D0A230A222B11006B73CD /* Wm4SoftUtilityMCR.h in Headers */ = {isa = PBXBuildFile; fileRef = 748D09B10A222B11006B73CD /* Wm4SoftUtilityMCR.h */; };
+		748D0A240A222B11006B73CD /* Wm4SoftVertexShader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D09B20A222B11006B73CD /* Wm4SoftVertexShader.cpp */; };
+		748D0A250A222B11006B73CD /* WmspWrapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D09B30A222B11006B73CD /* WmspWrapper.cpp */; };
+		748D0A260A222B11006B73CD /* Wm4MacSoftRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D09880A222B11006B73CD /* Wm4MacSoftRenderer.cpp */; };
+		748D0A270A222B11006B73CD /* Wm4MacSoftRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 748D09890A222B11006B73CD /* Wm4MacSoftRenderer.h */; };
+		748D0A280A222B11006B73CD /* Wm4SoftArray.h in Headers */ = {isa = PBXBuildFile; fileRef = 748D098A0A222B11006B73CD /* Wm4SoftArray.h */; };
+		748D0A290A222B11006B73CD /* Wm4SoftClipper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D098C0A222B11006B73CD /* Wm4SoftClipper.cpp */; };
+		748D0A2A0A222B11006B73CD /* Wm4SoftDrawElements.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D098D0A222B11006B73CD /* Wm4SoftDrawElements.cpp */; };
+		748D0A2B0A222B11006B73CD /* Wm4SoftEdgeBuffers.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D098E0A222B11006B73CD /* Wm4SoftEdgeBuffers.cpp */; };
+		748D0A2C0A222B11006B73CD /* Wm4SoftFrameBuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D098F0A222B11006B73CD /* Wm4SoftFrameBuffer.cpp */; };
+		748D0A2D0A222B11006B73CD /* Wm4SoftFrameBuffer.h in Headers */ = {isa = PBXBuildFile; fileRef = 748D09900A222B11006B73CD /* Wm4SoftFrameBuffer.h */; };
+		748D0A2E0A222B11006B73CD /* Wm4SoftPixelShader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D09920A222B11006B73CD /* Wm4SoftPixelShader.cpp */; };
+		748D0A2F0A222B11006B73CD /* Wm4SoftPolygonOffsetState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D09930A222B11006B73CD /* Wm4SoftPolygonOffsetState.cpp */; };
+		748D0A300A222B11006B73CD /* Wm4SoftRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D09940A222B11006B73CD /* Wm4SoftRenderer.cpp */; };
+		748D0A310A222B11006B73CD /* Wm4SoftRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 748D09950A222B11006B73CD /* Wm4SoftRenderer.h */; };
+		748D0A320A222B11006B73CD /* Wm4SoftRendererLIB.h in Headers */ = {isa = PBXBuildFile; fileRef = 748D09970A222B11006B73CD /* Wm4SoftRendererLIB.h */; };
+		748D0A330A222B11006B73CD /* Wm4SoftRendererPCH.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D09980A222B11006B73CD /* Wm4SoftRendererPCH.cpp */; };
+		748D0A340A222B11006B73CD /* Wm4SoftRendererPCH.h in Headers */ = {isa = PBXBuildFile; fileRef = 748D09990A222B11006B73CD /* Wm4SoftRendererPCH.h */; };
+		748D0A350A222B11006B73CD /* Wm4SoftResources.h in Headers */ = {isa = PBXBuildFile; fileRef = 748D099A0A222B11006B73CD /* Wm4SoftResources.h */; };
+		748D0A360A222B11006B73CD /* Wm4SoftResourcesED.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D099B0A222B11006B73CD /* Wm4SoftResourcesED.cpp */; };
+		748D0A370A222B11006B73CD /* Wm4SoftResourcesLR.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D099C0A222B11006B73CD /* Wm4SoftResourcesLR.cpp */; };
+		748D0A380A222B11006B73CD /* Wm4SoftSampler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D099D0A222B11006B73CD /* Wm4SoftSampler.cpp */; };
+		748D0A390A222B11006B73CD /* Wm4SoftSampler.h in Headers */ = {isa = PBXBuildFile; fileRef = 748D099E0A222B11006B73CD /* Wm4SoftSampler.h */; };
+		748D0A3A0A222B11006B73CD /* Wm4SoftSampler1.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D099F0A222B11006B73CD /* Wm4SoftSampler1.cpp */; };
+		748D0A3B0A222B11006B73CD /* Wm4SoftSampler1.h in Headers */ = {isa = PBXBuildFile; fileRef = 748D09A00A222B11006B73CD /* Wm4SoftSampler1.h */; };
+		748D0A3C0A222B11006B73CD /* Wm4SoftSampler2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D09A10A222B11006B73CD /* Wm4SoftSampler2.cpp */; };
+		748D0A3D0A222B11006B73CD /* Wm4SoftSampler2.h in Headers */ = {isa = PBXBuildFile; fileRef = 748D09A20A222B11006B73CD /* Wm4SoftSampler2.h */; };
+		748D0A3E0A222B11006B73CD /* Wm4SoftSampler3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D09A40A222B11006B73CD /* Wm4SoftSampler3.cpp */; };
+		748D0A3F0A222B11006B73CD /* Wm4SoftSampler3.h in Headers */ = {isa = PBXBuildFile; fileRef = 748D09A50A222B11006B73CD /* Wm4SoftSampler3.h */; };
+		748D0A400A222B11006B73CD /* Wm4SoftSamplerCube.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D09A70A222B11006B73CD /* Wm4SoftSamplerCube.cpp */; };
+		748D0A410A222B11006B73CD /* Wm4SoftSamplerCube.h in Headers */ = {isa = PBXBuildFile; fileRef = 748D09A80A222B11006B73CD /* Wm4SoftSamplerCube.h */; };
+		748D0A420A222B11006B73CD /* Wm4SoftSamplerProj.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D09A90A222B11006B73CD /* Wm4SoftSamplerProj.cpp */; };
+		748D0A430A222B11006B73CD /* Wm4SoftSamplerProj.h in Headers */ = {isa = PBXBuildFile; fileRef = 748D09AA0A222B11006B73CD /* Wm4SoftSamplerProj.h */; };
+		748D0A440A222B11006B73CD /* Wm4SoftShaderLibrary.h in Headers */ = {isa = PBXBuildFile; fileRef = 748D09AC0A222B11006B73CD /* Wm4SoftShaderLibrary.h */; };
+		748D0A450A222B11006B73CD /* Wm4SoftShaderLibraryMCR.h in Headers */ = {isa = PBXBuildFile; fileRef = 748D09AD0A222B11006B73CD /* Wm4SoftShaderLibraryMCR.h */; };
+		748D0A460A222B11006B73CD /* Wm4SoftShaderUtility.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D09AE0A222B11006B73CD /* Wm4SoftShaderUtility.cpp */; };
+		748D0A470A222B11006B73CD /* Wm4SoftShaderUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = 748D09AF0A222B11006B73CD /* Wm4SoftShaderUtility.h */; };
+		748D0A480A222B11006B73CD /* Wm4SoftTransformation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D09B00A222B11006B73CD /* Wm4SoftTransformation.cpp */; };
+		748D0A490A222B11006B73CD /* Wm4SoftUtilityMCR.h in Headers */ = {isa = PBXBuildFile; fileRef = 748D09B10A222B11006B73CD /* Wm4SoftUtilityMCR.h */; };
+		748D0A4A0A222B11006B73CD /* Wm4SoftVertexShader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D09B20A222B11006B73CD /* Wm4SoftVertexShader.cpp */; };
+		748D0A4B0A222B11006B73CD /* WmspWrapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748D09B30A222B11006B73CD /* WmspWrapper.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		3C6FBA29083E492C0068AA05 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
+		3CBD73570A01126900AFB0E7 /* libWm4Foundationd.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libWm4Foundationd.dylib; path = ../../SDK/Library/DebugDLL/libWm4Foundationd.dylib; sourceTree = SOURCE_ROOT; };
+		3CBD73580A01126900AFB0E7 /* libWm4Graphicsd.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libWm4Graphicsd.dylib; path = ../../SDK/Library/DebugDLL/libWm4Graphicsd.dylib; sourceTree = SOURCE_ROOT; };
+		3CBD735B0A01128200AFB0E7 /* libWm4Foundation.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libWm4Foundation.dylib; path = ../../SDK/Library/ReleaseDLL/libWm4Foundation.dylib; sourceTree = SOURCE_ROOT; };
+		3CBD735C0A01128200AFB0E7 /* libWm4Graphics.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libWm4Graphics.dylib; path = ../../SDK/Library/ReleaseDLL/libWm4Graphics.dylib; sourceTree = SOURCE_ROOT; };
+		3CBF38C20A2B2C1E002AAB19 /* libWm4MacSoftRenderermd.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libWm4MacSoftRenderermd.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		3CBF39000A2B2F5F002AAB19 /* libWm4MacSoftRendererm.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libWm4MacSoftRendererm.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		742F0AE307F485FE00E4DBBA /* libWm4MacSoftRendererd.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libWm4MacSoftRendererd.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+		742F0AE807F4867600E4DBBA /* libWm4MacSoftRenderer.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libWm4MacSoftRenderer.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+		748D09880A222B11006B73CD /* Wm4MacSoftRenderer.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = Wm4MacSoftRenderer.cpp; sourceTree = SOURCE_ROOT; };
+		748D09890A222B11006B73CD /* Wm4MacSoftRenderer.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = Wm4MacSoftRenderer.h; sourceTree = SOURCE_ROOT; };
+		748D098A0A222B11006B73CD /* Wm4SoftArray.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = Wm4SoftArray.h; sourceTree = SOURCE_ROOT; };
+		748D098B0A222B11006B73CD /* Wm4SoftArray.inl */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text; path = Wm4SoftArray.inl; sourceTree = SOURCE_ROOT; };
+		748D098C0A222B11006B73CD /* Wm4SoftClipper.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = Wm4SoftClipper.cpp; sourceTree = SOURCE_ROOT; };
+		748D098D0A222B11006B73CD /* Wm4SoftDrawElements.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = Wm4SoftDrawElements.cpp; sourceTree = SOURCE_ROOT; };
+		748D098E0A222B11006B73CD /* Wm4SoftEdgeBuffers.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = Wm4SoftEdgeBuffers.cpp; sourceTree = SOURCE_ROOT; };
+		748D098F0A222B11006B73CD /* Wm4SoftFrameBuffer.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = Wm4SoftFrameBuffer.cpp; sourceTree = SOURCE_ROOT; };
+		748D09900A222B11006B73CD /* Wm4SoftFrameBuffer.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = Wm4SoftFrameBuffer.h; sourceTree = SOURCE_ROOT; };
+		748D09910A222B11006B73CD /* Wm4SoftFrameBuffer.inl */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text; path = Wm4SoftFrameBuffer.inl; sourceTree = SOURCE_ROOT; };
+		748D09920A222B11006B73CD /* Wm4SoftPixelShader.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = Wm4SoftPixelShader.cpp; sourceTree = SOURCE_ROOT; };
+		748D09930A222B11006B73CD /* Wm4SoftPolygonOffsetState.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = Wm4SoftPolygonOffsetState.cpp; sourceTree = SOURCE_ROOT; };
+		748D09940A222B11006B73CD /* Wm4SoftRenderer.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = Wm4SoftRenderer.cpp; sourceTree = SOURCE_ROOT; };
+		748D09950A222B11006B73CD /* Wm4SoftRenderer.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = Wm4SoftRenderer.h; sourceTree = SOURCE_ROOT; };
+		748D09960A222B11006B73CD /* Wm4SoftRenderer.inl */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text; path = Wm4SoftRenderer.inl; sourceTree = SOURCE_ROOT; };
+		748D09970A222B11006B73CD /* Wm4SoftRendererLIB.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = Wm4SoftRendererLIB.h; sourceTree = SOURCE_ROOT; };
+		748D09980A222B11006B73CD /* Wm4SoftRendererPCH.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = Wm4SoftRendererPCH.cpp; sourceTree = SOURCE_ROOT; };
+		748D09990A222B11006B73CD /* Wm4SoftRendererPCH.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = Wm4SoftRendererPCH.h; sourceTree = SOURCE_ROOT; };
+		748D099A0A222B11006B73CD /* Wm4SoftResources.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = Wm4SoftResources.h; sourceTree = SOURCE_ROOT; };
+		748D099B0A222B11006B73CD /* Wm4SoftResourcesED.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = Wm4SoftResourcesED.cpp; sourceTree = SOURCE_ROOT; };
+		748D099C0A222B11006B73CD /* Wm4SoftResourcesLR.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = Wm4SoftResourcesLR.cpp; sourceTree = SOURCE_ROOT; };
+		748D099D0A222B11006B73CD /* Wm4SoftSampler.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = Wm4SoftSampler.cpp; sourceTree = SOURCE_ROOT; };
+		748D099E0A222B11006B73CD /* Wm4SoftSampler.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = Wm4SoftSampler.h; sourceTree = SOURCE_ROOT; };
+		748D099F0A222B11006B73CD /* Wm4SoftSampler1.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = Wm4SoftSampler1.cpp; sourceTree = SOURCE_ROOT; };
+		748D09A00A222B11006B73CD /* Wm4SoftSampler1.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = Wm4SoftSampler1.h; sourceTree = SOURCE_ROOT; };
+		748D09A10A222B11006B73CD /* Wm4SoftSampler2.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = Wm4SoftSampler2.cpp; sourceTree = SOURCE_ROOT; };
+		748D09A20A222B11006B73CD /* Wm4SoftSampler2.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = Wm4SoftSampler2.h; sourceTree = SOURCE_ROOT; };
+		748D09A30A222B11006B73CD /* Wm4SoftSampler2.inl */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text; path = Wm4SoftSampler2.inl; sourceTree = SOURCE_ROOT; };
+		748D09A40A222B11006B73CD /* Wm4SoftSampler3.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = Wm4SoftSampler3.cpp; sourceTree = SOURCE_ROOT; };
+		748D09A50A222B11006B73CD /* Wm4SoftSampler3.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = Wm4SoftSampler3.h; sourceTree = SOURCE_ROOT; };
+		748D09A60A222B11006B73CD /* Wm4SoftSampler3.inl */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text; path = Wm4SoftSampler3.inl; sourceTree = SOURCE_ROOT; };
+		748D09A70A222B11006B73CD /* Wm4SoftSamplerCube.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = Wm4SoftSamplerCube.cpp; sourceTree = SOURCE_ROOT; };
+		748D09A80A222B11006B73CD /* Wm4SoftSamplerCube.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = Wm4SoftSamplerCube.h; sourceTree = SOURCE_ROOT; };
+		748D09A90A222B11006B73CD /* Wm4SoftSamplerProj.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = Wm4SoftSamplerProj.cpp; sourceTree = SOURCE_ROOT; };
+		748D09AA0A222B11006B73CD /* Wm4SoftSamplerProj.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = Wm4SoftSamplerProj.h; sourceTree = SOURCE_ROOT; };
+		748D09AB0A222B11006B73CD /* Wm4SoftSamplerProj.inl */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text; path = Wm4SoftSamplerProj.inl; sourceTree = SOURCE_ROOT; };
+		748D09AC0A222B11006B73CD /* Wm4SoftShaderLibrary.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = Wm4SoftShaderLibrary.h; sourceTree = SOURCE_ROOT; };
+		748D09AD0A222B11006B73CD /* Wm4SoftShaderLibraryMCR.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = Wm4SoftShaderLibraryMCR.h; sourceTree = SOURCE_ROOT; };
+		748D09AE0A222B11006B73CD /* Wm4SoftShaderUtility.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = Wm4SoftShaderUtility.cpp; sourceTree = SOURCE_ROOT; };
+		748D09AF0A222B11006B73CD /* Wm4SoftShaderUtility.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = Wm4SoftShaderUtility.h; sourceTree = SOURCE_ROOT; };
+		748D09B00A222B11006B73CD /* Wm4SoftTransformation.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = Wm4SoftTransformation.cpp; sourceTree = SOURCE_ROOT; };
+		748D09B10A222B11006B73CD /* Wm4SoftUtilityMCR.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = Wm4SoftUtilityMCR.h; sourceTree = SOURCE_ROOT; };
+		748D09B20A222B11006B73CD /* Wm4SoftVertexShader.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = Wm4SoftVertexShader.cpp; sourceTree = SOURCE_ROOT; };
+		748D09B30A222B11006B73CD /* WmspWrapper.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = WmspWrapper.cpp; sourceTree = SOURCE_ROOT; };
+		748D0A4F0A222B3C006B73CD /* p_Default.sft.wmsp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text; name = p_Default.sft.wmsp; path = Wmsp/p_Default.sft.wmsp; sourceTree = SOURCE_ROOT; };
+		748D0A500A222B3C006B73CD /* p_MaterialTexture.sft.wmsp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text; name = p_MaterialTexture.sft.wmsp; path = Wmsp/p_MaterialTexture.sft.wmsp; sourceTree = SOURCE_ROOT; };
+		748D0A510A222B3C006B73CD /* p_PassThrough3.sft.wmsp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text; name = p_PassThrough3.sft.wmsp; path = Wmsp/p_PassThrough3.sft.wmsp; sourceTree = SOURCE_ROOT; };
+		748D0A520A222B3C006B73CD /* p_PassThrough4.sft.wmsp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text; name = p_PassThrough4.sft.wmsp; path = Wmsp/p_PassThrough4.sft.wmsp; sourceTree = SOURCE_ROOT; };
+		748D0A530A222B3C006B73CD /* p_T0s1d0T1s1d1.sft.wmsp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text; name = p_T0s1d0T1s1d1.sft.wmsp; path = Wmsp/p_T0s1d0T1s1d1.sft.wmsp; sourceTree = SOURCE_ROOT; };
+		748D0A540A222B3C006B73CD /* p_T0s1d0T1s2d0.sft.wmsp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text; name = p_T0s1d0T1s2d0.sft.wmsp; path = Wmsp/p_T0s1d0T1s2d0.sft.wmsp; sourceTree = SOURCE_ROOT; };
+		748D0A550A222B3C006B73CD /* p_T0s1d0T1s3d1.sft.wmsp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text; name = p_T0s1d0T1s3d1.sft.wmsp; path = Wmsp/p_T0s1d0T1s3d1.sft.wmsp; sourceTree = SOURCE_ROOT; };
+		748D0A560A222B3C006B73CD /* p_Texture.sft.wmsp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text; name = p_Texture.sft.wmsp; path = Wmsp/p_Texture.sft.wmsp; sourceTree = SOURCE_ROOT; };
+		748D0A570A222B3D006B73CD /* v_Default.sft.wmsp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text; name = v_Default.sft.wmsp; path = Wmsp/v_Default.sft.wmsp; sourceTree = SOURCE_ROOT; };
+		748D0A580A222B3D006B73CD /* v_L1a.sft.wmsp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text; name = v_L1a.sft.wmsp; path = Wmsp/v_L1a.sft.wmsp; sourceTree = SOURCE_ROOT; };
+		748D0A590A222B3D006B73CD /* v_L1d.sft.wmsp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text; name = v_L1d.sft.wmsp; path = Wmsp/v_L1d.sft.wmsp; sourceTree = SOURCE_ROOT; };
+		748D0A5A0A222B3D006B73CD /* v_L1p.sft.wmsp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text; name = v_L1p.sft.wmsp; path = Wmsp/v_L1p.sft.wmsp; sourceTree = SOURCE_ROOT; };
+		748D0A5B0A222B3D006B73CD /* v_L1s.sft.wmsp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text; name = v_L1s.sft.wmsp; path = Wmsp/v_L1s.sft.wmsp; sourceTree = SOURCE_ROOT; };
+		748D0A5C0A222B3D006B73CD /* v_Material.sft.wmsp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text; name = v_Material.sft.wmsp; path = Wmsp/v_Material.sft.wmsp; sourceTree = SOURCE_ROOT; };
+		748D0A5D0A222B3D006B73CD /* v_MaterialTexture.sft.wmsp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text; name = v_MaterialTexture.sft.wmsp; path = Wmsp/v_MaterialTexture.sft.wmsp; sourceTree = SOURCE_ROOT; };
+		748D0A5E0A222B3D006B73CD /* v_T0d2T1d2PassThrough.sft.wmsp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text; name = v_T0d2T1d2PassThrough.sft.wmsp; path = Wmsp/v_T0d2T1d2PassThrough.sft.wmsp; sourceTree = SOURCE_ROOT; };
+		748D0A5F0A222B3D006B73CD /* v_Texture.sft.wmsp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text; name = v_Texture.sft.wmsp; path = Wmsp/v_Texture.sft.wmsp; sourceTree = SOURCE_ROOT; };
+		748D0A600A222B3D006B73CD /* v_VertexColor3.sft.wmsp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text; name = v_VertexColor3.sft.wmsp; path = Wmsp/v_VertexColor3.sft.wmsp; sourceTree = SOURCE_ROOT; };
+		748D0A610A222B3D006B73CD /* v_VertexColor4.sft.wmsp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text; name = v_VertexColor4.sft.wmsp; path = Wmsp/v_VertexColor4.sft.wmsp; sourceTree = SOURCE_ROOT; };
+		74D6E86F07F34B2200267169 /* libWm4MacSoftRendererd.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libWm4MacSoftRendererd.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		74D6E87507F34B7400267169 /* libWm4MacSoftRenderer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libWm4MacSoftRenderer.a; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3CBF38C00A2B2C1E002AAB19 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3CBF38FE0A2B2F5F002AAB19 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		742F0AE107F485FE00E4DBBA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3C6FBA2A083E492C0068AA05 /* Carbon.framework in Frameworks */,
+				3CBD73590A01126900AFB0E7 /* libWm4Foundationd.dylib in Frameworks */,
+				3CBD735A0A01126900AFB0E7 /* libWm4Graphicsd.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		742F0AE707F4867600E4DBBA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3C6FBA2B083E492C0068AA05 /* Carbon.framework in Frameworks */,
+				3CBD735D0A01128200AFB0E7 /* libWm4Foundation.dylib in Frameworks */,
+				3CBD735E0A01128200AFB0E7 /* libWm4Graphics.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		74D6E86D07F34B2200267169 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		74D6E87407F34B7400267169 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3C6FBA26083E49060068AA05 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3C6FBA29083E492C0068AA05 /* Carbon.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3C6FBC08083E69C70068AA05 /* DebugDLL */ = {
+			isa = PBXGroup;
+			children = (
+				3CBD73570A01126900AFB0E7 /* libWm4Foundationd.dylib */,
+				3CBD73580A01126900AFB0E7 /* libWm4Graphicsd.dylib */,
+			);
+			name = DebugDLL;
+			sourceTree = "<group>";
+		};
+		3C6FBC0B083E69E20068AA05 /* ReleaseDLL */ = {
+			isa = PBXGroup;
+			children = (
+				3CBD735B0A01128200AFB0E7 /* libWm4Foundation.dylib */,
+				3CBD735C0A01128200AFB0E7 /* libWm4Graphics.dylib */,
+			);
+			name = ReleaseDLL;
+			sourceTree = "<group>";
+		};
+		742F0B9507F4893900E4DBBA /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				3C6FBC08083E69C70068AA05 /* DebugDLL */,
+				3C6FBC0B083E69E20068AA05 /* ReleaseDLL */,
+			);
+			name = Libraries;
+			sourceTree = SOURCE_ROOT;
+		};
+		748D0A4E0A222B3C006B73CD /* Wmsp */ = {
+			isa = PBXGroup;
+			children = (
+				748D0A4F0A222B3C006B73CD /* p_Default.sft.wmsp */,
+				748D0A500A222B3C006B73CD /* p_MaterialTexture.sft.wmsp */,
+				748D0A510A222B3C006B73CD /* p_PassThrough3.sft.wmsp */,
+				748D0A520A222B3C006B73CD /* p_PassThrough4.sft.wmsp */,
+				748D0A530A222B3C006B73CD /* p_T0s1d0T1s1d1.sft.wmsp */,
+				748D0A540A222B3C006B73CD /* p_T0s1d0T1s2d0.sft.wmsp */,
+				748D0A550A222B3C006B73CD /* p_T0s1d0T1s3d1.sft.wmsp */,
+				748D0A560A222B3C006B73CD /* p_Texture.sft.wmsp */,
+				748D0A570A222B3D006B73CD /* v_Default.sft.wmsp */,
+				748D0A580A222B3D006B73CD /* v_L1a.sft.wmsp */,
+				748D0A590A222B3D006B73CD /* v_L1d.sft.wmsp */,
+				748D0A5A0A222B3D006B73CD /* v_L1p.sft.wmsp */,
+				748D0A5B0A222B3D006B73CD /* v_L1s.sft.wmsp */,
+				748D0A5C0A222B3D006B73CD /* v_Material.sft.wmsp */,
+				748D0A5D0A222B3D006B73CD /* v_MaterialTexture.sft.wmsp */,
+				748D0A5E0A222B3D006B73CD /* v_T0d2T1d2PassThrough.sft.wmsp */,
+				748D0A5F0A222B3D006B73CD /* v_Texture.sft.wmsp */,
+				748D0A600A222B3D006B73CD /* v_VertexColor3.sft.wmsp */,
+				748D0A610A222B3D006B73CD /* v_VertexColor4.sft.wmsp */,
+			);
+			path = Wmsp;
+			sourceTree = SOURCE_ROOT;
+		};
+		74D6E86107F34AF400267169 = {
+			isa = PBXGroup;
+			children = (
+				74D6E87807F34BA900267169 /* Sources */,
+				742F0B9507F4893900E4DBBA /* Libraries */,
+				3C6FBA26083E49060068AA05 /* Frameworks */,
+				74D6E87007F34B2200267169 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		74D6E87007F34B2200267169 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				74D6E86F07F34B2200267169 /* libWm4MacSoftRendererd.a */,
+				74D6E87507F34B7400267169 /* libWm4MacSoftRenderer.a */,
+				742F0AE307F485FE00E4DBBA /* libWm4MacSoftRendererd.dylib */,
+				742F0AE807F4867600E4DBBA /* libWm4MacSoftRenderer.dylib */,
+				3CBF38C20A2B2C1E002AAB19 /* libWm4MacSoftRenderermd.a */,
+				3CBF39000A2B2F5F002AAB19 /* libWm4MacSoftRendererm.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		74D6E87807F34BA900267169 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				748D0A4E0A222B3C006B73CD /* Wmsp */,
+				748D09880A222B11006B73CD /* Wm4MacSoftRenderer.cpp */,
+				748D09890A222B11006B73CD /* Wm4MacSoftRenderer.h */,
+				748D098A0A222B11006B73CD /* Wm4SoftArray.h */,
+				748D098B0A222B11006B73CD /* Wm4SoftArray.inl */,
+				748D098C0A222B11006B73CD /* Wm4SoftClipper.cpp */,
+				748D098D0A222B11006B73CD /* Wm4SoftDrawElements.cpp */,
+				748D098E0A222B11006B73CD /* Wm4SoftEdgeBuffers.cpp */,
+				748D098F0A222B11006B73CD /* Wm4SoftFrameBuffer.cpp */,
+				748D09900A222B11006B73CD /* Wm4SoftFrameBuffer.h */,
+				748D09910A222B11006B73CD /* Wm4SoftFrameBuffer.inl */,
+				748D09920A222B11006B73CD /* Wm4SoftPixelShader.cpp */,
+				748D09930A222B11006B73CD /* Wm4SoftPolygonOffsetState.cpp */,
+				748D09940A222B11006B73CD /* Wm4SoftRenderer.cpp */,
+				748D09950A222B11006B73CD /* Wm4SoftRenderer.h */,
+				748D09960A222B11006B73CD /* Wm4SoftRenderer.inl */,
+				748D09970A222B11006B73CD /* Wm4SoftRendererLIB.h */,
+				748D09980A222B11006B73CD /* Wm4SoftRendererPCH.cpp */,
+				748D09990A222B11006B73CD /* Wm4SoftRendererPCH.h */,
+				748D099A0A222B11006B73CD /* Wm4SoftResources.h */,
+				748D099B0A222B11006B73CD /* Wm4SoftResourcesED.cpp */,
+				748D099C0A222B11006B73CD /* Wm4SoftResourcesLR.cpp */,
+				748D099D0A222B11006B73CD /* Wm4SoftSampler.cpp */,
+				748D099E0A222B11006B73CD /* Wm4SoftSampler.h */,
+				748D099F0A222B11006B73CD /* Wm4SoftSampler1.cpp */,
+				748D09A00A222B11006B73CD /* Wm4SoftSampler1.h */,
+				748D09A10A222B11006B73CD /* Wm4SoftSampler2.cpp */,
+				748D09A20A222B11006B73CD /* Wm4SoftSampler2.h */,
+				748D09A30A222B11006B73CD /* Wm4SoftSampler2.inl */,
+				748D09A40A222B11006B73CD /* Wm4SoftSampler3.cpp */,
+				748D09A50A222B11006B73CD /* Wm4SoftSampler3.h */,
+				748D09A60A222B11006B73CD /* Wm4SoftSampler3.inl */,
+				748D09A70A222B11006B73CD /* Wm4SoftSamplerCube.cpp */,
+				748D09A80A222B11006B73CD /* Wm4SoftSamplerCube.h */,
+				748D09A90A222B11006B73CD /* Wm4SoftSamplerProj.cpp */,
+				748D09AA0A222B11006B73CD /* Wm4SoftSamplerProj.h */,
+				748D09AB0A222B11006B73CD /* Wm4SoftSamplerProj.inl */,
+				748D09AC0A222B11006B73CD /* Wm4SoftShaderLibrary.h */,
+				748D09AD0A222B11006B73CD /* Wm4SoftShaderLibraryMCR.h */,
+				748D09AE0A222B11006B73CD /* Wm4SoftShaderUtility.cpp */,
+				748D09AF0A222B11006B73CD /* Wm4SoftShaderUtility.h */,
+				748D09B00A222B11006B73CD /* Wm4SoftTransformation.cpp */,
+				748D09B10A222B11006B73CD /* Wm4SoftUtilityMCR.h */,
+				748D09B20A222B11006B73CD /* Wm4SoftVertexShader.cpp */,
+				748D09B30A222B11006B73CD /* WmspWrapper.cpp */,
+			);
+			name = Sources;
+			sourceTree = SOURCE_ROOT;
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		3CBF38BE0A2B2C1E002AAB19 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3CBF38C40A2B2C2B002AAB19 /* Wm4MacSoftRenderer.h in Headers */,
+				3CBF38C50A2B2C2B002AAB19 /* Wm4SoftArray.h in Headers */,
+				3CBF38CA0A2B2C2F002AAB19 /* Wm4SoftFrameBuffer.h in Headers */,
+				3CBF38CE0A2B2C33002AAB19 /* Wm4SoftRenderer.h in Headers */,
+				3CBF38D50A2B2C37002AAB19 /* Wm4SoftRendererLIB.h in Headers */,
+				3CBF38D70A2B2C38002AAB19 /* Wm4SoftRendererPCH.h in Headers */,
+				3CBF38D80A2B2C39002AAB19 /* Wm4SoftResources.h in Headers */,
+				3CBF38DC0A2B2C3B002AAB19 /* Wm4SoftSampler.h in Headers */,
+				3CBF38DE0A2B2C3D002AAB19 /* Wm4SoftSampler1.h in Headers */,
+				3CBF38E00A2B2C3E002AAB19 /* Wm4SoftSampler2.h in Headers */,
+				3CBF38E20A2B2C41002AAB19 /* Wm4SoftSampler3.h in Headers */,
+				3CBF38E40A2B2C42002AAB19 /* Wm4SoftSamplerCube.h in Headers */,
+				3CBF38E60A2B2C43002AAB19 /* Wm4SoftSamplerProj.h in Headers */,
+				3CBF38E70A2B2C45002AAB19 /* Wm4SoftShaderLibrary.h in Headers */,
+				3CBF38E80A2B2C45002AAB19 /* Wm4SoftShaderLibraryMCR.h in Headers */,
+				3CBF38EA0A2B2C46002AAB19 /* Wm4SoftShaderUtility.h in Headers */,
+				3CBF38EC0A2B2C48002AAB19 /* Wm4SoftUtilityMCR.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3CBF38FC0A2B2F5F002AAB19 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3CBF39020A2B2F6A002AAB19 /* Wm4MacSoftRenderer.h in Headers */,
+				3CBF39030A2B2F6A002AAB19 /* Wm4SoftArray.h in Headers */,
+				3CBF39080A2B2F6E002AAB19 /* Wm4SoftFrameBuffer.h in Headers */,
+				3CBF390C0A2B2F73002AAB19 /* Wm4SoftRenderer.h in Headers */,
+				3CBF390D0A2B2F73002AAB19 /* Wm4SoftRendererLIB.h in Headers */,
+				3CBF390F0A2B2F75002AAB19 /* Wm4SoftRendererPCH.h in Headers */,
+				3CBF39100A2B2F76002AAB19 /* Wm4SoftResources.h in Headers */,
+				3CBF39140A2B2F78002AAB19 /* Wm4SoftSampler.h in Headers */,
+				3CBF39160A2B2F7A002AAB19 /* Wm4SoftSampler1.h in Headers */,
+				3CBF39180A2B2F7E002AAB19 /* Wm4SoftSampler2.h in Headers */,
+				3CBF391A0A2B2F80002AAB19 /* Wm4SoftSampler3.h in Headers */,
+				3CBF391C0A2B2F81002AAB19 /* Wm4SoftSamplerCube.h in Headers */,
+				3CBF391E0A2B2F83002AAB19 /* Wm4SoftSamplerProj.h in Headers */,
+				3CBF391F0A2B2F83002AAB19 /* Wm4SoftShaderLibrary.h in Headers */,
+				3CBF39200A2B2F84002AAB19 /* Wm4SoftShaderLibraryMCR.h in Headers */,
+				3CBF39220A2B2F85002AAB19 /* Wm4SoftShaderUtility.h in Headers */,
+				3CBF39240A2B2F87002AAB19 /* Wm4SoftUtilityMCR.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		742F0ADF07F485FE00E4DBBA /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				748D0A010A222B11006B73CD /* Wm4MacSoftRenderer.h in Headers */,
+				748D0A020A222B11006B73CD /* Wm4SoftArray.h in Headers */,
+				748D0A070A222B11006B73CD /* Wm4SoftFrameBuffer.h in Headers */,
+				748D0A0B0A222B11006B73CD /* Wm4SoftRenderer.h in Headers */,
+				748D0A0C0A222B11006B73CD /* Wm4SoftRendererLIB.h in Headers */,
+				748D0A0E0A222B11006B73CD /* Wm4SoftRendererPCH.h in Headers */,
+				748D0A0F0A222B11006B73CD /* Wm4SoftResources.h in Headers */,
+				748D0A130A222B11006B73CD /* Wm4SoftSampler.h in Headers */,
+				748D0A150A222B11006B73CD /* Wm4SoftSampler1.h in Headers */,
+				748D0A170A222B11006B73CD /* Wm4SoftSampler2.h in Headers */,
+				748D0A190A222B11006B73CD /* Wm4SoftSampler3.h in Headers */,
+				748D0A1B0A222B11006B73CD /* Wm4SoftSamplerCube.h in Headers */,
+				748D0A1D0A222B11006B73CD /* Wm4SoftSamplerProj.h in Headers */,
+				748D0A1E0A222B11006B73CD /* Wm4SoftShaderLibrary.h in Headers */,
+				748D0A1F0A222B11006B73CD /* Wm4SoftShaderLibraryMCR.h in Headers */,
+				748D0A210A222B11006B73CD /* Wm4SoftShaderUtility.h in Headers */,
+				748D0A230A222B11006B73CD /* Wm4SoftUtilityMCR.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		742F0AE507F4867600E4DBBA /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				748D0A270A222B11006B73CD /* Wm4MacSoftRenderer.h in Headers */,
+				748D0A280A222B11006B73CD /* Wm4SoftArray.h in Headers */,
+				748D0A2D0A222B11006B73CD /* Wm4SoftFrameBuffer.h in Headers */,
+				748D0A310A222B11006B73CD /* Wm4SoftRenderer.h in Headers */,
+				748D0A320A222B11006B73CD /* Wm4SoftRendererLIB.h in Headers */,
+				748D0A340A222B11006B73CD /* Wm4SoftRendererPCH.h in Headers */,
+				748D0A350A222B11006B73CD /* Wm4SoftResources.h in Headers */,
+				748D0A390A222B11006B73CD /* Wm4SoftSampler.h in Headers */,
+				748D0A3B0A222B11006B73CD /* Wm4SoftSampler1.h in Headers */,
+				748D0A3D0A222B11006B73CD /* Wm4SoftSampler2.h in Headers */,
+				748D0A3F0A222B11006B73CD /* Wm4SoftSampler3.h in Headers */,
+				748D0A410A222B11006B73CD /* Wm4SoftSamplerCube.h in Headers */,
+				748D0A430A222B11006B73CD /* Wm4SoftSamplerProj.h in Headers */,
+				748D0A440A222B11006B73CD /* Wm4SoftShaderLibrary.h in Headers */,
+				748D0A450A222B11006B73CD /* Wm4SoftShaderLibraryMCR.h in Headers */,
+				748D0A470A222B11006B73CD /* Wm4SoftShaderUtility.h in Headers */,
+				748D0A490A222B11006B73CD /* Wm4SoftUtilityMCR.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		74D6E86B07F34B2200267169 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				748D09B50A222B11006B73CD /* Wm4MacSoftRenderer.h in Headers */,
+				748D09B60A222B11006B73CD /* Wm4SoftArray.h in Headers */,
+				748D09BB0A222B11006B73CD /* Wm4SoftFrameBuffer.h in Headers */,
+				748D09BF0A222B11006B73CD /* Wm4SoftRenderer.h in Headers */,
+				748D09C00A222B11006B73CD /* Wm4SoftRendererLIB.h in Headers */,
+				748D09C20A222B11006B73CD /* Wm4SoftRendererPCH.h in Headers */,
+				748D09C30A222B11006B73CD /* Wm4SoftResources.h in Headers */,
+				748D09C70A222B11006B73CD /* Wm4SoftSampler.h in Headers */,
+				748D09C90A222B11006B73CD /* Wm4SoftSampler1.h in Headers */,
+				748D09CB0A222B11006B73CD /* Wm4SoftSampler2.h in Headers */,
+				748D09CD0A222B11006B73CD /* Wm4SoftSampler3.h in Headers */,
+				748D09CF0A222B11006B73CD /* Wm4SoftSamplerCube.h in Headers */,
+				748D09D10A222B11006B73CD /* Wm4SoftSamplerProj.h in Headers */,
+				748D09D20A222B11006B73CD /* Wm4SoftShaderLibrary.h in Headers */,
+				748D09D30A222B11006B73CD /* Wm4SoftShaderLibraryMCR.h in Headers */,
+				748D09D50A222B11006B73CD /* Wm4SoftShaderUtility.h in Headers */,
+				748D09D70A222B11006B73CD /* Wm4SoftUtilityMCR.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		74D6E87207F34B7400267169 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				748D09DB0A222B11006B73CD /* Wm4MacSoftRenderer.h in Headers */,
+				748D09DC0A222B11006B73CD /* Wm4SoftArray.h in Headers */,
+				748D09E10A222B11006B73CD /* Wm4SoftFrameBuffer.h in Headers */,
+				748D09E50A222B11006B73CD /* Wm4SoftRenderer.h in Headers */,
+				748D09E60A222B11006B73CD /* Wm4SoftRendererLIB.h in Headers */,
+				748D09E80A222B11006B73CD /* Wm4SoftRendererPCH.h in Headers */,
+				748D09E90A222B11006B73CD /* Wm4SoftResources.h in Headers */,
+				748D09ED0A222B11006B73CD /* Wm4SoftSampler.h in Headers */,
+				748D09EF0A222B11006B73CD /* Wm4SoftSampler1.h in Headers */,
+				748D09F10A222B11006B73CD /* Wm4SoftSampler2.h in Headers */,
+				748D09F30A222B11006B73CD /* Wm4SoftSampler3.h in Headers */,
+				748D09F50A222B11006B73CD /* Wm4SoftSamplerCube.h in Headers */,
+				748D09F70A222B11006B73CD /* Wm4SoftSamplerProj.h in Headers */,
+				748D09F80A222B11006B73CD /* Wm4SoftShaderLibrary.h in Headers */,
+				748D09F90A222B11006B73CD /* Wm4SoftShaderLibraryMCR.h in Headers */,
+				748D09FB0A222B11006B73CD /* Wm4SoftShaderUtility.h in Headers */,
+				748D09FD0A222B11006B73CD /* Wm4SoftUtilityMCR.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		3CBF38C10A2B2C1E002AAB19 /* Debug Memory */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3CBF38D20A2B2C34002AAB19 /* Build configuration list for PBXNativeTarget "Debug Memory" */;
+			buildPhases = (
+				3CBF38BE0A2B2C1E002AAB19 /* Headers */,
+				3CBF38BF0A2B2C1E002AAB19 /* Sources */,
+				3CBF38C00A2B2C1E002AAB19 /* Frameworks */,
+				3CBF38EF0A2B2D3F002AAB19 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Debug Memory";
+			productName = "Debug Memory";
+			productReference = 3CBF38C20A2B2C1E002AAB19 /* libWm4MacSoftRenderermd.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		3CBF38FF0A2B2F5F002AAB19 /* Release Memory */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3CBF392B0A2B3061002AAB19 /* Build configuration list for PBXNativeTarget "Release Memory" */;
+			buildPhases = (
+				3CBF38FC0A2B2F5F002AAB19 /* Headers */,
+				3CBF38FD0A2B2F5F002AAB19 /* Sources */,
+				3CBF38FE0A2B2F5F002AAB19 /* Frameworks */,
+				3CBF39270A2B3037002AAB19 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Release Memory";
+			productName = "Release Memory";
+			productReference = 3CBF39000A2B2F5F002AAB19 /* libWm4MacSoftRendererm.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		742F0AE207F485FE00E4DBBA /* Debug Dynamic */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3C0273B8088FE76A00A93309 /* Build configuration list for PBXNativeTarget "Debug Dynamic" */;
+			buildPhases = (
+				742F0ADF07F485FE00E4DBBA /* Headers */,
+				742F0AE007F485FE00E4DBBA /* Sources */,
+				742F0AE107F485FE00E4DBBA /* Frameworks */,
+				3C9DBB74083D27AA006BA80C /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Debug Dynamic";
+			productName = "Dynamic Debug";
+			productReference = 742F0AE307F485FE00E4DBBA /* libWm4MacSoftRendererd.dylib */;
+			productType = "com.apple.product-type.library.dynamic";
+		};
+		742F0AE407F4867600E4DBBA /* Release Dynamic */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3C0273BB088FE76A00A93309 /* Build configuration list for PBXNativeTarget "Release Dynamic" */;
+			buildPhases = (
+				742F0AE507F4867600E4DBBA /* Headers */,
+				742F0AE607F4867600E4DBBA /* Sources */,
+				742F0AE707F4867600E4DBBA /* Frameworks */,
+				3C9DBB77083D27B8006BA80C /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Release Dynamic";
+			productName = "Dynamic Debug";
+			productReference = 742F0AE807F4867600E4DBBA /* libWm4MacSoftRenderer.dylib */;
+			productType = "com.apple.product-type.library.dynamic";
+		};
+		74D6E86E07F34B2200267169 /* Debug Static */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3C0273AF088FE76A00A93309 /* Build configuration list for PBXNativeTarget "Debug Static" */;
+			buildPhases = (
+				74D6E86B07F34B2200267169 /* Headers */,
+				74D6E86C07F34B2200267169 /* Sources */,
+				74D6E86D07F34B2200267169 /* Frameworks */,
+				3C9DBB6A083D2765006BA80C /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Debug Static";
+			productName = "Static Debug";
+			productReference = 74D6E86F07F34B2200267169 /* libWm4MacSoftRendererd.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		74D6E87107F34B7400267169 /* Release Static */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3C0273B2088FE76A00A93309 /* Build configuration list for PBXNativeTarget "Release Static" */;
+			buildPhases = (
+				74D6E87207F34B7400267169 /* Headers */,
+				74D6E87307F34B7400267169 /* Sources */,
+				74D6E87407F34B7400267169 /* Frameworks */,
+				3C9DBB71083D2786006BA80C /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Release Static";
+			productName = "Static Debug";
+			productReference = 74D6E87507F34B7400267169 /* libWm4MacSoftRenderer.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		74D6E86507F34AF400267169 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 3C0273C4088FE76A00A93309 /* Build configuration list for PBXProject "MacSoftRenderer" */;
+			compatibilityVersion = "Xcode 2.4";
+			hasScannedForEncodings = 0;
+			mainGroup = 74D6E86107F34AF400267169;
+			productRefGroup = 74D6E87007F34B2200267169 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				74D6E86E07F34B2200267169 /* Debug Static */,
+				74D6E87107F34B7400267169 /* Release Static */,
+				742F0AE207F485FE00E4DBBA /* Debug Dynamic */,
+				742F0AE407F4867600E4DBBA /* Release Dynamic */,
+				3CBF38C10A2B2C1E002AAB19 /* Debug Memory */,
+				3CBF38FF0A2B2F5F002AAB19 /* Release Memory */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3C9DBB6A083D2765006BA80C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = ./CopySdkDebugStatic.sh;
+		};
+		3C9DBB71083D2786006BA80C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = ./CopySdkReleaseStatic.sh;
+		};
+		3C9DBB74083D27AA006BA80C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = ./CopySdkDebugDynamic.sh;
+		};
+		3C9DBB77083D27B8006BA80C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = ./CopySdkReleaseDynamic.sh;
+		};
+		3CBF38EF0A2B2D3F002AAB19 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = ./CopySdkDebugMemory.sh;
+		};
+		3CBF39270A2B3037002AAB19 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = ./CopySdkReleaseMemory.sh;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3CBF38BF0A2B2C1E002AAB19 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3CBF38C30A2B2C2A002AAB19 /* Wm4MacSoftRenderer.cpp in Sources */,
+				3CBF38C60A2B2C2C002AAB19 /* Wm4SoftClipper.cpp in Sources */,
+				3CBF38C70A2B2C2D002AAB19 /* Wm4SoftDrawElements.cpp in Sources */,
+				3CBF38C80A2B2C2D002AAB19 /* Wm4SoftEdgeBuffers.cpp in Sources */,
+				3CBF38C90A2B2C2E002AAB19 /* Wm4SoftFrameBuffer.cpp in Sources */,
+				3CBF38CB0A2B2C31002AAB19 /* Wm4SoftPixelShader.cpp in Sources */,
+				3CBF38CC0A2B2C32002AAB19 /* Wm4SoftPolygonOffsetState.cpp in Sources */,
+				3CBF38CD0A2B2C33002AAB19 /* Wm4SoftRenderer.cpp in Sources */,
+				3CBF38D60A2B2C37002AAB19 /* Wm4SoftRendererPCH.cpp in Sources */,
+				3CBF38D90A2B2C39002AAB19 /* Wm4SoftResourcesED.cpp in Sources */,
+				3CBF38DA0A2B2C3A002AAB19 /* Wm4SoftResourcesLR.cpp in Sources */,
+				3CBF38DB0A2B2C3A002AAB19 /* Wm4SoftSampler.cpp in Sources */,
+				3CBF38DD0A2B2C3C002AAB19 /* Wm4SoftSampler1.cpp in Sources */,
+				3CBF38DF0A2B2C3D002AAB19 /* Wm4SoftSampler2.cpp in Sources */,
+				3CBF38E10A2B2C40002AAB19 /* Wm4SoftSampler3.cpp in Sources */,
+				3CBF38E30A2B2C41002AAB19 /* Wm4SoftSamplerCube.cpp in Sources */,
+				3CBF38E50A2B2C42002AAB19 /* Wm4SoftSamplerProj.cpp in Sources */,
+				3CBF38E90A2B2C46002AAB19 /* Wm4SoftShaderUtility.cpp in Sources */,
+				3CBF38EB0A2B2C47002AAB19 /* Wm4SoftTransformation.cpp in Sources */,
+				3CBF38ED0A2B2C48002AAB19 /* Wm4SoftVertexShader.cpp in Sources */,
+				3CBF38EE0A2B2C49002AAB19 /* WmspWrapper.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3CBF38FD0A2B2F5F002AAB19 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3CBF39010A2B2F69002AAB19 /* Wm4MacSoftRenderer.cpp in Sources */,
+				3CBF39040A2B2F6B002AAB19 /* Wm4SoftClipper.cpp in Sources */,
+				3CBF39050A2B2F6C002AAB19 /* Wm4SoftDrawElements.cpp in Sources */,
+				3CBF39060A2B2F6D002AAB19 /* Wm4SoftEdgeBuffers.cpp in Sources */,
+				3CBF39070A2B2F6E002AAB19 /* Wm4SoftFrameBuffer.cpp in Sources */,
+				3CBF39090A2B2F71002AAB19 /* Wm4SoftPixelShader.cpp in Sources */,
+				3CBF390A0A2B2F71002AAB19 /* Wm4SoftPolygonOffsetState.cpp in Sources */,
+				3CBF390B0A2B2F72002AAB19 /* Wm4SoftRenderer.cpp in Sources */,
+				3CBF390E0A2B2F74002AAB19 /* Wm4SoftRendererPCH.cpp in Sources */,
+				3CBF39110A2B2F76002AAB19 /* Wm4SoftResourcesED.cpp in Sources */,
+				3CBF39120A2B2F77002AAB19 /* Wm4SoftResourcesLR.cpp in Sources */,
+				3CBF39130A2B2F78002AAB19 /* Wm4SoftSampler.cpp in Sources */,
+				3CBF39150A2B2F79002AAB19 /* Wm4SoftSampler1.cpp in Sources */,
+				3CBF39170A2B2F7E002AAB19 /* Wm4SoftSampler2.cpp in Sources */,
+				3CBF39190A2B2F7F002AAB19 /* Wm4SoftSampler3.cpp in Sources */,
+				3CBF391B0A2B2F81002AAB19 /* Wm4SoftSamplerCube.cpp in Sources */,
+				3CBF391D0A2B2F82002AAB19 /* Wm4SoftSamplerProj.cpp in Sources */,
+				3CBF39210A2B2F85002AAB19 /* Wm4SoftShaderUtility.cpp in Sources */,
+				3CBF39230A2B2F86002AAB19 /* Wm4SoftTransformation.cpp in Sources */,
+				3CBF39250A2B2F87002AAB19 /* Wm4SoftVertexShader.cpp in Sources */,
+				3CBF39260A2B2F88002AAB19 /* WmspWrapper.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		742F0AE007F485FE00E4DBBA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				748D0A000A222B11006B73CD /* Wm4MacSoftRenderer.cpp in Sources */,
+				748D0A030A222B11006B73CD /* Wm4SoftClipper.cpp in Sources */,
+				748D0A040A222B11006B73CD /* Wm4SoftDrawElements.cpp in Sources */,
+				748D0A050A222B11006B73CD /* Wm4SoftEdgeBuffers.cpp in Sources */,
+				748D0A060A222B11006B73CD /* Wm4SoftFrameBuffer.cpp in Sources */,
+				748D0A080A222B11006B73CD /* Wm4SoftPixelShader.cpp in Sources */,
+				748D0A090A222B11006B73CD /* Wm4SoftPolygonOffsetState.cpp in Sources */,
+				748D0A0A0A222B11006B73CD /* Wm4SoftRenderer.cpp in Sources */,
+				748D0A0D0A222B11006B73CD /* Wm4SoftRendererPCH.cpp in Sources */,
+				748D0A100A222B11006B73CD /* Wm4SoftResourcesED.cpp in Sources */,
+				748D0A110A222B11006B73CD /* Wm4SoftResourcesLR.cpp in Sources */,
+				748D0A120A222B11006B73CD /* Wm4SoftSampler.cpp in Sources */,
+				748D0A140A222B11006B73CD /* Wm4SoftSampler1.cpp in Sources */,
+				748D0A160A222B11006B73CD /* Wm4SoftSampler2.cpp in Sources */,
+				748D0A180A222B11006B73CD /* Wm4SoftSampler3.cpp in Sources */,
+				748D0A1A0A222B11006B73CD /* Wm4SoftSamplerCube.cpp in Sources */,
+				748D0A1C0A222B11006B73CD /* Wm4SoftSamplerProj.cpp in Sources */,
+				748D0A200A222B11006B73CD /* Wm4SoftShaderUtility.cpp in Sources */,
+				748D0A220A222B11006B73CD /* Wm4SoftTransformation.cpp in Sources */,
+				748D0A240A222B11006B73CD /* Wm4SoftVertexShader.cpp in Sources */,
+				748D0A250A222B11006B73CD /* WmspWrapper.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		742F0AE607F4867600E4DBBA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				748D0A260A222B11006B73CD /* Wm4MacSoftRenderer.cpp in Sources */,
+				748D0A290A222B11006B73CD /* Wm4SoftClipper.cpp in Sources */,
+				748D0A2A0A222B11006B73CD /* Wm4SoftDrawElements.cpp in Sources */,
+				748D0A2B0A222B11006B73CD /* Wm4SoftEdgeBuffers.cpp in Sources */,
+				748D0A2C0A222B11006B73CD /* Wm4SoftFrameBuffer.cpp in Sources */,
+				748D0A2E0A222B11006B73CD /* Wm4SoftPixelShader.cpp in Sources */,
+				748D0A2F0A222B11006B73CD /* Wm4SoftPolygonOffsetState.cpp in Sources */,
+				748D0A300A222B11006B73CD /* Wm4SoftRenderer.cpp in Sources */,
+				748D0A330A222B11006B73CD /* Wm4SoftRendererPCH.cpp in Sources */,
+				748D0A360A222B11006B73CD /* Wm4SoftResourcesED.cpp in Sources */,
+				748D0A370A222B11006B73CD /* Wm4SoftResourcesLR.cpp in Sources */,
+				748D0A380A222B11006B73CD /* Wm4SoftSampler.cpp in Sources */,
+				748D0A3A0A222B11006B73CD /* Wm4SoftSampler1.cpp in Sources */,
+				748D0A3C0A222B11006B73CD /* Wm4SoftSampler2.cpp in Sources */,
+				748D0A3E0A222B11006B73CD /* Wm4SoftSampler3.cpp in Sources */,
+				748D0A400A222B11006B73CD /* Wm4SoftSamplerCube.cpp in Sources */,
+				748D0A420A222B11006B73CD /* Wm4SoftSamplerProj.cpp in Sources */,
+				748D0A460A222B11006B73CD /* Wm4SoftShaderUtility.cpp in Sources */,
+				748D0A480A222B11006B73CD /* Wm4SoftTransformation.cpp in Sources */,
+				748D0A4A0A222B11006B73CD /* Wm4SoftVertexShader.cpp in Sources */,
+				748D0A4B0A222B11006B73CD /* WmspWrapper.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		74D6E86C07F34B2200267169 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				748D09B40A222B11006B73CD /* Wm4MacSoftRenderer.cpp in Sources */,
+				748D09B70A222B11006B73CD /* Wm4SoftClipper.cpp in Sources */,
+				748D09B80A222B11006B73CD /* Wm4SoftDrawElements.cpp in Sources */,
+				748D09B90A222B11006B73CD /* Wm4SoftEdgeBuffers.cpp in Sources */,
+				748D09BA0A222B11006B73CD /* Wm4SoftFrameBuffer.cpp in Sources */,
+				748D09BC0A222B11006B73CD /* Wm4SoftPixelShader.cpp in Sources */,
+				748D09BD0A222B11006B73CD /* Wm4SoftPolygonOffsetState.cpp in Sources */,
+				748D09BE0A222B11006B73CD /* Wm4SoftRenderer.cpp in Sources */,
+				748D09C10A222B11006B73CD /* Wm4SoftRendererPCH.cpp in Sources */,
+				748D09C40A222B11006B73CD /* Wm4SoftResourcesED.cpp in Sources */,
+				748D09C50A222B11006B73CD /* Wm4SoftResourcesLR.cpp in Sources */,
+				748D09C60A222B11006B73CD /* Wm4SoftSampler.cpp in Sources */,
+				748D09C80A222B11006B73CD /* Wm4SoftSampler1.cpp in Sources */,
+				748D09CA0A222B11006B73CD /* Wm4SoftSampler2.cpp in Sources */,
+				748D09CC0A222B11006B73CD /* Wm4SoftSampler3.cpp in Sources */,
+				748D09CE0A222B11006B73CD /* Wm4SoftSamplerCube.cpp in Sources */,
+				748D09D00A222B11006B73CD /* Wm4SoftSamplerProj.cpp in Sources */,
+				748D09D40A222B11006B73CD /* Wm4SoftShaderUtility.cpp in Sources */,
+				748D09D60A222B11006B73CD /* Wm4SoftTransformation.cpp in Sources */,
+				748D09D80A222B11006B73CD /* Wm4SoftVertexShader.cpp in Sources */,
+				748D09D90A222B11006B73CD /* WmspWrapper.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		74D6E87307F34B7400267169 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				748D09DA0A222B11006B73CD /* Wm4MacSoftRenderer.cpp in Sources */,
+				748D09DD0A222B11006B73CD /* Wm4SoftClipper.cpp in Sources */,
+				748D09DE0A222B11006B73CD /* Wm4SoftDrawElements.cpp in Sources */,
+				748D09DF0A222B11006B73CD /* Wm4SoftEdgeBuffers.cpp in Sources */,
+				748D09E00A222B11006B73CD /* Wm4SoftFrameBuffer.cpp in Sources */,
+				748D09E20A222B11006B73CD /* Wm4SoftPixelShader.cpp in Sources */,
+				748D09E30A222B11006B73CD /* Wm4SoftPolygonOffsetState.cpp in Sources */,
+				748D09E40A222B11006B73CD /* Wm4SoftRenderer.cpp in Sources */,
+				748D09E70A222B11006B73CD /* Wm4SoftRendererPCH.cpp in Sources */,
+				748D09EA0A222B11006B73CD /* Wm4SoftResourcesED.cpp in Sources */,
+				748D09EB0A222B11006B73CD /* Wm4SoftResourcesLR.cpp in Sources */,
+				748D09EC0A222B11006B73CD /* Wm4SoftSampler.cpp in Sources */,
+				748D09EE0A222B11006B73CD /* Wm4SoftSampler1.cpp in Sources */,
+				748D09F00A222B11006B73CD /* Wm4SoftSampler2.cpp in Sources */,
+				748D09F20A222B11006B73CD /* Wm4SoftSampler3.cpp in Sources */,
+				748D09F40A222B11006B73CD /* Wm4SoftSamplerCube.cpp in Sources */,
+				748D09F60A222B11006B73CD /* Wm4SoftSamplerProj.cpp in Sources */,
+				748D09FA0A222B11006B73CD /* Wm4SoftShaderUtility.cpp in Sources */,
+				748D09FC0A222B11006B73CD /* Wm4SoftTransformation.cpp in Sources */,
+				748D09FE0A222B11006B73CD /* Wm4SoftVertexShader.cpp in Sources */,
+				748D09FF0A222B11006B73CD /* WmspWrapper.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		3C0273B1088FE76A00A93309 /* Default */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_ENABLE_CPP_RTTI = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Wm4SoftRendererPCH.h;
+				GCC_PREPROCESSOR_DEFINITIONS = _DEBUG;
+				HEADER_SEARCH_PATHS = (
+					"${SRCROOT}/../../SDK/Include",
+					"${SRCROOT}/Wmsp",
+				);
+				LIBRARY_STYLE = STATIC;
+				PREBINDING = NO;
+				PRODUCT_NAME = Wm4MacSoftRendererd;
+				SHARED_PRECOMPS_DIR = "$(BUILD_DIR)/$(CONFIGURATION)/DebugStatic";
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = Default;
+		};
+		3C0273B4088FE76A00A93309 /* Default */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_ENABLE_CPP_RTTI = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Wm4SoftRendererPCH.h;
+				GCC_PREPROCESSOR_DEFINITIONS = NDEBUG;
+				HEADER_SEARCH_PATHS = (
+					"${SRCROOT}/../../SDK/Include",
+					"${SRCROOT}/Wmsp",
+				);
+				LIBRARY_STYLE = STATIC;
+				PREBINDING = NO;
+				PRODUCT_NAME = Wm4MacSoftRenderer;
+				SHARED_PRECOMPS_DIR = "$(BUILD_DIR)/$(CONFIGURATION)/ReleaseStatic";
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = Default;
+		};
+		3C0273BA088FE76A00A93309 /* Default */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				EXECUTABLE_PREFIX = lib;
+				GCC_ENABLE_CPP_RTTI = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Wm4SoftRendererPCH.h;
+				GCC_PREPROCESSOR_DEFINITIONS = _DEBUG;
+				HEADER_SEARCH_PATHS = (
+					"${SRCROOT}/../../SDK/Include",
+					"${SRCROOT}/Wmsp",
+				);
+				INSTALL_PATH = "${SRCROOT}/../../SDK/Library/DebugDLL";
+				LIBRARY_SEARCH_PATHS = "${SRCROOT}/../../SDK/Library/DebugDLL";
+				LIBRARY_STYLE = DYNAMIC;
+				MACH_O_TYPE = mh_dylib;
+				OTHER_LDFLAGS = (
+					"-seg1addr",
+					0x08000000,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = Wm4MacSoftRendererd;
+				SHARED_PRECOMPS_DIR = "$(BUILD_DIR)/$(CONFIGURATION)/DebugDynamic";
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = Default;
+		};
+		3C0273BD088FE76A00A93309 /* Default */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				EXECUTABLE_PREFIX = lib;
+				GCC_ENABLE_CPP_RTTI = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Wm4SoftRendererPCH.h;
+				GCC_PREPROCESSOR_DEFINITIONS = NDEBUG;
+				HEADER_SEARCH_PATHS = (
+					"${SRCROOT}/../../SDK/Include",
+					"${SRCROOT}/Wmsp",
+				);
+				INSTALL_PATH = "${SRCROOT}/../../SDK/Library/ReleaseDLL";
+				LIBRARY_SEARCH_PATHS = "${SRCROOT}/../../SDK/Library/ReleaseDLL";
+				LIBRARY_STYLE = DYNAMIC;
+				MACH_O_TYPE = mh_dylib;
+				OTHER_LDFLAGS = (
+					"-seg1addr",
+					0x08000000,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = Wm4MacSoftRenderer;
+				SHARED_PRECOMPS_DIR = "$(BUILD_DIR)/$(CONFIGURATION)/ReleaseDynamic";
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = Default;
+		};
+		3C0273C6088FE76A00A93309 /* Default */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Default;
+		};
+		3CBF38D40A2B2C34002AAB19 /* Default */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_ENABLE_CPP_RTTI = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_MODEL_TUNING = G4;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Wm4SoftRendererPCH.h;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					_DEBUG,
+					WM4_MEMORY_MANAGER,
+				);
+				HEADER_SEARCH_PATHS = (
+					"${SRCROOT}/../../SDK/Include",
+					"${SRCROOT}/Wmsp",
+				);
+				INSTALL_PATH = /usr/local/lib;
+				LIBRARY_STYLE = STATIC;
+				OTHER_LDFLAGS = "";
+				PREBINDING = NO;
+				PRODUCT_NAME = Wm4MacSoftRenderermd;
+				SHARED_PRECOMPS_DIR = "$(BUILD_DIR)/$(CONFIGURATION)/DebugMemory";
+				SKIP_INSTALL = YES;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+				ZERO_LINK = NO;
+			};
+			name = Default;
+		};
+		3CBF392D0A2B3061002AAB19 /* Default */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_ENABLE_CPP_RTTI = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_MODEL_TUNING = G4;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Wm4SoftRendererPCH.h;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					NDEBUG,
+					WM4_MEMORY_MANAGER,
+				);
+				HEADER_SEARCH_PATHS = (
+					"${SRCROOT}/../../SDK/Include",
+					"${SRCROOT}/Wmsp",
+				);
+				INSTALL_PATH = /usr/local/lib;
+				LIBRARY_STYLE = STATIC;
+				OTHER_LDFLAGS = "";
+				PREBINDING = NO;
+				PRODUCT_NAME = Wm4MacSoftRendererm;
+				SHARED_PRECOMPS_DIR = "$(BUILD_DIR)/$(CONFIGURATION)/ReleaseMemory";
+				SKIP_INSTALL = YES;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+				ZERO_LINK = NO;
+			};
+			name = Default;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3C0273AF088FE76A00A93309 /* Build configuration list for PBXNativeTarget "Debug Static" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3C0273B1088FE76A00A93309 /* Default */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Default;
+		};
+		3C0273B2088FE76A00A93309 /* Build configuration list for PBXNativeTarget "Release Static" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3C0273B4088FE76A00A93309 /* Default */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Default;
+		};
+		3C0273B8088FE76A00A93309 /* Build configuration list for PBXNativeTarget "Debug Dynamic" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3C0273BA088FE76A00A93309 /* Default */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Default;
+		};
+		3C0273BB088FE76A00A93309 /* Build configuration list for PBXNativeTarget "Release Dynamic" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3C0273BD088FE76A00A93309 /* Default */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Default;
+		};
+		3C0273C4088FE76A00A93309 /* Build configuration list for PBXProject "MacSoftRenderer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3C0273C6088FE76A00A93309 /* Default */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Default;
+		};
+		3CBF38D20A2B2C34002AAB19 /* Build configuration list for PBXNativeTarget "Debug Memory" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3CBF38D40A2B2C34002AAB19 /* Default */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Default;
+		};
+		3CBF392B0A2B3061002AAB19 /* Build configuration list for PBXNativeTarget "Release Memory" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3CBF392D0A2B3061002AAB19 /* Default */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Default;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 74D6E86507F34AF400267169 /* Project object */;
+}

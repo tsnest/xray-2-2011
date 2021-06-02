@@ -1,0 +1,15 @@
+﻿<ResourceDictionary 
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	
+	<ResourceDictionary.MergedDictionaries>
+		<ResourceDictionary Source="/wpf_controls;component/themes/expandable_items_control_theme.xaml" />
+		
+		<ResourceDictionary Source="/wpf_controls;component/controls/property_grid/themes/property_grid_item_theme.xaml" />
+		<ResourceDictionary Source="/wpf_controls;component/type_editors/themes/editors_themes.xaml" />
+		
+		<ResourceDictionary Source="/wpf_controls;component/property_editors/item/themes/item_editor_themes.xaml" />
+		<ResourceDictionary Source="/wpf_controls;component/property_editors/value/themes/value_editors_themes.xaml" />
+		
+    </ResourceDictionary.MergedDictionaries>
+</ResourceDictionary>

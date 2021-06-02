@@ -1,0 +1,37 @@
+build :
+	@mkdir -p ../SDK/Include
+	@mkdir -p ../SDK/Library/$(CFG)
+	@mkdir -p $(CFG)
+	@cp -fp *.h ../SDK/Include
+	cd Collision          ; make -f ../makeprj.wm4 CFG=$(CFG) SYS=$(SYS)
+	cd Controllers        ; make -f ../makeprj.wm4 CFG=$(CFG) SYS=$(SYS)
+	cd Curves             ; make -f ../makeprj.wm4 CFG=$(CFG) SYS=$(SYS)
+	cd Detail             ; make -f ../makeprj.wm4 CFG=$(CFG) SYS=$(SYS)
+	cd Effects            ; make -f ../makeprj.wm4 CFG=$(CFG) SYS=$(SYS)
+	cd Mathematics        ; make -f ../makeprj.wm4 CFG=$(CFG) SYS=$(SYS)
+	cd ObjectSystem       ; make -f ../makeprj.wm4 CFG=$(CFG) SYS=$(SYS)
+	cd Rendering          ; make -f ../makeprj.wm4 CFG=$(CFG) SYS=$(SYS)
+	cd SceneGraph         ; make -f ../makeprj.wm4 CFG=$(CFG) SYS=$(SYS)
+	cd Shaders            ; make -f ../makeprj.wm4 CFG=$(CFG) SYS=$(SYS)
+	cd SharedArrays       ; make -f ../makeprj.wm4 CFG=$(CFG) SYS=$(SYS)
+	cd Sorting            ; make -f ../makeprj.wm4 CFG=$(CFG) SYS=$(SYS)
+	cd Surfaces           ; make -f ../makeprj.wm4 CFG=$(CFG) SYS=$(SYS)
+	cd Terrain            ; make -f ../makeprj.wm4 CFG=$(CFG) SYS=$(SYS)
+
+clean :
+	cd Collision          ; make clean -f ../makeprj.wm4 CFG=$(CFG) SYS=$(SYS)
+	cd Controllers        ; make clean -f ../makeprj.wm4 CFG=$(CFG) SYS=$(SYS)
+	cd Curves             ; make clean -f ../makeprj.wm4 CFG=$(CFG) SYS=$(SYS)
+	cd Detail             ; make clean -f ../makeprj.wm4 CFG=$(CFG) SYS=$(SYS)
+	cd Effects            ; make clean -f ../makeprj.wm4 CFG=$(CFG) SYS=$(SYS)
+	cd Mathematics        ; make clean -f ../makeprj.wm4 CFG=$(CFG) SYS=$(SYS)
+	cd ObjectSystem       ; make clean -f ../makeprj.wm4 CFG=$(CFG) SYS=$(SYS)
+	cd Rendering          ; make clean -f ../makeprj.wm4 CFG=$(CFG) SYS=$(SYS)
+	cd SceneGraph         ; make clean -f ../makeprj.wm4 CFG=$(CFG) SYS=$(SYS)
+	cd Shaders            ; make clean -f ../makeprj.wm4 CFG=$(CFG) SYS=$(SYS)
+	cd SharedArrays       ; make clean -f ../makeprj.wm4 CFG=$(CFG) SYS=$(SYS)
+	cd Sorting            ; make clean -f ../makeprj.wm4 CFG=$(CFG) SYS=$(SYS)
+	cd Surfaces           ; make clean -f ../makeprj.wm4 CFG=$(CFG) SYS=$(SYS)
+	cd Terrain            ; make clean -f ../makeprj.wm4 CFG=$(CFG) SYS=$(SYS)
+	@rm -f $(CFG)/*.*
+	@rmdir $(CFG)

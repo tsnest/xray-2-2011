@@ -1,0 +1,26 @@
+!!ARBvp1.0
+# cgc version 1.5.0014, build date Sep 18 2006 20:36:59
+# command line args: -profile arbvp1
+# source file: T0d2T1d2PassThrough.cg
+#vendor NVIDIA Corporation
+#version 1.5.0.14
+#profile arbvp1
+#program v_T0d2T1d2PassThrough
+#semantic v_T0d2T1d2PassThrough.WVPMatrix
+#var float3 kModelPosition : $vin.POSITION : POSITION : 0 : 1
+#var float2 kInTCoord0 : $vin.TEXCOORD0 : TEXCOORD0 : 1 : 1
+#var float2 kInTCoord1 : $vin.TEXCOORD1 : TEXCOORD1 : 2 : 1
+#var float4 kClipPosition : $vout.POSITION : HPOS : 3 : 1
+#var float2 kOutTCoord0 : $vout.TEXCOORD0 : TEX0 : 4 : 1
+#var float2 kOutTCoord1 : $vout.TEXCOORD1 : TEX1 : 5 : 1
+#var float4x4 WVPMatrix :  : c[1], 4 : 6 : 1
+PARAM c[5] = { program.local[0..4] };
+TEMP R0;
+MUL R0, vertex.position.y, c[2];
+MAD R0, vertex.position.x, c[1], R0;
+MAD R0, vertex.position.z, c[3], R0;
+ADD result.position, R0, c[4];
+MOV result.texcoord[0].xy, vertex.texcoord[0];
+MOV result.texcoord[1].xy, vertex.texcoord[1];
+END
+# 6 instructions, 1 R-regs

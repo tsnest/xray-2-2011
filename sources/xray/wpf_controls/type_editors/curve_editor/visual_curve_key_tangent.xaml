@@ -1,0 +1,20 @@
+﻿<Canvas x:Class="xray.editor.wpf_controls.curve_editor.visual_curve_key_tangent"
+		xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		Name="tangent" Height="9" Width="9"
+		MouseEnter="tangent_mouse_enter"
+		MouseLeave="tangent_mouse_leave"
+		IsVisibleChanged="tangent_is_visible_changed"
+		VerticalAlignment="Center" HorizontalAlignment="Center" x:ClassModifier="internal">
+	
+	<Path Name="m_tangent_line" Stroke="Brown" StrokeThickness="1" SnapsToDevicePixels="True" >
+		<Path.Data>
+			<PathGeometry>
+				<PathFigure StartPoint="4.5, 4.5">
+					<LineSegment x:Name="m_path_line_segment"/>
+				</PathFigure>
+			</PathGeometry>
+		</Path.Data>
+	</Path>
+	<Rectangle Canvas.Left="2" Canvas.Top="2" Name="m_tangent_ellipse" HorizontalAlignment="Center" VerticalAlignment="Center" Fill="Brown" Width="5" Height="5"/>
+</Canvas>

@@ -1,0 +1,22 @@
+!!ARBfp1.0
+# cgc version 1.4.0000, build date Jun  9 2005 12:09:02
+# command line args: -profile arbfp1
+# source file: CubeMap.cg
+#vendor NVIDIA Corporation
+#version 1.0.02
+#profile arbfp1
+#program p_CubeMap
+#semantic p_CubeMap.Reflectivity
+#semantic p_CubeMap.CubeMapSampler
+#var float4 kVertexColor : $vin.COLOR : COL0 : 0 : 1
+#var float3 kReflectTCoord : $vin.TEXCOORD0 : TEX0 : 1 : 1
+#var float4 kPixelColor : $vout.COLOR : COL : 2 : 1
+#var float Reflectivity :  : c[0] : 3 : 1
+#var samplerCUBE CubeMapSampler :  : texunit 0 : 4 : 1
+PARAM c[1] = { program.local[0] };
+TEMP R0;
+TEX R0, fragment.texcoord[0], texture[0], CUBE;
+ADD R0, R0, -fragment.color.primary;
+MAD result.color, R0, c[0].x, fragment.color.primary;
+END
+# 3 instructions, 1 R-regs

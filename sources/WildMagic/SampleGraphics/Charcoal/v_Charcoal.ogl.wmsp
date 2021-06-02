@@ -1,0 +1,54 @@
+!!ARBvp1.0
+# cgc version 1.5.0014, build date Sep 18 2006 20:36:59
+# command line args: -profile arbvp1
+# source file: Charcoal.cg
+#vendor NVIDIA Corporation
+#version 1.5.0.14
+#profile arbvp1
+#program v_Charcoal
+#semantic v_Charcoal.WVPMatrix
+#semantic v_Charcoal.Light0ModelDirection
+#semantic v_Charcoal.Light1ModelDirection
+#semantic v_Charcoal.Constants
+#var float3 kModelPosition : $vin.POSITION : POSITION : 0 : 1
+#var float3 kModelNormal : $vin.NORMAL : NORMAL : 1 : 1
+#var float2 kInRandomTCoord : $vin.TEXCOORD0 : TEXCOORD0 : 2 : 1
+#var float4 kClipPosition : $vout.POSITION : HPOS : 3 : 1
+#var float4 kVertexColor : $vout.COLOR : COL0 : 4 : 1
+#var float2 kContrastTCoord : $vout.TEXCOORD0 : TEX0 : 5 : 1
+#var float2 kOutRandomTCoord : $vout.TEXCOORD1 : TEX1 : 6 : 1
+#var float2 kPaperTCoord : $vout.TEXCOORD2 : TEX2 : 7 : 1
+#var float4x4 WVPMatrix :  : c[1], 4 : 8 : 1
+#var float3 Light0ModelDirection :  : c[5] : 9 : 1
+#var float3 Light1ModelDirection :  : c[6] : 10 : 1
+#var float2 Constants :  : c[7] : 11 : 1
+#const c[0] = 0 1 0.5
+PARAM c[8] = { { 0, 1, 0.5 },
+		program.local[1..7] };
+TEMP R0;
+TEMP R1;
+MUL R0, vertex.position.y, c[2];
+MAD R0, vertex.position.x, c[1], R0;
+MAD R0, vertex.position.z, c[3], R0;
+ADD R0, R0, c[4];
+DP3 R1.y, vertex.normal, c[6];
+DP3 R1.x, vertex.normal, c[5];
+MIN R1.y, -R1, c[0];
+MIN R1.x, -R1, c[0].y;
+MAX R1.y, R1, c[0].x;
+MAX R1.x, R1, c[0];
+ADD R1.x, R1, R1.y;
+ADD R1.y, R1.x, c[7].x;
+MIN R1.z, R1.y, c[0].y;
+RCP R1.x, R0.w;
+MAD R1.xy, R0, R1.x, c[0].y;
+MAX R1.z, R1, c[0].x;
+MUL result.texcoord[2].xy, R1, c[0].z;
+POW R1.x, R1.z, c[7].y;
+MOV result.position, R0;
+MOV result.color, R1.x;
+MOV result.texcoord[1].xy, vertex.texcoord[0];
+MOV result.texcoord[0].y, R1.x;
+MOV result.texcoord[0].x, c[0];
+END
+# 23 instructions, 2 R-regs

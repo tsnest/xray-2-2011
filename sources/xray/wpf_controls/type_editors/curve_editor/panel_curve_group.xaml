@@ -1,0 +1,18 @@
+﻿<UserControl x:Class="xray.editor.wpf_controls.curve_editor.panel_curve_group"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	Name="this"
+	MouseDown="mouse_down">
+	<StackPanel>
+		<Border>
+			<Border.ContextMenu>
+				<ContextMenu>
+					<MenuItem Header="add effect" Click="add_effect_click"/>
+				</ContextMenu>
+			</Border.ContextMenu>
+			<TextBlock Name="m_header" x:FieldModifier="private" Text="{Binding header, ElementName=this}" Padding="5, 0, 5, 0" />
+		</Border>
+		<ItemsControl Name="m_effects" Margin="15, 0, 0, 0"/>
+		<ItemsControl Name="m_sub_channels" Margin="15, 0, 0, 0"/>
+	</StackPanel>
+</UserControl>

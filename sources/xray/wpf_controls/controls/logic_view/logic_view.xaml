@@ -1,0 +1,32 @@
+﻿<UserControl x:Class="xray.editor.wpf_controls.logic_view.logic_view"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:hypergraph="clr-namespace:xray.editor.wpf_controls.hypergraph" xmlns:logic_view="clr-namespace:xray.editor.wpf_controls.logic_view" xmlns:wpf_controls="clr-namespace:xray.editor.wpf_controls" xmlns:panels="clr-namespace:xray.editor.wpf_controls.panels" BorderThickness="0" BorderBrush="Black"
+	Background="LightGray"
+	x:Name="parent_control"
+	PreviewMouseDown="on_events_strip_preview_mouse_down"
+	>
+	<Grid>
+		<DockPanel>
+			<DockPanel x:Name="top_dock_panel"  DockPanel.Dock="Top">
+				<Border BorderThickness="4" BorderBrush="DarkGray" Background="Transparent">
+					<Border.ContextMenu>
+						<ContextMenu Name="m_context_menu">
+							<MenuItem Name="cm_delete_selected_events" Header="Delete selected event(s)" Click="delete_selected_click" Visibility="Visible" />
+							<!--MenuItem Name="cm_remove" Header="Remove" Click="context_menu_remove_click" Visibility="Collapsed"/-->
+						</ContextMenu>
+					</Border.ContextMenu>
+					<TextBlock Text="E V E N T S" Foreground="Gray"  TextAlignment="Left" FontSize="18" Background="LightGray"></TextBlock>
+				</Border>
+			</DockPanel>
+			<!--Border DockPanel.Dock="Bottom"  BorderThickness="4" BorderBrush="DarkGray" Height="25"/-->
+			<panels:scroll_viewer x:FieldModifier="public" x:Name="field_scroller" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Visible">
+				<Border x:FieldModifier="public" x:Name="zoomable_panel"  Background="Transparent" PreviewMouseWheel="zoomable_panel_mouse_wheel"  PreviewMouseDown="preview_mouse_button_down" PreviewMouseUp="preview_mouse_button_up" PreviewMouseMove="preview_mouse_move">
+					<StackPanel x:FieldModifier="public" Name="logic_entities_list" DockPanel.Dock="Top">				
+					</StackPanel>
+				</Border>
+			</panels:scroll_viewer>			
+		</DockPanel>
+		<Canvas x:Name="events_strip" x:FieldModifier="public">
+		</Canvas>
+	</Grid>
+</UserControl>

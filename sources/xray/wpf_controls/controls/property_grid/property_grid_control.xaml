@@ -1,0 +1,71 @@
+﻿<ContentControl x:Class="xray.editor.wpf_controls.property_grid.property_grid_control"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:panels="clr-namespace:xray.editor.wpf_controls.panels"
+	MinHeight="23"
+	MinWidth="50"
+	Name="this_ctrl"
+	GotFocus="this_ctrl_got_focus"
+	LostFocus="this_ctrl_lost_focus">
+	<!-- Property grid body -->
+	<Border BorderBrush="{x:Static SystemColors.InactiveCaptionBrush}" BorderThickness="1" Background="White" MouseDown="mouse_down">
+		<panels:scroll_viewer VerticalScrollBarVisibility="Auto" BorderThickness="0">
+			<StackPanel Grid.IsSharedSizeScope="True">
+				<Grid Name="m_columns_header">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="Auto" SharedSizeGroup="PropertyName" x:Name="m_left_header_column_definition"/>
+						<ColumnDefinition Width="3"/>
+						<ColumnDefinition Width="*" x:Name="m_right_header_column_definition"/>
+					</Grid.ColumnDefinitions>
+				</Grid>
+				<ItemsControl  Name="m_properties_panel" BorderThickness="0" Grid.ZIndex="500">
+					<!-- Themplate for Group browsing -->
+					<ItemsControl.GroupStyle>
+						<GroupStyle>
+							<GroupStyle.ContainerStyle>
+								<Style>
+									<Setter Property="Control.Template">
+										<Setter.Value>
+											<ControlTemplate>
+												<StackPanel>
+													<StackPanel.Resources>
+														<BooleanToVisibilityConverter x:Key="bool_to_visibility_converter"/>
+													</StackPanel.Resources>
+													<DockPanel Background="{x:Static SystemColors.InactiveCaptionBrush}">
+														<!-- group expand button -->
+														<Border DockPanel.Dock="Left" BorderThickness="2, 0, 0, 0">
+															<ToggleButton Name="toggle_button" Width="11" Height="11" Margin="0, 0, 1, 0" IsChecked="true"
+																		  ClickMode="Press" DockPanel.Dock="Left">
+																<Border Width="5" Height="5">
+																	<Path x:Name="ExpandPath" HorizontalAlignment="Center" VerticalAlignment="Top" Stroke="Black" StrokeThickness="1" >
+																		<Path.Style>
+																			<Style TargetType="{x:Type Path}">
+																				<Setter Property="Data" Value="M0 2.5 L5 2.5 M2.5 0 L2.5 5"/>
+																				<Style.Triggers>
+																					<DataTrigger Binding="{Binding IsChecked, ElementName=toggle_button}" Value="True" >
+																						<Setter Property="Data" Value="M0 2.5 L5 2.5"/>
+																					</DataTrigger>
+																				</Style.Triggers>
+																			</Style>
+																		</Path.Style>
+																	</Path>
+																</Border>
+															</ToggleButton>
+														</Border>
+														<!-- group name -->
+														<TextBlock Text="{Binding Name}" FontWeight="Bold" Foreground="{x:Static SystemColors.InactiveCaptionTextBrush}" VerticalAlignment="Center" Padding="15, 0, 0, 2"/>
+													</DockPanel>
+													<ItemsPresenter Name="items_presenter" Visibility="{Binding IsChecked, ElementName=toggle_button, Converter={StaticResource bool_to_visibility_converter}}"/>
+												</StackPanel>
+											</ControlTemplate>
+										</Setter.Value>
+									</Setter> 
+								</Style>
+							</GroupStyle.ContainerStyle>
+						</GroupStyle>
+					</ItemsControl.GroupStyle>
+				</ItemsControl>
+			</StackPanel>
+		</panels:scroll_viewer>
+	</Border>
+</ContentControl>

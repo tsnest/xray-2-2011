@@ -1,0 +1,52 @@
+vs_2_0
+// cgc version 1.5.0014, build date Sep 18 2006 20:36:59
+// command line args: -profile vs_2_0
+// source file: Charcoal.cg
+//vendor NVIDIA Corporation
+//version 1.5.0.14
+//profile vs_2_0
+//program v_Charcoal
+//semantic v_Charcoal.WVPMatrix
+//semantic v_Charcoal.Light0ModelDirection
+//semantic v_Charcoal.Light1ModelDirection
+//semantic v_Charcoal.Constants
+//var float3 kModelPosition : $vin.POSITION : ATTR0 : 0 : 1
+//var float3 kModelNormal : $vin.NORMAL : ATTR1 : 1 : 1
+//var float2 kInRandomTCoord : $vin.TEXCOORD0 : ATTR2 : 2 : 1
+//var float4 kClipPosition : $vout.POSITION : HPOS : 3 : 1
+//var float4 kVertexColor : $vout.COLOR : COL0 : 4 : 1
+//var float2 kContrastTCoord : $vout.TEXCOORD0 : TEX0 : 5 : 1
+//var float2 kOutRandomTCoord : $vout.TEXCOORD1 : TEX1 : 6 : 1
+//var float2 kPaperTCoord : $vout.TEXCOORD2 : TEX2 : 7 : 1
+//var float4x4 WVPMatrix :  : c[0], 4 : 8 : 1
+//var float3 Light0ModelDirection :  : c[4] : 9 : 1
+//var float3 Light1ModelDirection :  : c[5] : 10 : 1
+//var float2 Constants :  : c[6] : 11 : 1
+//const c[7] = 1 0 0.5
+dcl_position v0
+dcl_normal v1
+dcl_texcoord0 v2
+def c7, 1.000000, 0.000000, 0.500000, 0
+mul r1, v0.y, c1
+dp3 r0.y, v1, c5
+dp3 r0.x, v1, c4
+min r0.y, -r0, c7.x
+min r0.x, -r0, c7
+mad r1, v0.x, c0, r1
+mad r1, v0.z, c2, r1
+add r1, r1, c3
+max r0.y, r0, c7
+max r0.x, r0, c7.y
+add r0.x, r0, r0.y
+add r0.x, r0, c6
+min r0.x, r0, c7
+max r2.x, r0, c7.y
+pow r0, r2.x, c6.y
+rcp r2.y, r1.w
+mad r0.zw, r1.xyxy, r2.y, c7.x
+mul oT2.xy, r0.zwzw, c7.z
+mov oPos, r1
+mov oD0, r0.x
+mov oT0.y, r0.x
+mov oT1.xy, v2
+mov oT0.x, c7.y

@@ -1,0 +1,83 @@
+//----------------------------------------------------------------------------
+// DirectX wants texture coordinates with components in [0,1].
+//----------------------------------------------------------------------------
+float3 MapToUnit (float3 kVector)
+{
+    // map [-1,1] to [0,1]
+    return 0.5f*kVector + 0.5f;
+}
+//----------------------------------------------------------------------------
+float3 MapFromUnit (float3 kVector)
+{
+    // map [0,1] to [-1,1]
+    return 2.0f*kVector - 1.0f;
+}
+//----------------------------------------------------------------------------
+void v_Iridescence
+(
+    in float3        kModelPosition : POSITION,
+    in float3        kModelNormal : NORMAL,
+    in float2        kInBaseTCoord : TEXCOORD0,
+    out float4       kClipPosition : POSITION, 
+    out float2       kOutBaseTCoord : TEXCOORD0,
+    out float        fOutInterpolateFactor : TEXCOORD1,
+    out float3       kWorldNormal : TEXCOORD2,
+    out float3       kEyeDirection : TEXCOORD3,
+    uniform float4x4 WVPMatrix,
+    uniform float4x4 WMatrix,
+    uniform float3   CameraWorldPosition,
+    uniform float    InterpolateFactor)
+{
+    // Transform the position from model space to clip space.
+    kClipPosition = mul(float4(kModelPosition,1.0f),WVPMatrix);
+    
+    // Transform the position from model space to world space.
+    float3 kWorldPosition = mul(float4(kModelPosition,1.0f),WMatrix).xyz;
+
+    // Transform the normal from model space to world space.  In case the
+    // model-to-world matrix has nonunit scales, the resulting vector must
+    // be normalized.  Map the vector to [0,1]^3.
+    kWorldNormal = MapToUnit(normalize(mul(kModelNormal,(float3x3)WMatrix)));
+
+    // Calculate the eye direction.  Map the vector to [0,1]^3.
+    kEyeDirection = MapToUnit(normalize(kWorldPosition-CameraWorldPosition));
+
+    // Pass through the base texture coordinate.
+    kOutBaseTCoord = kInBaseTCoord;
+
+    // Pass through the interpolation factor.
+    fOutInterpolateFactor = InterpolateFactor;
+}
+//----------------------------------------------------------------------------
+void p_Iridescence
+(
+    in float2         kBaseTCoord  : TEXCOORD0,
+    in float          fInterpolateFactor : TEXCOORD1, 
+    in float3         kWorldNormal : TEXCOORD2, 
+    in float3         kEyeDirection : TEXCOORD3,
+    out float4        kPixelColor : COLOR,
+    uniform sampler2D BaseSampler,
+    uniform sampler1D GradientSampler)
+{
+    //  Map the vectors to [-1,1]^3.
+    kWorldNormal = MapFromUnit(kWorldNormal);
+    kEyeDirection = MapFromUnit(kEyeDirection);
+    
+    // Calculate a Fresnel factor for a view-dependent lookup into a gradient
+    // texture.  A different color/saturation occurs depending on what angle
+    // you view at.
+    float fFresnel = 1 + dot(kWorldNormal,kEyeDirection);
+    fFresnel = fFresnel*fFresnel;
+
+    float3 kBaseColor = tex2D(BaseSampler,kBaseTCoord).xyz;
+
+    // The small perturbation of the Fresnel factor eliminates some spotting
+    // where values are nearly zero.
+    float fGradientTCoord = saturate(fFresnel+1.0f/256.0f);
+    float3 kGradientColor = tex1D(GradientSampler,fGradientTCoord).xyz;
+
+    // Blend the colors for the pixel color.
+    kPixelColor.rgb = lerp(kBaseColor,kGradientColor,fInterpolateFactor);
+    kPixelColor.a = 1.0f;
+}
+//----------------------------------------------------------------------------

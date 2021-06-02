@@ -1,0 +1,18 @@
+﻿<editors:value_editor_base x:Class="xray.editor.wpf_controls.property_editors.value.float_curve_editor"
+		     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+			 xmlns:property_grid="clr-namespace:xray.editor.wpf_controls.property_grid"
+			 xmlns:curve_editor="clr-namespace:xray.editor.wpf_controls.curve_editor"
+			 xmlns:editors="clr-namespace:xray.editor.wpf_controls.property_editors.value"
+   		     Focusable="True" IsTabStop="True"
+			 Loaded="loaded">
+	<DockPanel>
+		<!--<Control DockPanel.Dock="Left" Width="{Binding Path=(property_grid:property_grid_control.ItemIndent), ElementName=body}"/>-->
+		<Button DockPanel.Dock="Right" Width="15" Name="big_editor" Click="big_editor_click">
+			<Path Data="M0 0 L8 5 L0 10" Fill="Black"/>
+		</Button>
+		<Border MinHeight="100" MinWidth="150" Name="m_curve_panel_border">
+			<curve_editor:curve_editor_panel x:Name="m_curve_panel" IsTabStop="True" Focusable="True" is_toolbar_visible="False" is_hierarchy_visible="False" />
+		</Border>
+	</DockPanel>
+</editors:value_editor_base	>

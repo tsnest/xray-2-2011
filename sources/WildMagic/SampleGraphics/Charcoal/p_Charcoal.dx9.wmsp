@@ -1,0 +1,39 @@
+ps_2_0
+// cgc version 1.4.0000, build date Jun  9 2005 12:09:02
+// command line args: -profile ps_2_0
+// source file: Charcoal.cg
+//vendor NVIDIA Corporation
+//version 1.0.02
+//profile ps_2_0
+//program p_Charcoal
+//semantic p_Charcoal.ConstrastSampler
+//semantic p_Charcoal.RandomSampler
+//semantic p_Charcoal.PaperSampler
+//semantic p_Charcoal.Constants
+//var float4 kVertexColor : $vin.COLOR : COL0 : 0 : 1
+//var float2 kContrastTCoord : $vin.TEXCOORD0 : TEX0 : 1 : 1
+//var float2 kRandomTCoord : $vin.TEXCOORD1 : TEX1 : 2 : 1
+//var float2 kPaperTCoord : $vin.TEXCOORD2 : TEX2 : 3 : 1
+//var float4 kPixelColor : $vout.COLOR : COL : 4 : 1
+//var sampler2D ConstrastSampler :  : texunit 2 : 5 : 1
+//var sampler2D RandomSampler :  : texunit 0 : 6 : 1
+//var sampler2D PaperSampler :  : texunit 1 : 7 : 1
+//var float2 Constants :  : c[0] : 8 : 1
+dcl_2d s0
+dcl_2d s1
+dcl_2d s2
+dcl t0.xy
+dcl t1.xy
+dcl t2.xy
+dcl v0
+texld r3, t1, s0
+mov r0.x, r3
+mov r0.y, t0
+add r0.x, t0, r0
+texld r1, r0, s2
+texld r0, t2, s1
+add r2, v0, -r1
+mad r1, r2, c0.x, r1
+add_sat r0, r0, c0.y
+mul r0, r0, r1
+mov oC0, r0

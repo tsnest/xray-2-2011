@@ -1,0 +1,60 @@
+vs_2_0
+// cgc version 1.5.0014, build date Sep 18 2006 20:36:59
+// command line args: -profile vs_2_0
+// source file: Lighting.cg
+//vendor NVIDIA Corporation
+//version 1.5.0.14
+//profile vs_2_0
+//program v_L1d
+//semantic v_L1d.WVPMatrix
+//semantic v_L1d.CameraModelPosition
+//semantic v_L1d.MaterialEmissive
+//semantic v_L1d.MaterialAmbient
+//semantic v_L1d.MaterialDiffuse
+//semantic v_L1d.MaterialSpecular
+//semantic v_L1d.Light0ModelDirection
+//semantic v_L1d.Light0Ambient
+//semantic v_L1d.Light0Diffuse
+//semantic v_L1d.Light0Specular
+//semantic v_L1d.Light0Attenuation
+//var float3 kModelPosition : $vin.POSITION : ATTR0 : 0 : 1
+//var float3 kModelNormal : $vin.NORMAL : ATTR1 : 1 : 1
+//var float4 kClipPosition : $vout.POSITION : HPOS : 2 : 1
+//var float4 kVertexColor : $vout.COLOR : COL0 : 3 : 1
+//var float4x4 WVPMatrix :  : c[0], 4 : 4 : 1
+//var float3 CameraModelPosition :  : c[4] : 5 : 1
+//var float3 MaterialEmissive :  : c[5] : 6 : 1
+//var float3 MaterialAmbient :  : c[6] : 7 : 1
+//var float4 MaterialDiffuse :  : c[7] : 8 : 1
+//var float4 MaterialSpecular :  : c[8] : 9 : 1
+//var float3 Light0ModelDirection :  : c[9] : 10 : 1
+//var float3 Light0Ambient :  : c[10] : 11 : 1
+//var float3 Light0Diffuse :  : c[11] : 12 : 1
+//var float3 Light0Specular :  : c[12] : 13 : 1
+//var float4 Light0Attenuation :  : c[13] : 14 : 1
+dcl_position v0
+dcl_normal v1
+add r0.xyz, -v0, c4
+dp3 r0.w, r0, r0
+rsq r0.w, r0.w
+mad r0.xyz, r0.w, r0, -c9
+dp3 r0.w, r0, r0
+rsq r0.w, r0.w
+mul r0.xyz, r0.w, r0
+dp3 r0.y, v1, r0
+dp3 r0.x, v1, -c9
+mov r0.z, c8.w
+lit r0.yz, r0.xyzz
+mul r1.xyz, r0.y, c7
+mov r2.xyz, c6
+mul r1.xyz, r1, c11
+mad r1.xyz, c10, r2, r1
+mul r2.xyz, r0.z, c8
+mul r0, v0.y, c1
+mad r2.xyz, r2, c12, r1
+mad r1, v0.x, c0, r0
+mul r0.xyz, r2, c13.w
+mad r1, v0.z, c2, r1
+add oD0.xyz, r0, c5
+add oPos, r1, c3
+mov oD0.w, c7

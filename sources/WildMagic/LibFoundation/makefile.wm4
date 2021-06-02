@@ -1,0 +1,35 @@
+build :
+	@mkdir -p ../SDK/Include
+	@mkdir -p ../SDK/Library/$(CFG)
+	@mkdir -p $(CFG)
+	@cp -fp *.h ../SDK/Include
+	cd Approximation         ; make -f ../makeprj.wm4 CFG=$(CFG) SYS=$(SYS)
+	cd ComputationalGeometry ; make -f ../makeprj.wm4 CFG=$(CFG) SYS=$(SYS)
+	cd Containment           ; make -f ../makeprj.wm4 CFG=$(CFG) SYS=$(SYS)
+	cd Curves                ; make -f ../makeprj.wm4 CFG=$(CFG) SYS=$(SYS)
+	cd Distance              ; make -f ../makeprj.wm4 CFG=$(CFG) SYS=$(SYS)
+	cd Interpolation         ; make -f ../makeprj.wm4 CFG=$(CFG) SYS=$(SYS)
+	cd Intersection          ; make -f ../makeprj.wm4 CFG=$(CFG) SYS=$(SYS)
+	cd Mathematics           ; make -f ../makeprj.wm4 CFG=$(CFG) SYS=$(SYS)
+	cd Meshes                ; make -f ../makeprj.wm4 CFG=$(CFG) SYS=$(SYS)
+	cd Miscellaneous         ; make -f ../makeprj.wm4 CFG=$(CFG) SYS=$(SYS)
+	cd NumericalAnalysis     ; make -f ../makeprj.wm4 CFG=$(CFG) SYS=$(SYS)
+	cd Surfaces              ; make -f ../makeprj.wm4 CFG=$(CFG) SYS=$(SYS)
+	cd System                ; make -f ../makeprj.wm4 CFG=$(CFG) SYS=$(SYS)
+
+clean :
+	cd Approximation         ; make clean -f ../makeprj.wm4 CFG=$(CFG) SYS=$(SYS)
+	cd ComputationalGeometry ; make clean -f ../makeprj.wm4 CFG=$(CFG) SYS=$(SYS)
+	cd Containment           ; make clean -f ../makeprj.wm4 CFG=$(CFG) SYS=$(SYS)
+	cd Curves                ; make clean -f ../makeprj.wm4 CFG=$(CFG) SYS=$(SYS)
+	cd Distance              ; make clean -f ../makeprj.wm4 CFG=$(CFG) SYS=$(SYS)
+	cd Interpolation         ; make clean -f ../makeprj.wm4 CFG=$(CFG) SYS=$(SYS)
+	cd Intersection          ; make clean -f ../makeprj.wm4 CFG=$(CFG) SYS=$(SYS)
+	cd Mathematics           ; make clean -f ../makeprj.wm4 CFG=$(CFG) SYS=$(SYS)
+	cd Meshes                ; make clean -f ../makeprj.wm4 CFG=$(CFG) SYS=$(SYS)
+	cd Miscellaneous         ; make clean -f ../makeprj.wm4 CFG=$(CFG) SYS=$(SYS)
+	cd NumericalAnalysis     ; make clean -f ../makeprj.wm4 CFG=$(CFG) SYS=$(SYS)
+	cd Surfaces              ; make clean -f ../makeprj.wm4 CFG=$(CFG) SYS=$(SYS)
+	cd System                ; make clean -f ../makeprj.wm4 CFG=$(CFG) SYS=$(SYS)
+	@rm -f $(CFG)/*.*
+	@rmdir $(CFG)

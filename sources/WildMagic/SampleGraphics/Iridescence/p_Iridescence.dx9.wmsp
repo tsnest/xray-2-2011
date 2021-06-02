@@ -1,0 +1,39 @@
+ps_2_0
+// cgc version 1.4.0000, build date Jun  9 2005 12:09:02
+// command line args: -profile ps_2_0
+// source file: Iridescence.cg
+//vendor NVIDIA Corporation
+//version 1.0.02
+//profile ps_2_0
+//program p_Iridescence
+//semantic p_Iridescence.BaseSampler
+//semantic p_Iridescence.GradientSampler
+//var float2 kBaseTCoord : $vin.TEXCOORD0 : TEX0 : 0 : 1
+//var float fInterpolateFactor : $vin.TEXCOORD1 : TEX1 : 1 : 1
+//var float3 kWorldNormal : $vin.TEXCOORD2 : TEX2 : 2 : 1
+//var float3 kEyeDirection : $vin.TEXCOORD3 : TEX3 : 3 : 1
+//var float4 kPixelColor : $vout.COLOR : COL : 4 : 1
+//var sampler2D BaseSampler :  : texunit 0 : 5 : 1
+//var sampler2D GradientSampler :  : texunit 1 : 6 : 1
+//const c[0] = 1 2 0.00390625 0.5
+dcl_2d s0
+dcl_2d s1
+def c0, 1.000000, 2.000000, 0.003906, 0.500000
+dcl t0.xy
+dcl t1.x
+dcl t2.xyz
+dcl t3.xyz
+mad r0.xyz, t2, c0.y, -c0.x
+mad r1.xyz, t3, c0.y, -c0.x
+dp3 r0.x, r0, r1
+add r0.x, r0, c0
+mad_sat r0.x, r0, r0, c0.z
+mov r0.y, c0.w
+mov r0.w, c0.x
+texld r2, t0, s0
+mov r1.xyz, r2
+texld r2, r0, s1
+mov r0.xyz, r2
+add r0.xyz, r0, -r1
+mad r0.xyz, t1.x, r0, r1
+mov oC0, r0

@@ -1,0 +1,41 @@
+vs_2_0
+// cgc version 1.5.0014, build date Sep 18 2006 20:36:59
+// command line args: -profile vs_2_0
+// source file: BaseMulDetailFogExpSqr.cg
+//vendor NVIDIA Corporation
+//version 1.5.0.14
+//profile vs_2_0
+//program v_BaseMulDetailFogExpSqr
+//semantic v_BaseMulDetailFogExpSqr.WVPMatrix
+//semantic v_BaseMulDetailFogExpSqr.WVMatrix
+//semantic v_BaseMulDetailFogExpSqr.FogColorDensity
+//var float3 kModelPosition : $vin.POSITION : ATTR0 : 0 : 1
+//var float2 kInBaseTCoord : $vin.TEXCOORD0 : ATTR1 : 1 : 1
+//var float2 kInDetailTCoord : $vin.TEXCOORD1 : ATTR2 : 2 : 1
+//var float4 kClipPosition : $vout.POSITION : HPOS : 3 : 1
+//var float2 kOutBaseTCoord : $vout.TEXCOORD0 : TEX0 : 4 : 1
+//var float2 kOutDetailTCoord : $vout.TEXCOORD1 : TEX1 : 5 : 1
+//var float fFogFactor : $vout.TEXCOORD2 : TEX2 : 6 : 1
+//var float4x4 WVPMatrix :  : c[0], 4 : 7 : 1
+//var float4x4 WVMatrix :  : c[4], 4 : 8 : 1
+//var float4 FogColorDensity :  : c[8] : 9 : 1
+//const c[9] = 2.718282
+dcl_position v0
+dcl_texcoord0 v1
+dcl_texcoord1 v2
+def c9, 2.718282, 0, 0, 0
+mul r0.xyz, v0.y, c5
+mad r0.xyz, v0.x, c4, r0
+mad r0.xyz, v0.z, c6, r0
+add r0.xyz, r0, c7
+dp3 r0.x, r0, r0
+mul r0.y, -c8.w, c8.w
+mul r2.x, r0.y, r0
+mul r1, v0.y, c1
+pow r0, c9.x, r2.x
+mad r1, v0.x, c0, r1
+mad r1, v0.z, c2, r1
+add oPos, r1, c3
+mov oT2.x, r0
+mov oT0.xy, v1
+mov oT1.xy, v2

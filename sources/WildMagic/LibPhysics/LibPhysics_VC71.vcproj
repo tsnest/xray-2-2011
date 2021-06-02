@@ -1,0 +1,564 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<VisualStudioProject
+	ProjectType="Visual C++"
+	Version="7.10"
+	Name="LibPhysics_VC71"
+	ProjectGUID="{25FB8AE1-0776-49BB-BAE3-0C5BA04BEDC4}"
+	Keyword="Win32Proj">
+	<Platforms>
+		<Platform
+			Name="Win32"/>
+	</Platforms>
+	<Configurations>
+		<Configuration
+			Name="Debug|Win32"
+			OutputDirectory="Debug\VC71"
+			IntermediateDirectory="Debug\VC71"
+			ConfigurationType="4"
+			CharacterSet="2">
+			<Tool
+				Name="VCCLCompilerTool"
+				Optimization="0"
+				AdditionalIncludeDirectories=".\;Intersection;LCPSolver;ParticleSystem;RigidBody;..\SDK\Include"
+				PreprocessorDefinitions="WIN32;_DEBUG;_LIB;WM4_USE_PRECOMPILED_HEADERS"
+				MinimalRebuild="TRUE"
+				BasicRuntimeChecks="3"
+				RuntimeLibrary="3"
+				UsePrecompiledHeader="3"
+				PrecompiledHeaderThrough="Wm4PhysicsPCH.h"
+				WarningLevel="3"
+				Detect64BitPortabilityProblems="TRUE"
+				DebugInformationFormat="4"/>
+			<Tool
+				Name="VCCustomBuildTool"/>
+			<Tool
+				Name="VCLibrarianTool"
+				OutputFile="..\SDK\Library\Debug\Wm4Physics71d.lib"/>
+			<Tool
+				Name="VCMIDLTool"/>
+			<Tool
+				Name="VCPostBuildEventTool"
+				CommandLine="copy /y Intersection\*.h ..\SDK\Include
+copy /y LCPSolver\*.h ..\SDK\Include
+copy /y ParticleSystem\*.h ..\SDK\Include
+copy /y RigidBody\*.h ..\SDK\Include
+copy /y *.h ..\SDK\Include
+"/>
+			<Tool
+				Name="VCPreBuildEventTool"/>
+			<Tool
+				Name="VCPreLinkEventTool"/>
+			<Tool
+				Name="VCResourceCompilerTool"/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"/>
+			<Tool
+				Name="VCManagedWrapperGeneratorTool"/>
+			<Tool
+				Name="VCAuxiliaryManagedWrapperGeneratorTool"/>
+		</Configuration>
+		<Configuration
+			Name="Release|Win32"
+			OutputDirectory="Release\VC71"
+			IntermediateDirectory="Release\VC71"
+			ConfigurationType="4"
+			CharacterSet="2">
+			<Tool
+				Name="VCCLCompilerTool"
+				AdditionalIncludeDirectories=".\;Intersection;LCPSolver;ParticleSystem;RigidBody;..\SDK\Include"
+				PreprocessorDefinitions="WIN32;NDEBUG;_LIB;WM4_USE_PRECOMPILED_HEADERS"
+				RuntimeLibrary="2"
+				UsePrecompiledHeader="3"
+				PrecompiledHeaderThrough="Wm4PhysicsPCH.h"
+				WarningLevel="3"
+				Detect64BitPortabilityProblems="TRUE"
+				DebugInformationFormat="3"/>
+			<Tool
+				Name="VCCustomBuildTool"/>
+			<Tool
+				Name="VCLibrarianTool"
+				OutputFile="..\SDK\Library\Release\Wm4Physics71.lib"/>
+			<Tool
+				Name="VCMIDLTool"/>
+			<Tool
+				Name="VCPostBuildEventTool"
+				CommandLine="copy /y Intersection\*.h ..\SDK\Include
+copy /y LCPSolver\*.h ..\SDK\Include
+copy /y ParticleSystem\*.h ..\SDK\Include
+copy /y RigidBody\*.h ..\SDK\Include
+copy /y *.h ..\SDK\Include
+"/>
+			<Tool
+				Name="VCPreBuildEventTool"/>
+			<Tool
+				Name="VCPreLinkEventTool"/>
+			<Tool
+				Name="VCResourceCompilerTool"/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"/>
+			<Tool
+				Name="VCManagedWrapperGeneratorTool"/>
+			<Tool
+				Name="VCAuxiliaryManagedWrapperGeneratorTool"/>
+		</Configuration>
+		<Configuration
+			Name="Debug DLL|Win32"
+			OutputDirectory="DebugDLL\VC71"
+			IntermediateDirectory="DebugDLL\VC71"
+			ConfigurationType="2"
+			CharacterSet="2">
+			<Tool
+				Name="VCCLCompilerTool"
+				Optimization="0"
+				AdditionalIncludeDirectories=".\;Intersection;LCPSolver;ParticleSystem;RigidBody;..\SDK\Include"
+				PreprocessorDefinitions="WIN32;_DEBUG;_LIB;WM4_USE_PRECOMPILED_HEADERS;WM4_FOUNDATION_DLL_IMPORT;WM4_PHYSICS_DLL_EXPORT"
+				MinimalRebuild="TRUE"
+				BasicRuntimeChecks="3"
+				RuntimeLibrary="3"
+				UsePrecompiledHeader="3"
+				PrecompiledHeaderThrough="Wm4PhysicsPCH.h"
+				WarningLevel="3"
+				Detect64BitPortabilityProblems="TRUE"
+				DebugInformationFormat="4"/>
+			<Tool
+				Name="VCCustomBuildTool"/>
+			<Tool
+				Name="VCLinkerTool"
+				AdditionalDependencies="Wm4Foundation71d.lib"
+				OutputFile="..\SDK\Library\DebugDLL\Wm4Physics71d.dll"
+				AdditionalLibraryDirectories="..\SDK\Library\DebugDLL"
+				GenerateDebugInformation="TRUE"
+				SubSystem="0"
+				ImportLibrary="..\SDK\Library\DebugDLL\Wm4Physics71d.lib"
+				TargetMachine="0"/>
+			<Tool
+				Name="VCMIDLTool"/>
+			<Tool
+				Name="VCPostBuildEventTool"
+				CommandLine="copy /y Intersection\*.h ..\SDK\Include
+copy /y LCPSolver\*.h ..\SDK\Include
+copy /y ParticleSystem\*.h ..\SDK\Include
+copy /y RigidBody\*.h ..\SDK\Include
+copy /y *.h ..\SDK\Include
+"/>
+			<Tool
+				Name="VCPreBuildEventTool"/>
+			<Tool
+				Name="VCPreLinkEventTool"/>
+			<Tool
+				Name="VCResourceCompilerTool"/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"/>
+			<Tool
+				Name="VCWebDeploymentTool"/>
+			<Tool
+				Name="VCManagedWrapperGeneratorTool"/>
+			<Tool
+				Name="VCAuxiliaryManagedWrapperGeneratorTool"/>
+		</Configuration>
+		<Configuration
+			Name="Release DLL|Win32"
+			OutputDirectory="ReleaseDLL\VC71"
+			IntermediateDirectory="ReleaseDLL\VC71"
+			ConfigurationType="2"
+			CharacterSet="2">
+			<Tool
+				Name="VCCLCompilerTool"
+				AdditionalIncludeDirectories=".\;Intersection;LCPSolver;ParticleSystem;RigidBody;..\SDK\Include"
+				PreprocessorDefinitions="WIN32;NDEBUG;_LIB;WM4_USE_PRECOMPILED_HEADERS;WM4_FOUNDATION_DLL_IMPORT;WM4_PHYSICS_DLL_EXPORT"
+				RuntimeLibrary="2"
+				UsePrecompiledHeader="3"
+				PrecompiledHeaderThrough="Wm4PhysicsPCH.h"
+				WarningLevel="3"
+				Detect64BitPortabilityProblems="TRUE"
+				DebugInformationFormat="3"/>
+			<Tool
+				Name="VCCustomBuildTool"/>
+			<Tool
+				Name="VCLinkerTool"
+				AdditionalDependencies="Wm4Foundation71.lib"
+				OutputFile="..\SDK\Library\ReleaseDLL\Wm4Physics71.dll"
+				AdditionalLibraryDirectories="..\SDK\Library\ReleaseDLL"
+				GenerateDebugInformation="FALSE"
+				SubSystem="0"
+				OptimizeReferences="0"
+				EnableCOMDATFolding="0"
+				ImportLibrary="..\SDK\Library\ReleaseDLL\Wm4Physics71.lib"
+				TargetMachine="0"/>
+			<Tool
+				Name="VCMIDLTool"/>
+			<Tool
+				Name="VCPostBuildEventTool"
+				CommandLine="copy /y Intersection\*.h ..\SDK\Include
+copy /y LCPSolver\*.h ..\SDK\Include
+copy /y ParticleSystem\*.h ..\SDK\Include
+copy /y RigidBody\*.h ..\SDK\Include
+copy /y *.h ..\SDK\Include
+"/>
+			<Tool
+				Name="VCPreBuildEventTool"/>
+			<Tool
+				Name="VCPreLinkEventTool"/>
+			<Tool
+				Name="VCResourceCompilerTool"/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"/>
+			<Tool
+				Name="VCWebDeploymentTool"/>
+			<Tool
+				Name="VCManagedWrapperGeneratorTool"/>
+			<Tool
+				Name="VCAuxiliaryManagedWrapperGeneratorTool"/>
+		</Configuration>
+		<Configuration
+			Name="Debug Memory|Win32"
+			OutputDirectory="DebugMemory\VC71"
+			IntermediateDirectory="DebugMemory\VC71"
+			ConfigurationType="4"
+			CharacterSet="2">
+			<Tool
+				Name="VCCLCompilerTool"
+				Optimization="0"
+				AdditionalIncludeDirectories=".\;Intersection;LCPSolver;ParticleSystem;RigidBody;..\SDK\Include"
+				PreprocessorDefinitions="WIN32;_DEBUG;_LIB;WM4_USE_PRECOMPILED_HEADERS;WM4_MEMORY_MANAGER"
+				MinimalRebuild="TRUE"
+				BasicRuntimeChecks="3"
+				RuntimeLibrary="3"
+				UsePrecompiledHeader="3"
+				PrecompiledHeaderThrough="Wm4PhysicsPCH.h"
+				WarningLevel="3"
+				Detect64BitPortabilityProblems="TRUE"
+				DebugInformationFormat="4"/>
+			<Tool
+				Name="VCCustomBuildTool"/>
+			<Tool
+				Name="VCLibrarianTool"
+				OutputFile="..\SDK\Library\DebugMemory\Wm4Physics71d.lib"/>
+			<Tool
+				Name="VCMIDLTool"/>
+			<Tool
+				Name="VCPostBuildEventTool"
+				CommandLine="copy /y Intersection\*.h ..\SDK\Include
+copy /y LCPSolver\*.h ..\SDK\Include
+copy /y ParticleSystem\*.h ..\SDK\Include
+copy /y RigidBody\*.h ..\SDK\Include
+copy /y *.h ..\SDK\Include
+"/>
+			<Tool
+				Name="VCPreBuildEventTool"/>
+			<Tool
+				Name="VCPreLinkEventTool"/>
+			<Tool
+				Name="VCResourceCompilerTool"/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"/>
+			<Tool
+				Name="VCManagedWrapperGeneratorTool"/>
+			<Tool
+				Name="VCAuxiliaryManagedWrapperGeneratorTool"/>
+		</Configuration>
+		<Configuration
+			Name="Release Memory|Win32"
+			OutputDirectory="ReleaseMemory\VC71"
+			IntermediateDirectory="ReleaseMemory\VC71"
+			ConfigurationType="4"
+			CharacterSet="2">
+			<Tool
+				Name="VCCLCompilerTool"
+				AdditionalIncludeDirectories=".\;Intersection;LCPSolver;ParticleSystem;RigidBody;..\SDK\Include"
+				PreprocessorDefinitions="WIN32;NDEBUG;_LIB;WM4_USE_PRECOMPILED_HEADERS;WM4_MEMORY_MANAGER"
+				RuntimeLibrary="2"
+				UsePrecompiledHeader="3"
+				PrecompiledHeaderThrough="Wm4PhysicsPCH.h"
+				WarningLevel="3"
+				Detect64BitPortabilityProblems="TRUE"
+				DebugInformationFormat="3"/>
+			<Tool
+				Name="VCCustomBuildTool"/>
+			<Tool
+				Name="VCLibrarianTool"
+				OutputFile="..\SDK\Library\ReleaseMemory\Wm4Physics71.lib"/>
+			<Tool
+				Name="VCMIDLTool"/>
+			<Tool
+				Name="VCPostBuildEventTool"
+				CommandLine="copy /y Intersection\*.h ..\SDK\Include
+copy /y LCPSolver\*.h ..\SDK\Include
+copy /y ParticleSystem\*.h ..\SDK\Include
+copy /y RigidBody\*.h ..\SDK\Include
+copy /y *.h ..\SDK\Include
+"/>
+			<Tool
+				Name="VCPreBuildEventTool"/>
+			<Tool
+				Name="VCPreLinkEventTool"/>
+			<Tool
+				Name="VCResourceCompilerTool"/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"/>
+			<Tool
+				Name="VCManagedWrapperGeneratorTool"/>
+			<Tool
+				Name="VCAuxiliaryManagedWrapperGeneratorTool"/>
+		</Configuration>
+		<Configuration
+			Name="NoPCH|Win32"
+			OutputDirectory="NoPCH\VC71"
+			IntermediateDirectory="NoPCH\VC71"
+			ConfigurationType="4"
+			CharacterSet="2">
+			<Tool
+				Name="VCCLCompilerTool"
+				Optimization="0"
+				AdditionalIncludeDirectories=".\;Intersection;LCPSolver;ParticleSystem;RigidBody;..\SDK\Include"
+				PreprocessorDefinitions="WIN32;_DEBUG;_LIB"
+				MinimalRebuild="TRUE"
+				BasicRuntimeChecks="3"
+				RuntimeLibrary="3"
+				UsePrecompiledHeader="0"
+				PrecompiledHeaderThrough=""
+				WarningLevel="3"
+				Detect64BitPortabilityProblems="TRUE"
+				DebugInformationFormat="4"/>
+			<Tool
+				Name="VCCustomBuildTool"/>
+			<Tool
+				Name="VCLibrarianTool"
+				OutputFile="..\SDK\Library\NoPCH\Wm4Physics71d.lib"/>
+			<Tool
+				Name="VCMIDLTool"/>
+			<Tool
+				Name="VCPostBuildEventTool"
+				CommandLine="copy /y Intersection\*.h ..\SDK\Include
+copy /y LCPSolver\*.h ..\SDK\Include
+copy /y ParticleSystem\*.h ..\SDK\Include
+copy /y RigidBody\*.h ..\SDK\Include
+copy /y *.h ..\SDK\Include
+"/>
+			<Tool
+				Name="VCPreBuildEventTool"/>
+			<Tool
+				Name="VCPreLinkEventTool"/>
+			<Tool
+				Name="VCResourceCompilerTool"/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"/>
+			<Tool
+				Name="VCManagedWrapperGeneratorTool"/>
+			<Tool
+				Name="VCAuxiliaryManagedWrapperGeneratorTool"/>
+		</Configuration>
+	</Configurations>
+	<References>
+	</References>
+	<Files>
+		<Filter
+			Name="Intersection"
+			Filter="">
+			<Filter
+				Name="Header Files"
+				Filter="">
+				<File
+					RelativePath=".\Intersection\Wm4ExtremalQuery3.h">
+				</File>
+				<File
+					RelativePath=".\Intersection\Wm4ExtremalQuery3BSP.h">
+				</File>
+				<File
+					RelativePath=".\Intersection\Wm4ExtremalQuery3PRJ.h">
+				</File>
+				<File
+					RelativePath=".\Intersection\Wm4IntersectingBoxes.h">
+				</File>
+				<File
+					RelativePath=".\Intersection\Wm4IntersectingIntervals.h">
+				</File>
+				<File
+					RelativePath=".\Intersection\Wm4IntersectingRectangles.h">
+				</File>
+			</Filter>
+			<Filter
+				Name="Source Files"
+				Filter="">
+				<File
+					RelativePath=".\Intersection\Wm4ExtremalQuery3.cpp">
+				</File>
+				<File
+					RelativePath=".\Intersection\Wm4ExtremalQuery3BSP.cpp">
+				</File>
+				<File
+					RelativePath=".\Intersection\Wm4ExtremalQuery3PRJ.cpp">
+				</File>
+				<File
+					RelativePath=".\Intersection\Wm4IntersectingBoxes.cpp">
+				</File>
+				<File
+					RelativePath=".\Intersection\Wm4IntersectingIntervals.cpp">
+				</File>
+				<File
+					RelativePath=".\Intersection\Wm4IntersectingRectangles.cpp">
+				</File>
+			</Filter>
+		</Filter>
+		<Filter
+			Name="LCPSolver"
+			Filter="">
+			<Filter
+				Name="Header Files"
+				Filter="">
+				<File
+					RelativePath=".\LCPSolver\Wm4LCPPolyDist.h">
+				</File>
+				<File
+					RelativePath=".\LCPSolver\Wm4LCPSolver.h">
+				</File>
+			</Filter>
+			<Filter
+				Name="Source Files"
+				Filter="">
+				<File
+					RelativePath=".\LCPSolver\Wm4LCPPolyDist.cpp">
+				</File>
+				<File
+					RelativePath=".\LCPSolver\Wm4LCPSolver.cpp">
+				</File>
+			</Filter>
+		</Filter>
+		<Filter
+			Name="ParticleSystem"
+			Filter="">
+			<Filter
+				Name="Header Files"
+				Filter="">
+				<File
+					RelativePath=".\ParticleSystem\Wm4MassSpringArbitrary.h">
+				</File>
+				<File
+					RelativePath=".\ParticleSystem\Wm4MassSpringCurve.h">
+				</File>
+				<File
+					RelativePath=".\ParticleSystem\Wm4MassSpringSurface.h">
+				</File>
+				<File
+					RelativePath=".\ParticleSystem\Wm4MassSpringVolume.h">
+				</File>
+				<File
+					RelativePath=".\ParticleSystem\Wm4ParticleSystem.h">
+				</File>
+			</Filter>
+			<Filter
+				Name="Source Files"
+				Filter="">
+				<File
+					RelativePath=".\ParticleSystem\Wm4MassSpringArbitrary.cpp">
+				</File>
+				<File
+					RelativePath=".\ParticleSystem\Wm4MassSpringCurve.cpp">
+				</File>
+				<File
+					RelativePath=".\ParticleSystem\Wm4MassSpringSurface.cpp">
+				</File>
+				<File
+					RelativePath=".\ParticleSystem\Wm4MassSpringVolume.cpp">
+				</File>
+				<File
+					RelativePath=".\ParticleSystem\Wm4ParticleSystem.cpp">
+				</File>
+			</Filter>
+		</Filter>
+		<Filter
+			Name="RigidBody"
+			Filter="">
+			<Filter
+				Name="Header Files"
+				Filter="">
+				<File
+					RelativePath=".\RigidBody\Wm4PolyhedralMassProperties.h">
+				</File>
+				<File
+					RelativePath=".\RigidBody\Wm4RigidBody.h">
+				</File>
+			</Filter>
+			<Filter
+				Name="Source Files"
+				Filter="">
+				<File
+					RelativePath=".\RigidBody\Wm4PolyhedralMassProperties.cpp">
+				</File>
+				<File
+					RelativePath=".\RigidBody\Wm4RigidBody.cpp">
+				</File>
+			</Filter>
+		</Filter>
+		<File
+			RelativePath=".\Wm4Physics.h">
+		</File>
+		<File
+			RelativePath=".\Wm4PhysicsLIB.h">
+		</File>
+		<File
+			RelativePath=".\Wm4PhysicsPCH.cpp">
+			<FileConfiguration
+				Name="Debug|Win32">
+				<Tool
+					Name="VCCLCompilerTool"
+					UsePrecompiledHeader="1"/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release|Win32">
+				<Tool
+					Name="VCCLCompilerTool"
+					UsePrecompiledHeader="1"/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug DLL|Win32">
+				<Tool
+					Name="VCCLCompilerTool"
+					UsePrecompiledHeader="1"/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release DLL|Win32">
+				<Tool
+					Name="VCCLCompilerTool"
+					UsePrecompiledHeader="1"/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Debug Memory|Win32">
+				<Tool
+					Name="VCCLCompilerTool"
+					UsePrecompiledHeader="1"/>
+			</FileConfiguration>
+			<FileConfiguration
+				Name="Release Memory|Win32">
+				<Tool
+					Name="VCCLCompilerTool"
+					UsePrecompiledHeader="1"/>
+			</FileConfiguration>
+		</File>
+		<File
+			RelativePath=".\Wm4PhysicsPCH.h">
+		</File>
+	</Files>
+	<Globals>
+	</Globals>
+</VisualStudioProject>
+
+
+
+
+
+

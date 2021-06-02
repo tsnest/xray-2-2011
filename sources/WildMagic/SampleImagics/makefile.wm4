@@ -1,0 +1,17 @@
+build :
+	cd BinaryOperations     ; make CFG=$(CFG) SYS=$(SYS) GRF=$(GRF) -f ../makeapp.wm4 APP=BinaryOperations
+	cd ConformalMapping     ; make CFG=$(CFG) SYS=$(SYS) GRF=$(GRF) -f ../makeapp.wm4 APP=ConformalMapping
+	cd ExtractLevelCubes    ; make CFG=$(CFG) SYS=$(SYS) GRF=$(GRF) -f ../makeapp.wm4 APP=ExtractLevelCubes
+	cd ExtractLevelCurves   ; make CFG=$(CFG) SYS=$(SYS) GRF=$(GRF) -f ../makeapp.wm4 APP=ExtractLevelCurves
+	cd ExtractLevelTetra    ; make CFG=$(CFG) SYS=$(SYS) GRF=$(GRF) -f ../makeapp.wm4 APP=ExtractLevelTetra
+	cd ImViewer             ; make CFG=$(CFG) SYS=$(SYS) GRF=$(GRF) -f ../makeapp.wm4 APP=ImViewer
+	cd VolumeRenderer       ; make CFG=$(CFG) SYS=$(SYS) GRF=$(GRF) -f ../makeapp.wm4 APP=VolumeRenderer
+
+clean :
+	cd BinaryOperations     ; make clean CFG=$(CFG) SYS=$(SYS) GRF=$(GRF) -f ../makeapp.wm4 APP=BinaryOperations
+	cd ConformalMapping     ; make clean CFG=$(CFG) SYS=$(SYS) GRF=$(GRF) -f ../makeapp.wm4 APP=ConformalMapping
+	cd ExtractLevelCubes    ; make clean CFG=$(CFG) SYS=$(SYS) GRF=$(GRF) -f ../makeapp.wm4 APP=ExtractLevelCubes
+	cd ExtractLevelCurves   ; make clean CFG=$(CFG) SYS=$(SYS) GRF=$(GRF) -f ../makeapp.wm4 APP=ExtractLevelCurves
+	cd ExtractLevelTetra    ; make clean CFG=$(CFG) SYS=$(SYS) GRF=$(GRF) -f ../makeapp.wm4 APP=ExtractLevelTetra
+	cd ImViewer             ; make clean CFG=$(CFG) SYS=$(SYS) GRF=$(GRF) -f ../makeapp.wm4 APP=ImViewer
+	cd VolumeRenderer       ; make clean CFG=$(CFG) SYS=$(SYS) GRF=$(GRF) -f ../makeapp.wm4 APP=VolumeRenderer

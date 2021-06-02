@@ -1,0 +1,24 @@
+vs_2_0
+// cgc version 1.5.0014, build date Sep 18 2006 20:36:59
+// command line args: -profile vs_2_0
+// source file: ProjectedShadow.cg
+//vendor NVIDIA Corporation
+//version 1.5.0.14
+//profile vs_2_0
+//program v_ShadowMap
+//semantic v_ShadowMap.WVPMatrix
+//semantic v_ShadowMap.ProjectorMatrix
+//var float3 kModelPosition : $vin.POSITION : ATTR0 : 0 : 1
+//var float4 kClipPosition : $vout.POSITION : HPOS : 1 : 1
+//var float4 kProjectedTCoord : $vout.TEXCOORD0 : TEX0 : 2 : 1
+//var float4x4 WVPMatrix :  : c[0], 4 : 3 : 1
+//var float4x4 ProjectorMatrix :  : c[4], 4 : 4 : 1
+dcl_position v0
+mul r0, v0.y, c1
+mul r1, v0.y, c5
+mad r0, v0.x, c0, r0
+mad r1, v0.x, c4, r1
+mad r0, v0.z, c2, r0
+mad r1, v0.z, c6, r1
+add oPos, r0, c3
+add oT0, r1, c7

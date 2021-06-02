@@ -1,0 +1,42 @@
+!!ARBfp1.0
+# cgc version 1.4.0000, build date Jun  9 2005 12:09:02
+# command line args: -profile arbfp1
+# source file: BlendedTerrain.cg
+#vendor NVIDIA Corporation
+#version 1.0.02
+#profile arbfp1
+#program p_BlendedTerrain
+#semantic p_BlendedTerrain.PowerFactor
+#semantic p_BlendedTerrain.GrassSampler
+#semantic p_BlendedTerrain.StoneSampler
+#semantic p_BlendedTerrain.BlendSampler
+#semantic p_BlendedTerrain.CloudSampler
+#var float2 kGroundTCoord : $vin.TEXCOORD0 : TEX0 : 0 : 1
+#var float kBlendTCoord : $vin.TEXCOORD1 : TEX1 : 1 : 1
+#var float2 kCloudTCoord : $vin.TEXCOORD2 : TEX2 : 2 : 1
+#var float2 kFlowDirection : $vin.TEXCOORD3 : TEX3 : 3 : 1
+#var float4 kPixelColor : $vout.COLOR : COL : 4 : 1
+#var float PowerFactor :  : c[0] : 5 : 1
+#var sampler2D GrassSampler :  : texunit 0 : 6 : 1
+#var sampler2D StoneSampler :  : texunit 1 : 7 : 1
+#var sampler1D BlendSampler :  : texunit 2 : 8 : 1
+#var sampler2D CloudSampler :  : texunit 3 : 9 : 1
+#const c[1] = 1
+PARAM c[2] = { program.local[0],
+		{ 1 } };
+TEMP R0;
+TEMP R1;
+TEMP R2;
+TEX R1.x, fragment.texcoord[1], texture[2], 1D;
+MOV R2.xy, fragment.texcoord[3];
+POW R2.z, R1.x, c[0].x;
+TEX R0, fragment.texcoord[0], texture[1], 2D;
+MUL R1, R2.z, R0;
+TEX R0, fragment.texcoord[0], texture[0], 2D;
+ADD R2.z, -R2, c[1].x;
+MAD R0, R2.z, R0, R1;
+ADD R2.xy, fragment.texcoord[2], R2;
+TEX R1, R2, texture[3], 2D;
+MUL result.color, R1, R0;
+END
+# 11 instructions, 3 R-regs

@@ -1,0 +1,62 @@
+!!ARBvp1.0
+# cgc version 1.5.0014, build date Sep 18 2006 20:36:59
+# command line args: -profile arbvp1
+# source file: ShadowMaps2.cg
+#vendor NVIDIA Corporation
+#version 1.5.0.14
+#profile arbvp1
+#program v_Scene
+#semantic v_Scene.WVPMatrix
+#semantic v_Scene.WMatrix
+#semantic v_Scene.LightVPMatrix
+#semantic v_Scene.LightVPBSMatrix
+#semantic v_Scene.LightWorldPosition
+#semantic v_Scene.CameraWorldPosition
+#var float3 kModelPosition : $vin.POSITION : POSITION : 0 : 1
+#var float3 kModelNormal : $vin.NORMAL : NORMAL : 1 : 1
+#var float2 kModelTCoord : $vin.TEXCOORD0 : TEXCOORD0 : 2 : 1
+#var float4 kClipPosition : $vout.POSITION : HPOS : 3 : 1
+#var float2 kTCoord : $vout.TEXCOORD0 : TEX0 : 4 : 1
+#var float4 kProjTCoord : $vout.TEXCOORD1 : TEX1 : 5 : 1
+#var float4 kScreenTCoord : $vout.TEXCOORD2 : TEX2 : 6 : 1
+#var float3 kNormal : $vout.TEXCOORD3 : TEX3 : 7 : 1
+#var float3 kLightVector : $vout.TEXCOORD4 : TEX4 : 8 : 1
+#var float3 kEyeVector : $vout.TEXCOORD5 : TEX5 : 9 : 1
+#var float4x4 WVPMatrix :  : c[1], 4 : 10 : 1
+#var float4x4 WMatrix :  : c[5], 4 : 11 : 1
+#var float4x4 LightVPMatrix :  : c[9], 4 : 12 : 0
+#var float4x4 LightVPBSMatrix :  : c[13], 4 : 13 : 1
+#var float3 LightWorldPosition :  : c[17] : 14 : 1
+#var float3 CameraWorldPosition :  : c[18] : 15 : 1
+#const c[0] = 0.5
+PARAM c[19] = { { 0.5 },
+		program.local[1..18] };
+TEMP R0;
+TEMP R1;
+TEMP R2;
+MUL R0, vertex.position.y, c[6];
+MAD R0, vertex.position.x, c[5], R0;
+MAD R0, vertex.position.z, c[7], R0;
+ADD R1, R0, c[8];
+MUL R0, vertex.position.y, c[2];
+MUL R2, R1.y, c[14];
+MAD R0, vertex.position.x, c[1], R0;
+MAD R2, R1.x, c[13], R2;
+MAD R0, vertex.position.z, c[3], R0;
+ADD R0, R0, c[4];
+MOV result.position, R0;
+ADD R0.y, R0, R0.w;
+ADD R0.x, R0, R0.w;
+MAD R2, R1.z, c[15], R2;
+MUL result.texcoord[2].y, R0, c[0].x;
+MUL result.texcoord[2].x, R0, c[0];
+MUL R0.xyz, vertex.normal.y, c[6];
+MAD R0.xyz, vertex.normal.x, c[5], R0;
+MAD result.texcoord[1], R1.w, c[16], R2;
+MOV result.texcoord[2].zw, R0.w;
+ADD result.texcoord[4].xyz, -R1, c[17];
+ADD result.texcoord[5].xyz, -R1, c[18];
+MAD result.texcoord[3].xyz, vertex.normal.z, c[7], R0;
+MOV result.texcoord[0].xy, vertex.texcoord[0];
+END
+# 24 instructions, 3 R-regs

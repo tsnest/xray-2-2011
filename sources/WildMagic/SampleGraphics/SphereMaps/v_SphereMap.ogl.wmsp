@@ -1,0 +1,50 @@
+!!ARBvp1.0
+# cgc version 1.5.0014, build date Sep 18 2006 20:36:59
+# command line args: -profile arbvp1
+# source file: SphereMap.cg
+#vendor NVIDIA Corporation
+#version 1.5.0.14
+#profile arbvp1
+#program v_SphereMap
+#semantic v_SphereMap.WVPMatrix
+#semantic v_SphereMap.WVMatrix
+#var float3 kModelPosition : $vin.POSITION : POSITION : 0 : 1
+#var float3 kModelNormal : $vin.NORMAL : NORMAL : 1 : 1
+#var float4 kClipPosition : $vout.POSITION : HPOS : 2 : 1
+#var float2 kBaseTCoord : $vout.TEXCOORD0 : TEX0 : 3 : 1
+#var float4x4 WVPMatrix :  : c[1], 4 : 4 : 1
+#var float4x4 WVMatrix :  : c[5], 4 : 5 : 1
+#const c[0] = 2 1 0.5
+PARAM c[9] = { { 2, 1, 0.5 },
+		program.local[1..8] };
+TEMP R0;
+TEMP R1;
+MUL R0.xyz, vertex.position.y, c[6];
+MAD R1.xyz, vertex.position.x, c[5], R0;
+MUL R0.xyz, vertex.normal.y, c[6];
+MAD R1.xyz, vertex.position.z, c[7], R1;
+ADD R1.xyz, R1, c[8];
+DP3 R1.w, R1, R1;
+MAD R0.xyz, vertex.normal.x, c[5], R0;
+MAD R0.xyz, vertex.normal.z, c[7], R0;
+DP3 R0.w, R0, R0;
+RSQ R0.w, R0.w;
+RSQ R1.w, R1.w;
+MUL R0.xyz, R0.w, R0;
+MUL R1.xyz, R1.w, R1;
+DP3 R0.w, R0, R1;
+MUL R0.xyz, R0, R0.w;
+MAD R1.xyz, -R0, c[0].x, R1;
+MUL R0.x, R1.y, R1.y;
+MAD R0.x, R1, R1, R0;
+ADD R0.y, R1.z, -c[0];
+MAD R1.z, R0.y, R0.y, R0.x;
+MUL R0, vertex.position.y, c[2];
+RSQ R1.z, R1.z;
+MAD R0, vertex.position.x, c[1], R0;
+MAD R1.xy, R1, R1.z, c[0].y;
+MAD R0, vertex.position.z, c[3], R0;
+MUL result.texcoord[0].xy, R1, c[0].z;
+ADD result.position, R0, c[4];
+END
+# 27 instructions, 2 R-regs

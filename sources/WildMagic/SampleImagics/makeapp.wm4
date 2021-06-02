@@ -1,0 +1,77 @@
+CFLAGS := -c
+LIBPATH := -L ../../SDK/Library/$(CFG)
+INCPATH := -I ../../SDK/Include
+CORELIBS := -lWm4$(GRF)Application -lWm4$(GRF)Renderer  -lWm4Graphics \
+            -lWm4Imagics -lWm4Foundation
+            
+ifeq (Soft,$(findstring Soft,$(GRF)))
+CFLAGS += -DWM4_HAS_SOFT_SHADER
+endif
+
+ifeq (linux,$(findstring linux,$(SYS)))
+CC := /usr/bin/g++
+GCC := /usr/bin/gcc
+INCPATH += -I /usr/include
+LIBPATH += -L /usr/lib
+XLIBS := -lX11 -lXext
+GLIBS := -lGL -lGLU
+LIBS := $(CORELIBS) $(XLIBS) $(GLIBS) -lm 
+endif
+
+ifeq (mingw,$(findstring mingw,$(SYS)))
+CC := /mingw/bin/g++
+GCC := /mingw/bin/gcc
+EGL := Wgl
+INCPATH += -I /mingw/include
+LIBPATH += -L /mingw/lib
+WLIBS := -lkernel32 -luser32 -lgdi32 -lwinspool -lcomdlg32 -ladvapi32 \
+         -lshell32 -lole32 -loleaut32 -luuid -lodbc32 -lodbccp32 -lcomctl32
+GLIBS := -lglu32 -lopengl32
+LIBS := $(CORELIBS) $(WLIBS) $(GLIBS) -lm
+endif
+
+ifeq (cygwin,$(findstring cygwin,$(SYS)))
+CC := /usr/bin/g++
+GCC := /usr/bin/gcc
+EGL := Wgl
+INCPATH += -I /usr/include
+LIBPATH += -L /usr/lib -L /usr/lib/w32api
+WLIBS := -lkernel32 -luser32 -lgdi32 -lwinspool -lcomdlg32 -ladvapi32 \
+         -lshell32 -lole32 -loleaut32 -luuid -lodbc32 -lodbccp32 -lcomctl32
+GLIBS := -lglu32 -lopengl32
+LIBS := $(CORELIBS) $(WLIBS) $(GLIBS) -lm
+endif
+
+ifeq (sgi,$(findstring sgi,$(SYS)))
+CC := /usr/freeware/bin/g++
+GCC := /usr/freeware/bin/gcc
+EGL := Glx
+INCPATH += -I /usr/X11R6/include
+LIBPATH += -L/usr/lib32/mips3
+GLIBS := -lGL -lGLU
+LIBS := $(CORELIBS) $(XLIBS) $(GLIBS) -lm 
+endif
+
+ifeq (Debug,$(findstring Debug,$(CFG)))
+CFLAGS += -g -D_DEBUG
+else
+CFLAGS += -O2 -DNDEBUG
+endif
+
+ifeq (Memory,$(findstring Memory,$(CFG)))
+CFLAGS += -DWM4_MEMORY_MANAGER
+endif
+
+SRC := $(notdir $(wildcard *.cpp))
+OBJ := $(SRC:%.cpp=$(CFG)/%.o)
+
+build : $(OBJ)
+	$(CC) $(LIBPATH) $(OBJ) -o $(APP).$(CFG)$(GRF) $(LIBS)
+
+$(CFG)/%.o : %.cpp
+	@mkdir -p $(CFG)
+	$(CC) $(CFLAGS) $(INCPATH) $< -o $@
+
+clean :
+	rm -f $(CFG)/*.o
+	rmdir $(CFG)

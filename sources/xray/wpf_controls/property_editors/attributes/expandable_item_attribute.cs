@@ -1,0 +1,15 @@
+﻿////////////////////////////////////////////////////////////////////////////
+//	Created		: 28.07.2010
+//	Author		: Evgeniy Obertyukh
+//	Copyright (C) GSC Game World - 2010
+////////////////////////////////////////////////////////////////////////////
+
+using System;
+
+namespace xray.editor.wpf_controls.property_editors.attributes
+{
+	public class expandable_item_attribute: Attribute
+	{
+
+	}
+}

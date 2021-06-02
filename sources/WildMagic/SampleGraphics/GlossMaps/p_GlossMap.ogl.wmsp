@@ -1,0 +1,24 @@
+!!ARBfp1.0
+# cgc version 1.4.0000, build date Jun  9 2005 12:09:02
+# command line args: -profile arbfp1
+# source file: GlossMap.cg
+#vendor NVIDIA Corporation
+#version 1.0.02
+#profile arbfp1
+#program p_GlossMap
+#semantic p_GlossMap.BaseSampler
+#var float3 kEADColor : $vin.COLOR : COL0 : 0 : 1
+#var float2 kTCoord : $vin.TEXCOORD0 : TEX0 : 1 : 1
+#var float3 kSpecularColor : $vin.TEXCOORD1 : TEX1 : 2 : 1
+#var float4 kPixelColor : $vout.COLOR : COL : 3 : 1
+#var sampler2D BaseSampler :  : texunit 0 : 4 : 1
+#const c[0] = 1
+PARAM c[1] = { { 1 } };
+TEMP R0;
+TEMP R1;
+TEX R0, fragment.texcoord[0], texture[0], 2D;
+MUL R1.xyz, R0.w, fragment.texcoord[1];
+MAD result.color.xyz, R0, fragment.color.primary, R1;
+MOV result.color.w, c[0].x;
+END
+# 4 instructions, 2 R-regs

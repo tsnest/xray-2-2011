@@ -1,0 +1,19 @@
+!!ARBfp1.0
+OPTION NV_fragment_program2;
+# cgc version 1.5.0014, build date Sep 18 2006 20:36:59
+# command line args: -profile fp40
+# source file: HeightEffect.cg
+#vendor NVIDIA Corporation
+#version 1.5.0.14
+#profile fp40
+#program p_HeightEffect
+#semantic p_HeightEffect.BaseSampler
+#var float2 kBaseTCoord : $vin.TEXCOORD0 : TEX0 : 0 : 1
+#var float4 kPixelColor : $vout.COLOR : COL : 1 : 1
+#var sampler2D BaseSampler :  : texunit 0 : 2 : 1
+TEMP RC;
+TEMP HC;
+OUTPUT oCol = result.color;
+TEX   oCol, fragment.texcoord[0], texture[0], 2D;
+END
+# 1 instructions, 0 R-regs, 0 H-regs

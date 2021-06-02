@@ -1,0 +1,38 @@
+//----------------------------------------------------------------------------
+void v_VolumeFog
+(
+    in float3        kModelPosition  : POSITION,
+    in float4        kModelColor : COLOR,
+    in float2        kModelTCoord : TEXCOORD0,
+    out float4       kClipPosition : POSITION,
+    out float4       kVertexColor : COLOR,
+    out float2       kTCoord : TEXCOORD0,
+    uniform float4x4 WVPMatrix)
+{
+    // Transform the position from model space to clip space.
+    kClipPosition = mul(float4(kModelPosition,1.0f),WVPMatrix);
+
+    // Pass through the vertex color and texture coordinate.
+    kVertexColor = kModelColor;
+    kTCoord = kModelTCoord;
+}
+//----------------------------------------------------------------------------
+void p_VolumeFog
+(
+    in float4         kVertexColor : COLOR,
+    in float2         kTCoord : TEXCOORD0,
+    out float4        kPixelColor : COLOR,
+    uniform sampler2D BaseSampler)
+{
+    // The blending equation is
+    //   (rf,gf,bf) = (1-av)*(rt,gt,bt) + av*(rv,gv,bv)
+    // where (rf,gf,bf) is the final color, (rt,gt,bt) is the texture color,
+    // and (rv,gv,bv,av) is the vertex color.
+
+    // Sample the texture image.
+    float4 kTextureColor = tex2D(BaseSampler,kTCoord);
+    kPixelColor.rgb = (1.0f - kVertexColor.a)*kTextureColor.rgb +
+        kVertexColor.a*kVertexColor.rgb;
+    kPixelColor.a = 1.0f;
+}
+//----------------------------------------------------------------------------

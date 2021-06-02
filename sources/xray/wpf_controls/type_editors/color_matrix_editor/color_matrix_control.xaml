@@ -1,0 +1,12 @@
+﻿<ContentControl x:Class="xray.editor.wpf_controls.color_matrix_editor.color_matrix_control"
+				xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+				xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+				SizeChanged="size_changed" ClipToBounds="true">
+	<ContentControl.ContextMenu>
+		<ContextMenu Name="m_context_menu">
+			<MenuItem Header="Add Horizontal" Click="add_horizontal_click" />
+			<MenuItem Header="Add Vertical" Click="add_vertical_click" />
+		</ContextMenu>
+	</ContentControl.ContextMenu>
+	<Canvas Name="m_work_panel" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" ClipToBounds="false" />
+</ContentControl>

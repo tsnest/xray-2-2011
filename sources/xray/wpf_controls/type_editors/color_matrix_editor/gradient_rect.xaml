@@ -1,0 +1,8 @@
+﻿<UserControl x:Class="xray.editor.wpf_controls.color_matrix_editor.gradient_rect"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:shaders1="clr-namespace:xray.editor.wpf_controls.color_matrix_editor.shaders" Background="Black" SnapsToDevicePixels="true">
+	<Control.Effect>
+		<shaders1:color_interpolation_effect x:Name="m_shader" />
+	</Control.Effect>
+</UserControl>

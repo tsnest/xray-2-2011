@@ -1,0 +1,1128 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 42;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3C2FB1380BAC943800EF61A8 /* GTaglExtensions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C2FB1350BAC943800EF61A8 /* GTaglExtensions.cpp */; };
+		3C2FB1390BAC943800EF61A8 /* GTglExtensions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C2FB1360BAC943800EF61A8 /* GTglExtensions.cpp */; };
+		3C2FB13A0BAC943800EF61A8 /* GTglPlugin.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C2FB1370BAC943800EF61A8 /* GTglPlugin.cpp */; };
+		3C2FB13B0BAC943800EF61A8 /* GTaglExtensions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C2FB1350BAC943800EF61A8 /* GTaglExtensions.cpp */; };
+		3C2FB13C0BAC943800EF61A8 /* GTglExtensions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C2FB1360BAC943800EF61A8 /* GTglExtensions.cpp */; };
+		3C2FB13D0BAC943800EF61A8 /* GTglPlugin.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C2FB1370BAC943800EF61A8 /* GTglPlugin.cpp */; };
+		3C2FB13E0BAC943800EF61A8 /* GTaglExtensions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C2FB1350BAC943800EF61A8 /* GTaglExtensions.cpp */; };
+		3C2FB13F0BAC943800EF61A8 /* GTglExtensions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C2FB1360BAC943800EF61A8 /* GTglExtensions.cpp */; };
+		3C2FB1400BAC943800EF61A8 /* GTglPlugin.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C2FB1370BAC943800EF61A8 /* GTglPlugin.cpp */; };
+		3C2FB1410BAC943800EF61A8 /* GTaglExtensions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C2FB1350BAC943800EF61A8 /* GTaglExtensions.cpp */; };
+		3C2FB1420BAC943800EF61A8 /* GTglExtensions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C2FB1360BAC943800EF61A8 /* GTglExtensions.cpp */; };
+		3C2FB1430BAC943800EF61A8 /* GTglPlugin.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C2FB1370BAC943800EF61A8 /* GTglPlugin.cpp */; };
+		3C2FB1440BAC943800EF61A8 /* GTaglExtensions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C2FB1350BAC943800EF61A8 /* GTaglExtensions.cpp */; };
+		3C2FB1450BAC943800EF61A8 /* GTglExtensions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C2FB1360BAC943800EF61A8 /* GTglExtensions.cpp */; };
+		3C2FB1460BAC943800EF61A8 /* GTglPlugin.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C2FB1370BAC943800EF61A8 /* GTglPlugin.cpp */; };
+		3C2FB1470BAC943800EF61A8 /* GTaglExtensions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C2FB1350BAC943800EF61A8 /* GTaglExtensions.cpp */; };
+		3C2FB1480BAC943800EF61A8 /* GTglExtensions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C2FB1360BAC943800EF61A8 /* GTglExtensions.cpp */; };
+		3C2FB1490BAC943800EF61A8 /* GTglPlugin.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C2FB1370BAC943800EF61A8 /* GTglPlugin.cpp */; };
+		3C6FBA2A083E492C0068AA05 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C6FBA29083E492C0068AA05 /* Carbon.framework */; };
+		3C6FBA2B083E492C0068AA05 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C6FBA29083E492C0068AA05 /* Carbon.framework */; };
+		3C6FBA2F083E49470068AA05 /* AGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C6FBA2E083E49470068AA05 /* AGL.framework */; };
+		3C6FBA30083E49470068AA05 /* AGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C6FBA2E083E49470068AA05 /* AGL.framework */; };
+		3C6FBA34083E496B0068AA05 /* DrawSprocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C6FBA33083E496B0068AA05 /* DrawSprocket.framework */; };
+		3C6FBA35083E496B0068AA05 /* DrawSprocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C6FBA33083E496B0068AA05 /* DrawSprocket.framework */; };
+		3CBB67120A2ABDA0001275CA /* Wm4AglRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CBD72CC0A01124400AFB0E7 /* Wm4AglRenderer.cpp */; };
+		3CBB67130A2ABDA1001275CA /* Wm4AglRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CBD72CD0A01124400AFB0E7 /* Wm4AglRenderer.h */; };
+		3CBB67140A2ABDA2001275CA /* Wm4OpenGLAlphaState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CBD72CE0A01124400AFB0E7 /* Wm4OpenGLAlphaState.cpp */; };
+		3CBB67150A2ABDA3001275CA /* Wm4OpenGLBitmapFont.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CBD72CF0A01124400AFB0E7 /* Wm4OpenGLBitmapFont.h */; };
+		3CBB67160A2ABDA3001275CA /* Wm4OpenGLCullState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CBD72D00A01124400AFB0E7 /* Wm4OpenGLCullState.cpp */; };
+		3CBB67170A2ABDA4001275CA /* Wm4OpenGLDrawBuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CBD72D10A01124400AFB0E7 /* Wm4OpenGLDrawBuffer.cpp */; };
+		3CBB67180A2ABDA4001275CA /* Wm4OpenGLDrawElements.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CBD72D20A01124400AFB0E7 /* Wm4OpenGLDrawElements.cpp */; };
+		3CBB67190A2ABDA5001275CA /* Wm4OpenGLDrawText.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CBD72D30A01124400AFB0E7 /* Wm4OpenGLDrawText.cpp */; };
+		3CBB671D0A2ABDA7001275CA /* Wm4OpenGLFrameBuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CBD72D70A01124400AFB0E7 /* Wm4OpenGLFrameBuffer.cpp */; };
+		3CBB671E0A2ABDA8001275CA /* Wm4OpenGLFrameBuffer.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CBD72D80A01124400AFB0E7 /* Wm4OpenGLFrameBuffer.h */; };
+		3CBB671F0A2ABDA9001275CA /* Wm4OpenGLPolygonOffsetState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CBD72D90A01124400AFB0E7 /* Wm4OpenGLPolygonOffsetState.cpp */; };
+		3CBB67200A2ABDA9001275CA /* Wm4OpenGLRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CBD72DA0A01124400AFB0E7 /* Wm4OpenGLRenderer.cpp */; };
+		3CBB67210A2ABDAA001275CA /* Wm4OpenGLRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CBD72DB0A01124400AFB0E7 /* Wm4OpenGLRenderer.h */; };
+		3CBB67220A2ABDAC001275CA /* Wm4OpenGLRendererLIB.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CBD72DC0A01124400AFB0E7 /* Wm4OpenGLRendererLIB.h */; };
+		3CBB67230A2ABDAD001275CA /* Wm4OpenGLRendererPCH.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CBD72DD0A01124400AFB0E7 /* Wm4OpenGLRendererPCH.cpp */; };
+		3CBB67240A2ABDAD001275CA /* Wm4OpenGLRendererPCH.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CBD72DE0A01124400AFB0E7 /* Wm4OpenGLRendererPCH.h */; };
+		3CBB67250A2ABDAE001275CA /* Wm4OpenGLResources.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CBD72DF0A01124400AFB0E7 /* Wm4OpenGLResources.h */; };
+		3CBB67260A2ABDAF001275CA /* Wm4OpenGLResourcesED.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CBD72E00A01124400AFB0E7 /* Wm4OpenGLResourcesED.cpp */; };
+		3CBB67270A2ABDAF001275CA /* Wm4OpenGLResourcesLR.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CBD72E10A01124400AFB0E7 /* Wm4OpenGLResourcesLR.cpp */; };
+		3CBB67280A2ABDB0001275CA /* Wm4OpenGLStencilState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CBD72E20A01124400AFB0E7 /* Wm4OpenGLStencilState.cpp */; };
+		3CBB67290A2ABDB1001275CA /* Wm4OpenGLTransformation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CBD72E30A01124400AFB0E7 /* Wm4OpenGLTransformation.cpp */; };
+		3CBB672A0A2ABDB1001275CA /* Wm4OpenGLVerdanaS16B0I0.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CBD72E40A01124400AFB0E7 /* Wm4OpenGLVerdanaS16B0I0.cpp */; };
+		3CBB672B0A2ABDB2001275CA /* Wm4OpenGLWireframeState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CBD72E50A01124400AFB0E7 /* Wm4OpenGLWireframeState.cpp */; };
+		3CBB672C0A2ABDB3001275CA /* Wm4OpenGLZBufferState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CBD72E60A01124400AFB0E7 /* Wm4OpenGLZBufferState.cpp */; };
+		3CBB67390A2ABEB7001275CA /* Wm4AglRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CBD72CC0A01124400AFB0E7 /* Wm4AglRenderer.cpp */; };
+		3CBB673A0A2ABEB7001275CA /* Wm4AglRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CBD72CD0A01124400AFB0E7 /* Wm4AglRenderer.h */; };
+		3CBB673B0A2ABEB8001275CA /* Wm4OpenGLAlphaState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CBD72CE0A01124400AFB0E7 /* Wm4OpenGLAlphaState.cpp */; };
+		3CBB673C0A2ABEB8001275CA /* Wm4OpenGLBitmapFont.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CBD72CF0A01124400AFB0E7 /* Wm4OpenGLBitmapFont.h */; };
+		3CBB673D0A2ABEB9001275CA /* Wm4OpenGLCullState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CBD72D00A01124400AFB0E7 /* Wm4OpenGLCullState.cpp */; };
+		3CBB673E0A2ABEBA001275CA /* Wm4OpenGLDrawBuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CBD72D10A01124400AFB0E7 /* Wm4OpenGLDrawBuffer.cpp */; };
+		3CBB673F0A2ABEBA001275CA /* Wm4OpenGLDrawElements.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CBD72D20A01124400AFB0E7 /* Wm4OpenGLDrawElements.cpp */; };
+		3CBB67400A2ABEBB001275CA /* Wm4OpenGLDrawText.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CBD72D30A01124400AFB0E7 /* Wm4OpenGLDrawText.cpp */; };
+		3CBB67440A2ABEBE001275CA /* Wm4OpenGLFrameBuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CBD72D70A01124400AFB0E7 /* Wm4OpenGLFrameBuffer.cpp */; };
+		3CBB67450A2ABEBE001275CA /* Wm4OpenGLFrameBuffer.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CBD72D80A01124400AFB0E7 /* Wm4OpenGLFrameBuffer.h */; };
+		3CBB67460A2ABEBF001275CA /* Wm4OpenGLPolygonOffsetState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CBD72D90A01124400AFB0E7 /* Wm4OpenGLPolygonOffsetState.cpp */; };
+		3CBB67470A2ABEBF001275CA /* Wm4OpenGLRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CBD72DA0A01124400AFB0E7 /* Wm4OpenGLRenderer.cpp */; };
+		3CBB67480A2ABEC0001275CA /* Wm4OpenGLRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CBD72DB0A01124400AFB0E7 /* Wm4OpenGLRenderer.h */; };
+		3CBB67490A2ABEC1001275CA /* Wm4OpenGLRendererLIB.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CBD72DC0A01124400AFB0E7 /* Wm4OpenGLRendererLIB.h */; };
+		3CBB674A0A2ABEC1001275CA /* Wm4OpenGLRendererPCH.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CBD72DD0A01124400AFB0E7 /* Wm4OpenGLRendererPCH.cpp */; };
+		3CBB674B0A2ABEC3001275CA /* Wm4OpenGLRendererPCH.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CBD72DE0A01124400AFB0E7 /* Wm4OpenGLRendererPCH.h */; };
+		3CBB674C0A2ABEC4001275CA /* Wm4OpenGLResources.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CBD72DF0A01124400AFB0E7 /* Wm4OpenGLResources.h */; };
+		3CBB674D0A2ABEC4001275CA /* Wm4OpenGLResourcesED.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CBD72E00A01124400AFB0E7 /* Wm4OpenGLResourcesED.cpp */; };
+		3CBB674E0A2ABEC5001275CA /* Wm4OpenGLResourcesLR.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CBD72E10A01124400AFB0E7 /* Wm4OpenGLResourcesLR.cpp */; };
+		3CBB674F0A2ABEC5001275CA /* Wm4OpenGLStencilState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CBD72E20A01124400AFB0E7 /* Wm4OpenGLStencilState.cpp */; };
+		3CBB67500A2ABEC6001275CA /* Wm4OpenGLTransformation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CBD72E30A01124400AFB0E7 /* Wm4OpenGLTransformation.cpp */; };
+		3CBB67510A2ABEC6001275CA /* Wm4OpenGLVerdanaS16B0I0.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CBD72E40A01124400AFB0E7 /* Wm4OpenGLVerdanaS16B0I0.cpp */; };
+		3CBB67520A2ABEC7001275CA /* Wm4OpenGLWireframeState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CBD72E50A01124400AFB0E7 /* Wm4OpenGLWireframeState.cpp */; };
+		3CBB67530A2ABEC8001275CA /* Wm4OpenGLZBufferState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CBD72E60A01124400AFB0E7 /* Wm4OpenGLZBufferState.cpp */; };
+		3CBC59E20A4B0A8B00273CCF /* GTglExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CBC59DD0A4B0A8B00273CCF /* GTglExtensions.h */; };
+		3CBC59E30A4B0A8B00273CCF /* GTglPlugin.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CBC59DE0A4B0A8B00273CCF /* GTglPlugin.h */; };
+		3CBC59E40A4B0A8B00273CCF /* GTglUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CBC59DF0A4B0A8B00273CCF /* GTglUtility.h */; };
+		3CBC59E70A4B0A8B00273CCF /* GTglExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CBC59DD0A4B0A8B00273CCF /* GTglExtensions.h */; };
+		3CBC59E80A4B0A8B00273CCF /* GTglPlugin.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CBC59DE0A4B0A8B00273CCF /* GTglPlugin.h */; };
+		3CBC59E90A4B0A8B00273CCF /* GTglUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CBC59DF0A4B0A8B00273CCF /* GTglUtility.h */; };
+		3CBC59EC0A4B0A8B00273CCF /* GTglExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CBC59DD0A4B0A8B00273CCF /* GTglExtensions.h */; };
+		3CBC59ED0A4B0A8B00273CCF /* GTglPlugin.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CBC59DE0A4B0A8B00273CCF /* GTglPlugin.h */; };
+		3CBC59EE0A4B0A8B00273CCF /* GTglUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CBC59DF0A4B0A8B00273CCF /* GTglUtility.h */; };
+		3CBC59F10A4B0A8B00273CCF /* GTglExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CBC59DD0A4B0A8B00273CCF /* GTglExtensions.h */; };
+		3CBC59F20A4B0A8B00273CCF /* GTglPlugin.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CBC59DE0A4B0A8B00273CCF /* GTglPlugin.h */; };
+		3CBC59F30A4B0A8B00273CCF /* GTglUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CBC59DF0A4B0A8B00273CCF /* GTglUtility.h */; };
+		3CBC59F60A4B0A8B00273CCF /* GTglExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CBC59DD0A4B0A8B00273CCF /* GTglExtensions.h */; };
+		3CBC59F70A4B0A8B00273CCF /* GTglPlugin.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CBC59DE0A4B0A8B00273CCF /* GTglPlugin.h */; };
+		3CBC59F80A4B0A8B00273CCF /* GTglUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CBC59DF0A4B0A8B00273CCF /* GTglUtility.h */; };
+		3CBC59FB0A4B0A8B00273CCF /* GTglExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CBC59DD0A4B0A8B00273CCF /* GTglExtensions.h */; };
+		3CBC59FC0A4B0A8B00273CCF /* GTglPlugin.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CBC59DE0A4B0A8B00273CCF /* GTglPlugin.h */; };
+		3CBC59FD0A4B0A8B00273CCF /* GTglUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CBC59DF0A4B0A8B00273CCF /* GTglUtility.h */; };
+		3CBD72E80A01124400AFB0E7 /* Wm4AglRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CBD72CC0A01124400AFB0E7 /* Wm4AglRenderer.cpp */; };
+		3CBD72E90A01124400AFB0E7 /* Wm4AglRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CBD72CD0A01124400AFB0E7 /* Wm4AglRenderer.h */; };
+		3CBD72EA0A01124400AFB0E7 /* Wm4OpenGLAlphaState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CBD72CE0A01124400AFB0E7 /* Wm4OpenGLAlphaState.cpp */; };
+		3CBD72EB0A01124400AFB0E7 /* Wm4OpenGLBitmapFont.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CBD72CF0A01124400AFB0E7 /* Wm4OpenGLBitmapFont.h */; };
+		3CBD72EC0A01124400AFB0E7 /* Wm4OpenGLCullState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CBD72D00A01124400AFB0E7 /* Wm4OpenGLCullState.cpp */; };
+		3CBD72ED0A01124400AFB0E7 /* Wm4OpenGLDrawBuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CBD72D10A01124400AFB0E7 /* Wm4OpenGLDrawBuffer.cpp */; };
+		3CBD72EE0A01124400AFB0E7 /* Wm4OpenGLDrawElements.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CBD72D20A01124400AFB0E7 /* Wm4OpenGLDrawElements.cpp */; };
+		3CBD72EF0A01124400AFB0E7 /* Wm4OpenGLDrawText.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CBD72D30A01124400AFB0E7 /* Wm4OpenGLDrawText.cpp */; };
+		3CBD72F30A01124400AFB0E7 /* Wm4OpenGLFrameBuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CBD72D70A01124400AFB0E7 /* Wm4OpenGLFrameBuffer.cpp */; };
+		3CBD72F40A01124400AFB0E7 /* Wm4OpenGLFrameBuffer.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CBD72D80A01124400AFB0E7 /* Wm4OpenGLFrameBuffer.h */; };
+		3CBD72F50A01124400AFB0E7 /* Wm4OpenGLPolygonOffsetState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CBD72D90A01124400AFB0E7 /* Wm4OpenGLPolygonOffsetState.cpp */; };
+		3CBD72F60A01124400AFB0E7 /* Wm4OpenGLRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CBD72DA0A01124400AFB0E7 /* Wm4OpenGLRenderer.cpp */; };
+		3CBD72F70A01124400AFB0E7 /* Wm4OpenGLRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CBD72DB0A01124400AFB0E7 /* Wm4OpenGLRenderer.h */; };
+		3CBD72F80A01124400AFB0E7 /* Wm4OpenGLRendererLIB.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CBD72DC0A01124400AFB0E7 /* Wm4OpenGLRendererLIB.h */; };
+		3CBD72F90A01124400AFB0E7 /* Wm4OpenGLRendererPCH.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CBD72DD0A01124400AFB0E7 /* Wm4OpenGLRendererPCH.cpp */; };
+		3CBD72FA0A01124400AFB0E7 /* Wm4OpenGLRendererPCH.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CBD72DE0A01124400AFB0E7 /* Wm4OpenGLRendererPCH.h */; };
+		3CBD72FB0A01124400AFB0E7 /* Wm4OpenGLResources.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CBD72DF0A01124400AFB0E7 /* Wm4OpenGLResources.h */; };
+		3CBD72FC0A01124400AFB0E7 /* Wm4OpenGLResourcesED.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CBD72E00A01124400AFB0E7 /* Wm4OpenGLResourcesED.cpp */; };
+		3CBD72FD0A01124400AFB0E7 /* Wm4OpenGLResourcesLR.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CBD72E10A01124400AFB0E7 /* Wm4OpenGLResourcesLR.cpp */; };
+		3CBD72FE0A01124400AFB0E7 /* Wm4OpenGLStencilState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CBD72E20A01124400AFB0E7 /* Wm4OpenGLStencilState.cpp */; };
+		3CBD72FF0A01124400AFB0E7 /* Wm4OpenGLTransformation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CBD72E30A01124400AFB0E7 /* Wm4OpenGLTransformation.cpp */; };
+		3CBD73000A01124400AFB0E7 /* Wm4OpenGLVerdanaS16B0I0.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CBD72E40A01124400AFB0E7 /* Wm4OpenGLVerdanaS16B0I0.cpp */; };
+		3CBD73010A01124400AFB0E7 /* Wm4OpenGLWireframeState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CBD72E50A01124400AFB0E7 /* Wm4OpenGLWireframeState.cpp */; };
+		3CBD73020A01124400AFB0E7 /* Wm4OpenGLZBufferState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CBD72E60A01124400AFB0E7 /* Wm4OpenGLZBufferState.cpp */; };
+		3CBD73040A01124400AFB0E7 /* Wm4AglRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CBD72CC0A01124400AFB0E7 /* Wm4AglRenderer.cpp */; };
+		3CBD73050A01124400AFB0E7 /* Wm4AglRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CBD72CD0A01124400AFB0E7 /* Wm4AglRenderer.h */; };
+		3CBD73060A01124400AFB0E7 /* Wm4OpenGLAlphaState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CBD72CE0A01124400AFB0E7 /* Wm4OpenGLAlphaState.cpp */; };
+		3CBD73070A01124400AFB0E7 /* Wm4OpenGLBitmapFont.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CBD72CF0A01124400AFB0E7 /* Wm4OpenGLBitmapFont.h */; };
+		3CBD73080A01124400AFB0E7 /* Wm4OpenGLCullState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CBD72D00A01124400AFB0E7 /* Wm4OpenGLCullState.cpp */; };
+		3CBD73090A01124400AFB0E7 /* Wm4OpenGLDrawBuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CBD72D10A01124400AFB0E7 /* Wm4OpenGLDrawBuffer.cpp */; };
+		3CBD730A0A01124400AFB0E7 /* Wm4OpenGLDrawElements.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CBD72D20A01124400AFB0E7 /* Wm4OpenGLDrawElements.cpp */; };
+		3CBD730B0A01124400AFB0E7 /* Wm4OpenGLDrawText.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CBD72D30A01124400AFB0E7 /* Wm4OpenGLDrawText.cpp */; };
+		3CBD730F0A01124400AFB0E7 /* Wm4OpenGLFrameBuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CBD72D70A01124400AFB0E7 /* Wm4OpenGLFrameBuffer.cpp */; };
+		3CBD73100A01124400AFB0E7 /* Wm4OpenGLFrameBuffer.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CBD72D80A01124400AFB0E7 /* Wm4OpenGLFrameBuffer.h */; };
+		3CBD73110A01124400AFB0E7 /* Wm4OpenGLPolygonOffsetState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CBD72D90A01124400AFB0E7 /* Wm4OpenGLPolygonOffsetState.cpp */; };
+		3CBD73120A01124400AFB0E7 /* Wm4OpenGLRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CBD72DA0A01124400AFB0E7 /* Wm4OpenGLRenderer.cpp */; };
+		3CBD73130A01124400AFB0E7 /* Wm4OpenGLRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CBD72DB0A01124400AFB0E7 /* Wm4OpenGLRenderer.h */; };
+		3CBD73140A01124400AFB0E7 /* Wm4OpenGLRendererLIB.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CBD72DC0A01124400AFB0E7 /* Wm4OpenGLRendererLIB.h */; };
+		3CBD73150A01124400AFB0E7 /* Wm4OpenGLRendererPCH.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CBD72DD0A01124400AFB0E7 /* Wm4OpenGLRendererPCH.cpp */; };
+		3CBD73160A01124400AFB0E7 /* Wm4OpenGLRendererPCH.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CBD72DE0A01124400AFB0E7 /* Wm4OpenGLRendererPCH.h */; };
+		3CBD73170A01124400AFB0E7 /* Wm4OpenGLResources.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CBD72DF0A01124400AFB0E7 /* Wm4OpenGLResources.h */; };
+		3CBD73180A01124400AFB0E7 /* Wm4OpenGLResourcesED.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CBD72E00A01124400AFB0E7 /* Wm4OpenGLResourcesED.cpp */; };
+		3CBD73190A01124400AFB0E7 /* Wm4OpenGLResourcesLR.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CBD72E10A01124400AFB0E7 /* Wm4OpenGLResourcesLR.cpp */; };
+		3CBD731A0A01124400AFB0E7 /* Wm4OpenGLStencilState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CBD72E20A01124400AFB0E7 /* Wm4OpenGLStencilState.cpp */; };
+		3CBD731B0A01124400AFB0E7 /* Wm4OpenGLTransformation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CBD72E30A01124400AFB0E7 /* Wm4OpenGLTransformation.cpp */; };
+		3CBD731C0A01124400AFB0E7 /* Wm4OpenGLVerdanaS16B0I0.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CBD72E40A01124400AFB0E7 /* Wm4OpenGLVerdanaS16B0I0.cpp */; };
+		3CBD731D0A01124400AFB0E7 /* Wm4OpenGLWireframeState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CBD72E50A01124400AFB0E7 /* Wm4OpenGLWireframeState.cpp */; };
+		3CBD731E0A01124400AFB0E7 /* Wm4OpenGLZBufferState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CBD72E60A01124400AFB0E7 /* Wm4OpenGLZBufferState.cpp */; };
+		3CBD73200A01124400AFB0E7 /* Wm4AglRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CBD72CC0A01124400AFB0E7 /* Wm4AglRenderer.cpp */; };
+		3CBD73210A01124400AFB0E7 /* Wm4AglRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CBD72CD0A01124400AFB0E7 /* Wm4AglRenderer.h */; };
+		3CBD73220A01124400AFB0E7 /* Wm4OpenGLAlphaState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CBD72CE0A01124400AFB0E7 /* Wm4OpenGLAlphaState.cpp */; };
+		3CBD73230A01124400AFB0E7 /* Wm4OpenGLBitmapFont.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CBD72CF0A01124400AFB0E7 /* Wm4OpenGLBitmapFont.h */; };
+		3CBD73240A01124400AFB0E7 /* Wm4OpenGLCullState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CBD72D00A01124400AFB0E7 /* Wm4OpenGLCullState.cpp */; };
+		3CBD73250A01124400AFB0E7 /* Wm4OpenGLDrawBuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CBD72D10A01124400AFB0E7 /* Wm4OpenGLDrawBuffer.cpp */; };
+		3CBD73260A01124400AFB0E7 /* Wm4OpenGLDrawElements.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CBD72D20A01124400AFB0E7 /* Wm4OpenGLDrawElements.cpp */; };
+		3CBD73270A01124400AFB0E7 /* Wm4OpenGLDrawText.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CBD72D30A01124400AFB0E7 /* Wm4OpenGLDrawText.cpp */; };
+		3CBD732B0A01124400AFB0E7 /* Wm4OpenGLFrameBuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CBD72D70A01124400AFB0E7 /* Wm4OpenGLFrameBuffer.cpp */; };
+		3CBD732C0A01124400AFB0E7 /* Wm4OpenGLFrameBuffer.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CBD72D80A01124400AFB0E7 /* Wm4OpenGLFrameBuffer.h */; };
+		3CBD732D0A01124400AFB0E7 /* Wm4OpenGLPolygonOffsetState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CBD72D90A01124400AFB0E7 /* Wm4OpenGLPolygonOffsetState.cpp */; };
+		3CBD732E0A01124400AFB0E7 /* Wm4OpenGLRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CBD72DA0A01124400AFB0E7 /* Wm4OpenGLRenderer.cpp */; };
+		3CBD732F0A01124400AFB0E7 /* Wm4OpenGLRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CBD72DB0A01124400AFB0E7 /* Wm4OpenGLRenderer.h */; };
+		3CBD73300A01124400AFB0E7 /* Wm4OpenGLRendererLIB.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CBD72DC0A01124400AFB0E7 /* Wm4OpenGLRendererLIB.h */; };
+		3CBD73310A01124400AFB0E7 /* Wm4OpenGLRendererPCH.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CBD72DD0A01124400AFB0E7 /* Wm4OpenGLRendererPCH.cpp */; };
+		3CBD73320A01124400AFB0E7 /* Wm4OpenGLRendererPCH.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CBD72DE0A01124400AFB0E7 /* Wm4OpenGLRendererPCH.h */; };
+		3CBD73330A01124400AFB0E7 /* Wm4OpenGLResources.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CBD72DF0A01124400AFB0E7 /* Wm4OpenGLResources.h */; };
+		3CBD73340A01124400AFB0E7 /* Wm4OpenGLResourcesED.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CBD72E00A01124400AFB0E7 /* Wm4OpenGLResourcesED.cpp */; };
+		3CBD73350A01124400AFB0E7 /* Wm4OpenGLResourcesLR.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CBD72E10A01124400AFB0E7 /* Wm4OpenGLResourcesLR.cpp */; };
+		3CBD73360A01124400AFB0E7 /* Wm4OpenGLStencilState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CBD72E20A01124400AFB0E7 /* Wm4OpenGLStencilState.cpp */; };
+		3CBD73370A01124400AFB0E7 /* Wm4OpenGLTransformation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CBD72E30A01124400AFB0E7 /* Wm4OpenGLTransformation.cpp */; };
+		3CBD73380A01124400AFB0E7 /* Wm4OpenGLVerdanaS16B0I0.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CBD72E40A01124400AFB0E7 /* Wm4OpenGLVerdanaS16B0I0.cpp */; };
+		3CBD73390A01124400AFB0E7 /* Wm4OpenGLWireframeState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CBD72E50A01124400AFB0E7 /* Wm4OpenGLWireframeState.cpp */; };
+		3CBD733A0A01124400AFB0E7 /* Wm4OpenGLZBufferState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CBD72E60A01124400AFB0E7 /* Wm4OpenGLZBufferState.cpp */; };
+		3CBD733C0A01124400AFB0E7 /* Wm4AglRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CBD72CC0A01124400AFB0E7 /* Wm4AglRenderer.cpp */; };
+		3CBD733D0A01124400AFB0E7 /* Wm4AglRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CBD72CD0A01124400AFB0E7 /* Wm4AglRenderer.h */; };
+		3CBD733E0A01124400AFB0E7 /* Wm4OpenGLAlphaState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CBD72CE0A01124400AFB0E7 /* Wm4OpenGLAlphaState.cpp */; };
+		3CBD733F0A01124400AFB0E7 /* Wm4OpenGLBitmapFont.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CBD72CF0A01124400AFB0E7 /* Wm4OpenGLBitmapFont.h */; };
+		3CBD73400A01124400AFB0E7 /* Wm4OpenGLCullState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CBD72D00A01124400AFB0E7 /* Wm4OpenGLCullState.cpp */; };
+		3CBD73410A01124400AFB0E7 /* Wm4OpenGLDrawBuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CBD72D10A01124400AFB0E7 /* Wm4OpenGLDrawBuffer.cpp */; };
+		3CBD73420A01124400AFB0E7 /* Wm4OpenGLDrawElements.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CBD72D20A01124400AFB0E7 /* Wm4OpenGLDrawElements.cpp */; };
+		3CBD73430A01124400AFB0E7 /* Wm4OpenGLDrawText.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CBD72D30A01124400AFB0E7 /* Wm4OpenGLDrawText.cpp */; };
+		3CBD73470A01124400AFB0E7 /* Wm4OpenGLFrameBuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CBD72D70A01124400AFB0E7 /* Wm4OpenGLFrameBuffer.cpp */; };
+		3CBD73480A01124400AFB0E7 /* Wm4OpenGLFrameBuffer.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CBD72D80A01124400AFB0E7 /* Wm4OpenGLFrameBuffer.h */; };
+		3CBD73490A01124400AFB0E7 /* Wm4OpenGLPolygonOffsetState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CBD72D90A01124400AFB0E7 /* Wm4OpenGLPolygonOffsetState.cpp */; };
+		3CBD734A0A01124400AFB0E7 /* Wm4OpenGLRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CBD72DA0A01124400AFB0E7 /* Wm4OpenGLRenderer.cpp */; };
+		3CBD734B0A01124400AFB0E7 /* Wm4OpenGLRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CBD72DB0A01124400AFB0E7 /* Wm4OpenGLRenderer.h */; };
+		3CBD734C0A01124400AFB0E7 /* Wm4OpenGLRendererLIB.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CBD72DC0A01124400AFB0E7 /* Wm4OpenGLRendererLIB.h */; };
+		3CBD734D0A01124400AFB0E7 /* Wm4OpenGLRendererPCH.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CBD72DD0A01124400AFB0E7 /* Wm4OpenGLRendererPCH.cpp */; };
+		3CBD734E0A01124400AFB0E7 /* Wm4OpenGLRendererPCH.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CBD72DE0A01124400AFB0E7 /* Wm4OpenGLRendererPCH.h */; };
+		3CBD734F0A01124400AFB0E7 /* Wm4OpenGLResources.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CBD72DF0A01124400AFB0E7 /* Wm4OpenGLResources.h */; };
+		3CBD73500A01124400AFB0E7 /* Wm4OpenGLResourcesED.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CBD72E00A01124400AFB0E7 /* Wm4OpenGLResourcesED.cpp */; };
+		3CBD73510A01124400AFB0E7 /* Wm4OpenGLResourcesLR.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CBD72E10A01124400AFB0E7 /* Wm4OpenGLResourcesLR.cpp */; };
+		3CBD73520A01124400AFB0E7 /* Wm4OpenGLStencilState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CBD72E20A01124400AFB0E7 /* Wm4OpenGLStencilState.cpp */; };
+		3CBD73530A01124400AFB0E7 /* Wm4OpenGLTransformation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CBD72E30A01124400AFB0E7 /* Wm4OpenGLTransformation.cpp */; };
+		3CBD73540A01124400AFB0E7 /* Wm4OpenGLVerdanaS16B0I0.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CBD72E40A01124400AFB0E7 /* Wm4OpenGLVerdanaS16B0I0.cpp */; };
+		3CBD73550A01124400AFB0E7 /* Wm4OpenGLWireframeState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CBD72E50A01124400AFB0E7 /* Wm4OpenGLWireframeState.cpp */; };
+		3CBD73560A01124400AFB0E7 /* Wm4OpenGLZBufferState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CBD72E60A01124400AFB0E7 /* Wm4OpenGLZBufferState.cpp */; };
+		3CBD73590A01126900AFB0E7 /* libWm4Foundationd.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CBD73570A01126900AFB0E7 /* libWm4Foundationd.dylib */; };
+		3CBD735A0A01126900AFB0E7 /* libWm4Graphicsd.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CBD73580A01126900AFB0E7 /* libWm4Graphicsd.dylib */; };
+		3CBD735D0A01128200AFB0E7 /* libWm4Foundation.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CBD735B0A01128200AFB0E7 /* libWm4Foundation.dylib */; };
+		3CBD735E0A01128200AFB0E7 /* libWm4Graphics.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CBD735C0A01128200AFB0E7 /* libWm4Graphics.dylib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		3C2FB1350BAC943800EF61A8 /* GTaglExtensions.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = GTaglExtensions.cpp; sourceTree = "<group>"; };
+		3C2FB1360BAC943800EF61A8 /* GTglExtensions.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = GTglExtensions.cpp; sourceTree = "<group>"; };
+		3C2FB1370BAC943800EF61A8 /* GTglPlugin.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = GTglPlugin.cpp; sourceTree = "<group>"; };
+		3C6FBA29083E492C0068AA05 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
+		3C6FBA2E083E49470068AA05 /* AGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AGL.framework; path = /System/Library/Frameworks/AGL.framework; sourceTree = "<absolute>"; };
+		3C6FBA33083E496B0068AA05 /* DrawSprocket.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DrawSprocket.framework; path = /System/Library/Frameworks/DrawSprocket.framework; sourceTree = "<absolute>"; };
+		3CBB67100A2ABD93001275CA /* libWm4AglRenderermd.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libWm4AglRenderermd.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		3CBB67370A2ABEB0001275CA /* libWm4AglRendererm.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libWm4AglRendererm.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		3CBC59DD0A4B0A8B00273CCF /* GTglExtensions.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = GTglExtensions.h; sourceTree = "<group>"; };
+		3CBC59DE0A4B0A8B00273CCF /* GTglPlugin.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = GTglPlugin.h; sourceTree = "<group>"; };
+		3CBC59DF0A4B0A8B00273CCF /* GTglUtility.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = GTglUtility.h; sourceTree = "<group>"; };
+		3CBD72CC0A01124400AFB0E7 /* Wm4AglRenderer.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = Wm4AglRenderer.cpp; sourceTree = "<group>"; };
+		3CBD72CD0A01124400AFB0E7 /* Wm4AglRenderer.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = Wm4AglRenderer.h; sourceTree = "<group>"; };
+		3CBD72CE0A01124400AFB0E7 /* Wm4OpenGLAlphaState.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = Wm4OpenGLAlphaState.cpp; sourceTree = "<group>"; };
+		3CBD72CF0A01124400AFB0E7 /* Wm4OpenGLBitmapFont.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = Wm4OpenGLBitmapFont.h; sourceTree = "<group>"; };
+		3CBD72D00A01124400AFB0E7 /* Wm4OpenGLCullState.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = Wm4OpenGLCullState.cpp; sourceTree = "<group>"; };
+		3CBD72D10A01124400AFB0E7 /* Wm4OpenGLDrawBuffer.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = Wm4OpenGLDrawBuffer.cpp; sourceTree = "<group>"; };
+		3CBD72D20A01124400AFB0E7 /* Wm4OpenGLDrawElements.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = Wm4OpenGLDrawElements.cpp; sourceTree = "<group>"; };
+		3CBD72D30A01124400AFB0E7 /* Wm4OpenGLDrawText.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = Wm4OpenGLDrawText.cpp; sourceTree = "<group>"; };
+		3CBD72D70A01124400AFB0E7 /* Wm4OpenGLFrameBuffer.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = Wm4OpenGLFrameBuffer.cpp; sourceTree = "<group>"; };
+		3CBD72D80A01124400AFB0E7 /* Wm4OpenGLFrameBuffer.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = Wm4OpenGLFrameBuffer.h; sourceTree = "<group>"; };
+		3CBD72D90A01124400AFB0E7 /* Wm4OpenGLPolygonOffsetState.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = Wm4OpenGLPolygonOffsetState.cpp; sourceTree = "<group>"; };
+		3CBD72DA0A01124400AFB0E7 /* Wm4OpenGLRenderer.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = Wm4OpenGLRenderer.cpp; sourceTree = "<group>"; };
+		3CBD72DB0A01124400AFB0E7 /* Wm4OpenGLRenderer.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = Wm4OpenGLRenderer.h; sourceTree = "<group>"; };
+		3CBD72DC0A01124400AFB0E7 /* Wm4OpenGLRendererLIB.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = Wm4OpenGLRendererLIB.h; sourceTree = "<group>"; };
+		3CBD72DD0A01124400AFB0E7 /* Wm4OpenGLRendererPCH.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = Wm4OpenGLRendererPCH.cpp; sourceTree = "<group>"; };
+		3CBD72DE0A01124400AFB0E7 /* Wm4OpenGLRendererPCH.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = Wm4OpenGLRendererPCH.h; sourceTree = "<group>"; };
+		3CBD72DF0A01124400AFB0E7 /* Wm4OpenGLResources.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = Wm4OpenGLResources.h; sourceTree = "<group>"; };
+		3CBD72E00A01124400AFB0E7 /* Wm4OpenGLResourcesED.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = Wm4OpenGLResourcesED.cpp; sourceTree = "<group>"; };
+		3CBD72E10A01124400AFB0E7 /* Wm4OpenGLResourcesLR.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = Wm4OpenGLResourcesLR.cpp; sourceTree = "<group>"; };
+		3CBD72E20A01124400AFB0E7 /* Wm4OpenGLStencilState.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = Wm4OpenGLStencilState.cpp; sourceTree = "<group>"; };
+		3CBD72E30A01124400AFB0E7 /* Wm4OpenGLTransformation.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = Wm4OpenGLTransformation.cpp; sourceTree = "<group>"; };
+		3CBD72E40A01124400AFB0E7 /* Wm4OpenGLVerdanaS16B0I0.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = Wm4OpenGLVerdanaS16B0I0.cpp; sourceTree = "<group>"; };
+		3CBD72E50A01124400AFB0E7 /* Wm4OpenGLWireframeState.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = Wm4OpenGLWireframeState.cpp; sourceTree = "<group>"; };
+		3CBD72E60A01124400AFB0E7 /* Wm4OpenGLZBufferState.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = Wm4OpenGLZBufferState.cpp; sourceTree = "<group>"; };
+		3CBD73570A01126900AFB0E7 /* libWm4Foundationd.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libWm4Foundationd.dylib; path = ../../SDK/Library/DebugDLL/libWm4Foundationd.dylib; sourceTree = SOURCE_ROOT; };
+		3CBD73580A01126900AFB0E7 /* libWm4Graphicsd.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libWm4Graphicsd.dylib; path = ../../SDK/Library/DebugDLL/libWm4Graphicsd.dylib; sourceTree = SOURCE_ROOT; };
+		3CBD735B0A01128200AFB0E7 /* libWm4Foundation.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libWm4Foundation.dylib; path = ../../SDK/Library/ReleaseDLL/libWm4Foundation.dylib; sourceTree = SOURCE_ROOT; };
+		3CBD735C0A01128200AFB0E7 /* libWm4Graphics.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libWm4Graphics.dylib; path = ../../SDK/Library/ReleaseDLL/libWm4Graphics.dylib; sourceTree = SOURCE_ROOT; };
+		742F0AE307F485FE00E4DBBA /* libWm4AglRendererd.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libWm4AglRendererd.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+		742F0AE807F4867600E4DBBA /* libWm4AglRenderer.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libWm4AglRenderer.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+		74D6E86F07F34B2200267169 /* libWm4AglRendererd.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libWm4AglRendererd.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		74D6E87507F34B7400267169 /* libWm4AglRenderer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libWm4AglRenderer.a; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3CBB670E0A2ABD93001275CA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3CBB67350A2ABEB0001275CA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		742F0AE107F485FE00E4DBBA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3C6FBA2A083E492C0068AA05 /* Carbon.framework in Frameworks */,
+				3C6FBA2F083E49470068AA05 /* AGL.framework in Frameworks */,
+				3C6FBA34083E496B0068AA05 /* DrawSprocket.framework in Frameworks */,
+				3CBD73590A01126900AFB0E7 /* libWm4Foundationd.dylib in Frameworks */,
+				3CBD735A0A01126900AFB0E7 /* libWm4Graphicsd.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		742F0AE707F4867600E4DBBA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3C6FBA2B083E492C0068AA05 /* Carbon.framework in Frameworks */,
+				3C6FBA30083E49470068AA05 /* AGL.framework in Frameworks */,
+				3C6FBA35083E496B0068AA05 /* DrawSprocket.framework in Frameworks */,
+				3CBD735D0A01128200AFB0E7 /* libWm4Foundation.dylib in Frameworks */,
+				3CBD735E0A01128200AFB0E7 /* libWm4Graphics.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		74D6E86D07F34B2200267169 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		74D6E87407F34B7400267169 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3C6FBA26083E49060068AA05 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3C6FBA33083E496B0068AA05 /* DrawSprocket.framework */,
+				3C6FBA2E083E49470068AA05 /* AGL.framework */,
+				3C6FBA29083E492C0068AA05 /* Carbon.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3C6FBC08083E69C70068AA05 /* DebugDLL */ = {
+			isa = PBXGroup;
+			children = (
+				3CBD73570A01126900AFB0E7 /* libWm4Foundationd.dylib */,
+				3CBD73580A01126900AFB0E7 /* libWm4Graphicsd.dylib */,
+			);
+			name = DebugDLL;
+			sourceTree = "<group>";
+		};
+		3C6FBC0B083E69E20068AA05 /* ReleaseDLL */ = {
+			isa = PBXGroup;
+			children = (
+				3CBD735B0A01128200AFB0E7 /* libWm4Foundation.dylib */,
+				3CBD735C0A01128200AFB0E7 /* libWm4Graphics.dylib */,
+			);
+			name = ReleaseDLL;
+			sourceTree = "<group>";
+		};
+		742F0B9507F4893900E4DBBA /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				3C6FBC08083E69C70068AA05 /* DebugDLL */,
+				3C6FBC0B083E69E20068AA05 /* ReleaseDLL */,
+			);
+			name = Libraries;
+			sourceTree = SOURCE_ROOT;
+		};
+		74D6E86107F34AF400267169 = {
+			isa = PBXGroup;
+			children = (
+				74D6E87807F34BA900267169 /* Sources */,
+				742F0B9507F4893900E4DBBA /* Libraries */,
+				3C6FBA26083E49060068AA05 /* Frameworks */,
+				74D6E87007F34B2200267169 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		74D6E87007F34B2200267169 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				74D6E86F07F34B2200267169 /* libWm4AglRendererd.a */,
+				74D6E87507F34B7400267169 /* libWm4AglRenderer.a */,
+				742F0AE307F485FE00E4DBBA /* libWm4AglRendererd.dylib */,
+				742F0AE807F4867600E4DBBA /* libWm4AglRenderer.dylib */,
+				3CBB67100A2ABD93001275CA /* libWm4AglRenderermd.a */,
+				3CBB67370A2ABEB0001275CA /* libWm4AglRendererm.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		74D6E87807F34BA900267169 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				3C2FB1350BAC943800EF61A8 /* GTaglExtensions.cpp */,
+				3C2FB1360BAC943800EF61A8 /* GTglExtensions.cpp */,
+				3C2FB1370BAC943800EF61A8 /* GTglPlugin.cpp */,
+				3CBC59DD0A4B0A8B00273CCF /* GTglExtensions.h */,
+				3CBC59DE0A4B0A8B00273CCF /* GTglPlugin.h */,
+				3CBC59DF0A4B0A8B00273CCF /* GTglUtility.h */,
+				3CBD72CC0A01124400AFB0E7 /* Wm4AglRenderer.cpp */,
+				3CBD72CD0A01124400AFB0E7 /* Wm4AglRenderer.h */,
+				3CBD72CE0A01124400AFB0E7 /* Wm4OpenGLAlphaState.cpp */,
+				3CBD72CF0A01124400AFB0E7 /* Wm4OpenGLBitmapFont.h */,
+				3CBD72D00A01124400AFB0E7 /* Wm4OpenGLCullState.cpp */,
+				3CBD72D10A01124400AFB0E7 /* Wm4OpenGLDrawBuffer.cpp */,
+				3CBD72D20A01124400AFB0E7 /* Wm4OpenGLDrawElements.cpp */,
+				3CBD72D30A01124400AFB0E7 /* Wm4OpenGLDrawText.cpp */,
+				3CBD72D70A01124400AFB0E7 /* Wm4OpenGLFrameBuffer.cpp */,
+				3CBD72D80A01124400AFB0E7 /* Wm4OpenGLFrameBuffer.h */,
+				3CBD72D90A01124400AFB0E7 /* Wm4OpenGLPolygonOffsetState.cpp */,
+				3CBD72DA0A01124400AFB0E7 /* Wm4OpenGLRenderer.cpp */,
+				3CBD72DB0A01124400AFB0E7 /* Wm4OpenGLRenderer.h */,
+				3CBD72DC0A01124400AFB0E7 /* Wm4OpenGLRendererLIB.h */,
+				3CBD72DD0A01124400AFB0E7 /* Wm4OpenGLRendererPCH.cpp */,
+				3CBD72DE0A01124400AFB0E7 /* Wm4OpenGLRendererPCH.h */,
+				3CBD72DF0A01124400AFB0E7 /* Wm4OpenGLResources.h */,
+				3CBD72E00A01124400AFB0E7 /* Wm4OpenGLResourcesED.cpp */,
+				3CBD72E10A01124400AFB0E7 /* Wm4OpenGLResourcesLR.cpp */,
+				3CBD72E20A01124400AFB0E7 /* Wm4OpenGLStencilState.cpp */,
+				3CBD72E30A01124400AFB0E7 /* Wm4OpenGLTransformation.cpp */,
+				3CBD72E40A01124400AFB0E7 /* Wm4OpenGLVerdanaS16B0I0.cpp */,
+				3CBD72E50A01124400AFB0E7 /* Wm4OpenGLWireframeState.cpp */,
+				3CBD72E60A01124400AFB0E7 /* Wm4OpenGLZBufferState.cpp */,
+			);
+			name = Sources;
+			sourceTree = SOURCE_ROOT;
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		3CBB670C0A2ABD93001275CA /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3CBB67130A2ABDA1001275CA /* Wm4AglRenderer.h in Headers */,
+				3CBB67150A2ABDA3001275CA /* Wm4OpenGLBitmapFont.h in Headers */,
+				3CBB671E0A2ABDA8001275CA /* Wm4OpenGLFrameBuffer.h in Headers */,
+				3CBB67210A2ABDAA001275CA /* Wm4OpenGLRenderer.h in Headers */,
+				3CBB67220A2ABDAC001275CA /* Wm4OpenGLRendererLIB.h in Headers */,
+				3CBB67240A2ABDAD001275CA /* Wm4OpenGLRendererPCH.h in Headers */,
+				3CBB67250A2ABDAE001275CA /* Wm4OpenGLResources.h in Headers */,
+				3CBC59F60A4B0A8B00273CCF /* GTglExtensions.h in Headers */,
+				3CBC59F70A4B0A8B00273CCF /* GTglPlugin.h in Headers */,
+				3CBC59F80A4B0A8B00273CCF /* GTglUtility.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3CBB67330A2ABEB0001275CA /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3CBB673A0A2ABEB7001275CA /* Wm4AglRenderer.h in Headers */,
+				3CBB673C0A2ABEB8001275CA /* Wm4OpenGLBitmapFont.h in Headers */,
+				3CBB67450A2ABEBE001275CA /* Wm4OpenGLFrameBuffer.h in Headers */,
+				3CBB67480A2ABEC0001275CA /* Wm4OpenGLRenderer.h in Headers */,
+				3CBB67490A2ABEC1001275CA /* Wm4OpenGLRendererLIB.h in Headers */,
+				3CBB674B0A2ABEC3001275CA /* Wm4OpenGLRendererPCH.h in Headers */,
+				3CBB674C0A2ABEC4001275CA /* Wm4OpenGLResources.h in Headers */,
+				3CBC59FB0A4B0A8B00273CCF /* GTglExtensions.h in Headers */,
+				3CBC59FC0A4B0A8B00273CCF /* GTglPlugin.h in Headers */,
+				3CBC59FD0A4B0A8B00273CCF /* GTglUtility.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		742F0ADF07F485FE00E4DBBA /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3CBD73210A01124400AFB0E7 /* Wm4AglRenderer.h in Headers */,
+				3CBD73230A01124400AFB0E7 /* Wm4OpenGLBitmapFont.h in Headers */,
+				3CBD732C0A01124400AFB0E7 /* Wm4OpenGLFrameBuffer.h in Headers */,
+				3CBD732F0A01124400AFB0E7 /* Wm4OpenGLRenderer.h in Headers */,
+				3CBD73300A01124400AFB0E7 /* Wm4OpenGLRendererLIB.h in Headers */,
+				3CBD73320A01124400AFB0E7 /* Wm4OpenGLRendererPCH.h in Headers */,
+				3CBD73330A01124400AFB0E7 /* Wm4OpenGLResources.h in Headers */,
+				3CBC59EC0A4B0A8B00273CCF /* GTglExtensions.h in Headers */,
+				3CBC59ED0A4B0A8B00273CCF /* GTglPlugin.h in Headers */,
+				3CBC59EE0A4B0A8B00273CCF /* GTglUtility.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		742F0AE507F4867600E4DBBA /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3CBD733D0A01124400AFB0E7 /* Wm4AglRenderer.h in Headers */,
+				3CBD733F0A01124400AFB0E7 /* Wm4OpenGLBitmapFont.h in Headers */,
+				3CBD73480A01124400AFB0E7 /* Wm4OpenGLFrameBuffer.h in Headers */,
+				3CBD734B0A01124400AFB0E7 /* Wm4OpenGLRenderer.h in Headers */,
+				3CBD734C0A01124400AFB0E7 /* Wm4OpenGLRendererLIB.h in Headers */,
+				3CBD734E0A01124400AFB0E7 /* Wm4OpenGLRendererPCH.h in Headers */,
+				3CBD734F0A01124400AFB0E7 /* Wm4OpenGLResources.h in Headers */,
+				3CBC59F10A4B0A8B00273CCF /* GTglExtensions.h in Headers */,
+				3CBC59F20A4B0A8B00273CCF /* GTglPlugin.h in Headers */,
+				3CBC59F30A4B0A8B00273CCF /* GTglUtility.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		74D6E86B07F34B2200267169 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3CBD72E90A01124400AFB0E7 /* Wm4AglRenderer.h in Headers */,
+				3CBD72EB0A01124400AFB0E7 /* Wm4OpenGLBitmapFont.h in Headers */,
+				3CBD72F40A01124400AFB0E7 /* Wm4OpenGLFrameBuffer.h in Headers */,
+				3CBD72F70A01124400AFB0E7 /* Wm4OpenGLRenderer.h in Headers */,
+				3CBD72F80A01124400AFB0E7 /* Wm4OpenGLRendererLIB.h in Headers */,
+				3CBD72FA0A01124400AFB0E7 /* Wm4OpenGLRendererPCH.h in Headers */,
+				3CBD72FB0A01124400AFB0E7 /* Wm4OpenGLResources.h in Headers */,
+				3CBC59E20A4B0A8B00273CCF /* GTglExtensions.h in Headers */,
+				3CBC59E30A4B0A8B00273CCF /* GTglPlugin.h in Headers */,
+				3CBC59E40A4B0A8B00273CCF /* GTglUtility.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		74D6E87207F34B7400267169 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3CBD73050A01124400AFB0E7 /* Wm4AglRenderer.h in Headers */,
+				3CBD73070A01124400AFB0E7 /* Wm4OpenGLBitmapFont.h in Headers */,
+				3CBD73100A01124400AFB0E7 /* Wm4OpenGLFrameBuffer.h in Headers */,
+				3CBD73130A01124400AFB0E7 /* Wm4OpenGLRenderer.h in Headers */,
+				3CBD73140A01124400AFB0E7 /* Wm4OpenGLRendererLIB.h in Headers */,
+				3CBD73160A01124400AFB0E7 /* Wm4OpenGLRendererPCH.h in Headers */,
+				3CBD73170A01124400AFB0E7 /* Wm4OpenGLResources.h in Headers */,
+				3CBC59E70A4B0A8B00273CCF /* GTglExtensions.h in Headers */,
+				3CBC59E80A4B0A8B00273CCF /* GTglPlugin.h in Headers */,
+				3CBC59E90A4B0A8B00273CCF /* GTglUtility.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		3CBB670F0A2ABD93001275CA /* Debug Memory */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3CBB67300A2ABE85001275CA /* Build configuration list for PBXNativeTarget "Debug Memory" */;
+			buildPhases = (
+				3CBB670C0A2ABD93001275CA /* Headers */,
+				3CBB670D0A2ABD93001275CA /* Sources */,
+				3CBB670E0A2ABD93001275CA /* Frameworks */,
+				3CBB672D0A2ABE66001275CA /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Debug Memory";
+			productName = "Debug Memory";
+			productReference = 3CBB67100A2ABD93001275CA /* libWm4AglRenderermd.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		3CBB67360A2ABEB0001275CA /* Release Memory */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3CBB67550A2ABF6A001275CA /* Build configuration list for PBXNativeTarget "Release Memory" */;
+			buildPhases = (
+				3CBB67330A2ABEB0001275CA /* Headers */,
+				3CBB67340A2ABEB0001275CA /* Sources */,
+				3CBB67350A2ABEB0001275CA /* Frameworks */,
+				3CBB67580A2ABF6F001275CA /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Release Memory";
+			productName = "Release Memory";
+			productReference = 3CBB67370A2ABEB0001275CA /* libWm4AglRendererm.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		742F0AE207F485FE00E4DBBA /* Debug Dynamic */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3C0273B8088FE76A00A93309 /* Build configuration list for PBXNativeTarget "Debug Dynamic" */;
+			buildPhases = (
+				742F0ADF07F485FE00E4DBBA /* Headers */,
+				742F0AE007F485FE00E4DBBA /* Sources */,
+				742F0AE107F485FE00E4DBBA /* Frameworks */,
+				3C9DBB74083D27AA006BA80C /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Debug Dynamic";
+			productName = "Dynamic Debug";
+			productReference = 742F0AE307F485FE00E4DBBA /* libWm4AglRendererd.dylib */;
+			productType = "com.apple.product-type.library.dynamic";
+		};
+		742F0AE407F4867600E4DBBA /* Release Dynamic */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3C0273BB088FE76A00A93309 /* Build configuration list for PBXNativeTarget "Release Dynamic" */;
+			buildPhases = (
+				742F0AE507F4867600E4DBBA /* Headers */,
+				742F0AE607F4867600E4DBBA /* Sources */,
+				742F0AE707F4867600E4DBBA /* Frameworks */,
+				3C9DBB77083D27B8006BA80C /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Release Dynamic";
+			productName = "Dynamic Debug";
+			productReference = 742F0AE807F4867600E4DBBA /* libWm4AglRenderer.dylib */;
+			productType = "com.apple.product-type.library.dynamic";
+		};
+		74D6E86E07F34B2200267169 /* Debug Static */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3C0273AF088FE76A00A93309 /* Build configuration list for PBXNativeTarget "Debug Static" */;
+			buildPhases = (
+				74D6E86B07F34B2200267169 /* Headers */,
+				74D6E86C07F34B2200267169 /* Sources */,
+				74D6E86D07F34B2200267169 /* Frameworks */,
+				3C9DBB6A083D2765006BA80C /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Debug Static";
+			productName = "Static Debug";
+			productReference = 74D6E86F07F34B2200267169 /* libWm4AglRendererd.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		74D6E87107F34B7400267169 /* Release Static */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3C0273B2088FE76A00A93309 /* Build configuration list for PBXNativeTarget "Release Static" */;
+			buildPhases = (
+				74D6E87207F34B7400267169 /* Headers */,
+				74D6E87307F34B7400267169 /* Sources */,
+				74D6E87407F34B7400267169 /* Frameworks */,
+				3C9DBB71083D2786006BA80C /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Release Static";
+			productName = "Static Debug";
+			productReference = 74D6E87507F34B7400267169 /* libWm4AglRenderer.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		74D6E86507F34AF400267169 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 3C0273C4088FE76A00A93309 /* Build configuration list for PBXProject "AglRenderer" */;
+			compatibilityVersion = "Xcode 2.4";
+			hasScannedForEncodings = 0;
+			mainGroup = 74D6E86107F34AF400267169;
+			productRefGroup = 74D6E87007F34B2200267169 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				74D6E86E07F34B2200267169 /* Debug Static */,
+				74D6E87107F34B7400267169 /* Release Static */,
+				742F0AE207F485FE00E4DBBA /* Debug Dynamic */,
+				742F0AE407F4867600E4DBBA /* Release Dynamic */,
+				3CBB670F0A2ABD93001275CA /* Debug Memory */,
+				3CBB67360A2ABEB0001275CA /* Release Memory */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3C9DBB6A083D2765006BA80C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = ./CopySdkDebugStatic.sh;
+		};
+		3C9DBB71083D2786006BA80C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = ./CopySdkReleaseStatic.sh;
+		};
+		3C9DBB74083D27AA006BA80C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = ./CopySdkDebugDynamic.sh;
+		};
+		3C9DBB77083D27B8006BA80C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = ./CopySdkReleaseDynamic.sh;
+		};
+		3CBB672D0A2ABE66001275CA /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = ./CopySdkDebugMemory.sh;
+		};
+		3CBB67580A2ABF6F001275CA /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = ./CopySdkReleaseMemory.sh;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3CBB670D0A2ABD93001275CA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3CBB67120A2ABDA0001275CA /* Wm4AglRenderer.cpp in Sources */,
+				3CBB67140A2ABDA2001275CA /* Wm4OpenGLAlphaState.cpp in Sources */,
+				3CBB67160A2ABDA3001275CA /* Wm4OpenGLCullState.cpp in Sources */,
+				3CBB67170A2ABDA4001275CA /* Wm4OpenGLDrawBuffer.cpp in Sources */,
+				3CBB67180A2ABDA4001275CA /* Wm4OpenGLDrawElements.cpp in Sources */,
+				3CBB67190A2ABDA5001275CA /* Wm4OpenGLDrawText.cpp in Sources */,
+				3CBB671D0A2ABDA7001275CA /* Wm4OpenGLFrameBuffer.cpp in Sources */,
+				3CBB671F0A2ABDA9001275CA /* Wm4OpenGLPolygonOffsetState.cpp in Sources */,
+				3CBB67200A2ABDA9001275CA /* Wm4OpenGLRenderer.cpp in Sources */,
+				3CBB67230A2ABDAD001275CA /* Wm4OpenGLRendererPCH.cpp in Sources */,
+				3CBB67260A2ABDAF001275CA /* Wm4OpenGLResourcesED.cpp in Sources */,
+				3CBB67270A2ABDAF001275CA /* Wm4OpenGLResourcesLR.cpp in Sources */,
+				3CBB67280A2ABDB0001275CA /* Wm4OpenGLStencilState.cpp in Sources */,
+				3CBB67290A2ABDB1001275CA /* Wm4OpenGLTransformation.cpp in Sources */,
+				3CBB672A0A2ABDB1001275CA /* Wm4OpenGLVerdanaS16B0I0.cpp in Sources */,
+				3CBB672B0A2ABDB2001275CA /* Wm4OpenGLWireframeState.cpp in Sources */,
+				3CBB672C0A2ABDB3001275CA /* Wm4OpenGLZBufferState.cpp in Sources */,
+				3C2FB1440BAC943800EF61A8 /* GTaglExtensions.cpp in Sources */,
+				3C2FB1450BAC943800EF61A8 /* GTglExtensions.cpp in Sources */,
+				3C2FB1460BAC943800EF61A8 /* GTglPlugin.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3CBB67340A2ABEB0001275CA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3CBB67390A2ABEB7001275CA /* Wm4AglRenderer.cpp in Sources */,
+				3CBB673B0A2ABEB8001275CA /* Wm4OpenGLAlphaState.cpp in Sources */,
+				3CBB673D0A2ABEB9001275CA /* Wm4OpenGLCullState.cpp in Sources */,
+				3CBB673E0A2ABEBA001275CA /* Wm4OpenGLDrawBuffer.cpp in Sources */,
+				3CBB673F0A2ABEBA001275CA /* Wm4OpenGLDrawElements.cpp in Sources */,
+				3CBB67400A2ABEBB001275CA /* Wm4OpenGLDrawText.cpp in Sources */,
+				3CBB67440A2ABEBE001275CA /* Wm4OpenGLFrameBuffer.cpp in Sources */,
+				3CBB67460A2ABEBF001275CA /* Wm4OpenGLPolygonOffsetState.cpp in Sources */,
+				3CBB67470A2ABEBF001275CA /* Wm4OpenGLRenderer.cpp in Sources */,
+				3CBB674A0A2ABEC1001275CA /* Wm4OpenGLRendererPCH.cpp in Sources */,
+				3CBB674D0A2ABEC4001275CA /* Wm4OpenGLResourcesED.cpp in Sources */,
+				3CBB674E0A2ABEC5001275CA /* Wm4OpenGLResourcesLR.cpp in Sources */,
+				3CBB674F0A2ABEC5001275CA /* Wm4OpenGLStencilState.cpp in Sources */,
+				3CBB67500A2ABEC6001275CA /* Wm4OpenGLTransformation.cpp in Sources */,
+				3CBB67510A2ABEC6001275CA /* Wm4OpenGLVerdanaS16B0I0.cpp in Sources */,
+				3CBB67520A2ABEC7001275CA /* Wm4OpenGLWireframeState.cpp in Sources */,
+				3CBB67530A2ABEC8001275CA /* Wm4OpenGLZBufferState.cpp in Sources */,
+				3C2FB1470BAC943800EF61A8 /* GTaglExtensions.cpp in Sources */,
+				3C2FB1480BAC943800EF61A8 /* GTglExtensions.cpp in Sources */,
+				3C2FB1490BAC943800EF61A8 /* GTglPlugin.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		742F0AE007F485FE00E4DBBA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3CBD73200A01124400AFB0E7 /* Wm4AglRenderer.cpp in Sources */,
+				3CBD73220A01124400AFB0E7 /* Wm4OpenGLAlphaState.cpp in Sources */,
+				3CBD73240A01124400AFB0E7 /* Wm4OpenGLCullState.cpp in Sources */,
+				3CBD73250A01124400AFB0E7 /* Wm4OpenGLDrawBuffer.cpp in Sources */,
+				3CBD73260A01124400AFB0E7 /* Wm4OpenGLDrawElements.cpp in Sources */,
+				3CBD73270A01124400AFB0E7 /* Wm4OpenGLDrawText.cpp in Sources */,
+				3CBD732B0A01124400AFB0E7 /* Wm4OpenGLFrameBuffer.cpp in Sources */,
+				3CBD732D0A01124400AFB0E7 /* Wm4OpenGLPolygonOffsetState.cpp in Sources */,
+				3CBD732E0A01124400AFB0E7 /* Wm4OpenGLRenderer.cpp in Sources */,
+				3CBD73310A01124400AFB0E7 /* Wm4OpenGLRendererPCH.cpp in Sources */,
+				3CBD73340A01124400AFB0E7 /* Wm4OpenGLResourcesED.cpp in Sources */,
+				3CBD73350A01124400AFB0E7 /* Wm4OpenGLResourcesLR.cpp in Sources */,
+				3CBD73360A01124400AFB0E7 /* Wm4OpenGLStencilState.cpp in Sources */,
+				3CBD73370A01124400AFB0E7 /* Wm4OpenGLTransformation.cpp in Sources */,
+				3CBD73380A01124400AFB0E7 /* Wm4OpenGLVerdanaS16B0I0.cpp in Sources */,
+				3CBD73390A01124400AFB0E7 /* Wm4OpenGLWireframeState.cpp in Sources */,
+				3CBD733A0A01124400AFB0E7 /* Wm4OpenGLZBufferState.cpp in Sources */,
+				3C2FB13E0BAC943800EF61A8 /* GTaglExtensions.cpp in Sources */,
+				3C2FB13F0BAC943800EF61A8 /* GTglExtensions.cpp in Sources */,
+				3C2FB1400BAC943800EF61A8 /* GTglPlugin.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		742F0AE607F4867600E4DBBA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3CBD733C0A01124400AFB0E7 /* Wm4AglRenderer.cpp in Sources */,
+				3CBD733E0A01124400AFB0E7 /* Wm4OpenGLAlphaState.cpp in Sources */,
+				3CBD73400A01124400AFB0E7 /* Wm4OpenGLCullState.cpp in Sources */,
+				3CBD73410A01124400AFB0E7 /* Wm4OpenGLDrawBuffer.cpp in Sources */,
+				3CBD73420A01124400AFB0E7 /* Wm4OpenGLDrawElements.cpp in Sources */,
+				3CBD73430A01124400AFB0E7 /* Wm4OpenGLDrawText.cpp in Sources */,
+				3CBD73470A01124400AFB0E7 /* Wm4OpenGLFrameBuffer.cpp in Sources */,
+				3CBD73490A01124400AFB0E7 /* Wm4OpenGLPolygonOffsetState.cpp in Sources */,
+				3CBD734A0A01124400AFB0E7 /* Wm4OpenGLRenderer.cpp in Sources */,
+				3CBD734D0A01124400AFB0E7 /* Wm4OpenGLRendererPCH.cpp in Sources */,
+				3CBD73500A01124400AFB0E7 /* Wm4OpenGLResourcesED.cpp in Sources */,
+				3CBD73510A01124400AFB0E7 /* Wm4OpenGLResourcesLR.cpp in Sources */,
+				3CBD73520A01124400AFB0E7 /* Wm4OpenGLStencilState.cpp in Sources */,
+				3CBD73530A01124400AFB0E7 /* Wm4OpenGLTransformation.cpp in Sources */,
+				3CBD73540A01124400AFB0E7 /* Wm4OpenGLVerdanaS16B0I0.cpp in Sources */,
+				3CBD73550A01124400AFB0E7 /* Wm4OpenGLWireframeState.cpp in Sources */,
+				3CBD73560A01124400AFB0E7 /* Wm4OpenGLZBufferState.cpp in Sources */,
+				3C2FB1410BAC943800EF61A8 /* GTaglExtensions.cpp in Sources */,
+				3C2FB1420BAC943800EF61A8 /* GTglExtensions.cpp in Sources */,
+				3C2FB1430BAC943800EF61A8 /* GTglPlugin.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		74D6E86C07F34B2200267169 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3CBD72E80A01124400AFB0E7 /* Wm4AglRenderer.cpp in Sources */,
+				3CBD72EA0A01124400AFB0E7 /* Wm4OpenGLAlphaState.cpp in Sources */,
+				3CBD72EC0A01124400AFB0E7 /* Wm4OpenGLCullState.cpp in Sources */,
+				3CBD72ED0A01124400AFB0E7 /* Wm4OpenGLDrawBuffer.cpp in Sources */,
+				3CBD72EE0A01124400AFB0E7 /* Wm4OpenGLDrawElements.cpp in Sources */,
+				3CBD72EF0A01124400AFB0E7 /* Wm4OpenGLDrawText.cpp in Sources */,
+				3CBD72F30A01124400AFB0E7 /* Wm4OpenGLFrameBuffer.cpp in Sources */,
+				3CBD72F50A01124400AFB0E7 /* Wm4OpenGLPolygonOffsetState.cpp in Sources */,
+				3CBD72F60A01124400AFB0E7 /* Wm4OpenGLRenderer.cpp in Sources */,
+				3CBD72F90A01124400AFB0E7 /* Wm4OpenGLRendererPCH.cpp in Sources */,
+				3CBD72FC0A01124400AFB0E7 /* Wm4OpenGLResourcesED.cpp in Sources */,
+				3CBD72FD0A01124400AFB0E7 /* Wm4OpenGLResourcesLR.cpp in Sources */,
+				3CBD72FE0A01124400AFB0E7 /* Wm4OpenGLStencilState.cpp in Sources */,
+				3CBD72FF0A01124400AFB0E7 /* Wm4OpenGLTransformation.cpp in Sources */,
+				3CBD73000A01124400AFB0E7 /* Wm4OpenGLVerdanaS16B0I0.cpp in Sources */,
+				3CBD73010A01124400AFB0E7 /* Wm4OpenGLWireframeState.cpp in Sources */,
+				3CBD73020A01124400AFB0E7 /* Wm4OpenGLZBufferState.cpp in Sources */,
+				3C2FB1380BAC943800EF61A8 /* GTaglExtensions.cpp in Sources */,
+				3C2FB1390BAC943800EF61A8 /* GTglExtensions.cpp in Sources */,
+				3C2FB13A0BAC943800EF61A8 /* GTglPlugin.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		74D6E87307F34B7400267169 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3CBD73040A01124400AFB0E7 /* Wm4AglRenderer.cpp in Sources */,
+				3CBD73060A01124400AFB0E7 /* Wm4OpenGLAlphaState.cpp in Sources */,
+				3CBD73080A01124400AFB0E7 /* Wm4OpenGLCullState.cpp in Sources */,
+				3CBD73090A01124400AFB0E7 /* Wm4OpenGLDrawBuffer.cpp in Sources */,
+				3CBD730A0A01124400AFB0E7 /* Wm4OpenGLDrawElements.cpp in Sources */,
+				3CBD730B0A01124400AFB0E7 /* Wm4OpenGLDrawText.cpp in Sources */,
+				3CBD730F0A01124400AFB0E7 /* Wm4OpenGLFrameBuffer.cpp in Sources */,
+				3CBD73110A01124400AFB0E7 /* Wm4OpenGLPolygonOffsetState.cpp in Sources */,
+				3CBD73120A01124400AFB0E7 /* Wm4OpenGLRenderer.cpp in Sources */,
+				3CBD73150A01124400AFB0E7 /* Wm4OpenGLRendererPCH.cpp in Sources */,
+				3CBD73180A01124400AFB0E7 /* Wm4OpenGLResourcesED.cpp in Sources */,
+				3CBD73190A01124400AFB0E7 /* Wm4OpenGLResourcesLR.cpp in Sources */,
+				3CBD731A0A01124400AFB0E7 /* Wm4OpenGLStencilState.cpp in Sources */,
+				3CBD731B0A01124400AFB0E7 /* Wm4OpenGLTransformation.cpp in Sources */,
+				3CBD731C0A01124400AFB0E7 /* Wm4OpenGLVerdanaS16B0I0.cpp in Sources */,
+				3CBD731D0A01124400AFB0E7 /* Wm4OpenGLWireframeState.cpp in Sources */,
+				3CBD731E0A01124400AFB0E7 /* Wm4OpenGLZBufferState.cpp in Sources */,
+				3C2FB13B0BAC943800EF61A8 /* GTaglExtensions.cpp in Sources */,
+				3C2FB13C0BAC943800EF61A8 /* GTglExtensions.cpp in Sources */,
+				3C2FB13D0BAC943800EF61A8 /* GTglPlugin.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		3C0273B1088FE76A00A93309 /* Default */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_ENABLE_CPP_RTTI = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Wm4OpenGLRendererPCH.h;
+				GCC_PREPROCESSOR_DEFINITIONS = _DEBUG;
+				HEADER_SEARCH_PATHS = "${SRCROOT}/../../SDK/Include";
+				LIBRARY_STYLE = STATIC;
+				PREBINDING = NO;
+				PRODUCT_NAME = Wm4AglRendererd;
+				SHARED_PRECOMPS_DIR = "$(BUILD_DIR)/$(CONFIGURATION)/DebugStatic";
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = Default;
+		};
+		3C0273B4088FE76A00A93309 /* Default */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_ENABLE_CPP_RTTI = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Wm4OpenGLRendererPCH.h;
+				GCC_PREPROCESSOR_DEFINITIONS = NDEBUG;
+				HEADER_SEARCH_PATHS = "${SRCROOT}/../../SDK/Include";
+				LIBRARY_STYLE = STATIC;
+				PREBINDING = NO;
+				PRODUCT_NAME = Wm4AglRenderer;
+				SHARED_PRECOMPS_DIR = "$(BUILD_DIR)/$(CONFIGURATION)/ReleaseStatic";
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = Default;
+		};
+		3C0273BA088FE76A00A93309 /* Default */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				EXECUTABLE_PREFIX = lib;
+				GCC_ENABLE_CPP_RTTI = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Wm4OpenGLRendererPCH.h;
+				GCC_PREPROCESSOR_DEFINITIONS = _DEBUG;
+				HEADER_SEARCH_PATHS = "${SRCROOT}/../../SDK/Include";
+				INSTALL_PATH = "${SRCROOT}/../../SDK/Library/DebugDLL";
+				LIBRARY_SEARCH_PATHS = "${SRCROOT}/../../SDK/Library/DebugDLL";
+				LIBRARY_STYLE = DYNAMIC;
+				MACH_O_TYPE = mh_dylib;
+				OTHER_LDFLAGS = (
+					"-seg1addr",
+					0x08000000,
+					"-framework",
+					OpenGL,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = Wm4AglRendererd;
+				SHARED_PRECOMPS_DIR = "$(BUILD_DIR)/$(CONFIGURATION)/DebugDynamic";
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = Default;
+		};
+		3C0273BD088FE76A00A93309 /* Default */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				EXECUTABLE_PREFIX = lib;
+				GCC_ENABLE_CPP_RTTI = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Wm4OpenGLRendererPCH.h;
+				GCC_PREPROCESSOR_DEFINITIONS = NDEBUG;
+				HEADER_SEARCH_PATHS = "${SRCROOT}/../../SDK/Include";
+				INSTALL_PATH = "${SRCROOT}/../../SDK/Library/ReleaseDLL";
+				LIBRARY_SEARCH_PATHS = "${SRCROOT}/../../SDK/Library/ReleaseDLL";
+				LIBRARY_STYLE = DYNAMIC;
+				MACH_O_TYPE = mh_dylib;
+				OTHER_LDFLAGS = (
+					"-seg1addr",
+					0x08000000,
+					"-framework",
+					OpenGL,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = Wm4AglRenderer;
+				SHARED_PRECOMPS_DIR = "$(BUILD_DIR)/$(CONFIGURATION)/ReleaseDynamic";
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = Default;
+		};
+		3C0273C6088FE76A00A93309 /* Default */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Default;
+		};
+		3CBB67320A2ABE85001275CA /* Default */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_ENABLE_CPP_RTTI = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_MODEL_TUNING = G4;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Wm4OpenGLRendererPCH.h;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					_DEBUG,
+					WM4_MEMORY_MANAGER,
+				);
+				HEADER_SEARCH_PATHS = "${SRCROOT}/../../SDK/Include";
+				INSTALL_PATH = /usr/local/lib;
+				LIBRARY_STYLE = STATIC;
+				OTHER_LDFLAGS = "";
+				PREBINDING = NO;
+				PRODUCT_NAME = Wm4AglRenderermd;
+				SHARED_PRECOMPS_DIR = "$(BUILD_DIR)/$(CONFIGURATION)/DebugMemory";
+				SKIP_INSTALL = YES;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+				ZERO_LINK = NO;
+			};
+			name = Default;
+		};
+		3CBB67570A2ABF6A001275CA /* Default */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_ENABLE_CPP_RTTI = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G4;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Wm4OpenGLRendererPCH.h;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					NDEBUG,
+					WM4_MEMORY_MANAGER,
+				);
+				HEADER_SEARCH_PATHS = "${SRCROOT}/../../SDK/Include";
+				INSTALL_PATH = /usr/local/lib;
+				LIBRARY_STYLE = STATIC;
+				OTHER_LDFLAGS = "";
+				PREBINDING = NO;
+				PRODUCT_NAME = Wm4AglRendererm;
+				SHARED_PRECOMPS_DIR = "$(BUILD_DIR)/$(CONFIGURATION)/ReleaseMemory";
+				SKIP_INSTALL = YES;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+				ZERO_LINK = NO;
+			};
+			name = Default;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3C0273AF088FE76A00A93309 /* Build configuration list for PBXNativeTarget "Debug Static" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3C0273B1088FE76A00A93309 /* Default */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Default;
+		};
+		3C0273B2088FE76A00A93309 /* Build configuration list for PBXNativeTarget "Release Static" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3C0273B4088FE76A00A93309 /* Default */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Default;
+		};
+		3C0273B8088FE76A00A93309 /* Build configuration list for PBXNativeTarget "Debug Dynamic" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3C0273BA088FE76A00A93309 /* Default */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Default;
+		};
+		3C0273BB088FE76A00A93309 /* Build configuration list for PBXNativeTarget "Release Dynamic" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3C0273BD088FE76A00A93309 /* Default */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Default;
+		};
+		3C0273C4088FE76A00A93309 /* Build configuration list for PBXProject "AglRenderer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3C0273C6088FE76A00A93309 /* Default */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Default;
+		};
+		3CBB67300A2ABE85001275CA /* Build configuration list for PBXNativeTarget "Debug Memory" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3CBB67320A2ABE85001275CA /* Default */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Default;
+		};
+		3CBB67550A2ABF6A001275CA /* Build configuration list for PBXNativeTarget "Release Memory" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3CBB67570A2ABF6A001275CA /* Default */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Default;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 74D6E86507F34AF400267169 /* Project object */;
+}

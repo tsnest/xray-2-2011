@@ -1,0 +1,23 @@
+ps_2_0
+// cgc version 1.4.0000, build date Jun  9 2005 12:09:02
+// command line args: -profile ps_2_0
+// source file: Fresnel.cg
+//vendor NVIDIA Corporation
+//version 1.0.02
+//profile ps_2_0
+//program p_Fresnel
+//var float3 kWorldNormal : $vin.TEXCOORD0 : TEX0 : 0 : 1
+//var float3 kEyeDirection : $vin.TEXCOORD1 : TEX1 : 1 : 1
+//var float4 kPixelColor : $vout.COLOR : COL : 2 : 1
+//const c[0] = 2 1
+def c0, 2.000000, 1.000000, 0.000000, 0.000000
+dcl t0.xyz
+dcl t1.xyz
+mul r0.xyz, t0, c0.x
+mad r1.xyz, t1, c0.x, -c0.y
+add r0.xyz, r0, -c0.y
+dp3 r0.x, r0, r1
+add r0.x, r0, c0.y
+mul r0.x, r0, r0
+mov r2, r0.x
+mov oC0, r2

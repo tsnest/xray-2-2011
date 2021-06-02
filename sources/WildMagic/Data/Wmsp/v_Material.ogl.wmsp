@@ -1,0 +1,24 @@
+!!ARBvp1.0
+# cgc version 1.5.0014, build date Sep 18 2006 20:36:59
+# command line args: -profile arbvp1
+# source file: Material.cg
+#vendor NVIDIA Corporation
+#version 1.5.0.14
+#profile arbvp1
+#program v_Material
+#semantic v_Material.WVPMatrix
+#semantic v_Material.MaterialDiffuse
+#var float3 kModelPosition : $vin.POSITION : POSITION : 0 : 1
+#var float4 kClipPosition : $vout.POSITION : HPOS : 1 : 1
+#var float4 kDiffuseColor : $vout.COLOR : COL0 : 2 : 1
+#var float4x4 WVPMatrix :  : c[1], 4 : 3 : 1
+#var float4 MaterialDiffuse :  : c[5] : 4 : 1
+PARAM c[6] = { program.local[0..5] };
+TEMP R0;
+MUL R0, vertex.position.y, c[2];
+MAD R0, vertex.position.x, c[1], R0;
+MAD R0, vertex.position.z, c[3], R0;
+ADD result.position, R0, c[4];
+MOV result.color, c[5];
+END
+# 5 instructions, 1 R-regs

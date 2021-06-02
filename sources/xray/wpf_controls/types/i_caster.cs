@@ -1,0 +1,15 @@
+﻿////////////////////////////////////////////////////////////////////////////
+//	Created		: 09.02.2011
+//	Author		: Evgeniy Obertyukh
+//	Copyright (C) GSC Game World - 2011
+////////////////////////////////////////////////////////////////////////////
+
+using System;
+
+namespace xray.editor.wpf_controls
+{
+	interface i_caster
+	{
+		Object	cast_to( Type type );
+	}
+}

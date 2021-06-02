@@ -1,0 +1,29 @@
+build :
+	@mkdir -p SDK/Include
+	@mkdir -p SDK/Library/$(CFG)
+	cd LibFoundation                     && make -f makefile.wm4 CFG=$(CFG) SYS=$(SYS)
+	cd LibGraphics                       && make -f makefile.wm4 CFG=$(CFG) SYS=$(SYS)
+	cd LibPhysics                        && make -f makefile.wm4 CFG=$(CFG) SYS=$(SYS)
+	cd LibImagics                        && make -f makefile.wm4 CFG=$(CFG) SYS=$(SYS)
+	cd LibRenderers/$(GRF)Renderer       && make -f makefile.wm4 CFG=$(CFG) SYS=$(SYS)
+	cd LibApplications/$(GRF)Application && make -f makefile.wm4 CFG=$(CFG) SYS=$(SYS)
+	cd SampleFoundation                  && make -f makefile.wm4 CFG=$(CFG) SYS=$(SYS) GRF=$(GRF)
+	cd SampleGraphics                    && make -f makefile.wm4 CFG=$(CFG) SYS=$(SYS) GRF=$(GRF)
+	cd SamplePhysics                     && make -f makefile.wm4 CFG=$(CFG) SYS=$(SYS) GRF=$(GRF)
+	cd SampleImagics                     && make -f makefile.wm4 CFG=$(CFG) SYS=$(SYS) GRF=$(GRF)
+
+clean :
+	cd LibFoundation                     && make clean -f makefile.wm4 CFG=$(CFG) SYS=$(SYS)
+	cd LibGraphics                       && make clean -f makefile.wm4 CFG=$(CFG) SYS=$(SYS)
+	cd LibPhysics                        && make clean -f makefile.wm4 CFG=$(CFG) SYS=$(SYS)
+	cd LibImagics                        && make clean -f makefile.wm4 CFG=$(CFG) SYS=$(SYS)
+	cd LibRenderers/$(GRF)Renderer       && make clean -f makefile.wm4 CFG=$(CFG) SYS=$(SYS)
+	cd LibApplications/$(GRF)Application && make clean -f makefile.wm4 CFG=$(CFG) SYS=$(SYS)
+	cd SampleFoundation                  && make clean -f makefile.wm4 CFG=$(CFG) SYS=$(SYS) GRF=$(GRF)
+	cd SampleGraphics                    && make clean -f makefile.wm4 CFG=$(CFG) SYS=$(SYS) GRF=$(GRF)
+	cd SamplePhysics                     && make clean -f makefile.wm4 CFG=$(CFG) SYS=$(SYS) GRF=$(GRF)
+	cd SampleImagics                     && make clean -f makefile.wm4 CFG=$(CFG) SYS=$(SYS) GRF=$(GRF)
+	@rm -f SDK/Include/*.*
+	@rm -f SDK/Library/$(CFG)/*.*
+	@rmdir SDK/Library/$(CFG)
+

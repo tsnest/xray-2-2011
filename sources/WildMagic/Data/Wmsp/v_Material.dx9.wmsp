@@ -1,0 +1,21 @@
+vs_2_0
+// cgc version 1.5.0014, build date Sep 18 2006 20:36:59
+// command line args: -profile vs_2_0
+// source file: Material.cg
+//vendor NVIDIA Corporation
+//version 1.5.0.14
+//profile vs_2_0
+//program v_Material
+//semantic v_Material.WVPMatrix
+//semantic v_Material.MaterialDiffuse
+//var float3 kModelPosition : $vin.POSITION : ATTR0 : 0 : 1
+//var float4 kClipPosition : $vout.POSITION : HPOS : 1 : 1
+//var float4 kDiffuseColor : $vout.COLOR : COL0 : 2 : 1
+//var float4x4 WVPMatrix :  : c[0], 4 : 3 : 1
+//var float4 MaterialDiffuse :  : c[4] : 4 : 1
+dcl_position v0
+mul r0, v0.y, c1
+mad r0, v0.x, c0, r0
+mad r0, v0.z, c2, r0
+add oPos, r0, c3
+mov oD0, c4

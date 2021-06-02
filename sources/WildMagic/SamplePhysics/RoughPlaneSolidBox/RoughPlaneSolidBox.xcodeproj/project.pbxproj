@@ -1,0 +1,1470 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 42;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3C6FBB33083E5FB60068AA05 /* AGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C6FBB32083E5FB60068AA05 /* AGL.framework */; };
+		3C6FBB34083E5FB60068AA05 /* AGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C6FBB32083E5FB60068AA05 /* AGL.framework */; };
+		3C6FBB35083E5FB60068AA05 /* AGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C6FBB32083E5FB60068AA05 /* AGL.framework */; };
+		3C6FBB36083E5FB60068AA05 /* AGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C6FBB32083E5FB60068AA05 /* AGL.framework */; };
+		3C6FBB46083E5FCE0068AA05 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C6FBB45083E5FCE0068AA05 /* Carbon.framework */; };
+		3C6FBB47083E5FCE0068AA05 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C6FBB45083E5FCE0068AA05 /* Carbon.framework */; };
+		3C6FBB48083E5FCE0068AA05 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C6FBB45083E5FCE0068AA05 /* Carbon.framework */; };
+		3C6FBB49083E5FCE0068AA05 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C6FBB45083E5FCE0068AA05 /* Carbon.framework */; };
+		3C6FBB4D083E5FE20068AA05 /* DrawSprocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C6FBB4C083E5FE20068AA05 /* DrawSprocket.framework */; };
+		3C6FBB4E083E5FE20068AA05 /* DrawSprocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C6FBB4C083E5FE20068AA05 /* DrawSprocket.framework */; };
+		3C6FBB4F083E5FE20068AA05 /* DrawSprocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C6FBB4C083E5FE20068AA05 /* DrawSprocket.framework */; };
+		3C6FBB50083E5FE20068AA05 /* DrawSprocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C6FBB4C083E5FE20068AA05 /* DrawSprocket.framework */; };
+		3C6FBC6C083E6E1B0068AA05 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C6FBC6B083E6E1B0068AA05 /* OpenGL.framework */; };
+		3C6FBC6D083E6E1B0068AA05 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C6FBC6B083E6E1B0068AA05 /* OpenGL.framework */; };
+		3C6FBC6E083E6E1B0068AA05 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C6FBC6B083E6E1B0068AA05 /* OpenGL.framework */; };
+		3C6FBC6F083E6E1B0068AA05 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C6FBC6B083E6E1B0068AA05 /* OpenGL.framework */; };
+		3CBB5E7B0A2A9612001275CA /* RoughPlaneSolidBox.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748AA50F07F465B300486586 /* RoughPlaneSolidBox.cpp */; };
+		3CBB5F550A2A9A27001275CA /* AGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C6FBB32083E5FB60068AA05 /* AGL.framework */; };
+		3CBB5F560A2A9A28001275CA /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C6FBB45083E5FCE0068AA05 /* Carbon.framework */; };
+		3CBB5F570A2A9A28001275CA /* DrawSprocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C6FBB4C083E5FE20068AA05 /* DrawSprocket.framework */; };
+		3CBB5F580A2A9A29001275CA /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C6FBC6B083E6E1B0068AA05 /* OpenGL.framework */; };
+		3CBB5F770A2A9E79001275CA /* RoughPlaneSolidBox.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748AA50F07F465B300486586 /* RoughPlaneSolidBox.cpp */; };
+		3CBB5F840A2A9EEB001275CA /* AGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C6FBB32083E5FB60068AA05 /* AGL.framework */; };
+		3CBB5F850A2A9EEC001275CA /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C6FBB45083E5FCE0068AA05 /* Carbon.framework */; };
+		3CBB5F860A2A9EEC001275CA /* DrawSprocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C6FBB4C083E5FE20068AA05 /* DrawSprocket.framework */; };
+		3CBB5F870A2A9EED001275CA /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C6FBC6B083E6E1B0068AA05 /* OpenGL.framework */; };
+		3CBF39E80A2B3F39002AAB19 /* RoughPlaneSolidBox.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748AA50F07F465B300486586 /* RoughPlaneSolidBox.cpp */; };
+		3CBF39F70A2B40FE002AAB19 /* RoughPlaneSolidBox.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748AA50F07F465B300486586 /* RoughPlaneSolidBox.cpp */; };
+		3CBF3A050A2B42D6002AAB19 /* RoughPlaneSolidBox.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748AA50F07F465B300486586 /* RoughPlaneSolidBox.cpp */; };
+		3CBF3A130A2B4374002AAB19 /* RoughPlaneSolidBox.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748AA50F07F465B300486586 /* RoughPlaneSolidBox.cpp */; };
+		3CBF3A210A2B4AB6002AAB19 /* RoughPlaneSolidBox.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748AA50F07F465B300486586 /* RoughPlaneSolidBox.cpp */; };
+		3CBF3A2F0A2B4B4C002AAB19 /* RoughPlaneSolidBox.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748AA50F07F465B300486586 /* RoughPlaneSolidBox.cpp */; };
+		3CBF3A490A2B5A49002AAB19 /* libWm4AglApplicationd.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CBF3A420A2B5A49002AAB19 /* libWm4AglApplicationd.a */; };
+		3CBF3A4A0A2B5A49002AAB19 /* libWm4AglRendererd.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CBF3A430A2B5A49002AAB19 /* libWm4AglRendererd.a */; };
+		3CBF3A4B0A2B5A49002AAB19 /* libWm4Foundationd.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CBF3A440A2B5A49002AAB19 /* libWm4Foundationd.a */; };
+		3CBF3A4C0A2B5A49002AAB19 /* libWm4Graphicsd.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CBF3A450A2B5A49002AAB19 /* libWm4Graphicsd.a */; };
+		3CBF3A4F0A2B5A49002AAB19 /* libWm4Physicsd.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CBF3A480A2B5A49002AAB19 /* libWm4Physicsd.a */; };
+		3CBF3A520A2B5A49002AAB19 /* libWm4Foundationd.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CBF3A440A2B5A49002AAB19 /* libWm4Foundationd.a */; };
+		3CBF3A530A2B5A49002AAB19 /* libWm4Graphicsd.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CBF3A450A2B5A49002AAB19 /* libWm4Graphicsd.a */; };
+		3CBF3A540A2B5A49002AAB19 /* libWm4MacSoftApplicationd.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CBF3A460A2B5A49002AAB19 /* libWm4MacSoftApplicationd.a */; };
+		3CBF3A550A2B5A49002AAB19 /* libWm4MacSoftRendererd.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CBF3A470A2B5A49002AAB19 /* libWm4MacSoftRendererd.a */; };
+		3CBF3A560A2B5A49002AAB19 /* libWm4Physicsd.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CBF3A480A2B5A49002AAB19 /* libWm4Physicsd.a */; };
+		3CBF3A5E0A2B5A69002AAB19 /* libWm4AglApplicationd.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CBF3A570A2B5A69002AAB19 /* libWm4AglApplicationd.dylib */; };
+		3CBF3A5F0A2B5A69002AAB19 /* libWm4AglRendererd.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CBF3A580A2B5A69002AAB19 /* libWm4AglRendererd.dylib */; };
+		3CBF3A600A2B5A6A002AAB19 /* libWm4Foundationd.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CBF3A590A2B5A69002AAB19 /* libWm4Foundationd.dylib */; };
+		3CBF3A610A2B5A6A002AAB19 /* libWm4Graphicsd.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CBF3A5A0A2B5A69002AAB19 /* libWm4Graphicsd.dylib */; };
+		3CBF3A640A2B5A6A002AAB19 /* libWm4Physicsd.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CBF3A5D0A2B5A69002AAB19 /* libWm4Physicsd.dylib */; };
+		3CBF3A670A2B5A6A002AAB19 /* libWm4Foundationd.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CBF3A590A2B5A69002AAB19 /* libWm4Foundationd.dylib */; };
+		3CBF3A680A2B5A6A002AAB19 /* libWm4Graphicsd.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CBF3A5A0A2B5A69002AAB19 /* libWm4Graphicsd.dylib */; };
+		3CBF3A690A2B5A6A002AAB19 /* libWm4MacSoftApplicationd.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CBF3A5B0A2B5A69002AAB19 /* libWm4MacSoftApplicationd.dylib */; };
+		3CBF3A6A0A2B5A6A002AAB19 /* libWm4MacSoftRendererd.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CBF3A5C0A2B5A69002AAB19 /* libWm4MacSoftRendererd.dylib */; };
+		3CBF3A6B0A2B5A6A002AAB19 /* libWm4Physicsd.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CBF3A5D0A2B5A69002AAB19 /* libWm4Physicsd.dylib */; };
+		3CBF3A730A2B5A86002AAB19 /* libWm4AglApplicationd.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CBF3A6C0A2B5A86002AAB19 /* libWm4AglApplicationd.a */; };
+		3CBF3A740A2B5A86002AAB19 /* libWm4AglRendererd.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CBF3A6D0A2B5A86002AAB19 /* libWm4AglRendererd.a */; };
+		3CBF3A790A2B5A86002AAB19 /* libWm4Physicsd.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CBF3A720A2B5A86002AAB19 /* libWm4Physicsd.a */; };
+		3CBF3A7E0A2B5A86002AAB19 /* libWm4MacSoftApplicationd.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CBF3A700A2B5A86002AAB19 /* libWm4MacSoftApplicationd.a */; };
+		3CBF3A7F0A2B5A86002AAB19 /* libWm4MacSoftRendererd.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CBF3A710A2B5A86002AAB19 /* libWm4MacSoftRendererd.a */; };
+		3CBF3A800A2B5A86002AAB19 /* libWm4Physicsd.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CBF3A720A2B5A86002AAB19 /* libWm4Physicsd.a */; };
+		3CBF3A880A2B5AB7002AAB19 /* libWm4AglApplication.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CBF3A810A2B5AB7002AAB19 /* libWm4AglApplication.a */; };
+		3CBF3A890A2B5AB7002AAB19 /* libWm4AglRenderer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CBF3A820A2B5AB7002AAB19 /* libWm4AglRenderer.a */; };
+		3CBF3A8A0A2B5AB7002AAB19 /* libWm4Foundation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CBF3A830A2B5AB7002AAB19 /* libWm4Foundation.a */; };
+		3CBF3A8B0A2B5AB7002AAB19 /* libWm4Graphics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CBF3A840A2B5AB7002AAB19 /* libWm4Graphics.a */; };
+		3CBF3A8E0A2B5AB7002AAB19 /* libWm4Physics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CBF3A870A2B5AB7002AAB19 /* libWm4Physics.a */; };
+		3CBF3A910A2B5AB7002AAB19 /* libWm4Foundation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CBF3A830A2B5AB7002AAB19 /* libWm4Foundation.a */; };
+		3CBF3A920A2B5AB7002AAB19 /* libWm4Graphics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CBF3A840A2B5AB7002AAB19 /* libWm4Graphics.a */; };
+		3CBF3A930A2B5AB7002AAB19 /* libWm4MacSoftApplication.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CBF3A850A2B5AB7002AAB19 /* libWm4MacSoftApplication.a */; };
+		3CBF3A940A2B5AB7002AAB19 /* libWm4MacSoftRenderer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CBF3A860A2B5AB7002AAB19 /* libWm4MacSoftRenderer.a */; };
+		3CBF3A950A2B5AB7002AAB19 /* libWm4Physics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CBF3A870A2B5AB7002AAB19 /* libWm4Physics.a */; };
+		3CBF3A9D0A2B5AD3002AAB19 /* libWm4AglApplication.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CBF3A960A2B5AD3002AAB19 /* libWm4AglApplication.dylib */; };
+		3CBF3A9E0A2B5AD3002AAB19 /* libWm4AglRenderer.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CBF3A970A2B5AD3002AAB19 /* libWm4AglRenderer.dylib */; };
+		3CBF3A9F0A2B5AD3002AAB19 /* libWm4Foundation.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CBF3A980A2B5AD3002AAB19 /* libWm4Foundation.dylib */; };
+		3CBF3AA00A2B5AD3002AAB19 /* libWm4Graphics.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CBF3A990A2B5AD3002AAB19 /* libWm4Graphics.dylib */; };
+		3CBF3AA30A2B5AD3002AAB19 /* libWm4Physics.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CBF3A9C0A2B5AD3002AAB19 /* libWm4Physics.dylib */; };
+		3CBF3AA60A2B5AD3002AAB19 /* libWm4Foundation.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CBF3A980A2B5AD3002AAB19 /* libWm4Foundation.dylib */; };
+		3CBF3AA70A2B5AD3002AAB19 /* libWm4Graphics.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CBF3A990A2B5AD3002AAB19 /* libWm4Graphics.dylib */; };
+		3CBF3AA80A2B5AD3002AAB19 /* libWm4MacSoftApplication.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CBF3A9A0A2B5AD3002AAB19 /* libWm4MacSoftApplication.dylib */; };
+		3CBF3AA90A2B5AD3002AAB19 /* libWm4MacSoftRenderer.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CBF3A9B0A2B5AD3002AAB19 /* libWm4MacSoftRenderer.dylib */; };
+		3CBF3AAA0A2B5AD3002AAB19 /* libWm4Physics.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CBF3A9C0A2B5AD3002AAB19 /* libWm4Physics.dylib */; };
+		3CBF3AB20A2B5AEF002AAB19 /* libWm4AglApplication.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CBF3AAB0A2B5AEF002AAB19 /* libWm4AglApplication.a */; };
+		3CBF3AB30A2B5AEF002AAB19 /* libWm4AglRenderer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CBF3AAC0A2B5AEF002AAB19 /* libWm4AglRenderer.a */; };
+		3CBF3AB80A2B5AEF002AAB19 /* libWm4Physics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CBF3AB10A2B5AEF002AAB19 /* libWm4Physics.a */; };
+		3CBF3ABD0A2B5AEF002AAB19 /* libWm4MacSoftApplication.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CBF3AAF0A2B5AEF002AAB19 /* libWm4MacSoftApplication.a */; };
+		3CBF3ABE0A2B5AEF002AAB19 /* libWm4MacSoftRenderer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CBF3AB00A2B5AEF002AAB19 /* libWm4MacSoftRenderer.a */; };
+		3CBF3ABF0A2B5AEF002AAB19 /* libWm4Physics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CBF3AB10A2B5AEF002AAB19 /* libWm4Physics.a */; };
+		3CBF3C080A2B7C5B002AAB19 /* AGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C6FBB32083E5FB60068AA05 /* AGL.framework */; };
+		3CBF3C090A2B7C5B002AAB19 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C6FBB45083E5FCE0068AA05 /* Carbon.framework */; };
+		3CBF3C0A0A2B7C5C002AAB19 /* DrawSprocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C6FBB4C083E5FE20068AA05 /* DrawSprocket.framework */; };
+		3CBF3C0B0A2B7C5D002AAB19 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C6FBC6B083E6E1B0068AA05 /* OpenGL.framework */; };
+		3CBF3C0C0A2B7C60002AAB19 /* AGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C6FBB32083E5FB60068AA05 /* AGL.framework */; };
+		3CBF3C0D0A2B7C61002AAB19 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C6FBB45083E5FCE0068AA05 /* Carbon.framework */; };
+		3CBF3C0E0A2B7C62002AAB19 /* DrawSprocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C6FBB4C083E5FE20068AA05 /* DrawSprocket.framework */; };
+		3CBF3C0F0A2B7C62002AAB19 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C6FBC6B083E6E1B0068AA05 /* OpenGL.framework */; };
+		3CBF3C100A2B7C67002AAB19 /* AGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C6FBB32083E5FB60068AA05 /* AGL.framework */; };
+		3CBF3C110A2B7C67002AAB19 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C6FBB45083E5FCE0068AA05 /* Carbon.framework */; };
+		3CBF3C120A2B7C68002AAB19 /* DrawSprocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C6FBB4C083E5FE20068AA05 /* DrawSprocket.framework */; };
+		3CBF3C130A2B7C68002AAB19 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C6FBC6B083E6E1B0068AA05 /* OpenGL.framework */; };
+		3CBF3C140A2B7C6B002AAB19 /* AGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C6FBB32083E5FB60068AA05 /* AGL.framework */; };
+		3CBF3C150A2B7C6B002AAB19 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C6FBB45083E5FCE0068AA05 /* Carbon.framework */; };
+		3CBF3C160A2B7C6C002AAB19 /* DrawSprocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C6FBB4C083E5FE20068AA05 /* DrawSprocket.framework */; };
+		3CBF3C170A2B7C6C002AAB19 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C6FBC6B083E6E1B0068AA05 /* OpenGL.framework */; };
+		3CBF3C4C0A2B80B7002AAB19 /* libWm4Foundationd.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CBF3C4B0A2B80B7002AAB19 /* libWm4Foundationd.a */; };
+		3CBF3C4D0A2B80B7002AAB19 /* libWm4Foundationd.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CBF3C4B0A2B80B7002AAB19 /* libWm4Foundationd.a */; };
+		3CBF3C790A2B8302002AAB19 /* libWm4Graphicsd.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CBF3C780A2B8302002AAB19 /* libWm4Graphicsd.a */; };
+		3CBF3C7A0A2B8302002AAB19 /* libWm4Graphicsd.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CBF3C780A2B8302002AAB19 /* libWm4Graphicsd.a */; };
+		3CBF3C820A2B835C002AAB19 /* libWm4Foundation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CBF3C810A2B835C002AAB19 /* libWm4Foundation.a */; };
+		3CBF3C830A2B835C002AAB19 /* libWm4Foundation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CBF3C810A2B835C002AAB19 /* libWm4Foundation.a */; };
+		3CBF3C860A2B8381002AAB19 /* libWm4Graphics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CBF3C850A2B8381002AAB19 /* libWm4Graphics.a */; };
+		3CBF3C870A2B8381002AAB19 /* libWm4Graphics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CBF3C850A2B8381002AAB19 /* libWm4Graphics.a */; };
+		3CC39A530A2CAC62006BDE82 /* PhysicsModule.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC39A500A2CAC62006BDE82 /* PhysicsModule.cpp */; };
+		3CC39A540A2CAC62006BDE82 /* PhysicsModule.inl in Resources */ = {isa = PBXBuildFile; fileRef = 3CC39A520A2CAC62006BDE82 /* PhysicsModule.inl */; };
+		3CC39A550A2CAC62006BDE82 /* PhysicsModule.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC39A500A2CAC62006BDE82 /* PhysicsModule.cpp */; };
+		3CC39A560A2CAC62006BDE82 /* PhysicsModule.inl in Resources */ = {isa = PBXBuildFile; fileRef = 3CC39A520A2CAC62006BDE82 /* PhysicsModule.inl */; };
+		3CC39A570A2CAC62006BDE82 /* PhysicsModule.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC39A500A2CAC62006BDE82 /* PhysicsModule.cpp */; };
+		3CC39A580A2CAC62006BDE82 /* PhysicsModule.inl in Resources */ = {isa = PBXBuildFile; fileRef = 3CC39A520A2CAC62006BDE82 /* PhysicsModule.inl */; };
+		3CC39A590A2CAC62006BDE82 /* PhysicsModule.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC39A500A2CAC62006BDE82 /* PhysicsModule.cpp */; };
+		3CC39A5A0A2CAC62006BDE82 /* PhysicsModule.inl in Resources */ = {isa = PBXBuildFile; fileRef = 3CC39A520A2CAC62006BDE82 /* PhysicsModule.inl */; };
+		3CC39A5B0A2CAC62006BDE82 /* PhysicsModule.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC39A500A2CAC62006BDE82 /* PhysicsModule.cpp */; };
+		3CC39A5C0A2CAC62006BDE82 /* PhysicsModule.inl in Resources */ = {isa = PBXBuildFile; fileRef = 3CC39A520A2CAC62006BDE82 /* PhysicsModule.inl */; };
+		3CC39A5D0A2CAC62006BDE82 /* PhysicsModule.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC39A500A2CAC62006BDE82 /* PhysicsModule.cpp */; };
+		3CC39A5E0A2CAC62006BDE82 /* PhysicsModule.inl in Resources */ = {isa = PBXBuildFile; fileRef = 3CC39A520A2CAC62006BDE82 /* PhysicsModule.inl */; };
+		3CC39A5F0A2CAC62006BDE82 /* PhysicsModule.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC39A500A2CAC62006BDE82 /* PhysicsModule.cpp */; };
+		3CC39A600A2CAC62006BDE82 /* PhysicsModule.inl in Resources */ = {isa = PBXBuildFile; fileRef = 3CC39A520A2CAC62006BDE82 /* PhysicsModule.inl */; };
+		3CC39A610A2CAC62006BDE82 /* PhysicsModule.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC39A500A2CAC62006BDE82 /* PhysicsModule.cpp */; };
+		3CC39A620A2CAC62006BDE82 /* PhysicsModule.inl in Resources */ = {isa = PBXBuildFile; fileRef = 3CC39A520A2CAC62006BDE82 /* PhysicsModule.inl */; };
+		3CC39A630A2CAC62006BDE82 /* PhysicsModule.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC39A500A2CAC62006BDE82 /* PhysicsModule.cpp */; };
+		3CC39A640A2CAC62006BDE82 /* PhysicsModule.inl in Resources */ = {isa = PBXBuildFile; fileRef = 3CC39A520A2CAC62006BDE82 /* PhysicsModule.inl */; };
+		3CC39A650A2CAC62006BDE82 /* PhysicsModule.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC39A500A2CAC62006BDE82 /* PhysicsModule.cpp */; };
+		3CC39A660A2CAC62006BDE82 /* PhysicsModule.inl in Resources */ = {isa = PBXBuildFile; fileRef = 3CC39A520A2CAC62006BDE82 /* PhysicsModule.inl */; };
+		3CC39A670A2CAC62006BDE82 /* PhysicsModule.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC39A500A2CAC62006BDE82 /* PhysicsModule.cpp */; };
+		3CC39A680A2CAC62006BDE82 /* PhysicsModule.inl in Resources */ = {isa = PBXBuildFile; fileRef = 3CC39A520A2CAC62006BDE82 /* PhysicsModule.inl */; };
+		3CC39A690A2CAC62006BDE82 /* PhysicsModule.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CC39A500A2CAC62006BDE82 /* PhysicsModule.cpp */; };
+		3CC39A6A0A2CAC62006BDE82 /* PhysicsModule.inl in Resources */ = {isa = PBXBuildFile; fileRef = 3CC39A520A2CAC62006BDE82 /* PhysicsModule.inl */; };
+		7432C24B07F84F4400ABC141 /* RoughPlaneSolidBox.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748AA50F07F465B300486586 /* RoughPlaneSolidBox.cpp */; };
+		7432C28E07F8577800ABC141 /* RoughPlaneSolidBox.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748AA50F07F465B300486586 /* RoughPlaneSolidBox.cpp */; };
+		748AA51107F465B300486586 /* RoughPlaneSolidBox.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748AA50F07F465B300486586 /* RoughPlaneSolidBox.cpp */; };
+		748AA51307F465B300486586 /* RoughPlaneSolidBox.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 748AA50F07F465B300486586 /* RoughPlaneSolidBox.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		3C6FBB32083E5FB60068AA05 /* AGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AGL.framework; path = /System/Library/Frameworks/AGL.framework; sourceTree = "<absolute>"; };
+		3C6FBB45083E5FCE0068AA05 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
+		3C6FBB4C083E5FE20068AA05 /* DrawSprocket.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DrawSprocket.framework; path = /System/Library/Frameworks/DrawSprocket.framework; sourceTree = "<absolute>"; };
+		3C6FBC6B083E6E1B0068AA05 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = /System/Library/Frameworks/OpenGL.framework; sourceTree = "<absolute>"; };
+		3CBB5E710A2A92B0001275CA /* RoughPlaneSolidBoxSftDebSta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RoughPlaneSolidBoxSftDebSta.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3CBB5F710A2A9DB5001275CA /* RoughPlaneSolidBoxSftRelSta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RoughPlaneSolidBoxSftRelSta.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3CBF39E20A2B3F0E002AAB19 /* RoughPlaneSolidBoxAglDebMem.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RoughPlaneSolidBoxAglDebMem.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3CBF39F10A2B40EA002AAB19 /* RoughPlaneSolidBoxAglRelMem.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RoughPlaneSolidBoxAglRelMem.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3CBF39FF0A2B42CF002AAB19 /* RoughPlaneSolidBoxSftDebDyn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RoughPlaneSolidBoxSftDebDyn.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3CBF3A0D0A2B436D002AAB19 /* RoughPlaneSolidBoxSftRelDyn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RoughPlaneSolidBoxSftRelDyn.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3CBF3A1B0A2B4776002AAB19 /* RoughPlaneSolidBoxSftDebMem.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RoughPlaneSolidBoxSftDebMem.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3CBF3A290A2B4B45002AAB19 /* RoughPlaneSolidBoxSftRelMem.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RoughPlaneSolidBoxSftRelMem.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3CBF3A420A2B5A49002AAB19 /* libWm4AglApplicationd.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libWm4AglApplicationd.a; path = ../../SDK/Library/Debug/libWm4AglApplicationd.a; sourceTree = SOURCE_ROOT; };
+		3CBF3A430A2B5A49002AAB19 /* libWm4AglRendererd.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libWm4AglRendererd.a; path = ../../SDK/Library/Debug/libWm4AglRendererd.a; sourceTree = SOURCE_ROOT; };
+		3CBF3A440A2B5A49002AAB19 /* libWm4Foundationd.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libWm4Foundationd.a; path = ../../SDK/Library/Debug/libWm4Foundationd.a; sourceTree = SOURCE_ROOT; };
+		3CBF3A450A2B5A49002AAB19 /* libWm4Graphicsd.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libWm4Graphicsd.a; path = ../../SDK/Library/Debug/libWm4Graphicsd.a; sourceTree = SOURCE_ROOT; };
+		3CBF3A460A2B5A49002AAB19 /* libWm4MacSoftApplicationd.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libWm4MacSoftApplicationd.a; path = ../../SDK/Library/Debug/libWm4MacSoftApplicationd.a; sourceTree = SOURCE_ROOT; };
+		3CBF3A470A2B5A49002AAB19 /* libWm4MacSoftRendererd.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libWm4MacSoftRendererd.a; path = ../../SDK/Library/Debug/libWm4MacSoftRendererd.a; sourceTree = SOURCE_ROOT; };
+		3CBF3A480A2B5A49002AAB19 /* libWm4Physicsd.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libWm4Physicsd.a; path = ../../SDK/Library/Debug/libWm4Physicsd.a; sourceTree = SOURCE_ROOT; };
+		3CBF3A570A2B5A69002AAB19 /* libWm4AglApplicationd.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libWm4AglApplicationd.dylib; path = ../../SDK/Library/DebugDLL/libWm4AglApplicationd.dylib; sourceTree = SOURCE_ROOT; };
+		3CBF3A580A2B5A69002AAB19 /* libWm4AglRendererd.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libWm4AglRendererd.dylib; path = ../../SDK/Library/DebugDLL/libWm4AglRendererd.dylib; sourceTree = SOURCE_ROOT; };
+		3CBF3A590A2B5A69002AAB19 /* libWm4Foundationd.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libWm4Foundationd.dylib; path = ../../SDK/Library/DebugDLL/libWm4Foundationd.dylib; sourceTree = SOURCE_ROOT; };
+		3CBF3A5A0A2B5A69002AAB19 /* libWm4Graphicsd.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libWm4Graphicsd.dylib; path = ../../SDK/Library/DebugDLL/libWm4Graphicsd.dylib; sourceTree = SOURCE_ROOT; };
+		3CBF3A5B0A2B5A69002AAB19 /* libWm4MacSoftApplicationd.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libWm4MacSoftApplicationd.dylib; path = ../../SDK/Library/DebugDLL/libWm4MacSoftApplicationd.dylib; sourceTree = SOURCE_ROOT; };
+		3CBF3A5C0A2B5A69002AAB19 /* libWm4MacSoftRendererd.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libWm4MacSoftRendererd.dylib; path = ../../SDK/Library/DebugDLL/libWm4MacSoftRendererd.dylib; sourceTree = SOURCE_ROOT; };
+		3CBF3A5D0A2B5A69002AAB19 /* libWm4Physicsd.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libWm4Physicsd.dylib; path = ../../SDK/Library/DebugDLL/libWm4Physicsd.dylib; sourceTree = SOURCE_ROOT; };
+		3CBF3A6C0A2B5A86002AAB19 /* libWm4AglApplicationd.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libWm4AglApplicationd.a; path = ../../SDK/Library/DebugMemory/libWm4AglApplicationd.a; sourceTree = SOURCE_ROOT; };
+		3CBF3A6D0A2B5A86002AAB19 /* libWm4AglRendererd.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libWm4AglRendererd.a; path = ../../SDK/Library/DebugMemory/libWm4AglRendererd.a; sourceTree = SOURCE_ROOT; };
+		3CBF3A700A2B5A86002AAB19 /* libWm4MacSoftApplicationd.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libWm4MacSoftApplicationd.a; path = ../../SDK/Library/DebugMemory/libWm4MacSoftApplicationd.a; sourceTree = SOURCE_ROOT; };
+		3CBF3A710A2B5A86002AAB19 /* libWm4MacSoftRendererd.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libWm4MacSoftRendererd.a; path = ../../SDK/Library/DebugMemory/libWm4MacSoftRendererd.a; sourceTree = SOURCE_ROOT; };
+		3CBF3A720A2B5A86002AAB19 /* libWm4Physicsd.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libWm4Physicsd.a; path = ../../SDK/Library/DebugMemory/libWm4Physicsd.a; sourceTree = SOURCE_ROOT; };
+		3CBF3A810A2B5AB7002AAB19 /* libWm4AglApplication.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libWm4AglApplication.a; path = ../../SDK/Library/Release/libWm4AglApplication.a; sourceTree = SOURCE_ROOT; };
+		3CBF3A820A2B5AB7002AAB19 /* libWm4AglRenderer.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libWm4AglRenderer.a; path = ../../SDK/Library/Release/libWm4AglRenderer.a; sourceTree = SOURCE_ROOT; };
+		3CBF3A830A2B5AB7002AAB19 /* libWm4Foundation.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libWm4Foundation.a; path = ../../SDK/Library/Release/libWm4Foundation.a; sourceTree = SOURCE_ROOT; };
+		3CBF3A840A2B5AB7002AAB19 /* libWm4Graphics.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libWm4Graphics.a; path = ../../SDK/Library/Release/libWm4Graphics.a; sourceTree = SOURCE_ROOT; };
+		3CBF3A850A2B5AB7002AAB19 /* libWm4MacSoftApplication.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libWm4MacSoftApplication.a; path = ../../SDK/Library/Release/libWm4MacSoftApplication.a; sourceTree = SOURCE_ROOT; };
+		3CBF3A860A2B5AB7002AAB19 /* libWm4MacSoftRenderer.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libWm4MacSoftRenderer.a; path = ../../SDK/Library/Release/libWm4MacSoftRenderer.a; sourceTree = SOURCE_ROOT; };
+		3CBF3A870A2B5AB7002AAB19 /* libWm4Physics.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libWm4Physics.a; path = ../../SDK/Library/Release/libWm4Physics.a; sourceTree = SOURCE_ROOT; };
+		3CBF3A960A2B5AD3002AAB19 /* libWm4AglApplication.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libWm4AglApplication.dylib; path = ../../SDK/Library/ReleaseDLL/libWm4AglApplication.dylib; sourceTree = SOURCE_ROOT; };
+		3CBF3A970A2B5AD3002AAB19 /* libWm4AglRenderer.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libWm4AglRenderer.dylib; path = ../../SDK/Library/ReleaseDLL/libWm4AglRenderer.dylib; sourceTree = SOURCE_ROOT; };
+		3CBF3A980A2B5AD3002AAB19 /* libWm4Foundation.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libWm4Foundation.dylib; path = ../../SDK/Library/ReleaseDLL/libWm4Foundation.dylib; sourceTree = SOURCE_ROOT; };
+		3CBF3A990A2B5AD3002AAB19 /* libWm4Graphics.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libWm4Graphics.dylib; path = ../../SDK/Library/ReleaseDLL/libWm4Graphics.dylib; sourceTree = SOURCE_ROOT; };
+		3CBF3A9A0A2B5AD3002AAB19 /* libWm4MacSoftApplication.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libWm4MacSoftApplication.dylib; path = ../../SDK/Library/ReleaseDLL/libWm4MacSoftApplication.dylib; sourceTree = SOURCE_ROOT; };
+		3CBF3A9B0A2B5AD3002AAB19 /* libWm4MacSoftRenderer.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libWm4MacSoftRenderer.dylib; path = ../../SDK/Library/ReleaseDLL/libWm4MacSoftRenderer.dylib; sourceTree = SOURCE_ROOT; };
+		3CBF3A9C0A2B5AD3002AAB19 /* libWm4Physics.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libWm4Physics.dylib; path = ../../SDK/Library/ReleaseDLL/libWm4Physics.dylib; sourceTree = SOURCE_ROOT; };
+		3CBF3AAB0A2B5AEF002AAB19 /* libWm4AglApplication.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libWm4AglApplication.a; path = ../../SDK/Library/ReleaseMemory/libWm4AglApplication.a; sourceTree = SOURCE_ROOT; };
+		3CBF3AAC0A2B5AEF002AAB19 /* libWm4AglRenderer.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libWm4AglRenderer.a; path = ../../SDK/Library/ReleaseMemory/libWm4AglRenderer.a; sourceTree = SOURCE_ROOT; };
+		3CBF3AAF0A2B5AEF002AAB19 /* libWm4MacSoftApplication.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libWm4MacSoftApplication.a; path = ../../SDK/Library/ReleaseMemory/libWm4MacSoftApplication.a; sourceTree = SOURCE_ROOT; };
+		3CBF3AB00A2B5AEF002AAB19 /* libWm4MacSoftRenderer.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libWm4MacSoftRenderer.a; path = ../../SDK/Library/ReleaseMemory/libWm4MacSoftRenderer.a; sourceTree = SOURCE_ROOT; };
+		3CBF3AB10A2B5AEF002AAB19 /* libWm4Physics.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libWm4Physics.a; path = ../../SDK/Library/ReleaseMemory/libWm4Physics.a; sourceTree = SOURCE_ROOT; };
+		3CBF3C4B0A2B80B7002AAB19 /* libWm4Foundationd.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libWm4Foundationd.a; path = ../../SDK/Library/DebugMemory/libWm4Foundationd.a; sourceTree = SOURCE_ROOT; };
+		3CBF3C780A2B8302002AAB19 /* libWm4Graphicsd.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libWm4Graphicsd.a; path = ../../SDK/Library/DebugMemory/libWm4Graphicsd.a; sourceTree = SOURCE_ROOT; };
+		3CBF3C810A2B835C002AAB19 /* libWm4Foundation.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libWm4Foundation.a; path = ../../SDK/Library/ReleaseMemory/libWm4Foundation.a; sourceTree = SOURCE_ROOT; };
+		3CBF3C850A2B8381002AAB19 /* libWm4Graphics.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libWm4Graphics.a; path = ../../SDK/Library/ReleaseMemory/libWm4Graphics.a; sourceTree = SOURCE_ROOT; };
+		3CC39A500A2CAC62006BDE82 /* PhysicsModule.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = PhysicsModule.cpp; sourceTree = "<group>"; };
+		3CC39A510A2CAC62006BDE82 /* PhysicsModule.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = PhysicsModule.h; sourceTree = "<group>"; };
+		3CC39A520A2CAC62006BDE82 /* PhysicsModule.inl */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text; path = PhysicsModule.inl; sourceTree = "<group>"; };
+		7432C25307F84F4400ABC141 /* RoughPlaneSolidBoxAglDebDyn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RoughPlaneSolidBoxAglDebDyn.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7432C29607F8577800ABC141 /* RoughPlaneSolidBoxAglRelDyn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RoughPlaneSolidBoxAglRelDyn.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		748AA4CC07F4624400486586 /* RoughPlaneSolidBoxAglDebSta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RoughPlaneSolidBoxAglDebSta.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		748AA4DA07F4631800486586 /* RoughPlaneSolidBoxAglRelSta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RoughPlaneSolidBoxAglRelSta.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		748AA50F07F465B300486586 /* RoughPlaneSolidBox.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = RoughPlaneSolidBox.cpp; sourceTree = SOURCE_ROOT; };
+		748AA51007F465B300486586 /* RoughPlaneSolidBox.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = RoughPlaneSolidBox.h; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3CBB5E6F0A2A92B0001275CA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3CBB5F550A2A9A27001275CA /* AGL.framework in Frameworks */,
+				3CBB5F560A2A9A28001275CA /* Carbon.framework in Frameworks */,
+				3CBB5F570A2A9A28001275CA /* DrawSprocket.framework in Frameworks */,
+				3CBB5F580A2A9A29001275CA /* OpenGL.framework in Frameworks */,
+				3CBF3A520A2B5A49002AAB19 /* libWm4Foundationd.a in Frameworks */,
+				3CBF3A530A2B5A49002AAB19 /* libWm4Graphicsd.a in Frameworks */,
+				3CBF3A540A2B5A49002AAB19 /* libWm4MacSoftApplicationd.a in Frameworks */,
+				3CBF3A550A2B5A49002AAB19 /* libWm4MacSoftRendererd.a in Frameworks */,
+				3CBF3A560A2B5A49002AAB19 /* libWm4Physicsd.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3CBB5F6F0A2A9DB5001275CA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3CBB5F840A2A9EEB001275CA /* AGL.framework in Frameworks */,
+				3CBB5F850A2A9EEC001275CA /* Carbon.framework in Frameworks */,
+				3CBB5F860A2A9EEC001275CA /* DrawSprocket.framework in Frameworks */,
+				3CBB5F870A2A9EED001275CA /* OpenGL.framework in Frameworks */,
+				3CBF3A910A2B5AB7002AAB19 /* libWm4Foundation.a in Frameworks */,
+				3CBF3A920A2B5AB7002AAB19 /* libWm4Graphics.a in Frameworks */,
+				3CBF3A930A2B5AB7002AAB19 /* libWm4MacSoftApplication.a in Frameworks */,
+				3CBF3A940A2B5AB7002AAB19 /* libWm4MacSoftRenderer.a in Frameworks */,
+				3CBF3A950A2B5AB7002AAB19 /* libWm4Physics.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3CBF39E00A2B3F0E002AAB19 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3CBF3A730A2B5A86002AAB19 /* libWm4AglApplicationd.a in Frameworks */,
+				3CBF3A740A2B5A86002AAB19 /* libWm4AglRendererd.a in Frameworks */,
+				3CBF3A790A2B5A86002AAB19 /* libWm4Physicsd.a in Frameworks */,
+				3CBF3C080A2B7C5B002AAB19 /* AGL.framework in Frameworks */,
+				3CBF3C090A2B7C5B002AAB19 /* Carbon.framework in Frameworks */,
+				3CBF3C0A0A2B7C5C002AAB19 /* DrawSprocket.framework in Frameworks */,
+				3CBF3C0B0A2B7C5D002AAB19 /* OpenGL.framework in Frameworks */,
+				3CBF3C4C0A2B80B7002AAB19 /* libWm4Foundationd.a in Frameworks */,
+				3CBF3C790A2B8302002AAB19 /* libWm4Graphicsd.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3CBF39EF0A2B40EA002AAB19 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3CBF3AB20A2B5AEF002AAB19 /* libWm4AglApplication.a in Frameworks */,
+				3CBF3AB30A2B5AEF002AAB19 /* libWm4AglRenderer.a in Frameworks */,
+				3CBF3AB80A2B5AEF002AAB19 /* libWm4Physics.a in Frameworks */,
+				3CBF3C0C0A2B7C60002AAB19 /* AGL.framework in Frameworks */,
+				3CBF3C0D0A2B7C61002AAB19 /* Carbon.framework in Frameworks */,
+				3CBF3C0E0A2B7C62002AAB19 /* DrawSprocket.framework in Frameworks */,
+				3CBF3C0F0A2B7C62002AAB19 /* OpenGL.framework in Frameworks */,
+				3CBF3C820A2B835C002AAB19 /* libWm4Foundation.a in Frameworks */,
+				3CBF3C860A2B8381002AAB19 /* libWm4Graphics.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3CBF39FD0A2B42CF002AAB19 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3CBF3A670A2B5A6A002AAB19 /* libWm4Foundationd.dylib in Frameworks */,
+				3CBF3A680A2B5A6A002AAB19 /* libWm4Graphicsd.dylib in Frameworks */,
+				3CBF3A690A2B5A6A002AAB19 /* libWm4MacSoftApplicationd.dylib in Frameworks */,
+				3CBF3A6A0A2B5A6A002AAB19 /* libWm4MacSoftRendererd.dylib in Frameworks */,
+				3CBF3A6B0A2B5A6A002AAB19 /* libWm4Physicsd.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3CBF3A0B0A2B436D002AAB19 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3CBF3AA60A2B5AD3002AAB19 /* libWm4Foundation.dylib in Frameworks */,
+				3CBF3AA70A2B5AD3002AAB19 /* libWm4Graphics.dylib in Frameworks */,
+				3CBF3AA80A2B5AD3002AAB19 /* libWm4MacSoftApplication.dylib in Frameworks */,
+				3CBF3AA90A2B5AD3002AAB19 /* libWm4MacSoftRenderer.dylib in Frameworks */,
+				3CBF3AAA0A2B5AD3002AAB19 /* libWm4Physics.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3CBF3A190A2B4776002AAB19 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3CBF3A7E0A2B5A86002AAB19 /* libWm4MacSoftApplicationd.a in Frameworks */,
+				3CBF3A7F0A2B5A86002AAB19 /* libWm4MacSoftRendererd.a in Frameworks */,
+				3CBF3A800A2B5A86002AAB19 /* libWm4Physicsd.a in Frameworks */,
+				3CBF3C100A2B7C67002AAB19 /* AGL.framework in Frameworks */,
+				3CBF3C110A2B7C67002AAB19 /* Carbon.framework in Frameworks */,
+				3CBF3C120A2B7C68002AAB19 /* DrawSprocket.framework in Frameworks */,
+				3CBF3C130A2B7C68002AAB19 /* OpenGL.framework in Frameworks */,
+				3CBF3C4D0A2B80B7002AAB19 /* libWm4Foundationd.a in Frameworks */,
+				3CBF3C7A0A2B8302002AAB19 /* libWm4Graphicsd.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3CBF3A270A2B4B45002AAB19 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3CBF3ABD0A2B5AEF002AAB19 /* libWm4MacSoftApplication.a in Frameworks */,
+				3CBF3ABE0A2B5AEF002AAB19 /* libWm4MacSoftRenderer.a in Frameworks */,
+				3CBF3ABF0A2B5AEF002AAB19 /* libWm4Physics.a in Frameworks */,
+				3CBF3C140A2B7C6B002AAB19 /* AGL.framework in Frameworks */,
+				3CBF3C150A2B7C6B002AAB19 /* Carbon.framework in Frameworks */,
+				3CBF3C160A2B7C6C002AAB19 /* DrawSprocket.framework in Frameworks */,
+				3CBF3C170A2B7C6C002AAB19 /* OpenGL.framework in Frameworks */,
+				3CBF3C830A2B835C002AAB19 /* libWm4Foundation.a in Frameworks */,
+				3CBF3C870A2B8381002AAB19 /* libWm4Graphics.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7432C24C07F84F4400ABC141 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3C6FBB35083E5FB60068AA05 /* AGL.framework in Frameworks */,
+				3C6FBB48083E5FCE0068AA05 /* Carbon.framework in Frameworks */,
+				3C6FBB4F083E5FE20068AA05 /* DrawSprocket.framework in Frameworks */,
+				3C6FBC6E083E6E1B0068AA05 /* OpenGL.framework in Frameworks */,
+				3CBF3A5E0A2B5A69002AAB19 /* libWm4AglApplicationd.dylib in Frameworks */,
+				3CBF3A5F0A2B5A69002AAB19 /* libWm4AglRendererd.dylib in Frameworks */,
+				3CBF3A600A2B5A6A002AAB19 /* libWm4Foundationd.dylib in Frameworks */,
+				3CBF3A610A2B5A6A002AAB19 /* libWm4Graphicsd.dylib in Frameworks */,
+				3CBF3A640A2B5A6A002AAB19 /* libWm4Physicsd.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7432C28F07F8577800ABC141 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3C6FBB36083E5FB60068AA05 /* AGL.framework in Frameworks */,
+				3C6FBB49083E5FCE0068AA05 /* Carbon.framework in Frameworks */,
+				3C6FBB50083E5FE20068AA05 /* DrawSprocket.framework in Frameworks */,
+				3C6FBC6F083E6E1B0068AA05 /* OpenGL.framework in Frameworks */,
+				3CBF3A9D0A2B5AD3002AAB19 /* libWm4AglApplication.dylib in Frameworks */,
+				3CBF3A9E0A2B5AD3002AAB19 /* libWm4AglRenderer.dylib in Frameworks */,
+				3CBF3A9F0A2B5AD3002AAB19 /* libWm4Foundation.dylib in Frameworks */,
+				3CBF3AA00A2B5AD3002AAB19 /* libWm4Graphics.dylib in Frameworks */,
+				3CBF3AA30A2B5AD3002AAB19 /* libWm4Physics.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		748AA4CA07F4624400486586 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3C6FBB33083E5FB60068AA05 /* AGL.framework in Frameworks */,
+				3C6FBB46083E5FCE0068AA05 /* Carbon.framework in Frameworks */,
+				3C6FBB4D083E5FE20068AA05 /* DrawSprocket.framework in Frameworks */,
+				3C6FBC6C083E6E1B0068AA05 /* OpenGL.framework in Frameworks */,
+				3CBF3A490A2B5A49002AAB19 /* libWm4AglApplicationd.a in Frameworks */,
+				3CBF3A4A0A2B5A49002AAB19 /* libWm4AglRendererd.a in Frameworks */,
+				3CBF3A4B0A2B5A49002AAB19 /* libWm4Foundationd.a in Frameworks */,
+				3CBF3A4C0A2B5A49002AAB19 /* libWm4Graphicsd.a in Frameworks */,
+				3CBF3A4F0A2B5A49002AAB19 /* libWm4Physicsd.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		748AA4D807F4631800486586 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3C6FBB34083E5FB60068AA05 /* AGL.framework in Frameworks */,
+				3C6FBB47083E5FCE0068AA05 /* Carbon.framework in Frameworks */,
+				3C6FBB4E083E5FE20068AA05 /* DrawSprocket.framework in Frameworks */,
+				3C6FBC6D083E6E1B0068AA05 /* OpenGL.framework in Frameworks */,
+				3CBF3A880A2B5AB7002AAB19 /* libWm4AglApplication.a in Frameworks */,
+				3CBF3A890A2B5AB7002AAB19 /* libWm4AglRenderer.a in Frameworks */,
+				3CBF3A8A0A2B5AB7002AAB19 /* libWm4Foundation.a in Frameworks */,
+				3CBF3A8B0A2B5AB7002AAB19 /* libWm4Graphics.a in Frameworks */,
+				3CBF3A8E0A2B5AB7002AAB19 /* libWm4Physics.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3C6FBB68083E613D0068AA05 /* DebugDLL */ = {
+			isa = PBXGroup;
+			children = (
+				3CBF3A570A2B5A69002AAB19 /* libWm4AglApplicationd.dylib */,
+				3CBF3A580A2B5A69002AAB19 /* libWm4AglRendererd.dylib */,
+				3CBF3A590A2B5A69002AAB19 /* libWm4Foundationd.dylib */,
+				3CBF3A5A0A2B5A69002AAB19 /* libWm4Graphicsd.dylib */,
+				3CBF3A5B0A2B5A69002AAB19 /* libWm4MacSoftApplicationd.dylib */,
+				3CBF3A5C0A2B5A69002AAB19 /* libWm4MacSoftRendererd.dylib */,
+				3CBF3A5D0A2B5A69002AAB19 /* libWm4Physicsd.dylib */,
+			);
+			name = DebugDLL;
+			sourceTree = SOURCE_ROOT;
+		};
+		3C6FBB6B083E61430068AA05 /* ReleaseDLL */ = {
+			isa = PBXGroup;
+			children = (
+				3CBF3A960A2B5AD3002AAB19 /* libWm4AglApplication.dylib */,
+				3CBF3A970A2B5AD3002AAB19 /* libWm4AglRenderer.dylib */,
+				3CBF3A980A2B5AD3002AAB19 /* libWm4Foundation.dylib */,
+				3CBF3A990A2B5AD3002AAB19 /* libWm4Graphics.dylib */,
+				3CBF3A9A0A2B5AD3002AAB19 /* libWm4MacSoftApplication.dylib */,
+				3CBF3A9B0A2B5AD3002AAB19 /* libWm4MacSoftRenderer.dylib */,
+				3CBF3A9C0A2B5AD3002AAB19 /* libWm4Physics.dylib */,
+			);
+			name = ReleaseDLL;
+			sourceTree = "<group>";
+		};
+		3CBF39D80A2B3EB0002AAB19 /* DebugMemory */ = {
+			isa = PBXGroup;
+			children = (
+				3CBF3C780A2B8302002AAB19 /* libWm4Graphicsd.a */,
+				3CBF3C4B0A2B80B7002AAB19 /* libWm4Foundationd.a */,
+				3CBF3A6C0A2B5A86002AAB19 /* libWm4AglApplicationd.a */,
+				3CBF3A6D0A2B5A86002AAB19 /* libWm4AglRendererd.a */,
+				3CBF3A700A2B5A86002AAB19 /* libWm4MacSoftApplicationd.a */,
+				3CBF3A710A2B5A86002AAB19 /* libWm4MacSoftRendererd.a */,
+				3CBF3A720A2B5A86002AAB19 /* libWm4Physicsd.a */,
+			);
+			name = DebugMemory;
+			sourceTree = "<group>";
+		};
+		3CBF39DB0A2B3EBA002AAB19 /* ReleaseMemory */ = {
+			isa = PBXGroup;
+			children = (
+				3CBF3C850A2B8381002AAB19 /* libWm4Graphics.a */,
+				3CBF3C810A2B835C002AAB19 /* libWm4Foundation.a */,
+				3CBF3AAB0A2B5AEF002AAB19 /* libWm4AglApplication.a */,
+				3CBF3AAC0A2B5AEF002AAB19 /* libWm4AglRenderer.a */,
+				3CBF3AAF0A2B5AEF002AAB19 /* libWm4MacSoftApplication.a */,
+				3CBF3AB00A2B5AEF002AAB19 /* libWm4MacSoftRenderer.a */,
+				3CBF3AB10A2B5AEF002AAB19 /* libWm4Physics.a */,
+			);
+			name = ReleaseMemory;
+			sourceTree = "<group>";
+		};
+		7432C2B407F8766A00ABC141 /* Debug */ = {
+			isa = PBXGroup;
+			children = (
+				3CBF3A420A2B5A49002AAB19 /* libWm4AglApplicationd.a */,
+				3CBF3A430A2B5A49002AAB19 /* libWm4AglRendererd.a */,
+				3CBF3A440A2B5A49002AAB19 /* libWm4Foundationd.a */,
+				3CBF3A450A2B5A49002AAB19 /* libWm4Graphicsd.a */,
+				3CBF3A460A2B5A49002AAB19 /* libWm4MacSoftApplicationd.a */,
+				3CBF3A470A2B5A49002AAB19 /* libWm4MacSoftRendererd.a */,
+				3CBF3A480A2B5A49002AAB19 /* libWm4Physicsd.a */,
+			);
+			name = Debug;
+			sourceTree = "<group>";
+		};
+		7432C2B707F8767000ABC141 /* Release */ = {
+			isa = PBXGroup;
+			children = (
+				3CBF3A810A2B5AB7002AAB19 /* libWm4AglApplication.a */,
+				3CBF3A820A2B5AB7002AAB19 /* libWm4AglRenderer.a */,
+				3CBF3A830A2B5AB7002AAB19 /* libWm4Foundation.a */,
+				3CBF3A840A2B5AB7002AAB19 /* libWm4Graphics.a */,
+				3CBF3A850A2B5AB7002AAB19 /* libWm4MacSoftApplication.a */,
+				3CBF3A860A2B5AB7002AAB19 /* libWm4MacSoftRenderer.a */,
+				3CBF3A870A2B5AB7002AAB19 /* libWm4Physics.a */,
+			);
+			name = Release;
+			sourceTree = "<group>";
+		};
+		748AA4BE07F4621A00486586 = {
+			isa = PBXGroup;
+			children = (
+				748AA50C07F465A200486586 /* Sources */,
+				748AA4F707F4641600486586 /* Libraries */,
+				748AA4E207F463F300486586 /* Frameworks */,
+				748AA4CD07F4624400486586 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		748AA4CD07F4624400486586 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				748AA4CC07F4624400486586 /* RoughPlaneSolidBoxAglDebSta.app */,
+				748AA4DA07F4631800486586 /* RoughPlaneSolidBoxAglRelSta.app */,
+				7432C25307F84F4400ABC141 /* RoughPlaneSolidBoxAglDebDyn.app */,
+				7432C29607F8577800ABC141 /* RoughPlaneSolidBoxAglRelDyn.app */,
+				3CBB5E710A2A92B0001275CA /* RoughPlaneSolidBoxSftDebSta.app */,
+				3CBB5F710A2A9DB5001275CA /* RoughPlaneSolidBoxSftRelSta.app */,
+				3CBF39E20A2B3F0E002AAB19 /* RoughPlaneSolidBoxAglDebMem.app */,
+				3CBF39F10A2B40EA002AAB19 /* RoughPlaneSolidBoxAglRelMem.app */,
+				3CBF39FF0A2B42CF002AAB19 /* RoughPlaneSolidBoxSftDebDyn.app */,
+				3CBF3A0D0A2B436D002AAB19 /* RoughPlaneSolidBoxSftRelDyn.app */,
+				3CBF3A1B0A2B4776002AAB19 /* RoughPlaneSolidBoxSftDebMem.app */,
+				3CBF3A290A2B4B45002AAB19 /* RoughPlaneSolidBoxSftRelMem.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		748AA4E207F463F300486586 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3C6FBC6B083E6E1B0068AA05 /* OpenGL.framework */,
+				3C6FBB4C083E5FE20068AA05 /* DrawSprocket.framework */,
+				3C6FBB45083E5FCE0068AA05 /* Carbon.framework */,
+				3C6FBB32083E5FB60068AA05 /* AGL.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		748AA4F707F4641600486586 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				7432C2B407F8766A00ABC141 /* Debug */,
+				3C6FBB68083E613D0068AA05 /* DebugDLL */,
+				3CBF39D80A2B3EB0002AAB19 /* DebugMemory */,
+				7432C2B707F8767000ABC141 /* Release */,
+				3C6FBB6B083E61430068AA05 /* ReleaseDLL */,
+				3CBF39DB0A2B3EBA002AAB19 /* ReleaseMemory */,
+			);
+			name = Libraries;
+			sourceTree = SOURCE_ROOT;
+		};
+		748AA50C07F465A200486586 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				3CC39A500A2CAC62006BDE82 /* PhysicsModule.cpp */,
+				3CC39A510A2CAC62006BDE82 /* PhysicsModule.h */,
+				3CC39A520A2CAC62006BDE82 /* PhysicsModule.inl */,
+				748AA50F07F465B300486586 /* RoughPlaneSolidBox.cpp */,
+				748AA51007F465B300486586 /* RoughPlaneSolidBox.h */,
+			);
+			name = Sources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3CBB5E700A2A92B0001275CA /* Sft Debug Static */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3CBB5E740A2A92B1001275CA /* Build configuration list for PBXNativeTarget "Sft Debug Static" */;
+			buildPhases = (
+				3CBB5E6D0A2A92B0001275CA /* Resources */,
+				3CBB5E6E0A2A92B0001275CA /* Sources */,
+				3CBB5E6F0A2A92B0001275CA /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Sft Debug Static";
+			productName = "Static Debug Soft";
+			productReference = 3CBB5E710A2A92B0001275CA /* RoughPlaneSolidBoxSftDebSta.app */;
+			productType = "com.apple.product-type.application";
+		};
+		3CBB5F700A2A9DB5001275CA /* Sft Release Static */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3CBB5F740A2A9DB6001275CA /* Build configuration list for PBXNativeTarget "Sft Release Static" */;
+			buildPhases = (
+				3CBB5F6D0A2A9DB5001275CA /* Resources */,
+				3CBB5F6E0A2A9DB5001275CA /* Sources */,
+				3CBB5F6F0A2A9DB5001275CA /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Sft Release Static";
+			productName = "Sft Release Static";
+			productReference = 3CBB5F710A2A9DB5001275CA /* RoughPlaneSolidBoxSftRelSta.app */;
+			productType = "com.apple.product-type.application";
+		};
+		3CBF39E10A2B3F0E002AAB19 /* Agl Debug Memory */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3CBF39E50A2B3F0E002AAB19 /* Build configuration list for PBXNativeTarget "Agl Debug Memory" */;
+			buildPhases = (
+				3CBF39DE0A2B3F0E002AAB19 /* Resources */,
+				3CBF39DF0A2B3F0E002AAB19 /* Sources */,
+				3CBF39E00A2B3F0E002AAB19 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Agl Debug Memory";
+			productName = "Agl Debug Memory";
+			productReference = 3CBF39E20A2B3F0E002AAB19 /* RoughPlaneSolidBoxAglDebMem.app */;
+			productType = "com.apple.product-type.application";
+		};
+		3CBF39F00A2B40EA002AAB19 /* Agl Release Memory */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3CBF39F40A2B40EA002AAB19 /* Build configuration list for PBXNativeTarget "Agl Release Memory" */;
+			buildPhases = (
+				3CBF39ED0A2B40EA002AAB19 /* Resources */,
+				3CBF39EE0A2B40EA002AAB19 /* Sources */,
+				3CBF39EF0A2B40EA002AAB19 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Agl Release Memory";
+			productName = "Agl Release Memory";
+			productReference = 3CBF39F10A2B40EA002AAB19 /* RoughPlaneSolidBoxAglRelMem.app */;
+			productType = "com.apple.product-type.application";
+		};
+		3CBF39FE0A2B42CF002AAB19 /* Sft Debug Dynamic */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3CBF3A020A2B42CF002AAB19 /* Build configuration list for PBXNativeTarget "Sft Debug Dynamic" */;
+			buildPhases = (
+				3CBF39FB0A2B42CF002AAB19 /* Resources */,
+				3CBF39FC0A2B42CF002AAB19 /* Sources */,
+				3CBF39FD0A2B42CF002AAB19 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Sft Debug Dynamic";
+			productName = "Sft Debug Dynamic";
+			productReference = 3CBF39FF0A2B42CF002AAB19 /* RoughPlaneSolidBoxSftDebDyn.app */;
+			productType = "com.apple.product-type.application";
+		};
+		3CBF3A0C0A2B436D002AAB19 /* Sft Release Dynamic */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3CBF3A100A2B436E002AAB19 /* Build configuration list for PBXNativeTarget "Sft Release Dynamic" */;
+			buildPhases = (
+				3CBF3A090A2B436D002AAB19 /* Resources */,
+				3CBF3A0A0A2B436D002AAB19 /* Sources */,
+				3CBF3A0B0A2B436D002AAB19 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Sft Release Dynamic";
+			productName = "Sft Release Dynamic";
+			productReference = 3CBF3A0D0A2B436D002AAB19 /* RoughPlaneSolidBoxSftRelDyn.app */;
+			productType = "com.apple.product-type.application";
+		};
+		3CBF3A1A0A2B4776002AAB19 /* Sft Debug Memory */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3CBF3A1E0A2B4776002AAB19 /* Build configuration list for PBXNativeTarget "Sft Debug Memory" */;
+			buildPhases = (
+				3CBF3A170A2B4776002AAB19 /* Resources */,
+				3CBF3A180A2B4776002AAB19 /* Sources */,
+				3CBF3A190A2B4776002AAB19 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Sft Debug Memory";
+			productName = "Sft Debug Memory";
+			productReference = 3CBF3A1B0A2B4776002AAB19 /* RoughPlaneSolidBoxSftDebMem.app */;
+			productType = "com.apple.product-type.application";
+		};
+		3CBF3A280A2B4B45002AAB19 /* Sft Release Memory */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3CBF3A2C0A2B4B45002AAB19 /* Build configuration list for PBXNativeTarget "Sft Release Memory" */;
+			buildPhases = (
+				3CBF3A250A2B4B45002AAB19 /* Resources */,
+				3CBF3A260A2B4B45002AAB19 /* Sources */,
+				3CBF3A270A2B4B45002AAB19 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Sft Release Memory";
+			productName = "Sft Release Memory";
+			productReference = 3CBF3A290A2B4B45002AAB19 /* RoughPlaneSolidBoxSftRelMem.app */;
+			productType = "com.apple.product-type.application";
+		};
+		7432C24807F84F4400ABC141 /* Agl Debug Dynamic */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3C4B93A008674C10001A085C /* Build configuration list for PBXNativeTarget "Agl Debug Dynamic" */;
+			buildPhases = (
+				7432C24907F84F4400ABC141 /* Resources */,
+				7432C24A07F84F4400ABC141 /* Sources */,
+				7432C24C07F84F4400ABC141 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Agl Debug Dynamic";
+			productName = RoughPlaneSolidBoxDynDeb;
+			productReference = 7432C25307F84F4400ABC141 /* RoughPlaneSolidBoxAglDebDyn.app */;
+			productType = "com.apple.product-type.application";
+		};
+		7432C28B07F8577800ABC141 /* Agl Release Dynamic */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3C4B93A308674C10001A085C /* Build configuration list for PBXNativeTarget "Agl Release Dynamic" */;
+			buildPhases = (
+				7432C28C07F8577800ABC141 /* Resources */,
+				7432C28D07F8577800ABC141 /* Sources */,
+				7432C28F07F8577800ABC141 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Agl Release Dynamic";
+			productName = RoughPlaneSolidBoxDynRel;
+			productReference = 7432C29607F8577800ABC141 /* RoughPlaneSolidBoxAglRelDyn.app */;
+			productType = "com.apple.product-type.application";
+		};
+		748AA4CB07F4624400486586 /* Agl Debug Static */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3C4B939708674C10001A085C /* Build configuration list for PBXNativeTarget "Agl Debug Static" */;
+			buildPhases = (
+				748AA4C807F4624400486586 /* Resources */,
+				748AA4C907F4624400486586 /* Sources */,
+				748AA4CA07F4624400486586 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Agl Debug Static";
+			productName = RoughPlaneSolidBoxStaDeb;
+			productReference = 748AA4CC07F4624400486586 /* RoughPlaneSolidBoxAglDebSta.app */;
+			productType = "com.apple.product-type.application";
+		};
+		748AA4D907F4631800486586 /* Agl Release Static */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3C4B939A08674C10001A085C /* Build configuration list for PBXNativeTarget "Agl Release Static" */;
+			buildPhases = (
+				748AA4D607F4631800486586 /* Resources */,
+				748AA4D707F4631800486586 /* Sources */,
+				748AA4D807F4631800486586 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Agl Release Static";
+			productName = RoughPlaneSolidBoxStaRel;
+			productReference = 748AA4DA07F4631800486586 /* RoughPlaneSolidBoxAglRelSta.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		748AA4C207F4621A00486586 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 3C4B93AC08674C10001A085C /* Build configuration list for PBXProject "RoughPlaneSolidBox" */;
+			compatibilityVersion = "Xcode 2.4";
+			hasScannedForEncodings = 0;
+			mainGroup = 748AA4BE07F4621A00486586;
+			productRefGroup = 748AA4CD07F4624400486586 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				748AA4CB07F4624400486586 /* Agl Debug Static */,
+				748AA4D907F4631800486586 /* Agl Release Static */,
+				7432C24807F84F4400ABC141 /* Agl Debug Dynamic */,
+				7432C28B07F8577800ABC141 /* Agl Release Dynamic */,
+				3CBF39E10A2B3F0E002AAB19 /* Agl Debug Memory */,
+				3CBF39F00A2B40EA002AAB19 /* Agl Release Memory */,
+				3CBB5E700A2A92B0001275CA /* Sft Debug Static */,
+				3CBB5F700A2A9DB5001275CA /* Sft Release Static */,
+				3CBF39FE0A2B42CF002AAB19 /* Sft Debug Dynamic */,
+				3CBF3A0C0A2B436D002AAB19 /* Sft Release Dynamic */,
+				3CBF3A1A0A2B4776002AAB19 /* Sft Debug Memory */,
+				3CBF3A280A2B4B45002AAB19 /* Sft Release Memory */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3CBB5E6D0A2A92B0001275CA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3CC39A600A2CAC62006BDE82 /* PhysicsModule.inl in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3CBB5F6D0A2A9DB5001275CA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3CC39A620A2CAC62006BDE82 /* PhysicsModule.inl in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3CBF39DE0A2B3F0E002AAB19 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3CC39A5C0A2CAC62006BDE82 /* PhysicsModule.inl in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3CBF39ED0A2B40EA002AAB19 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3CC39A5E0A2CAC62006BDE82 /* PhysicsModule.inl in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3CBF39FB0A2B42CF002AAB19 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3CC39A640A2CAC62006BDE82 /* PhysicsModule.inl in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3CBF3A090A2B436D002AAB19 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3CC39A660A2CAC62006BDE82 /* PhysicsModule.inl in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3CBF3A170A2B4776002AAB19 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3CC39A680A2CAC62006BDE82 /* PhysicsModule.inl in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3CBF3A250A2B4B45002AAB19 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3CC39A6A0A2CAC62006BDE82 /* PhysicsModule.inl in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7432C24907F84F4400ABC141 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3CC39A580A2CAC62006BDE82 /* PhysicsModule.inl in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7432C28C07F8577800ABC141 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3CC39A5A0A2CAC62006BDE82 /* PhysicsModule.inl in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		748AA4C807F4624400486586 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3CC39A540A2CAC62006BDE82 /* PhysicsModule.inl in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		748AA4D607F4631800486586 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3CC39A560A2CAC62006BDE82 /* PhysicsModule.inl in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3CBB5E6E0A2A92B0001275CA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3CBB5E7B0A2A9612001275CA /* RoughPlaneSolidBox.cpp in Sources */,
+				3CC39A5F0A2CAC62006BDE82 /* PhysicsModule.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3CBB5F6E0A2A9DB5001275CA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3CBB5F770A2A9E79001275CA /* RoughPlaneSolidBox.cpp in Sources */,
+				3CC39A610A2CAC62006BDE82 /* PhysicsModule.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3CBF39DF0A2B3F0E002AAB19 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3CBF39E80A2B3F39002AAB19 /* RoughPlaneSolidBox.cpp in Sources */,
+				3CC39A5B0A2CAC62006BDE82 /* PhysicsModule.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3CBF39EE0A2B40EA002AAB19 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3CBF39F70A2B40FE002AAB19 /* RoughPlaneSolidBox.cpp in Sources */,
+				3CC39A5D0A2CAC62006BDE82 /* PhysicsModule.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3CBF39FC0A2B42CF002AAB19 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3CBF3A050A2B42D6002AAB19 /* RoughPlaneSolidBox.cpp in Sources */,
+				3CC39A630A2CAC62006BDE82 /* PhysicsModule.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3CBF3A0A0A2B436D002AAB19 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3CBF3A130A2B4374002AAB19 /* RoughPlaneSolidBox.cpp in Sources */,
+				3CC39A650A2CAC62006BDE82 /* PhysicsModule.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3CBF3A180A2B4776002AAB19 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3CBF3A210A2B4AB6002AAB19 /* RoughPlaneSolidBox.cpp in Sources */,
+				3CC39A670A2CAC62006BDE82 /* PhysicsModule.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3CBF3A260A2B4B45002AAB19 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3CBF3A2F0A2B4B4C002AAB19 /* RoughPlaneSolidBox.cpp in Sources */,
+				3CC39A690A2CAC62006BDE82 /* PhysicsModule.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7432C24A07F84F4400ABC141 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7432C24B07F84F4400ABC141 /* RoughPlaneSolidBox.cpp in Sources */,
+				3CC39A570A2CAC62006BDE82 /* PhysicsModule.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7432C28D07F8577800ABC141 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7432C28E07F8577800ABC141 /* RoughPlaneSolidBox.cpp in Sources */,
+				3CC39A590A2CAC62006BDE82 /* PhysicsModule.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		748AA4C907F4624400486586 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				748AA51307F465B300486586 /* RoughPlaneSolidBox.cpp in Sources */,
+				3CC39A530A2CAC62006BDE82 /* PhysicsModule.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		748AA4D707F4631800486586 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				748AA51107F465B300486586 /* RoughPlaneSolidBox.cpp in Sources */,
+				3CC39A550A2CAC62006BDE82 /* PhysicsModule.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		3C4B939908674C10001A085C /* Default */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
+				GCC_ENABLE_CPP_RTTI = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = _DEBUG;
+				HEADER_SEARCH_PATHS = "${SRCROOT}/../../SDK/Include";
+				LIBRARY_SEARCH_PATHS = "${SRCROOT}/../../SDK/Library/Debug";
+				PRESERVE_DEAD_CODE_INITS_AND_TERMS = YES;
+				PRODUCT_NAME = RoughPlaneSolidBoxAglDebSta;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = Default;
+		};
+		3C4B939C08674C10001A085C /* Default */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				DEAD_CODE_STRIPPING = YES;
+				GCC_ENABLE_CPP_RTTI = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PREPROCESSOR_DEFINITIONS = NDEBUG;
+				HEADER_SEARCH_PATHS = "${SRCROOT}/../../SDK/Include";
+				LIBRARY_SEARCH_PATHS = "${SRCROOT}/../../SDK/Library/Release";
+				PRESERVE_DEAD_CODE_INITS_AND_TERMS = YES;
+				PRODUCT_NAME = RoughPlaneSolidBoxAglRelSta;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = Default;
+		};
+		3C4B93A208674C10001A085C /* Default */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
+				GCC_ENABLE_CPP_RTTI = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = _DEBUG;
+				HEADER_SEARCH_PATHS = "${SRCROOT}/../../SDK/Include";
+				LIBRARY_SEARCH_PATHS = "${SRCROOT}/../../SDK/Library/DebugDLL";
+				PRESERVE_DEAD_CODE_INITS_AND_TERMS = YES;
+				PRODUCT_NAME = RoughPlaneSolidBoxAglDebDyn;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = Default;
+		};
+		3C4B93A508674C10001A085C /* Default */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				DEAD_CODE_STRIPPING = YES;
+				GCC_ENABLE_CPP_RTTI = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PREPROCESSOR_DEFINITIONS = NDEBUG;
+				HEADER_SEARCH_PATHS = "${SRCROOT}/../../SDK/Include";
+				LIBRARY_SEARCH_PATHS = "${SRCROOT}/../../SDK/Library/ReleaseDLL";
+				PRESERVE_DEAD_CODE_INITS_AND_TERMS = YES;
+				PRODUCT_NAME = RoughPlaneSolidBoxAglRelDyn;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = Default;
+		};
+		3C4B93AE08674C10001A085C /* Default */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+			};
+			name = Default;
+		};
+		3CBB5E760A2A92B1001275CA /* Default */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
+				GCC_ENABLE_CPP_RTTI = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_MODEL_TUNING = G4;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "";
+				GCC_PREPROCESSOR_DEFINITIONS = _DEBUG;
+				HEADER_SEARCH_PATHS = "${SRCROOT}/../../SDK/Include";
+				INFOPLIST_FILE = "";
+				INSTALL_PATH = "$(HOME)/Applications";
+				LIBRARY_SEARCH_PATHS = "${SRCROOT}/../../SDK/Library/Debug";
+				OTHER_LDFLAGS = "";
+				PREBINDING = NO;
+				PRESERVE_DEAD_CODE_INITS_AND_TERMS = YES;
+				PRODUCT_NAME = RoughPlaneSolidBoxSftDebSta;
+				SKIP_INSTALL = YES;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+				WRAPPER_EXTENSION = app;
+				ZERO_LINK = NO;
+			};
+			name = Default;
+		};
+		3CBB5F760A2A9DB6001275CA /* Default */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				DEAD_CODE_STRIPPING = YES;
+				GCC_ENABLE_CPP_RTTI = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_MODEL_TUNING = G4;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "";
+				GCC_PREPROCESSOR_DEFINITIONS = NDEBUG;
+				HEADER_SEARCH_PATHS = "${SRCROOT}/../../SDK/Include";
+				INFOPLIST_FILE = "";
+				INSTALL_PATH = "$(HOME)/Applications";
+				LIBRARY_SEARCH_PATHS = "${SRCROOT}/../../SDK/Library/Release";
+				OTHER_LDFLAGS = "";
+				PREBINDING = NO;
+				PRESERVE_DEAD_CODE_INITS_AND_TERMS = YES;
+				PRODUCT_NAME = RoughPlaneSolidBoxSftRelSta;
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = app;
+				ZERO_LINK = NO;
+			};
+			name = Default;
+		};
+		3CBF39E70A2B3F0E002AAB19 /* Default */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
+				GCC_ENABLE_CPP_RTTI = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_MODEL_TUNING = G4;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					_DEBUG,
+					WM4_MEMORY_MANAGER,
+				);
+				HEADER_SEARCH_PATHS = "${SRCROOT}/../../SDK/Include";
+				INSTALL_PATH = "$(HOME)/Applications";
+				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/../../SDK/Library/DebugMemory";
+				OTHER_LDFLAGS = "";
+				PREBINDING = NO;
+				PRESERVE_DEAD_CODE_INITS_AND_TERMS = YES;
+				PRODUCT_NAME = RoughPlaneSolidBoxAglDebMem;
+				SKIP_INSTALL = YES;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+				WRAPPER_EXTENSION = app;
+				ZERO_LINK = NO;
+			};
+			name = Default;
+		};
+		3CBF39F60A2B40EA002AAB19 /* Default */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				DEAD_CODE_STRIPPING = YES;
+				GCC_ENABLE_CPP_RTTI = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_MODEL_TUNING = G4;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					NDEBUG,
+					WM4_MEMORY_MANAGER,
+				);
+				HEADER_SEARCH_PATHS = "${SRCROOT}/../../SDK/Include";
+				INSTALL_PATH = "$(HOME)/Applications";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_1)",
+				);
+				LIBRARY_SEARCH_PATHS_QUOTED_1 = "\"$(SRCROOT)/../../SDK/Library/ReleaseMemory\"";
+				OTHER_LDFLAGS = "";
+				PREBINDING = NO;
+				PRESERVE_DEAD_CODE_INITS_AND_TERMS = YES;
+				PRODUCT_NAME = RoughPlaneSolidBoxAglRelMem;
+				SKIP_INSTALL = YES;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+				WRAPPER_EXTENSION = app;
+				ZERO_LINK = NO;
+			};
+			name = Default;
+		};
+		3CBF3A040A2B42CF002AAB19 /* Default */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_ENABLE_CPP_RTTI = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_MODEL_TUNING = G4;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREPROCESSOR_DEFINITIONS = _DEBUG;
+				HEADER_SEARCH_PATHS = "${SRCROOT}/../../SDK/Include";
+				INSTALL_PATH = "$(HOME)/Applications";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_1)",
+				);
+				LIBRARY_SEARCH_PATHS_QUOTED_1 = "\"$(SRCROOT)/../../SDK/Library/DebugDLL\"";
+				ONLY_LINK_ESSENTIAL_SYMBOLS = YES;
+				PREBINDING = NO;
+				PRESERVE_DEAD_CODE_INITS_AND_TERMS = YES;
+				PRODUCT_NAME = RoughPlaneSolidBoxSftDebDyn;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+				WRAPPER_EXTENSION = app;
+				ZERO_LINK = NO;
+			};
+			name = Default;
+		};
+		3CBF3A120A2B436E002AAB19 /* Default */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_ENABLE_CPP_RTTI = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_MODEL_TUNING = G4;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREPROCESSOR_DEFINITIONS = NDEBUG;
+				HEADER_SEARCH_PATHS = "${SRCROOT}/../../SDK/Include";
+				INSTALL_PATH = "$(HOME)/Applications";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_1)",
+				);
+				LIBRARY_SEARCH_PATHS_QUOTED_1 = "\"$(SRCROOT)/../../SDK/Library/ReleaseDLL\"";
+				PREBINDING = NO;
+				PRODUCT_NAME = RoughPlaneSolidBoxSftRelDyn;
+				SKIP_INSTALL = YES;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+				WRAPPER_EXTENSION = app;
+				ZERO_LINK = NO;
+			};
+			name = Default;
+		};
+		3CBF3A200A2B4776002AAB19 /* Default */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
+				GCC_ENABLE_CPP_RTTI = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_MODEL_TUNING = G4;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					_DEBUG,
+					WM4_MEMORY_MANAGER,
+				);
+				HEADER_SEARCH_PATHS = "${SRCROOT}/../../SDK/Include";
+				INSTALL_PATH = "$(HOME)/Applications";
+				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/../../SDK/Library/DebugMemory";
+				PREBINDING = NO;
+				PRESERVE_DEAD_CODE_INITS_AND_TERMS = YES;
+				PRODUCT_NAME = RoughPlaneSolidBoxSftDebMem;
+				SKIP_INSTALL = YES;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+				WRAPPER_EXTENSION = app;
+				ZERO_LINK = NO;
+			};
+			name = Default;
+		};
+		3CBF3A2E0A2B4B45002AAB19 /* Default */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				DEAD_CODE_STRIPPING = YES;
+				GCC_ENABLE_CPP_RTTI = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_MODEL_TUNING = G4;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					NDEBUG,
+					WM4_MEMORY_MANAGER,
+				);
+				HEADER_SEARCH_PATHS = "${SRCROOT}/../../SDK/Include";
+				INSTALL_PATH = "$(HOME)/Applications";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_1)",
+				);
+				LIBRARY_SEARCH_PATHS_QUOTED_1 = "\"$(SRCROOT)/../../SDK/Library/ReleaseMemory\"";
+				PREBINDING = NO;
+				PRESERVE_DEAD_CODE_INITS_AND_TERMS = YES;
+				PRODUCT_NAME = RoughPlaneSolidBoxSftRelMem;
+				SKIP_INSTALL = YES;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+				WRAPPER_EXTENSION = app;
+				ZERO_LINK = NO;
+			};
+			name = Default;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3C4B939708674C10001A085C /* Build configuration list for PBXNativeTarget "Agl Debug Static" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3C4B939908674C10001A085C /* Default */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Default;
+		};
+		3C4B939A08674C10001A085C /* Build configuration list for PBXNativeTarget "Agl Release Static" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3C4B939C08674C10001A085C /* Default */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Default;
+		};
+		3C4B93A008674C10001A085C /* Build configuration list for PBXNativeTarget "Agl Debug Dynamic" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3C4B93A208674C10001A085C /* Default */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Default;
+		};
+		3C4B93A308674C10001A085C /* Build configuration list for PBXNativeTarget "Agl Release Dynamic" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3C4B93A508674C10001A085C /* Default */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Default;
+		};
+		3C4B93AC08674C10001A085C /* Build configuration list for PBXProject "RoughPlaneSolidBox" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3C4B93AE08674C10001A085C /* Default */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Default;
+		};
+		3CBB5E740A2A92B1001275CA /* Build configuration list for PBXNativeTarget "Sft Debug Static" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3CBB5E760A2A92B1001275CA /* Default */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Default;
+		};
+		3CBB5F740A2A9DB6001275CA /* Build configuration list for PBXNativeTarget "Sft Release Static" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3CBB5F760A2A9DB6001275CA /* Default */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Default;
+		};
+		3CBF39E50A2B3F0E002AAB19 /* Build configuration list for PBXNativeTarget "Agl Debug Memory" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3CBF39E70A2B3F0E002AAB19 /* Default */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Default;
+		};
+		3CBF39F40A2B40EA002AAB19 /* Build configuration list for PBXNativeTarget "Agl Release Memory" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3CBF39F60A2B40EA002AAB19 /* Default */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Default;
+		};
+		3CBF3A020A2B42CF002AAB19 /* Build configuration list for PBXNativeTarget "Sft Debug Dynamic" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3CBF3A040A2B42CF002AAB19 /* Default */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Default;
+		};
+		3CBF3A100A2B436E002AAB19 /* Build configuration list for PBXNativeTarget "Sft Release Dynamic" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3CBF3A120A2B436E002AAB19 /* Default */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Default;
+		};
+		3CBF3A1E0A2B4776002AAB19 /* Build configuration list for PBXNativeTarget "Sft Debug Memory" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3CBF3A200A2B4776002AAB19 /* Default */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Default;
+		};
+		3CBF3A2C0A2B4B45002AAB19 /* Build configuration list for PBXNativeTarget "Sft Release Memory" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3CBF3A2E0A2B4B45002AAB19 /* Default */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Default;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 748AA4C207F4621A00486586 /* Project object */;
+}
+

@@ -1,0 +1,76 @@
+ps_2_0
+// cgc version 1.5.0014, build date Sep 18 2006 20:36:59
+// command line args: -profile ps_2_0
+// source file: ShadowMaps2.cg
+//vendor NVIDIA Corporation
+//version 1.5.0.14
+//profile ps_2_0
+//program p_Scene
+//semantic p_Scene.LightColor
+//semantic p_Scene.ColorSampler
+//semantic p_Scene.BlurSampler
+//semantic p_Scene.SpotSampler
+//var float2 kTCoord : $vin.TEXCOORD0 : TEX0 : 0 : 1
+//var float4 kProjTCoord : $vin.TEXCOORD1 : TEX1 : 1 : 1
+//var float4 kScreenTCoord : $vin.TEXCOORD2 : TEX2 : 2 : 1
+//var float3 kNormal : $vin.TEXCOORD3 : TEX3 : 3 : 1
+//var float3 kLightVector : $vin.TEXCOORD4 : TEX4 : 4 : 1
+//var float3 kEyeVector : $vin.TEXCOORD5 : TEX5 : 5 : 0
+//var float4 kPixelColor : $vout.COLOR : COL : 6 : 1
+//var float4 LightColor :  : c[0] : 7 : 1
+//var sampler2D ColorSampler :  : texunit 0 : 8 : 1
+//var sampler2DSHADOW BlurSampler :  : texunit 1 : 9 : 1
+//var sampler2D SpotSampler :  : texunit 2 : 10 : 1
+//const c[1] = 0 -0.5 0.25 1
+//const c[2] = 2 8
+dcl_2d s0
+dcl_2d s1
+dcl_2d s2
+def c1, 0.000000, -0.500000, 0.250000, 1.000000
+def c2, 2.000000, 8.000000, 0, 0
+dcl t3.xyz
+dcl t4.xyz
+dcl t0.xy
+dcl t2
+dcl t1.xyzw
+texldp r6, t2, s1
+texld r4, t0, s0
+rcp r1.x, t1.w
+mul r0.x, t1.y, r1
+mul r7.x, t1, r1
+mov r7.y, r0.x
+dp3 r3.x, t4, t4
+dp3 r1.x, t3, t3
+rsq r1.x, r1.x
+rsq r3.x, r3.x
+add r0.x, r0, c1.y
+mul r3.xyz, r3.x, t4
+mul r5.xyz, r1.x, t3
+dp3 r1.x, r5, r3
+mul r5.xyz, r1.x, r5
+mad r5.xyz, r5, c2.x, -r3
+dp3 r3.x, r3, r5
+max r3.x, r3, c1
+pow r5, r3.x, c2.y
+max r1.x, r1, c1
+abs_pp r3.x, r1
+cmp r3.x, -r3, c1, r5
+mul r3.xyz, r4, r3.x
+mul r4.xyz, r1.x, r4
+mul r1.xyz, r4, c0
+mul r5.xyz, r1, r6.x
+mul r3.xyz, r3, c0.w
+add r1.x, r7, c1.y
+mul r0.x, r0, r0
+mad r0.x, r1, r1, r0
+add r0.x, -r0, c1.z
+cmp r0.x, r0, c1.w, c1
+mul r6.xyz, r6.x, r3
+abs_pp r0.x, r0
+mov r0.w, c1
+texld r2, r7, s2
+mul r1.xyz, r2, r6
+mad r1.xyz, r5, r2, r1
+mad r2.xyz, r4, c0, r3
+cmp r0.xyz, -r0.x, r2, r1
+mov oC0, r0

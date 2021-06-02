@@ -1,0 +1,28 @@
+//----------------------------------------------------------------------------
+void v_VolumeTextures
+(
+    in float3        kModelPosition  : POSITION,
+    in float3        kInTCoord : TEXCOORD0,
+    out float4       kClipPosition : POSITION,
+    out float3       kOutTCoord : TEXCOORD0,
+    uniform float4x4 WVPMatrix)
+{
+    // Transform the position from model space to clip space.
+    kClipPosition = mul(float4(kModelPosition,1.0f),WVPMatrix);
+
+    // Pass through the texture coordinate.
+    kOutTCoord = kInTCoord;
+}
+//----------------------------------------------------------------------------
+void p_VolumeTextures
+(
+    in float3         kTCoord : TEXCOORD0,
+    out float4        kPixelColor : COLOR,
+    uniform float     CommonAlpha,
+    uniform sampler3D BaseSampler)
+{
+    // Sample the texture image.
+    kPixelColor.rgb = tex3D(BaseSampler,kTCoord).rgb;
+    kPixelColor.a = CommonAlpha;
+}
+//----------------------------------------------------------------------------

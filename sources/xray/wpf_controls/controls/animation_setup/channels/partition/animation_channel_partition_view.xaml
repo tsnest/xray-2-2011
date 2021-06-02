@@ -1,0 +1,36 @@
+﻿<UserControl x:Class="xray.editor.wpf_controls.animation_setup.animation_channel_partition_view"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:as="clr-namespace:xray.editor.wpf_controls.animation_setup"
+	MouseRightButtonDown="user_control_mouse_right_button_down"
+	MouseMove="user_control_mouse_move"
+    MouseLeftButtonUp="user_control_mouse_left_button_up">
+	<UserControl.Resources>
+		<as:animation_channel_partition_type_to_visibility_converter x:Key="type_to_v_c"/>
+		<ContextMenu x:Key="partition_context_menu">
+			<MenuItem Header="Change type">
+				<MenuItem Header="None"	Click="none_click" IsCheckable="True"/>
+				<MenuItem Header="Left" Click="left_click" IsCheckable="True"/>
+				<MenuItem Header="Right" Click="right_click" IsCheckable="True"/>
+				<MenuItem Header="Both"	Click="both_click" IsCheckable="True"/>
+			</MenuItem>
+			<MenuItem Header="Split" Click="split_click"/>
+			<MenuItem Header="Remove partition" Click="remove_partition_click"/>
+			<MenuItem Header="Remove channel" Click="remove_channel_click"/>
+			<MenuItem Header="Copy channel" Click="copy_channel_click"/>
+			<MenuItem Header="Cut channel" Click="cut_channel_click"/>
+		</ContextMenu>
+	</UserControl.Resources>
+    <Border HorizontalAlignment="Left" Width="{Binding length}" SnapsToDevicePixels="True" Background="Transparent">
+		<DockPanel>
+			<Border DockPanel.Dock="Right" SnapsToDevicePixels="True" Width="2" PreviewMouseLeftButtonDown="right_edge_mouse_left_button_down" Cursor="SizeWE" Background="Transparent" BorderBrush="Black" BorderThickness="0, 0, 2, 0"/>
+			<Grid>
+				<Border SnapsToDevicePixels="True" Visibility="{Binding type, Converter={StaticResource type_to_v_c}, ConverterParameter=undefined}" Background="Transparent" PreviewMouseLeftButtonDown="center_mouse_left_button_down" Cursor="ScrollAll"/>
+				<Border SnapsToDevicePixels="True" Visibility="{Binding type, Converter={StaticResource type_to_v_c}, ConverterParameter=none}" Background="Transparent" PreviewMouseLeftButtonDown="center_mouse_left_button_down" Cursor="ScrollAll"/>
+				<Border SnapsToDevicePixels="True" VerticalAlignment="Top" Visibility="{Binding type, Converter={StaticResource type_to_v_c}, ConverterParameter=left}" Background="Green" Height="20" PreviewMouseLeftButtonDown="center_mouse_left_button_down" Cursor="ScrollAll"/>
+				<Border SnapsToDevicePixels="True" VerticalAlignment="Bottom" Visibility="{Binding type, Converter={StaticResource type_to_v_c}, ConverterParameter=right}" Background="Green" Height="20" PreviewMouseLeftButtonDown="center_mouse_left_button_down" Cursor="ScrollAll"/>
+				<Border SnapsToDevicePixels="True" Visibility="{Binding type, Converter={StaticResource type_to_v_c}, ConverterParameter=both}" Background="Green" PreviewMouseLeftButtonDown="center_mouse_left_button_down" Cursor="ScrollAll"/>
+			</Grid>
+		</DockPanel>
+    </Border>
+</UserControl>

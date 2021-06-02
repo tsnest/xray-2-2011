@@ -1,0 +1,26 @@
+!!ARBvp1.0
+# cgc version 1.5.0014, build date Sep 18 2006 20:36:59
+# command line args: -profile arbvp1
+# source file: VolumeFog.cg
+#vendor NVIDIA Corporation
+#version 1.5.0.14
+#profile arbvp1
+#program v_VolumeFog
+#semantic v_VolumeFog.WVPMatrix
+#var float3 kModelPosition : $vin.POSITION : POSITION : 0 : 1
+#var float4 kModelColor : $vin.COLOR : COLOR0 : 1 : 1
+#var float2 kModelTCoord : $vin.TEXCOORD0 : TEXCOORD0 : 2 : 1
+#var float4 kClipPosition : $vout.POSITION : HPOS : 3 : 1
+#var float4 kVertexColor : $vout.COLOR : COL0 : 4 : 1
+#var float2 kTCoord : $vout.TEXCOORD0 : TEX0 : 5 : 1
+#var float4x4 WVPMatrix :  : c[1], 4 : 6 : 1
+PARAM c[5] = { program.local[0..4] };
+TEMP R0;
+MUL R0, vertex.position.y, c[2];
+MAD R0, vertex.position.x, c[1], R0;
+MAD R0, vertex.position.z, c[3], R0;
+ADD result.position, R0, c[4];
+MOV result.color, vertex.color;
+MOV result.texcoord[0].xy, vertex.texcoord[0];
+END
+# 6 instructions, 1 R-regs

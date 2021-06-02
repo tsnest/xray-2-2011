@@ -1,0 +1,132 @@
+
+#include "graphics_benchmark_common.h"
+
+
+%s /* Used for textures declaration. */
+
+void main( v2p_GB_Test i, 
+		   %s /* Outputs. */
+		  )
+{
+	float sX0 = i.Color.x,  sY0 = i.Color.y,  sZ0 = i.Color.z,  sW0 = i.Color.w,
+		  sX1 = i.Color0.x, sY1 = i.Color0.y, sZ1 = i.Color0.z, sW1 = i.Color0.w,
+		  sX2 = i.Color1.x, sY2 = i.Color1.y, sZ2 = i.Color1.z, sW2 = i.Color1.w,
+		  sX3 = i.Color2.x, sY3 = i.Color2.y, sZ3 = i.Color2.z, sW3 = i.Color2.w,
+		  sX4 = i.Color3.x, sY4 = i.Color3.y, sZ4 = i.Color3.z, sW4 = i.Color3.w,
+		  sX5 = i.Color4.x, sY5 = i.Color4.y, sZ5 = i.Color4.z, sW5 = i.Color4.w,
+		  sX6 = i.Color5.x, sY6 = i.Color5.y, sZ6 = i.Color5.z, sW6 = i.Color5.w,
+		  sX7 = i.Color6.x, sY7 = i.Color6.y, sZ7 = i.Color6.z, sW7 = i.Color6.w;
+	
+#if 1
+	float4 vX0 = i.Color.xyzw,
+		   vY0 = i.Color.xywz,
+		   vZ0 = i.Color.yxzw,
+		   vW0 = i.Color.yzwx,
+		   vX1 = i.Color.zyxw,
+		   vY1 = i.Color.zxwy,
+		   vZ1 = i.Color.wxzy,
+		   vW1 = i.Color.wzyx,
+		   vX2 = i.Color.xzyw,
+		   vY2 = i.Color.xwzy,
+		   vZ2 = i.Color.ywzx,
+		   vW2 = i.Color.ywxz,
+		   vX3 = i.Color.zwxy,
+		   vY3 = i.Color.zywx,
+		   vZ3 = i.Color.wyzx,
+		   vW3 = i.Color.wxyz;
+#else
+	float4 vX0 = i.Color0,
+		   vY0 = i.Color1,
+		   vZ0 = i.Color2,
+		   vW0 = i.Color3,
+		   vX1 = i.Color4,
+		   vY1 = i.Color5,
+		   vZ1 = i.Color6,
+		   vW1 = i.Color,
+		   vX2 = i.Color0.xzyw,
+		   vY2 = i.Color1.xwzy,
+		   vZ2 = i.Color2.ywzx,
+		   vW2 = i.Color3.ywxz,
+		   vX3 = i.Color4.zwxy,
+		   vY3 = i.Color5.zywx,
+		   vZ3 = i.Color6.wyzx,
+		   vW3 = i.Color.wxyz;
+#endif
+	float4 vX = vX0, 
+		   vY = vY0,
+		   vZ = vZ0,
+		   vW = vW0;
+	
+	float4 BaseTextures = texture_argb16.Sample(s_base, i.Tex0) / texture_argb16.Sample(s_normal, i.Tex0);
+	float4 Hard = vX0/vY0*vZ0*vW0*i.Color/dot(vX0,vY0)/dot(vZ0,vW0);
+	float4 BaseMath = max3(max4(vX0,vY0,vZ0,vW0),max4(vX1,vY1,vZ1,vW1),max4(vX2,vY2,vZ2,vW2));
+	//float4 BaseMath = (vX0/vY0/vZ0/vW0)+(vX1/vY1/vZ1/vW1)*(vX0+vY0+vZ0+vW0)*(vX1+vY1+vZ1+vW1);
+	//uint4 BaseMathUint = (uint4)(max3(max4(vX0,vY0,vZ0,vW0),max4(vX1,vY1,vZ1,vW1),max4(vX2,vY2,vZ2,vW2))*100000);
+	//(uint4)((vX0/vY0/vZ0/vW0)+(vX1/vY1/vZ1/vW1)*(vX0+vY0+vZ0+vW0)*(vX1+vY1+vZ1+vW1)*100000);
+	
+	float BaseScalar = BaseMath.x*BaseMath.y*BaseMath.z*BaseMath.w;
+	
+	uint  U0 = (uint)(sX0 * 10000);
+	uint  U1 = (uint)(sY0 * 10000);
+	uint  U2 = (uint)(sZ0 * 10000);
+	uint  U3 = (uint)(sW0 * 10000);
+	uint  U4 = (uint)(sX1 * 10000);
+	uint  U5 = (uint)(sY1 * 10000);
+	uint  U6 = (uint)(sZ1 * 10000);
+	uint  U7 = (uint)(sW1 * 10000);
+	uint  U8 = (uint)(sX1 * 10000);
+	uint  U9 = (uint)(sY1 * 10000);
+	uint  U10= (uint)(sZ1 * 10000);
+	uint  U11= (uint)(sW1 * 10000);
+	
+	uint4 BaseMathUint = max3(max4(U0,U1,U2,U3), max4(U4,U5,U6,U7), max4(U8,U9,U10,U11));
+	
+	float fX = sX0;
+	float fY = sY0;
+	float fZ = sZ0;
+	
+	half hX = sX0;
+	half hY = sY0;
+	half hZ = sZ0;
+	
+	half BaseHalf = half(BaseMath.x)*half(BaseMath.y)*half(BaseMath.z)*half(BaseMath.w);
+	
+	%s; /* Outputs result. */
+	
+	if ( length(vW0)>10000.0) 
+		clip(-1);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

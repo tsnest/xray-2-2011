@@ -1,0 +1,1211 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 42;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3C7679C30A38D7E800CD8CCF /* Wm4ExtremalQuery3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C7679B70A38D7E800CD8CCF /* Wm4ExtremalQuery3.cpp */; };
+		3C7679C40A38D7E800CD8CCF /* Wm4ExtremalQuery3.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C7679B80A38D7E800CD8CCF /* Wm4ExtremalQuery3.h */; };
+		3C7679C50A38D7E800CD8CCF /* Wm4ExtremalQuery3BSP.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C7679B90A38D7E800CD8CCF /* Wm4ExtremalQuery3BSP.cpp */; };
+		3C7679C60A38D7E800CD8CCF /* Wm4ExtremalQuery3BSP.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C7679BA0A38D7E800CD8CCF /* Wm4ExtremalQuery3BSP.h */; };
+		3C7679C70A38D7E800CD8CCF /* Wm4ExtremalQuery3PRJ.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C7679BB0A38D7E800CD8CCF /* Wm4ExtremalQuery3PRJ.cpp */; };
+		3C7679C80A38D7E800CD8CCF /* Wm4ExtremalQuery3PRJ.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C7679BC0A38D7E800CD8CCF /* Wm4ExtremalQuery3PRJ.h */; };
+		3C7679C90A38D7E800CD8CCF /* Wm4IntersectingBoxes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C7679BD0A38D7E800CD8CCF /* Wm4IntersectingBoxes.cpp */; };
+		3C7679CA0A38D7E800CD8CCF /* Wm4IntersectingBoxes.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C7679BE0A38D7E800CD8CCF /* Wm4IntersectingBoxes.h */; };
+		3C7679CB0A38D7E800CD8CCF /* Wm4IntersectingIntervals.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C7679BF0A38D7E800CD8CCF /* Wm4IntersectingIntervals.cpp */; };
+		3C7679CC0A38D7E800CD8CCF /* Wm4IntersectingIntervals.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C7679C00A38D7E800CD8CCF /* Wm4IntersectingIntervals.h */; };
+		3C7679CD0A38D7E800CD8CCF /* Wm4IntersectingRectangles.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C7679C10A38D7E800CD8CCF /* Wm4IntersectingRectangles.cpp */; };
+		3C7679CE0A38D7E800CD8CCF /* Wm4IntersectingRectangles.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C7679C20A38D7E800CD8CCF /* Wm4IntersectingRectangles.h */; };
+		3C7679CF0A38D7E800CD8CCF /* Wm4ExtremalQuery3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C7679B70A38D7E800CD8CCF /* Wm4ExtremalQuery3.cpp */; };
+		3C7679D00A38D7E800CD8CCF /* Wm4ExtremalQuery3.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C7679B80A38D7E800CD8CCF /* Wm4ExtremalQuery3.h */; };
+		3C7679D10A38D7E800CD8CCF /* Wm4ExtremalQuery3BSP.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C7679B90A38D7E800CD8CCF /* Wm4ExtremalQuery3BSP.cpp */; };
+		3C7679D20A38D7E800CD8CCF /* Wm4ExtremalQuery3BSP.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C7679BA0A38D7E800CD8CCF /* Wm4ExtremalQuery3BSP.h */; };
+		3C7679D30A38D7E800CD8CCF /* Wm4ExtremalQuery3PRJ.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C7679BB0A38D7E800CD8CCF /* Wm4ExtremalQuery3PRJ.cpp */; };
+		3C7679D40A38D7E800CD8CCF /* Wm4ExtremalQuery3PRJ.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C7679BC0A38D7E800CD8CCF /* Wm4ExtremalQuery3PRJ.h */; };
+		3C7679D50A38D7E800CD8CCF /* Wm4IntersectingBoxes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C7679BD0A38D7E800CD8CCF /* Wm4IntersectingBoxes.cpp */; };
+		3C7679D60A38D7E800CD8CCF /* Wm4IntersectingBoxes.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C7679BE0A38D7E800CD8CCF /* Wm4IntersectingBoxes.h */; };
+		3C7679D70A38D7E800CD8CCF /* Wm4IntersectingIntervals.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C7679BF0A38D7E800CD8CCF /* Wm4IntersectingIntervals.cpp */; };
+		3C7679D80A38D7E800CD8CCF /* Wm4IntersectingIntervals.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C7679C00A38D7E800CD8CCF /* Wm4IntersectingIntervals.h */; };
+		3C7679D90A38D7E800CD8CCF /* Wm4IntersectingRectangles.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C7679C10A38D7E800CD8CCF /* Wm4IntersectingRectangles.cpp */; };
+		3C7679DA0A38D7E800CD8CCF /* Wm4IntersectingRectangles.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C7679C20A38D7E800CD8CCF /* Wm4IntersectingRectangles.h */; };
+		3C7679DB0A38D7E800CD8CCF /* Wm4ExtremalQuery3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C7679B70A38D7E800CD8CCF /* Wm4ExtremalQuery3.cpp */; };
+		3C7679DC0A38D7E800CD8CCF /* Wm4ExtremalQuery3.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C7679B80A38D7E800CD8CCF /* Wm4ExtremalQuery3.h */; };
+		3C7679DD0A38D7E800CD8CCF /* Wm4ExtremalQuery3BSP.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C7679B90A38D7E800CD8CCF /* Wm4ExtremalQuery3BSP.cpp */; };
+		3C7679DE0A38D7E800CD8CCF /* Wm4ExtremalQuery3BSP.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C7679BA0A38D7E800CD8CCF /* Wm4ExtremalQuery3BSP.h */; };
+		3C7679DF0A38D7E800CD8CCF /* Wm4ExtremalQuery3PRJ.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C7679BB0A38D7E800CD8CCF /* Wm4ExtremalQuery3PRJ.cpp */; };
+		3C7679E00A38D7E800CD8CCF /* Wm4ExtremalQuery3PRJ.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C7679BC0A38D7E800CD8CCF /* Wm4ExtremalQuery3PRJ.h */; };
+		3C7679E10A38D7E800CD8CCF /* Wm4IntersectingBoxes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C7679BD0A38D7E800CD8CCF /* Wm4IntersectingBoxes.cpp */; };
+		3C7679E20A38D7E800CD8CCF /* Wm4IntersectingBoxes.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C7679BE0A38D7E800CD8CCF /* Wm4IntersectingBoxes.h */; };
+		3C7679E30A38D7E800CD8CCF /* Wm4IntersectingIntervals.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C7679BF0A38D7E800CD8CCF /* Wm4IntersectingIntervals.cpp */; };
+		3C7679E40A38D7E800CD8CCF /* Wm4IntersectingIntervals.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C7679C00A38D7E800CD8CCF /* Wm4IntersectingIntervals.h */; };
+		3C7679E50A38D7E800CD8CCF /* Wm4IntersectingRectangles.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C7679C10A38D7E800CD8CCF /* Wm4IntersectingRectangles.cpp */; };
+		3C7679E60A38D7E800CD8CCF /* Wm4IntersectingRectangles.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C7679C20A38D7E800CD8CCF /* Wm4IntersectingRectangles.h */; };
+		3C7679E70A38D7E800CD8CCF /* Wm4ExtremalQuery3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C7679B70A38D7E800CD8CCF /* Wm4ExtremalQuery3.cpp */; };
+		3C7679E80A38D7E800CD8CCF /* Wm4ExtremalQuery3.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C7679B80A38D7E800CD8CCF /* Wm4ExtremalQuery3.h */; };
+		3C7679E90A38D7E800CD8CCF /* Wm4ExtremalQuery3BSP.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C7679B90A38D7E800CD8CCF /* Wm4ExtremalQuery3BSP.cpp */; };
+		3C7679EA0A38D7E800CD8CCF /* Wm4ExtremalQuery3BSP.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C7679BA0A38D7E800CD8CCF /* Wm4ExtremalQuery3BSP.h */; };
+		3C7679EB0A38D7E800CD8CCF /* Wm4ExtremalQuery3PRJ.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C7679BB0A38D7E800CD8CCF /* Wm4ExtremalQuery3PRJ.cpp */; };
+		3C7679EC0A38D7E800CD8CCF /* Wm4ExtremalQuery3PRJ.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C7679BC0A38D7E800CD8CCF /* Wm4ExtremalQuery3PRJ.h */; };
+		3C7679ED0A38D7E800CD8CCF /* Wm4IntersectingBoxes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C7679BD0A38D7E800CD8CCF /* Wm4IntersectingBoxes.cpp */; };
+		3C7679EE0A38D7E800CD8CCF /* Wm4IntersectingBoxes.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C7679BE0A38D7E800CD8CCF /* Wm4IntersectingBoxes.h */; };
+		3C7679EF0A38D7E800CD8CCF /* Wm4IntersectingIntervals.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C7679BF0A38D7E800CD8CCF /* Wm4IntersectingIntervals.cpp */; };
+		3C7679F00A38D7E800CD8CCF /* Wm4IntersectingIntervals.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C7679C00A38D7E800CD8CCF /* Wm4IntersectingIntervals.h */; };
+		3C7679F10A38D7E800CD8CCF /* Wm4IntersectingRectangles.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C7679C10A38D7E800CD8CCF /* Wm4IntersectingRectangles.cpp */; };
+		3C7679F20A38D7E800CD8CCF /* Wm4IntersectingRectangles.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C7679C20A38D7E800CD8CCF /* Wm4IntersectingRectangles.h */; };
+		3C7679F30A38D7E800CD8CCF /* Wm4ExtremalQuery3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C7679B70A38D7E800CD8CCF /* Wm4ExtremalQuery3.cpp */; };
+		3C7679F40A38D7E800CD8CCF /* Wm4ExtremalQuery3.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C7679B80A38D7E800CD8CCF /* Wm4ExtremalQuery3.h */; };
+		3C7679F50A38D7E800CD8CCF /* Wm4ExtremalQuery3BSP.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C7679B90A38D7E800CD8CCF /* Wm4ExtremalQuery3BSP.cpp */; };
+		3C7679F60A38D7E800CD8CCF /* Wm4ExtremalQuery3BSP.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C7679BA0A38D7E800CD8CCF /* Wm4ExtremalQuery3BSP.h */; };
+		3C7679F70A38D7E800CD8CCF /* Wm4ExtremalQuery3PRJ.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C7679BB0A38D7E800CD8CCF /* Wm4ExtremalQuery3PRJ.cpp */; };
+		3C7679F80A38D7E800CD8CCF /* Wm4ExtremalQuery3PRJ.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C7679BC0A38D7E800CD8CCF /* Wm4ExtremalQuery3PRJ.h */; };
+		3C7679F90A38D7E800CD8CCF /* Wm4IntersectingBoxes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C7679BD0A38D7E800CD8CCF /* Wm4IntersectingBoxes.cpp */; };
+		3C7679FA0A38D7E800CD8CCF /* Wm4IntersectingBoxes.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C7679BE0A38D7E800CD8CCF /* Wm4IntersectingBoxes.h */; };
+		3C7679FB0A38D7E800CD8CCF /* Wm4IntersectingIntervals.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C7679BF0A38D7E800CD8CCF /* Wm4IntersectingIntervals.cpp */; };
+		3C7679FC0A38D7E800CD8CCF /* Wm4IntersectingIntervals.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C7679C00A38D7E800CD8CCF /* Wm4IntersectingIntervals.h */; };
+		3C7679FD0A38D7E800CD8CCF /* Wm4IntersectingRectangles.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C7679C10A38D7E800CD8CCF /* Wm4IntersectingRectangles.cpp */; };
+		3C7679FE0A38D7E800CD8CCF /* Wm4IntersectingRectangles.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C7679C20A38D7E800CD8CCF /* Wm4IntersectingRectangles.h */; };
+		3C7679FF0A38D7E800CD8CCF /* Wm4ExtremalQuery3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C7679B70A38D7E800CD8CCF /* Wm4ExtremalQuery3.cpp */; };
+		3C767A000A38D7E800CD8CCF /* Wm4ExtremalQuery3.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C7679B80A38D7E800CD8CCF /* Wm4ExtremalQuery3.h */; };
+		3C767A010A38D7E800CD8CCF /* Wm4ExtremalQuery3BSP.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C7679B90A38D7E800CD8CCF /* Wm4ExtremalQuery3BSP.cpp */; };
+		3C767A020A38D7E800CD8CCF /* Wm4ExtremalQuery3BSP.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C7679BA0A38D7E800CD8CCF /* Wm4ExtremalQuery3BSP.h */; };
+		3C767A030A38D7E800CD8CCF /* Wm4ExtremalQuery3PRJ.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C7679BB0A38D7E800CD8CCF /* Wm4ExtremalQuery3PRJ.cpp */; };
+		3C767A040A38D7E800CD8CCF /* Wm4ExtremalQuery3PRJ.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C7679BC0A38D7E800CD8CCF /* Wm4ExtremalQuery3PRJ.h */; };
+		3C767A050A38D7E800CD8CCF /* Wm4IntersectingBoxes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C7679BD0A38D7E800CD8CCF /* Wm4IntersectingBoxes.cpp */; };
+		3C767A060A38D7E800CD8CCF /* Wm4IntersectingBoxes.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C7679BE0A38D7E800CD8CCF /* Wm4IntersectingBoxes.h */; };
+		3C767A070A38D7E800CD8CCF /* Wm4IntersectingIntervals.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C7679BF0A38D7E800CD8CCF /* Wm4IntersectingIntervals.cpp */; };
+		3C767A080A38D7E800CD8CCF /* Wm4IntersectingIntervals.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C7679C00A38D7E800CD8CCF /* Wm4IntersectingIntervals.h */; };
+		3C767A090A38D7E800CD8CCF /* Wm4IntersectingRectangles.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C7679C10A38D7E800CD8CCF /* Wm4IntersectingRectangles.cpp */; };
+		3C767A0A0A38D7E800CD8CCF /* Wm4IntersectingRectangles.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C7679C20A38D7E800CD8CCF /* Wm4IntersectingRectangles.h */; };
+		3C767A0F0A38D7F600CD8CCF /* Wm4LCPPolyDist.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C767A0B0A38D7F600CD8CCF /* Wm4LCPPolyDist.cpp */; };
+		3C767A100A38D7F600CD8CCF /* Wm4LCPPolyDist.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C767A0C0A38D7F600CD8CCF /* Wm4LCPPolyDist.h */; };
+		3C767A110A38D7F600CD8CCF /* Wm4LCPSolver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C767A0D0A38D7F600CD8CCF /* Wm4LCPSolver.cpp */; };
+		3C767A120A38D7F600CD8CCF /* Wm4LCPSolver.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C767A0E0A38D7F600CD8CCF /* Wm4LCPSolver.h */; };
+		3C767A130A38D7F600CD8CCF /* Wm4LCPPolyDist.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C767A0B0A38D7F600CD8CCF /* Wm4LCPPolyDist.cpp */; };
+		3C767A140A38D7F600CD8CCF /* Wm4LCPPolyDist.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C767A0C0A38D7F600CD8CCF /* Wm4LCPPolyDist.h */; };
+		3C767A150A38D7F600CD8CCF /* Wm4LCPSolver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C767A0D0A38D7F600CD8CCF /* Wm4LCPSolver.cpp */; };
+		3C767A160A38D7F600CD8CCF /* Wm4LCPSolver.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C767A0E0A38D7F600CD8CCF /* Wm4LCPSolver.h */; };
+		3C767A170A38D7F600CD8CCF /* Wm4LCPPolyDist.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C767A0B0A38D7F600CD8CCF /* Wm4LCPPolyDist.cpp */; };
+		3C767A180A38D7F600CD8CCF /* Wm4LCPPolyDist.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C767A0C0A38D7F600CD8CCF /* Wm4LCPPolyDist.h */; };
+		3C767A190A38D7F600CD8CCF /* Wm4LCPSolver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C767A0D0A38D7F600CD8CCF /* Wm4LCPSolver.cpp */; };
+		3C767A1A0A38D7F600CD8CCF /* Wm4LCPSolver.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C767A0E0A38D7F600CD8CCF /* Wm4LCPSolver.h */; };
+		3C767A1B0A38D7F600CD8CCF /* Wm4LCPPolyDist.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C767A0B0A38D7F600CD8CCF /* Wm4LCPPolyDist.cpp */; };
+		3C767A1C0A38D7F600CD8CCF /* Wm4LCPPolyDist.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C767A0C0A38D7F600CD8CCF /* Wm4LCPPolyDist.h */; };
+		3C767A1D0A38D7F600CD8CCF /* Wm4LCPSolver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C767A0D0A38D7F600CD8CCF /* Wm4LCPSolver.cpp */; };
+		3C767A1E0A38D7F600CD8CCF /* Wm4LCPSolver.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C767A0E0A38D7F600CD8CCF /* Wm4LCPSolver.h */; };
+		3C767A1F0A38D7F600CD8CCF /* Wm4LCPPolyDist.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C767A0B0A38D7F600CD8CCF /* Wm4LCPPolyDist.cpp */; };
+		3C767A200A38D7F600CD8CCF /* Wm4LCPPolyDist.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C767A0C0A38D7F600CD8CCF /* Wm4LCPPolyDist.h */; };
+		3C767A210A38D7F600CD8CCF /* Wm4LCPSolver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C767A0D0A38D7F600CD8CCF /* Wm4LCPSolver.cpp */; };
+		3C767A220A38D7F600CD8CCF /* Wm4LCPSolver.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C767A0E0A38D7F600CD8CCF /* Wm4LCPSolver.h */; };
+		3C767A230A38D7F600CD8CCF /* Wm4LCPPolyDist.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C767A0B0A38D7F600CD8CCF /* Wm4LCPPolyDist.cpp */; };
+		3C767A240A38D7F600CD8CCF /* Wm4LCPPolyDist.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C767A0C0A38D7F600CD8CCF /* Wm4LCPPolyDist.h */; };
+		3C767A250A38D7F600CD8CCF /* Wm4LCPSolver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C767A0D0A38D7F600CD8CCF /* Wm4LCPSolver.cpp */; };
+		3C767A260A38D7F600CD8CCF /* Wm4LCPSolver.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C767A0E0A38D7F600CD8CCF /* Wm4LCPSolver.h */; };
+		3C767A310A38D80700CD8CCF /* Wm4MassSpringArbitrary.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C767A270A38D80700CD8CCF /* Wm4MassSpringArbitrary.cpp */; };
+		3C767A320A38D80700CD8CCF /* Wm4MassSpringArbitrary.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C767A280A38D80700CD8CCF /* Wm4MassSpringArbitrary.h */; };
+		3C767A330A38D80700CD8CCF /* Wm4MassSpringCurve.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C767A290A38D80700CD8CCF /* Wm4MassSpringCurve.cpp */; };
+		3C767A340A38D80700CD8CCF /* Wm4MassSpringCurve.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C767A2A0A38D80700CD8CCF /* Wm4MassSpringCurve.h */; };
+		3C767A350A38D80700CD8CCF /* Wm4MassSpringSurface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C767A2B0A38D80700CD8CCF /* Wm4MassSpringSurface.cpp */; };
+		3C767A360A38D80700CD8CCF /* Wm4MassSpringSurface.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C767A2C0A38D80700CD8CCF /* Wm4MassSpringSurface.h */; };
+		3C767A370A38D80700CD8CCF /* Wm4MassSpringVolume.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C767A2D0A38D80700CD8CCF /* Wm4MassSpringVolume.cpp */; };
+		3C767A380A38D80700CD8CCF /* Wm4MassSpringVolume.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C767A2E0A38D80700CD8CCF /* Wm4MassSpringVolume.h */; };
+		3C767A390A38D80700CD8CCF /* Wm4ParticleSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C767A2F0A38D80700CD8CCF /* Wm4ParticleSystem.cpp */; };
+		3C767A3A0A38D80700CD8CCF /* Wm4ParticleSystem.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C767A300A38D80700CD8CCF /* Wm4ParticleSystem.h */; };
+		3C767A3B0A38D80700CD8CCF /* Wm4MassSpringArbitrary.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C767A270A38D80700CD8CCF /* Wm4MassSpringArbitrary.cpp */; };
+		3C767A3C0A38D80700CD8CCF /* Wm4MassSpringArbitrary.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C767A280A38D80700CD8CCF /* Wm4MassSpringArbitrary.h */; };
+		3C767A3D0A38D80700CD8CCF /* Wm4MassSpringCurve.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C767A290A38D80700CD8CCF /* Wm4MassSpringCurve.cpp */; };
+		3C767A3E0A38D80700CD8CCF /* Wm4MassSpringCurve.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C767A2A0A38D80700CD8CCF /* Wm4MassSpringCurve.h */; };
+		3C767A3F0A38D80700CD8CCF /* Wm4MassSpringSurface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C767A2B0A38D80700CD8CCF /* Wm4MassSpringSurface.cpp */; };
+		3C767A400A38D80700CD8CCF /* Wm4MassSpringSurface.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C767A2C0A38D80700CD8CCF /* Wm4MassSpringSurface.h */; };
+		3C767A410A38D80700CD8CCF /* Wm4MassSpringVolume.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C767A2D0A38D80700CD8CCF /* Wm4MassSpringVolume.cpp */; };
+		3C767A420A38D80700CD8CCF /* Wm4MassSpringVolume.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C767A2E0A38D80700CD8CCF /* Wm4MassSpringVolume.h */; };
+		3C767A430A38D80700CD8CCF /* Wm4ParticleSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C767A2F0A38D80700CD8CCF /* Wm4ParticleSystem.cpp */; };
+		3C767A440A38D80700CD8CCF /* Wm4ParticleSystem.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C767A300A38D80700CD8CCF /* Wm4ParticleSystem.h */; };
+		3C767A450A38D80700CD8CCF /* Wm4MassSpringArbitrary.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C767A270A38D80700CD8CCF /* Wm4MassSpringArbitrary.cpp */; };
+		3C767A460A38D80700CD8CCF /* Wm4MassSpringArbitrary.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C767A280A38D80700CD8CCF /* Wm4MassSpringArbitrary.h */; };
+		3C767A470A38D80700CD8CCF /* Wm4MassSpringCurve.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C767A290A38D80700CD8CCF /* Wm4MassSpringCurve.cpp */; };
+		3C767A480A38D80700CD8CCF /* Wm4MassSpringCurve.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C767A2A0A38D80700CD8CCF /* Wm4MassSpringCurve.h */; };
+		3C767A490A38D80700CD8CCF /* Wm4MassSpringSurface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C767A2B0A38D80700CD8CCF /* Wm4MassSpringSurface.cpp */; };
+		3C767A4A0A38D80700CD8CCF /* Wm4MassSpringSurface.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C767A2C0A38D80700CD8CCF /* Wm4MassSpringSurface.h */; };
+		3C767A4B0A38D80700CD8CCF /* Wm4MassSpringVolume.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C767A2D0A38D80700CD8CCF /* Wm4MassSpringVolume.cpp */; };
+		3C767A4C0A38D80700CD8CCF /* Wm4MassSpringVolume.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C767A2E0A38D80700CD8CCF /* Wm4MassSpringVolume.h */; };
+		3C767A4D0A38D80700CD8CCF /* Wm4ParticleSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C767A2F0A38D80700CD8CCF /* Wm4ParticleSystem.cpp */; };
+		3C767A4E0A38D80700CD8CCF /* Wm4ParticleSystem.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C767A300A38D80700CD8CCF /* Wm4ParticleSystem.h */; };
+		3C767A4F0A38D80700CD8CCF /* Wm4MassSpringArbitrary.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C767A270A38D80700CD8CCF /* Wm4MassSpringArbitrary.cpp */; };
+		3C767A500A38D80700CD8CCF /* Wm4MassSpringArbitrary.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C767A280A38D80700CD8CCF /* Wm4MassSpringArbitrary.h */; };
+		3C767A510A38D80700CD8CCF /* Wm4MassSpringCurve.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C767A290A38D80700CD8CCF /* Wm4MassSpringCurve.cpp */; };
+		3C767A520A38D80700CD8CCF /* Wm4MassSpringCurve.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C767A2A0A38D80700CD8CCF /* Wm4MassSpringCurve.h */; };
+		3C767A530A38D80700CD8CCF /* Wm4MassSpringSurface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C767A2B0A38D80700CD8CCF /* Wm4MassSpringSurface.cpp */; };
+		3C767A540A38D80700CD8CCF /* Wm4MassSpringSurface.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C767A2C0A38D80700CD8CCF /* Wm4MassSpringSurface.h */; };
+		3C767A550A38D80700CD8CCF /* Wm4MassSpringVolume.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C767A2D0A38D80700CD8CCF /* Wm4MassSpringVolume.cpp */; };
+		3C767A560A38D80700CD8CCF /* Wm4MassSpringVolume.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C767A2E0A38D80700CD8CCF /* Wm4MassSpringVolume.h */; };
+		3C767A570A38D80700CD8CCF /* Wm4ParticleSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C767A2F0A38D80700CD8CCF /* Wm4ParticleSystem.cpp */; };
+		3C767A580A38D80700CD8CCF /* Wm4ParticleSystem.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C767A300A38D80700CD8CCF /* Wm4ParticleSystem.h */; };
+		3C767A590A38D80700CD8CCF /* Wm4MassSpringArbitrary.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C767A270A38D80700CD8CCF /* Wm4MassSpringArbitrary.cpp */; };
+		3C767A5A0A38D80700CD8CCF /* Wm4MassSpringArbitrary.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C767A280A38D80700CD8CCF /* Wm4MassSpringArbitrary.h */; };
+		3C767A5B0A38D80700CD8CCF /* Wm4MassSpringCurve.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C767A290A38D80700CD8CCF /* Wm4MassSpringCurve.cpp */; };
+		3C767A5C0A38D80700CD8CCF /* Wm4MassSpringCurve.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C767A2A0A38D80700CD8CCF /* Wm4MassSpringCurve.h */; };
+		3C767A5D0A38D80700CD8CCF /* Wm4MassSpringSurface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C767A2B0A38D80700CD8CCF /* Wm4MassSpringSurface.cpp */; };
+		3C767A5E0A38D80700CD8CCF /* Wm4MassSpringSurface.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C767A2C0A38D80700CD8CCF /* Wm4MassSpringSurface.h */; };
+		3C767A5F0A38D80700CD8CCF /* Wm4MassSpringVolume.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C767A2D0A38D80700CD8CCF /* Wm4MassSpringVolume.cpp */; };
+		3C767A600A38D80700CD8CCF /* Wm4MassSpringVolume.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C767A2E0A38D80700CD8CCF /* Wm4MassSpringVolume.h */; };
+		3C767A610A38D80700CD8CCF /* Wm4ParticleSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C767A2F0A38D80700CD8CCF /* Wm4ParticleSystem.cpp */; };
+		3C767A620A38D80700CD8CCF /* Wm4ParticleSystem.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C767A300A38D80700CD8CCF /* Wm4ParticleSystem.h */; };
+		3C767A630A38D80700CD8CCF /* Wm4MassSpringArbitrary.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C767A270A38D80700CD8CCF /* Wm4MassSpringArbitrary.cpp */; };
+		3C767A640A38D80700CD8CCF /* Wm4MassSpringArbitrary.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C767A280A38D80700CD8CCF /* Wm4MassSpringArbitrary.h */; };
+		3C767A650A38D80700CD8CCF /* Wm4MassSpringCurve.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C767A290A38D80700CD8CCF /* Wm4MassSpringCurve.cpp */; };
+		3C767A660A38D80700CD8CCF /* Wm4MassSpringCurve.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C767A2A0A38D80700CD8CCF /* Wm4MassSpringCurve.h */; };
+		3C767A670A38D80700CD8CCF /* Wm4MassSpringSurface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C767A2B0A38D80700CD8CCF /* Wm4MassSpringSurface.cpp */; };
+		3C767A680A38D80700CD8CCF /* Wm4MassSpringSurface.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C767A2C0A38D80700CD8CCF /* Wm4MassSpringSurface.h */; };
+		3C767A690A38D80700CD8CCF /* Wm4MassSpringVolume.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C767A2D0A38D80700CD8CCF /* Wm4MassSpringVolume.cpp */; };
+		3C767A6A0A38D80700CD8CCF /* Wm4MassSpringVolume.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C767A2E0A38D80700CD8CCF /* Wm4MassSpringVolume.h */; };
+		3C767A6B0A38D80700CD8CCF /* Wm4ParticleSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C767A2F0A38D80700CD8CCF /* Wm4ParticleSystem.cpp */; };
+		3C767A6C0A38D80700CD8CCF /* Wm4ParticleSystem.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C767A300A38D80700CD8CCF /* Wm4ParticleSystem.h */; };
+		3C767A710A38D81400CD8CCF /* Wm4PolyhedralMassProperties.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C767A6D0A38D81400CD8CCF /* Wm4PolyhedralMassProperties.cpp */; };
+		3C767A720A38D81400CD8CCF /* Wm4PolyhedralMassProperties.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C767A6E0A38D81400CD8CCF /* Wm4PolyhedralMassProperties.h */; };
+		3C767A730A38D81400CD8CCF /* Wm4RigidBody.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C767A6F0A38D81400CD8CCF /* Wm4RigidBody.cpp */; };
+		3C767A740A38D81400CD8CCF /* Wm4RigidBody.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C767A700A38D81400CD8CCF /* Wm4RigidBody.h */; };
+		3C767A750A38D81400CD8CCF /* Wm4PolyhedralMassProperties.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C767A6D0A38D81400CD8CCF /* Wm4PolyhedralMassProperties.cpp */; };
+		3C767A760A38D81400CD8CCF /* Wm4PolyhedralMassProperties.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C767A6E0A38D81400CD8CCF /* Wm4PolyhedralMassProperties.h */; };
+		3C767A770A38D81400CD8CCF /* Wm4RigidBody.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C767A6F0A38D81400CD8CCF /* Wm4RigidBody.cpp */; };
+		3C767A780A38D81400CD8CCF /* Wm4RigidBody.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C767A700A38D81400CD8CCF /* Wm4RigidBody.h */; };
+		3C767A790A38D81400CD8CCF /* Wm4PolyhedralMassProperties.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C767A6D0A38D81400CD8CCF /* Wm4PolyhedralMassProperties.cpp */; };
+		3C767A7A0A38D81400CD8CCF /* Wm4PolyhedralMassProperties.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C767A6E0A38D81400CD8CCF /* Wm4PolyhedralMassProperties.h */; };
+		3C767A7B0A38D81400CD8CCF /* Wm4RigidBody.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C767A6F0A38D81400CD8CCF /* Wm4RigidBody.cpp */; };
+		3C767A7C0A38D81400CD8CCF /* Wm4RigidBody.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C767A700A38D81400CD8CCF /* Wm4RigidBody.h */; };
+		3C767A7D0A38D81400CD8CCF /* Wm4PolyhedralMassProperties.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C767A6D0A38D81400CD8CCF /* Wm4PolyhedralMassProperties.cpp */; };
+		3C767A7E0A38D81400CD8CCF /* Wm4PolyhedralMassProperties.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C767A6E0A38D81400CD8CCF /* Wm4PolyhedralMassProperties.h */; };
+		3C767A7F0A38D81400CD8CCF /* Wm4RigidBody.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C767A6F0A38D81400CD8CCF /* Wm4RigidBody.cpp */; };
+		3C767A800A38D81400CD8CCF /* Wm4RigidBody.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C767A700A38D81400CD8CCF /* Wm4RigidBody.h */; };
+		3C767A810A38D81400CD8CCF /* Wm4PolyhedralMassProperties.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C767A6D0A38D81400CD8CCF /* Wm4PolyhedralMassProperties.cpp */; };
+		3C767A820A38D81400CD8CCF /* Wm4PolyhedralMassProperties.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C767A6E0A38D81400CD8CCF /* Wm4PolyhedralMassProperties.h */; };
+		3C767A830A38D81400CD8CCF /* Wm4RigidBody.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C767A6F0A38D81400CD8CCF /* Wm4RigidBody.cpp */; };
+		3C767A840A38D81400CD8CCF /* Wm4RigidBody.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C767A700A38D81400CD8CCF /* Wm4RigidBody.h */; };
+		3C767A850A38D81400CD8CCF /* Wm4PolyhedralMassProperties.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C767A6D0A38D81400CD8CCF /* Wm4PolyhedralMassProperties.cpp */; };
+		3C767A860A38D81400CD8CCF /* Wm4PolyhedralMassProperties.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C767A6E0A38D81400CD8CCF /* Wm4PolyhedralMassProperties.h */; };
+		3C767A870A38D81400CD8CCF /* Wm4RigidBody.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C767A6F0A38D81400CD8CCF /* Wm4RigidBody.cpp */; };
+		3C767A880A38D81400CD8CCF /* Wm4RigidBody.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C767A700A38D81400CD8CCF /* Wm4RigidBody.h */; };
+		3CB8725D0A006FA100B5F514 /* Wm4Physics.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CB872590A006FA100B5F514 /* Wm4Physics.h */; };
+		3CB8725E0A006FA100B5F514 /* Wm4PhysicsLIB.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CB8725A0A006FA100B5F514 /* Wm4PhysicsLIB.h */; };
+		3CB8725F0A006FA100B5F514 /* Wm4PhysicsPCH.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CB8725B0A006FA100B5F514 /* Wm4PhysicsPCH.cpp */; };
+		3CB872600A006FA100B5F514 /* Wm4PhysicsPCH.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CB8725C0A006FA100B5F514 /* Wm4PhysicsPCH.h */; };
+		3CB872610A006FA100B5F514 /* Wm4Physics.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CB872590A006FA100B5F514 /* Wm4Physics.h */; };
+		3CB872620A006FA100B5F514 /* Wm4PhysicsLIB.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CB8725A0A006FA100B5F514 /* Wm4PhysicsLIB.h */; };
+		3CB872630A006FA100B5F514 /* Wm4PhysicsPCH.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CB8725B0A006FA100B5F514 /* Wm4PhysicsPCH.cpp */; };
+		3CB872640A006FA100B5F514 /* Wm4PhysicsPCH.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CB8725C0A006FA100B5F514 /* Wm4PhysicsPCH.h */; };
+		3CB872650A006FA100B5F514 /* Wm4Physics.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CB872590A006FA100B5F514 /* Wm4Physics.h */; };
+		3CB872660A006FA100B5F514 /* Wm4PhysicsLIB.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CB8725A0A006FA100B5F514 /* Wm4PhysicsLIB.h */; };
+		3CB872670A006FA100B5F514 /* Wm4PhysicsPCH.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CB8725B0A006FA100B5F514 /* Wm4PhysicsPCH.cpp */; };
+		3CB872680A006FA100B5F514 /* Wm4PhysicsPCH.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CB8725C0A006FA100B5F514 /* Wm4PhysicsPCH.h */; };
+		3CB872690A006FA100B5F514 /* Wm4Physics.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CB872590A006FA100B5F514 /* Wm4Physics.h */; };
+		3CB8726A0A006FA100B5F514 /* Wm4PhysicsLIB.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CB8725A0A006FA100B5F514 /* Wm4PhysicsLIB.h */; };
+		3CB8726B0A006FA100B5F514 /* Wm4PhysicsPCH.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CB8725B0A006FA100B5F514 /* Wm4PhysicsPCH.cpp */; };
+		3CB8726C0A006FA100B5F514 /* Wm4PhysicsPCH.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CB8725C0A006FA100B5F514 /* Wm4PhysicsPCH.h */; };
+		3CBB66B90A2AB8B9001275CA /* Wm4Physics.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CB872590A006FA100B5F514 /* Wm4Physics.h */; };
+		3CBB66BA0A2AB8B9001275CA /* Wm4PhysicsLIB.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CB8725A0A006FA100B5F514 /* Wm4PhysicsLIB.h */; };
+		3CBB66BB0A2AB8BA001275CA /* Wm4PhysicsPCH.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CB8725B0A006FA100B5F514 /* Wm4PhysicsPCH.cpp */; };
+		3CBB66BC0A2AB8BA001275CA /* Wm4PhysicsPCH.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CB8725C0A006FA100B5F514 /* Wm4PhysicsPCH.h */; };
+		3CBB66E70A2AB9E8001275CA /* Wm4Physics.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CB872590A006FA100B5F514 /* Wm4Physics.h */; };
+		3CBB66E80A2AB9E8001275CA /* Wm4PhysicsLIB.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CB8725A0A006FA100B5F514 /* Wm4PhysicsLIB.h */; };
+		3CBB66E90A2AB9E9001275CA /* Wm4PhysicsPCH.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3CB8725B0A006FA100B5F514 /* Wm4PhysicsPCH.cpp */; };
+		3CBB66EA0A2AB9EA001275CA /* Wm4PhysicsPCH.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CB8725C0A006FA100B5F514 /* Wm4PhysicsPCH.h */; };
+		3CC53A230A0026BA00C3FEC5 /* libWm4Foundationd.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CC53A220A0026BA00C3FEC5 /* libWm4Foundationd.dylib */; };
+		3CC53A250A0026D600C3FEC5 /* libWm4Foundation.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CC53A240A0026D600C3FEC5 /* libWm4Foundation.dylib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		3C7679B70A38D7E800CD8CCF /* Wm4ExtremalQuery3.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = Wm4ExtremalQuery3.cpp; path = Intersection/Wm4ExtremalQuery3.cpp; sourceTree = "<group>"; };
+		3C7679B80A38D7E800CD8CCF /* Wm4ExtremalQuery3.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = Wm4ExtremalQuery3.h; path = Intersection/Wm4ExtremalQuery3.h; sourceTree = "<group>"; };
+		3C7679B90A38D7E800CD8CCF /* Wm4ExtremalQuery3BSP.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = Wm4ExtremalQuery3BSP.cpp; path = Intersection/Wm4ExtremalQuery3BSP.cpp; sourceTree = "<group>"; };
+		3C7679BA0A38D7E800CD8CCF /* Wm4ExtremalQuery3BSP.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = Wm4ExtremalQuery3BSP.h; path = Intersection/Wm4ExtremalQuery3BSP.h; sourceTree = "<group>"; };
+		3C7679BB0A38D7E800CD8CCF /* Wm4ExtremalQuery3PRJ.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = Wm4ExtremalQuery3PRJ.cpp; path = Intersection/Wm4ExtremalQuery3PRJ.cpp; sourceTree = "<group>"; };
+		3C7679BC0A38D7E800CD8CCF /* Wm4ExtremalQuery3PRJ.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = Wm4ExtremalQuery3PRJ.h; path = Intersection/Wm4ExtremalQuery3PRJ.h; sourceTree = "<group>"; };
+		3C7679BD0A38D7E800CD8CCF /* Wm4IntersectingBoxes.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = Wm4IntersectingBoxes.cpp; path = Intersection/Wm4IntersectingBoxes.cpp; sourceTree = "<group>"; };
+		3C7679BE0A38D7E800CD8CCF /* Wm4IntersectingBoxes.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = Wm4IntersectingBoxes.h; path = Intersection/Wm4IntersectingBoxes.h; sourceTree = "<group>"; };
+		3C7679BF0A38D7E800CD8CCF /* Wm4IntersectingIntervals.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = Wm4IntersectingIntervals.cpp; path = Intersection/Wm4IntersectingIntervals.cpp; sourceTree = "<group>"; };
+		3C7679C00A38D7E800CD8CCF /* Wm4IntersectingIntervals.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = Wm4IntersectingIntervals.h; path = Intersection/Wm4IntersectingIntervals.h; sourceTree = "<group>"; };
+		3C7679C10A38D7E800CD8CCF /* Wm4IntersectingRectangles.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = Wm4IntersectingRectangles.cpp; path = Intersection/Wm4IntersectingRectangles.cpp; sourceTree = "<group>"; };
+		3C7679C20A38D7E800CD8CCF /* Wm4IntersectingRectangles.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = Wm4IntersectingRectangles.h; path = Intersection/Wm4IntersectingRectangles.h; sourceTree = "<group>"; };
+		3C767A0B0A38D7F600CD8CCF /* Wm4LCPPolyDist.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = Wm4LCPPolyDist.cpp; path = LCPSolver/Wm4LCPPolyDist.cpp; sourceTree = "<group>"; };
+		3C767A0C0A38D7F600CD8CCF /* Wm4LCPPolyDist.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = Wm4LCPPolyDist.h; path = LCPSolver/Wm4LCPPolyDist.h; sourceTree = "<group>"; };
+		3C767A0D0A38D7F600CD8CCF /* Wm4LCPSolver.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = Wm4LCPSolver.cpp; path = LCPSolver/Wm4LCPSolver.cpp; sourceTree = "<group>"; };
+		3C767A0E0A38D7F600CD8CCF /* Wm4LCPSolver.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = Wm4LCPSolver.h; path = LCPSolver/Wm4LCPSolver.h; sourceTree = "<group>"; };
+		3C767A270A38D80700CD8CCF /* Wm4MassSpringArbitrary.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = Wm4MassSpringArbitrary.cpp; path = ParticleSystem/Wm4MassSpringArbitrary.cpp; sourceTree = "<group>"; };
+		3C767A280A38D80700CD8CCF /* Wm4MassSpringArbitrary.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = Wm4MassSpringArbitrary.h; path = ParticleSystem/Wm4MassSpringArbitrary.h; sourceTree = "<group>"; };
+		3C767A290A38D80700CD8CCF /* Wm4MassSpringCurve.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = Wm4MassSpringCurve.cpp; path = ParticleSystem/Wm4MassSpringCurve.cpp; sourceTree = "<group>"; };
+		3C767A2A0A38D80700CD8CCF /* Wm4MassSpringCurve.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = Wm4MassSpringCurve.h; path = ParticleSystem/Wm4MassSpringCurve.h; sourceTree = "<group>"; };
+		3C767A2B0A38D80700CD8CCF /* Wm4MassSpringSurface.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = Wm4MassSpringSurface.cpp; path = ParticleSystem/Wm4MassSpringSurface.cpp; sourceTree = "<group>"; };
+		3C767A2C0A38D80700CD8CCF /* Wm4MassSpringSurface.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = Wm4MassSpringSurface.h; path = ParticleSystem/Wm4MassSpringSurface.h; sourceTree = "<group>"; };
+		3C767A2D0A38D80700CD8CCF /* Wm4MassSpringVolume.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = Wm4MassSpringVolume.cpp; path = ParticleSystem/Wm4MassSpringVolume.cpp; sourceTree = "<group>"; };
+		3C767A2E0A38D80700CD8CCF /* Wm4MassSpringVolume.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = Wm4MassSpringVolume.h; path = ParticleSystem/Wm4MassSpringVolume.h; sourceTree = "<group>"; };
+		3C767A2F0A38D80700CD8CCF /* Wm4ParticleSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = Wm4ParticleSystem.cpp; path = ParticleSystem/Wm4ParticleSystem.cpp; sourceTree = "<group>"; };
+		3C767A300A38D80700CD8CCF /* Wm4ParticleSystem.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = Wm4ParticleSystem.h; path = ParticleSystem/Wm4ParticleSystem.h; sourceTree = "<group>"; };
+		3C767A6D0A38D81400CD8CCF /* Wm4PolyhedralMassProperties.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = Wm4PolyhedralMassProperties.cpp; path = RigidBody/Wm4PolyhedralMassProperties.cpp; sourceTree = "<group>"; };
+		3C767A6E0A38D81400CD8CCF /* Wm4PolyhedralMassProperties.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = Wm4PolyhedralMassProperties.h; path = RigidBody/Wm4PolyhedralMassProperties.h; sourceTree = "<group>"; };
+		3C767A6F0A38D81400CD8CCF /* Wm4RigidBody.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = Wm4RigidBody.cpp; path = RigidBody/Wm4RigidBody.cpp; sourceTree = "<group>"; };
+		3C767A700A38D81400CD8CCF /* Wm4RigidBody.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = Wm4RigidBody.h; path = RigidBody/Wm4RigidBody.h; sourceTree = "<group>"; };
+		3CB872590A006FA100B5F514 /* Wm4Physics.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = Wm4Physics.h; sourceTree = "<group>"; };
+		3CB8725A0A006FA100B5F514 /* Wm4PhysicsLIB.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = Wm4PhysicsLIB.h; sourceTree = "<group>"; };
+		3CB8725B0A006FA100B5F514 /* Wm4PhysicsPCH.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = Wm4PhysicsPCH.cpp; sourceTree = "<group>"; };
+		3CB8725C0A006FA100B5F514 /* Wm4PhysicsPCH.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = Wm4PhysicsPCH.h; sourceTree = "<group>"; };
+		3CBB669E0A2AB89D001275CA /* libWm4Physicsmd.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libWm4Physicsmd.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		3CBB66CC0A2AB9CD001275CA /* libWm4Physicsm.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libWm4Physicsm.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		3CC53A220A0026BA00C3FEC5 /* libWm4Foundationd.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libWm4Foundationd.dylib; path = ../SDK/Library/DebugDLL/libWm4Foundationd.dylib; sourceTree = SOURCE_ROOT; };
+		3CC53A240A0026D600C3FEC5 /* libWm4Foundation.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libWm4Foundation.dylib; path = ../SDK/Library/ReleaseDLL/libWm4Foundation.dylib; sourceTree = SOURCE_ROOT; };
+		742FFA1207F46D6500E4DBBA /* libWm4Physicsd.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libWm4Physicsd.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+		742FFA1707F46DC300E4DBBA /* libWm4Physics.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libWm4Physics.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+		74B57E8D07F3427D00913EC4 /* libWm4Physicsd.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libWm4Physicsd.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		74D6DDFE07F342E200267169 /* libWm4Physics.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libWm4Physics.a; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3CBB669C0A2AB89D001275CA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3CBB66CA0A2AB9CD001275CA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		742FFA1007F46D6500E4DBBA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3CC53A230A0026BA00C3FEC5 /* libWm4Foundationd.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		742FFA1607F46DC300E4DBBA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3CC53A250A0026D600C3FEC5 /* libWm4Foundation.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		74B57E8B07F3427D00913EC4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		74D6DDFD07F342E200267169 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3C7679AB0A38D7A000CD8CCF /* Intersection */ = {
+			isa = PBXGroup;
+			children = (
+				3C7679B70A38D7E800CD8CCF /* Wm4ExtremalQuery3.cpp */,
+				3C7679B80A38D7E800CD8CCF /* Wm4ExtremalQuery3.h */,
+				3C7679B90A38D7E800CD8CCF /* Wm4ExtremalQuery3BSP.cpp */,
+				3C7679BA0A38D7E800CD8CCF /* Wm4ExtremalQuery3BSP.h */,
+				3C7679BB0A38D7E800CD8CCF /* Wm4ExtremalQuery3PRJ.cpp */,
+				3C7679BC0A38D7E800CD8CCF /* Wm4ExtremalQuery3PRJ.h */,
+				3C7679BD0A38D7E800CD8CCF /* Wm4IntersectingBoxes.cpp */,
+				3C7679BE0A38D7E800CD8CCF /* Wm4IntersectingBoxes.h */,
+				3C7679BF0A38D7E800CD8CCF /* Wm4IntersectingIntervals.cpp */,
+				3C7679C00A38D7E800CD8CCF /* Wm4IntersectingIntervals.h */,
+				3C7679C10A38D7E800CD8CCF /* Wm4IntersectingRectangles.cpp */,
+				3C7679C20A38D7E800CD8CCF /* Wm4IntersectingRectangles.h */,
+			);
+			name = Intersection;
+			sourceTree = "<group>";
+		};
+		3C7679AE0A38D7B200CD8CCF /* LCPSolver */ = {
+			isa = PBXGroup;
+			children = (
+				3C767A0B0A38D7F600CD8CCF /* Wm4LCPPolyDist.cpp */,
+				3C767A0C0A38D7F600CD8CCF /* Wm4LCPPolyDist.h */,
+				3C767A0D0A38D7F600CD8CCF /* Wm4LCPSolver.cpp */,
+				3C767A0E0A38D7F600CD8CCF /* Wm4LCPSolver.h */,
+			);
+			name = LCPSolver;
+			sourceTree = "<group>";
+		};
+		3C7679B10A38D7BA00CD8CCF /* ParticleSystem */ = {
+			isa = PBXGroup;
+			children = (
+				3C767A270A38D80700CD8CCF /* Wm4MassSpringArbitrary.cpp */,
+				3C767A280A38D80700CD8CCF /* Wm4MassSpringArbitrary.h */,
+				3C767A290A38D80700CD8CCF /* Wm4MassSpringCurve.cpp */,
+				3C767A2A0A38D80700CD8CCF /* Wm4MassSpringCurve.h */,
+				3C767A2B0A38D80700CD8CCF /* Wm4MassSpringSurface.cpp */,
+				3C767A2C0A38D80700CD8CCF /* Wm4MassSpringSurface.h */,
+				3C767A2D0A38D80700CD8CCF /* Wm4MassSpringVolume.cpp */,
+				3C767A2E0A38D80700CD8CCF /* Wm4MassSpringVolume.h */,
+				3C767A2F0A38D80700CD8CCF /* Wm4ParticleSystem.cpp */,
+				3C767A300A38D80700CD8CCF /* Wm4ParticleSystem.h */,
+			);
+			name = ParticleSystem;
+			sourceTree = "<group>";
+		};
+		3C7679B60A38D7C800CD8CCF /* RigidBody */ = {
+			isa = PBXGroup;
+			children = (
+				3C767A6D0A38D81400CD8CCF /* Wm4PolyhedralMassProperties.cpp */,
+				3C767A6E0A38D81400CD8CCF /* Wm4PolyhedralMassProperties.h */,
+				3C767A6F0A38D81400CD8CCF /* Wm4RigidBody.cpp */,
+				3C767A700A38D81400CD8CCF /* Wm4RigidBody.h */,
+			);
+			name = RigidBody;
+			sourceTree = "<group>";
+		};
+		3CC53A1B0A00266B00C3FEC5 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				3CC53A1E0A00267B00C3FEC5 /* DebugDLL */,
+				3CC53A210A00268B00C3FEC5 /* ReleaseDLL */,
+			);
+			name = Libraries;
+			sourceTree = "<group>";
+		};
+		3CC53A1E0A00267B00C3FEC5 /* DebugDLL */ = {
+			isa = PBXGroup;
+			children = (
+				3CC53A220A0026BA00C3FEC5 /* libWm4Foundationd.dylib */,
+			);
+			name = DebugDLL;
+			sourceTree = "<group>";
+		};
+		3CC53A210A00268B00C3FEC5 /* ReleaseDLL */ = {
+			isa = PBXGroup;
+			children = (
+				3CC53A240A0026D600C3FEC5 /* libWm4Foundation.dylib */,
+			);
+			name = ReleaseDLL;
+			sourceTree = "<group>";
+		};
+		74B57E7F07F3425300913EC4 = {
+			isa = PBXGroup;
+			children = (
+				74D6DE0107F3432700267169 /* Sources */,
+				3CC53A1B0A00266B00C3FEC5 /* Libraries */,
+				74B57E8E07F3427D00913EC4 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		74B57E8E07F3427D00913EC4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				74B57E8D07F3427D00913EC4 /* libWm4Physicsd.a */,
+				74D6DDFE07F342E200267169 /* libWm4Physics.a */,
+				742FFA1207F46D6500E4DBBA /* libWm4Physicsd.dylib */,
+				742FFA1707F46DC300E4DBBA /* libWm4Physics.dylib */,
+				3CBB669E0A2AB89D001275CA /* libWm4Physicsmd.a */,
+				3CBB66CC0A2AB9CD001275CA /* libWm4Physicsm.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		74D6DE0107F3432700267169 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				3C7679AB0A38D7A000CD8CCF /* Intersection */,
+				3C7679AE0A38D7B200CD8CCF /* LCPSolver */,
+				3C7679B10A38D7BA00CD8CCF /* ParticleSystem */,
+				3C7679B60A38D7C800CD8CCF /* RigidBody */,
+				3CB872590A006FA100B5F514 /* Wm4Physics.h */,
+				3CB8725A0A006FA100B5F514 /* Wm4PhysicsLIB.h */,
+				3CB8725B0A006FA100B5F514 /* Wm4PhysicsPCH.cpp */,
+				3CB8725C0A006FA100B5F514 /* Wm4PhysicsPCH.h */,
+			);
+			name = Sources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		3CBB669A0A2AB89D001275CA /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3CBB66B90A2AB8B9001275CA /* Wm4Physics.h in Headers */,
+				3CBB66BA0A2AB8B9001275CA /* Wm4PhysicsLIB.h in Headers */,
+				3CBB66BC0A2AB8BA001275CA /* Wm4PhysicsPCH.h in Headers */,
+				3C7679F40A38D7E800CD8CCF /* Wm4ExtremalQuery3.h in Headers */,
+				3C7679F60A38D7E800CD8CCF /* Wm4ExtremalQuery3BSP.h in Headers */,
+				3C7679F80A38D7E800CD8CCF /* Wm4ExtremalQuery3PRJ.h in Headers */,
+				3C7679FA0A38D7E800CD8CCF /* Wm4IntersectingBoxes.h in Headers */,
+				3C7679FC0A38D7E800CD8CCF /* Wm4IntersectingIntervals.h in Headers */,
+				3C7679FE0A38D7E800CD8CCF /* Wm4IntersectingRectangles.h in Headers */,
+				3C767A200A38D7F600CD8CCF /* Wm4LCPPolyDist.h in Headers */,
+				3C767A220A38D7F600CD8CCF /* Wm4LCPSolver.h in Headers */,
+				3C767A5A0A38D80700CD8CCF /* Wm4MassSpringArbitrary.h in Headers */,
+				3C767A5C0A38D80700CD8CCF /* Wm4MassSpringCurve.h in Headers */,
+				3C767A5E0A38D80700CD8CCF /* Wm4MassSpringSurface.h in Headers */,
+				3C767A600A38D80700CD8CCF /* Wm4MassSpringVolume.h in Headers */,
+				3C767A620A38D80700CD8CCF /* Wm4ParticleSystem.h in Headers */,
+				3C767A820A38D81400CD8CCF /* Wm4PolyhedralMassProperties.h in Headers */,
+				3C767A840A38D81400CD8CCF /* Wm4RigidBody.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3CBB66C80A2AB9CD001275CA /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3CBB66E70A2AB9E8001275CA /* Wm4Physics.h in Headers */,
+				3CBB66E80A2AB9E8001275CA /* Wm4PhysicsLIB.h in Headers */,
+				3CBB66EA0A2AB9EA001275CA /* Wm4PhysicsPCH.h in Headers */,
+				3C767A000A38D7E800CD8CCF /* Wm4ExtremalQuery3.h in Headers */,
+				3C767A020A38D7E800CD8CCF /* Wm4ExtremalQuery3BSP.h in Headers */,
+				3C767A040A38D7E800CD8CCF /* Wm4ExtremalQuery3PRJ.h in Headers */,
+				3C767A060A38D7E800CD8CCF /* Wm4IntersectingBoxes.h in Headers */,
+				3C767A080A38D7E800CD8CCF /* Wm4IntersectingIntervals.h in Headers */,
+				3C767A0A0A38D7E800CD8CCF /* Wm4IntersectingRectangles.h in Headers */,
+				3C767A240A38D7F600CD8CCF /* Wm4LCPPolyDist.h in Headers */,
+				3C767A260A38D7F600CD8CCF /* Wm4LCPSolver.h in Headers */,
+				3C767A640A38D80700CD8CCF /* Wm4MassSpringArbitrary.h in Headers */,
+				3C767A660A38D80700CD8CCF /* Wm4MassSpringCurve.h in Headers */,
+				3C767A680A38D80700CD8CCF /* Wm4MassSpringSurface.h in Headers */,
+				3C767A6A0A38D80700CD8CCF /* Wm4MassSpringVolume.h in Headers */,
+				3C767A6C0A38D80700CD8CCF /* Wm4ParticleSystem.h in Headers */,
+				3C767A860A38D81400CD8CCF /* Wm4PolyhedralMassProperties.h in Headers */,
+				3C767A880A38D81400CD8CCF /* Wm4RigidBody.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		742FFA0E07F46D6500E4DBBA /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3CB872650A006FA100B5F514 /* Wm4Physics.h in Headers */,
+				3CB872660A006FA100B5F514 /* Wm4PhysicsLIB.h in Headers */,
+				3CB872680A006FA100B5F514 /* Wm4PhysicsPCH.h in Headers */,
+				3C7679DC0A38D7E800CD8CCF /* Wm4ExtremalQuery3.h in Headers */,
+				3C7679DE0A38D7E800CD8CCF /* Wm4ExtremalQuery3BSP.h in Headers */,
+				3C7679E00A38D7E800CD8CCF /* Wm4ExtremalQuery3PRJ.h in Headers */,
+				3C7679E20A38D7E800CD8CCF /* Wm4IntersectingBoxes.h in Headers */,
+				3C7679E40A38D7E800CD8CCF /* Wm4IntersectingIntervals.h in Headers */,
+				3C7679E60A38D7E800CD8CCF /* Wm4IntersectingRectangles.h in Headers */,
+				3C767A180A38D7F600CD8CCF /* Wm4LCPPolyDist.h in Headers */,
+				3C767A1A0A38D7F600CD8CCF /* Wm4LCPSolver.h in Headers */,
+				3C767A460A38D80700CD8CCF /* Wm4MassSpringArbitrary.h in Headers */,
+				3C767A480A38D80700CD8CCF /* Wm4MassSpringCurve.h in Headers */,
+				3C767A4A0A38D80700CD8CCF /* Wm4MassSpringSurface.h in Headers */,
+				3C767A4C0A38D80700CD8CCF /* Wm4MassSpringVolume.h in Headers */,
+				3C767A4E0A38D80700CD8CCF /* Wm4ParticleSystem.h in Headers */,
+				3C767A7A0A38D81400CD8CCF /* Wm4PolyhedralMassProperties.h in Headers */,
+				3C767A7C0A38D81400CD8CCF /* Wm4RigidBody.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		742FFA1407F46DC300E4DBBA /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3CB872690A006FA100B5F514 /* Wm4Physics.h in Headers */,
+				3CB8726A0A006FA100B5F514 /* Wm4PhysicsLIB.h in Headers */,
+				3CB8726C0A006FA100B5F514 /* Wm4PhysicsPCH.h in Headers */,
+				3C7679E80A38D7E800CD8CCF /* Wm4ExtremalQuery3.h in Headers */,
+				3C7679EA0A38D7E800CD8CCF /* Wm4ExtremalQuery3BSP.h in Headers */,
+				3C7679EC0A38D7E800CD8CCF /* Wm4ExtremalQuery3PRJ.h in Headers */,
+				3C7679EE0A38D7E800CD8CCF /* Wm4IntersectingBoxes.h in Headers */,
+				3C7679F00A38D7E800CD8CCF /* Wm4IntersectingIntervals.h in Headers */,
+				3C7679F20A38D7E800CD8CCF /* Wm4IntersectingRectangles.h in Headers */,
+				3C767A1C0A38D7F600CD8CCF /* Wm4LCPPolyDist.h in Headers */,
+				3C767A1E0A38D7F600CD8CCF /* Wm4LCPSolver.h in Headers */,
+				3C767A500A38D80700CD8CCF /* Wm4MassSpringArbitrary.h in Headers */,
+				3C767A520A38D80700CD8CCF /* Wm4MassSpringCurve.h in Headers */,
+				3C767A540A38D80700CD8CCF /* Wm4MassSpringSurface.h in Headers */,
+				3C767A560A38D80700CD8CCF /* Wm4MassSpringVolume.h in Headers */,
+				3C767A580A38D80700CD8CCF /* Wm4ParticleSystem.h in Headers */,
+				3C767A7E0A38D81400CD8CCF /* Wm4PolyhedralMassProperties.h in Headers */,
+				3C767A800A38D81400CD8CCF /* Wm4RigidBody.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		74B57E8907F3427D00913EC4 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3CB8725D0A006FA100B5F514 /* Wm4Physics.h in Headers */,
+				3CB8725E0A006FA100B5F514 /* Wm4PhysicsLIB.h in Headers */,
+				3CB872600A006FA100B5F514 /* Wm4PhysicsPCH.h in Headers */,
+				3C7679C40A38D7E800CD8CCF /* Wm4ExtremalQuery3.h in Headers */,
+				3C7679C60A38D7E800CD8CCF /* Wm4ExtremalQuery3BSP.h in Headers */,
+				3C7679C80A38D7E800CD8CCF /* Wm4ExtremalQuery3PRJ.h in Headers */,
+				3C7679CA0A38D7E800CD8CCF /* Wm4IntersectingBoxes.h in Headers */,
+				3C7679CC0A38D7E800CD8CCF /* Wm4IntersectingIntervals.h in Headers */,
+				3C7679CE0A38D7E800CD8CCF /* Wm4IntersectingRectangles.h in Headers */,
+				3C767A100A38D7F600CD8CCF /* Wm4LCPPolyDist.h in Headers */,
+				3C767A120A38D7F600CD8CCF /* Wm4LCPSolver.h in Headers */,
+				3C767A320A38D80700CD8CCF /* Wm4MassSpringArbitrary.h in Headers */,
+				3C767A340A38D80700CD8CCF /* Wm4MassSpringCurve.h in Headers */,
+				3C767A360A38D80700CD8CCF /* Wm4MassSpringSurface.h in Headers */,
+				3C767A380A38D80700CD8CCF /* Wm4MassSpringVolume.h in Headers */,
+				3C767A3A0A38D80700CD8CCF /* Wm4ParticleSystem.h in Headers */,
+				3C767A720A38D81400CD8CCF /* Wm4PolyhedralMassProperties.h in Headers */,
+				3C767A740A38D81400CD8CCF /* Wm4RigidBody.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		74D6DDFB07F342E200267169 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3CB872610A006FA100B5F514 /* Wm4Physics.h in Headers */,
+				3CB872620A006FA100B5F514 /* Wm4PhysicsLIB.h in Headers */,
+				3CB872640A006FA100B5F514 /* Wm4PhysicsPCH.h in Headers */,
+				3C7679D00A38D7E800CD8CCF /* Wm4ExtremalQuery3.h in Headers */,
+				3C7679D20A38D7E800CD8CCF /* Wm4ExtremalQuery3BSP.h in Headers */,
+				3C7679D40A38D7E800CD8CCF /* Wm4ExtremalQuery3PRJ.h in Headers */,
+				3C7679D60A38D7E800CD8CCF /* Wm4IntersectingBoxes.h in Headers */,
+				3C7679D80A38D7E800CD8CCF /* Wm4IntersectingIntervals.h in Headers */,
+				3C7679DA0A38D7E800CD8CCF /* Wm4IntersectingRectangles.h in Headers */,
+				3C767A140A38D7F600CD8CCF /* Wm4LCPPolyDist.h in Headers */,
+				3C767A160A38D7F600CD8CCF /* Wm4LCPSolver.h in Headers */,
+				3C767A3C0A38D80700CD8CCF /* Wm4MassSpringArbitrary.h in Headers */,
+				3C767A3E0A38D80700CD8CCF /* Wm4MassSpringCurve.h in Headers */,
+				3C767A400A38D80700CD8CCF /* Wm4MassSpringSurface.h in Headers */,
+				3C767A420A38D80700CD8CCF /* Wm4MassSpringVolume.h in Headers */,
+				3C767A440A38D80700CD8CCF /* Wm4ParticleSystem.h in Headers */,
+				3C767A760A38D81400CD8CCF /* Wm4PolyhedralMassProperties.h in Headers */,
+				3C767A780A38D81400CD8CCF /* Wm4RigidBody.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		3CBB669D0A2AB89D001275CA /* Debug Memory */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3CBB66C20A2AB980001275CA /* Build configuration list for PBXNativeTarget "Debug Memory" */;
+			buildPhases = (
+				3CBB669A0A2AB89D001275CA /* Headers */,
+				3CBB669B0A2AB89D001275CA /* Sources */,
+				3CBB669C0A2AB89D001275CA /* Frameworks */,
+				3CBB66C50A2AB99C001275CA /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Debug Memory";
+			productName = "Debug Memory";
+			productReference = 3CBB669E0A2AB89D001275CA /* libWm4Physicsmd.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		3CBB66CB0A2AB9CD001275CA /* Release Memory */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3CBB66F40A2ABADC001275CA /* Build configuration list for PBXNativeTarget "Release Memory" */;
+			buildPhases = (
+				3CBB66C80A2AB9CD001275CA /* Headers */,
+				3CBB66C90A2AB9CD001275CA /* Sources */,
+				3CBB66CA0A2AB9CD001275CA /* Frameworks */,
+				3CBB66EF0A2ABA8C001275CA /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Release Memory";
+			productName = "Release Memory";
+			productReference = 3CBB66CC0A2AB9CD001275CA /* libWm4Physicsm.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		742FFA1107F46D6500E4DBBA /* Debug Dynamic */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3C02738B088FE67400A93309 /* Build configuration list for PBXNativeTarget "Debug Dynamic" */;
+			buildPhases = (
+				742FFA0E07F46D6500E4DBBA /* Headers */,
+				742FFA0F07F46D6500E4DBBA /* Sources */,
+				742FFA1007F46D6500E4DBBA /* Frameworks */,
+				3C6FBBD7083E65F50068AA05 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Debug Dynamic";
+			productName = "Dynamic Debug";
+			productReference = 742FFA1207F46D6500E4DBBA /* libWm4Physicsd.dylib */;
+			productType = "com.apple.product-type.library.dynamic";
+		};
+		742FFA1307F46DC300E4DBBA /* Release Dynamic */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3C02738E088FE67400A93309 /* Build configuration list for PBXNativeTarget "Release Dynamic" */;
+			buildPhases = (
+				742FFA1407F46DC300E4DBBA /* Headers */,
+				742FFA1507F46DC300E4DBBA /* Sources */,
+				742FFA1607F46DC300E4DBBA /* Frameworks */,
+				3C6FBBDA083E66080068AA05 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Release Dynamic";
+			productName = "Dynamic Debug";
+			productReference = 742FFA1707F46DC300E4DBBA /* libWm4Physics.dylib */;
+			productType = "com.apple.product-type.library.dynamic";
+		};
+		74B57E8C07F3427D00913EC4 /* Debug Static */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3C027382088FE67300A93309 /* Build configuration list for PBXNativeTarget "Debug Static" */;
+			buildPhases = (
+				74B57E8907F3427D00913EC4 /* Headers */,
+				74B57E8A07F3427D00913EC4 /* Sources */,
+				74B57E8B07F3427D00913EC4 /* Frameworks */,
+				3C6FBBCD083E65BF0068AA05 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Debug Static";
+			productName = "Static Debug";
+			productReference = 74B57E8D07F3427D00913EC4 /* libWm4Physicsd.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		74D6DDFA07F342E200267169 /* Release Static */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3C027385088FE67300A93309 /* Build configuration list for PBXNativeTarget "Release Static" */;
+			buildPhases = (
+				74D6DDFB07F342E200267169 /* Headers */,
+				74D6DDFC07F342E200267169 /* Sources */,
+				74D6DDFD07F342E200267169 /* Frameworks */,
+				3C6FBBD0083E65D80068AA05 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Release Static";
+			productName = "Static Debug";
+			productReference = 74D6DDFE07F342E200267169 /* libWm4Physics.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		74B57E8307F3425300913EC4 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 3C027397088FE67400A93309 /* Build configuration list for PBXProject "LibPhysics" */;
+			compatibilityVersion = "Xcode 2.4";
+			hasScannedForEncodings = 0;
+			mainGroup = 74B57E7F07F3425300913EC4;
+			productRefGroup = 74B57E8E07F3427D00913EC4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				74B57E8C07F3427D00913EC4 /* Debug Static */,
+				74D6DDFA07F342E200267169 /* Release Static */,
+				742FFA1107F46D6500E4DBBA /* Debug Dynamic */,
+				742FFA1307F46DC300E4DBBA /* Release Dynamic */,
+				3CBB669D0A2AB89D001275CA /* Debug Memory */,
+				3CBB66CB0A2AB9CD001275CA /* Release Memory */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3C6FBBCD083E65BF0068AA05 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = ./CopySdkDebugStatic.sh;
+		};
+		3C6FBBD0083E65D80068AA05 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = ./CopySdkReleaseStatic.sh;
+		};
+		3C6FBBD7083E65F50068AA05 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = ./CopySdkDebugDynamic.sh;
+		};
+		3C6FBBDA083E66080068AA05 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = ./CopySdkReleaseDynamic.sh;
+		};
+		3CBB66C50A2AB99C001275CA /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = ./CopySdkDebugMemory.sh;
+		};
+		3CBB66EF0A2ABA8C001275CA /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = ./CopySdkReleaseMemory.sh;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3CBB669B0A2AB89D001275CA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3CBB66BB0A2AB8BA001275CA /* Wm4PhysicsPCH.cpp in Sources */,
+				3C7679F30A38D7E800CD8CCF /* Wm4ExtremalQuery3.cpp in Sources */,
+				3C7679F50A38D7E800CD8CCF /* Wm4ExtremalQuery3BSP.cpp in Sources */,
+				3C7679F70A38D7E800CD8CCF /* Wm4ExtremalQuery3PRJ.cpp in Sources */,
+				3C7679F90A38D7E800CD8CCF /* Wm4IntersectingBoxes.cpp in Sources */,
+				3C7679FB0A38D7E800CD8CCF /* Wm4IntersectingIntervals.cpp in Sources */,
+				3C7679FD0A38D7E800CD8CCF /* Wm4IntersectingRectangles.cpp in Sources */,
+				3C767A1F0A38D7F600CD8CCF /* Wm4LCPPolyDist.cpp in Sources */,
+				3C767A210A38D7F600CD8CCF /* Wm4LCPSolver.cpp in Sources */,
+				3C767A590A38D80700CD8CCF /* Wm4MassSpringArbitrary.cpp in Sources */,
+				3C767A5B0A38D80700CD8CCF /* Wm4MassSpringCurve.cpp in Sources */,
+				3C767A5D0A38D80700CD8CCF /* Wm4MassSpringSurface.cpp in Sources */,
+				3C767A5F0A38D80700CD8CCF /* Wm4MassSpringVolume.cpp in Sources */,
+				3C767A610A38D80700CD8CCF /* Wm4ParticleSystem.cpp in Sources */,
+				3C767A810A38D81400CD8CCF /* Wm4PolyhedralMassProperties.cpp in Sources */,
+				3C767A830A38D81400CD8CCF /* Wm4RigidBody.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3CBB66C90A2AB9CD001275CA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3CBB66E90A2AB9E9001275CA /* Wm4PhysicsPCH.cpp in Sources */,
+				3C7679FF0A38D7E800CD8CCF /* Wm4ExtremalQuery3.cpp in Sources */,
+				3C767A010A38D7E800CD8CCF /* Wm4ExtremalQuery3BSP.cpp in Sources */,
+				3C767A030A38D7E800CD8CCF /* Wm4ExtremalQuery3PRJ.cpp in Sources */,
+				3C767A050A38D7E800CD8CCF /* Wm4IntersectingBoxes.cpp in Sources */,
+				3C767A070A38D7E800CD8CCF /* Wm4IntersectingIntervals.cpp in Sources */,
+				3C767A090A38D7E800CD8CCF /* Wm4IntersectingRectangles.cpp in Sources */,
+				3C767A230A38D7F600CD8CCF /* Wm4LCPPolyDist.cpp in Sources */,
+				3C767A250A38D7F600CD8CCF /* Wm4LCPSolver.cpp in Sources */,
+				3C767A630A38D80700CD8CCF /* Wm4MassSpringArbitrary.cpp in Sources */,
+				3C767A650A38D80700CD8CCF /* Wm4MassSpringCurve.cpp in Sources */,
+				3C767A670A38D80700CD8CCF /* Wm4MassSpringSurface.cpp in Sources */,
+				3C767A690A38D80700CD8CCF /* Wm4MassSpringVolume.cpp in Sources */,
+				3C767A6B0A38D80700CD8CCF /* Wm4ParticleSystem.cpp in Sources */,
+				3C767A850A38D81400CD8CCF /* Wm4PolyhedralMassProperties.cpp in Sources */,
+				3C767A870A38D81400CD8CCF /* Wm4RigidBody.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		742FFA0F07F46D6500E4DBBA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3CB872670A006FA100B5F514 /* Wm4PhysicsPCH.cpp in Sources */,
+				3C7679DB0A38D7E800CD8CCF /* Wm4ExtremalQuery3.cpp in Sources */,
+				3C7679DD0A38D7E800CD8CCF /* Wm4ExtremalQuery3BSP.cpp in Sources */,
+				3C7679DF0A38D7E800CD8CCF /* Wm4ExtremalQuery3PRJ.cpp in Sources */,
+				3C7679E10A38D7E800CD8CCF /* Wm4IntersectingBoxes.cpp in Sources */,
+				3C7679E30A38D7E800CD8CCF /* Wm4IntersectingIntervals.cpp in Sources */,
+				3C7679E50A38D7E800CD8CCF /* Wm4IntersectingRectangles.cpp in Sources */,
+				3C767A170A38D7F600CD8CCF /* Wm4LCPPolyDist.cpp in Sources */,
+				3C767A190A38D7F600CD8CCF /* Wm4LCPSolver.cpp in Sources */,
+				3C767A450A38D80700CD8CCF /* Wm4MassSpringArbitrary.cpp in Sources */,
+				3C767A470A38D80700CD8CCF /* Wm4MassSpringCurve.cpp in Sources */,
+				3C767A490A38D80700CD8CCF /* Wm4MassSpringSurface.cpp in Sources */,
+				3C767A4B0A38D80700CD8CCF /* Wm4MassSpringVolume.cpp in Sources */,
+				3C767A4D0A38D80700CD8CCF /* Wm4ParticleSystem.cpp in Sources */,
+				3C767A790A38D81400CD8CCF /* Wm4PolyhedralMassProperties.cpp in Sources */,
+				3C767A7B0A38D81400CD8CCF /* Wm4RigidBody.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		742FFA1507F46DC300E4DBBA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3CB8726B0A006FA100B5F514 /* Wm4PhysicsPCH.cpp in Sources */,
+				3C7679E70A38D7E800CD8CCF /* Wm4ExtremalQuery3.cpp in Sources */,
+				3C7679E90A38D7E800CD8CCF /* Wm4ExtremalQuery3BSP.cpp in Sources */,
+				3C7679EB0A38D7E800CD8CCF /* Wm4ExtremalQuery3PRJ.cpp in Sources */,
+				3C7679ED0A38D7E800CD8CCF /* Wm4IntersectingBoxes.cpp in Sources */,
+				3C7679EF0A38D7E800CD8CCF /* Wm4IntersectingIntervals.cpp in Sources */,
+				3C7679F10A38D7E800CD8CCF /* Wm4IntersectingRectangles.cpp in Sources */,
+				3C767A1B0A38D7F600CD8CCF /* Wm4LCPPolyDist.cpp in Sources */,
+				3C767A1D0A38D7F600CD8CCF /* Wm4LCPSolver.cpp in Sources */,
+				3C767A4F0A38D80700CD8CCF /* Wm4MassSpringArbitrary.cpp in Sources */,
+				3C767A510A38D80700CD8CCF /* Wm4MassSpringCurve.cpp in Sources */,
+				3C767A530A38D80700CD8CCF /* Wm4MassSpringSurface.cpp in Sources */,
+				3C767A550A38D80700CD8CCF /* Wm4MassSpringVolume.cpp in Sources */,
+				3C767A570A38D80700CD8CCF /* Wm4ParticleSystem.cpp in Sources */,
+				3C767A7D0A38D81400CD8CCF /* Wm4PolyhedralMassProperties.cpp in Sources */,
+				3C767A7F0A38D81400CD8CCF /* Wm4RigidBody.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		74B57E8A07F3427D00913EC4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3CB8725F0A006FA100B5F514 /* Wm4PhysicsPCH.cpp in Sources */,
+				3C7679C30A38D7E800CD8CCF /* Wm4ExtremalQuery3.cpp in Sources */,
+				3C7679C50A38D7E800CD8CCF /* Wm4ExtremalQuery3BSP.cpp in Sources */,
+				3C7679C70A38D7E800CD8CCF /* Wm4ExtremalQuery3PRJ.cpp in Sources */,
+				3C7679C90A38D7E800CD8CCF /* Wm4IntersectingBoxes.cpp in Sources */,
+				3C7679CB0A38D7E800CD8CCF /* Wm4IntersectingIntervals.cpp in Sources */,
+				3C7679CD0A38D7E800CD8CCF /* Wm4IntersectingRectangles.cpp in Sources */,
+				3C767A0F0A38D7F600CD8CCF /* Wm4LCPPolyDist.cpp in Sources */,
+				3C767A110A38D7F600CD8CCF /* Wm4LCPSolver.cpp in Sources */,
+				3C767A310A38D80700CD8CCF /* Wm4MassSpringArbitrary.cpp in Sources */,
+				3C767A330A38D80700CD8CCF /* Wm4MassSpringCurve.cpp in Sources */,
+				3C767A350A38D80700CD8CCF /* Wm4MassSpringSurface.cpp in Sources */,
+				3C767A370A38D80700CD8CCF /* Wm4MassSpringVolume.cpp in Sources */,
+				3C767A390A38D80700CD8CCF /* Wm4ParticleSystem.cpp in Sources */,
+				3C767A710A38D81400CD8CCF /* Wm4PolyhedralMassProperties.cpp in Sources */,
+				3C767A730A38D81400CD8CCF /* Wm4RigidBody.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		74D6DDFC07F342E200267169 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3CB872630A006FA100B5F514 /* Wm4PhysicsPCH.cpp in Sources */,
+				3C7679CF0A38D7E800CD8CCF /* Wm4ExtremalQuery3.cpp in Sources */,
+				3C7679D10A38D7E800CD8CCF /* Wm4ExtremalQuery3BSP.cpp in Sources */,
+				3C7679D30A38D7E800CD8CCF /* Wm4ExtremalQuery3PRJ.cpp in Sources */,
+				3C7679D50A38D7E800CD8CCF /* Wm4IntersectingBoxes.cpp in Sources */,
+				3C7679D70A38D7E800CD8CCF /* Wm4IntersectingIntervals.cpp in Sources */,
+				3C7679D90A38D7E800CD8CCF /* Wm4IntersectingRectangles.cpp in Sources */,
+				3C767A130A38D7F600CD8CCF /* Wm4LCPPolyDist.cpp in Sources */,
+				3C767A150A38D7F600CD8CCF /* Wm4LCPSolver.cpp in Sources */,
+				3C767A3B0A38D80700CD8CCF /* Wm4MassSpringArbitrary.cpp in Sources */,
+				3C767A3D0A38D80700CD8CCF /* Wm4MassSpringCurve.cpp in Sources */,
+				3C767A3F0A38D80700CD8CCF /* Wm4MassSpringSurface.cpp in Sources */,
+				3C767A410A38D80700CD8CCF /* Wm4MassSpringVolume.cpp in Sources */,
+				3C767A430A38D80700CD8CCF /* Wm4ParticleSystem.cpp in Sources */,
+				3C767A750A38D81400CD8CCF /* Wm4PolyhedralMassProperties.cpp in Sources */,
+				3C767A770A38D81400CD8CCF /* Wm4RigidBody.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		3C027384088FE67300A93309 /* Default */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_ENABLE_CPP_RTTI = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Wm4PhysicsPCH.h;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					_DEBUG,
+					WM4_USE_PRECOMPILED_HEADERS,
+				);
+				HEADER_SEARCH_PATHS = "${SRCROOT}/../SDK/Include";
+				LIBRARY_STYLE = STATIC;
+				PREBINDING = NO;
+				PRODUCT_NAME = Wm4Physicsd;
+				SHARED_PRECOMPS_DIR = "$(BUILD_DIR)/$(CONFIGURATION)/DebugStatic";
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = Default;
+		};
+		3C027387088FE67300A93309 /* Default */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_ENABLE_CPP_RTTI = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Wm4PhysicsPCH.h;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					NDEBUG,
+					WM4_USE_PRECOMPILED_HEADERS,
+				);
+				HEADER_SEARCH_PATHS = "${SRCROOT}/../SDK/Include";
+				LIBRARY_STYLE = STATIC;
+				PREBINDING = NO;
+				PRODUCT_NAME = Wm4Physics;
+				SHARED_PRECOMPS_DIR = "$(BUILD_DIR)/$(CONFIGURATION)/ReleaseStatic";
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = Default;
+		};
+		3C02738D088FE67400A93309 /* Default */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				EXECUTABLE_PREFIX = lib;
+				GCC_ENABLE_CPP_RTTI = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Wm4PhysicsPCH.h;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					_DEBUG,
+					WM4_USE_PRECOMPILED_HEADERS,
+				);
+				HEADER_SEARCH_PATHS = "${SRCROOT}/../SDK/Include";
+				INSTALL_PATH = "${SRCROOT}/../SDK/Library/DebugDLL";
+				LIBRARY_SEARCH_PATHS = "${SRCROOT}/../SDK/Library/DebugDLL";
+				LIBRARY_STYLE = DYNAMIC;
+				MACH_O_TYPE = mh_dylib;
+				OTHER_LDFLAGS = (
+					"-seg1addr",
+					0x10000000,
+					"-framework",
+					Carbon,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = Wm4Physicsd;
+				SHARED_PRECOMPS_DIR = "$(BUILD_DIR)/$(CONFIGURATION)/DebugDynamic";
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = Default;
+		};
+		3C027390088FE67400A93309 /* Default */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				EXECUTABLE_PREFIX = lib;
+				GCC_ENABLE_CPP_RTTI = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Wm4PhysicsPCH.h;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					NDEBUG,
+					WM4_USE_PRECOMPILED_HEADERS,
+				);
+				HEADER_SEARCH_PATHS = "${SRCROOT}/../SDK/Include";
+				INSTALL_PATH = "${SRCROOT}/../SDK/Library/ReleaseDLL";
+				LIBRARY_SEARCH_PATHS = (
+					"$(LIBRARY_SEARCH_PATHS)",
+					"$(SRCROOT)/../SDK/Library/ReleaseDLL",
+				);
+				LIBRARY_STYLE = DYNAMIC;
+				MACH_O_TYPE = mh_dylib;
+				OTHER_LDFLAGS = (
+					"-seg1addr",
+					0x10000000,
+					"-framework",
+					Carbon,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = Wm4Physics;
+				SHARED_PRECOMPS_DIR = "$(BUILD_DIR)/$(CONFIGURATION)/ReleaseDynamic";
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+			};
+			name = Default;
+		};
+		3C027399088FE67400A93309 /* Default */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "";
+				GCC_WARN_SIGN_COMPARE = NO;
+				GCC_WARN_UNINITIALIZED_AUTOS = NO;
+				GCC_WARN_UNUSED_PARAMETER = NO;
+				GCC_WARN_UNUSED_VALUE = NO;
+				GCC_WARN_UNUSED_VARIABLE = NO;
+			};
+			name = Default;
+		};
+		3CBB66C40A2AB980001275CA /* Default */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_ENABLE_CPP_RTTI = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_MODEL_TUNING = G4;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Wm4PhysicsPCH.h;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					_DEBUG,
+					WM4_USE_PRECOMPILED_HEADERS,
+					WM4_MEMORY_MANAGER,
+				);
+				HEADER_SEARCH_PATHS = "${SRCROOT}/../SDK/Include";
+				INSTALL_PATH = /usr/local/lib;
+				LIBRARY_STYLE = STATIC;
+				OTHER_LDFLAGS = "";
+				PREBINDING = NO;
+				PRODUCT_NAME = Wm4Physicsmd;
+				SHARED_PRECOMPS_DIR = "$(BUILD_DIR)/$(CONFIGURATION)/DebugMemory";
+				SKIP_INSTALL = YES;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+				ZERO_LINK = NO;
+			};
+			name = Default;
+		};
+		3CBB66F60A2ABADC001275CA /* Default */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_ENABLE_CPP_RTTI = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_MODEL_TUNING = G4;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Wm4PhysicsPCH.h;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					NDEBUG,
+					WM4_USE_PRECOMPILED_HEADERS,
+					WM4_MEMORY_MANAGER,
+				);
+				HEADER_SEARCH_PATHS = "${SRCROOT}/../SDK/Include";
+				INSTALL_PATH = /usr/local/lib;
+				LIBRARY_STYLE = STATIC;
+				OTHER_LDFLAGS = "";
+				PREBINDING = NO;
+				PRODUCT_NAME = Wm4Physicsm;
+				SEPARATE_STRIP = YES;
+				SHARED_PRECOMPS_DIR = "$(BUILD_DIR)/$(CONFIGURATION)/ReleaseMemory";
+				SKIP_INSTALL = YES;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+				ZERO_LINK = NO;
+			};
+			name = Default;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3C027382088FE67300A93309 /* Build configuration list for PBXNativeTarget "Debug Static" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3C027384088FE67300A93309 /* Default */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Default;
+		};
+		3C027385088FE67300A93309 /* Build configuration list for PBXNativeTarget "Release Static" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3C027387088FE67300A93309 /* Default */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Default;
+		};
+		3C02738B088FE67400A93309 /* Build configuration list for PBXNativeTarget "Debug Dynamic" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3C02738D088FE67400A93309 /* Default */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Default;
+		};
+		3C02738E088FE67400A93309 /* Build configuration list for PBXNativeTarget "Release Dynamic" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3C027390088FE67400A93309 /* Default */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Default;
+		};
+		3C027397088FE67400A93309 /* Build configuration list for PBXProject "LibPhysics" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3C027399088FE67400A93309 /* Default */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Default;
+		};
+		3CBB66C20A2AB980001275CA /* Build configuration list for PBXNativeTarget "Debug Memory" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3CBB66C40A2AB980001275CA /* Default */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Default;
+		};
+		3CBB66F40A2ABADC001275CA /* Build configuration list for PBXNativeTarget "Release Memory" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3CBB66F60A2ABADC001275CA /* Default */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Default;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 74B57E8307F3425300913EC4 /* Project object */;
+}

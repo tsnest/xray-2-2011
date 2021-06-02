@@ -1,0 +1,10 @@
+﻿<editors:value_editor_base
+	x:Class="xray.editor.wpf_controls.property_editors.value.string_editor"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:editors="clr-namespace:xray.editor.wpf_controls.property_editors.value"
+	xmlns:wpf_controls="clr-namespace:xray.editor.wpf_controls">
+	<TextBox Name="m_text_box" Text="{Binding value}" BorderThickness="0" Background="Transparent" 
+			 KeyDown="text_box_key_down"
+			 wpf_controls:input.PreviewInputCommand="handle_input"/>
+</editors:value_editor_base>

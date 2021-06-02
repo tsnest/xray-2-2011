@@ -1,0 +1,83 @@
+﻿<ResourceDictionary 
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:item="clr-namespace:xray.editor.wpf_controls.property_editors.item">
+	
+    <Style TargetType="{x:Type item:data_source_editor}">
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type item:data_source_editor}">
+					<StackPanel SnapsToDevicePixels="True" >
+						<Border BorderBrush="{x:Static SystemColors.InactiveCaptionBrush}" BorderThickness="0, 0, 0, 1" SnapsToDevicePixels="True">
+							<Grid MinHeight="18" SnapsToDevicePixels="True">
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition Width="Auto" SharedSizeGroup="PropertyName"/>
+									<ColumnDefinition Width="3"/>
+									<ColumnDefinition Width="*"/>
+								</Grid.ColumnDefinitions>
+								
+								<!-- item name -->
+								<Border Grid.Column="0" BorderBrush="{x:Static SystemColors.InactiveCaptionBrush}" BorderThickness="0" Padding="3, 0, 5, 0">
+									<Border.Style>
+										<Style>
+											<Style.Triggers>
+												<DataTrigger Binding="{Binding is_selected}" Value="true">
+													<Setter Property="Border.Background" Value="#5555ff"/>
+												</DataTrigger>
+												<DataTrigger Binding="{Binding is_selected}" Value="false">
+													<Setter Property="Border.Background" Value="#fffffe"/>
+												</DataTrigger>
+											</Style.Triggers>
+										</Style>
+									</Border.Style>
+									<StackPanel Orientation="Horizontal" Name="item_text_panel">
+										<Control Width="{Binding item_indent, RelativeSource={RelativeSource TemplatedParent}}" Focusable="False"/>
+										<TextBlock Text="{Binding name}" VerticalAlignment="Center" />
+									</StackPanel>
+								</Border>
+								<!-- Splitter -->
+								<GridSplitter Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Center" Background="{x:Static SystemColors.InactiveCaptionBrush}">
+									<GridSplitter.Template>
+										<ControlTemplate>
+											<Border BorderBrush="Transparent" Width="3"  BorderThickness="1, 0, 1, 0" SnapsToDevicePixels="True" Background="{x:Static SystemColors.InactiveCaptionBrush}"/>
+										</ControlTemplate>
+									</GridSplitter.Template>
+								</GridSplitter>
+								<!-- Editor Area -->
+								<Border Grid.Column="2" BorderBrush="LightGray" BorderThickness="0" Padding="5, 0, 2, 0">
+									<ContentControl Content="{TemplateBinding data_source_compo_box}" />
+								</Border>
+							</Grid>
+						</Border>
+
+						<!--  D A T A   A N D   I N P U T   C O N T A I N E R  -->
+						<Border Name="body" BorderBrush="{x:Static SystemColors.InactiveCaptionBrush}" BorderThickness="0, 0, 0, 1" SnapsToDevicePixels="True">
+							<StackPanel>
+								<ContentControl Content="{TemplateBinding value_editor}" />
+								<Grid MinHeight="18" SnapsToDevicePixels="True">
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition Width="Auto" SharedSizeGroup="PropertyName"/>
+										<ColumnDefinition Width="3"/>
+										<ColumnDefinition Width="*"/>
+									</Grid.ColumnDefinitions>
+									<DockPanel>
+										<Control Width="{Binding item_indent, RelativeSource={RelativeSource TemplatedParent}}" Focusable="False"/>
+										<TextBlock Grid.Column="0" Text="Input: " VerticalAlignment="Center"/>
+									</DockPanel>
+									<GridSplitter Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Center" Background="{x:Static SystemColors.InactiveCaptionBrush}">
+										<GridSplitter.Template>
+											<ControlTemplate>
+												<Border BorderBrush="White" Width="3"  BorderThickness="1, 0, 1, 0" SnapsToDevicePixels="True" Background="{x:Static SystemColors.InactiveCaptionBrush}"/>
+											</ControlTemplate>
+										</GridSplitter.Template>
+									</GridSplitter>
+									<ContentControl Grid.Column="2" Content="{TemplateBinding input_combo_box}" />
+								</Grid>
+							</StackPanel>
+						</Border>
+					</StackPanel>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+</ResourceDictionary>

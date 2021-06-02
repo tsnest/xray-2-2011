@@ -1,0 +1,63 @@
+﻿<UserControl x:Class="xray.editor.wpf_controls.hypergraph.hypergraph_control"
+			 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+			 xmlns:hypergraph="clr-namespace:xray.editor.wpf_controls.hypergraph" 
+             xmlns:panels="clr-namespace:xray.editor.wpf_controls.panels" 
+			 MouseDown="mouse_button_down"
+			 PreviewMouseDown="preview_mouse_button_down"
+			 PreviewMouseUp="preview_mouse_button_up"
+			 PreviewMouseMove="preview_mouse_move"
+			 PreviewKeyDown="preview_key_down"
+			 Focusable="True"
+			 ClipToBounds="True">
+	<UserControl.ContextMenu>
+		<ContextMenu Opened="context_menu_opened" Name="m_context_menu">
+			<MenuItem Name="cm_enable_disable_link" Header="Disable Link" Click="enable_disable_link_click" Visibility="Collapsed" />
+			<MenuItem Name="cm_remove" Header="Remove" Click="context_menu_remove_click" Visibility="Collapsed"/>
+		</ContextMenu>
+	</UserControl.ContextMenu>
+	<panels:centralized_scroll_panel	x:Name="m_field_scroller"
+							SizeChanged="field_scroller_size_changed">
+		<!--HorizontalScrollBarVisibility="Visible"
+							VerticalScrollBarVisibility="Visible"
+							ScrollChanged="scroll_viewer_scroll_changed"-->
+		<hypergraph:field x:Name="m_field" ClipToBounds="False">
+			<Path Name="m_new_link_path" Stroke="Black" StrokeThickness="1" StrokeDashArray="8, 4" Panel.ZIndex="9000000" IsHitTestVisible="False" >
+				<Path.Data>
+					<LineGeometry x:Name="m_new_link_line" StartPoint="0, 0" EndPoint="100, 100" />
+				</Path.Data>
+			</Path>
+			<ItemsControl Name="m_link_icon_container" Panel.ZIndex="9000001">
+				<Path Name="m_link_cancel_icon" IsHitTestVisible="False"
+					  Stroke="Red" StrokeThickness="4" StrokeEndLineCap="Round" StrokeStartLineCap="Round">
+					<Path.Data>
+						<PathGeometry>
+							<PathFigure StartPoint="-10, -10">
+								<LineSegment Point="10, 10"/>
+							</PathFigure>
+							<PathFigure StartPoint="-10, 10">
+								<LineSegment Point="10, -10"/>
+							</PathFigure>
+						</PathGeometry>
+					</Path.Data>
+				</Path>
+				<Path Name="m_link_apply_icon" IsHitTestVisible="False"
+					  Stroke="LawnGreen" StrokeThickness="4" StrokeEndLineCap="Round" StrokeStartLineCap="Round">
+					<Path.Data>
+						<PathGeometry>
+							<PathFigure StartPoint="-10, -10">
+								<LineSegment Point="0, 0"/>
+								<LineSegment Point="10, -20"/>
+							</PathFigure>
+						</PathGeometry>
+					</Path.Data>
+				</Path>
+			</ItemsControl>
+			<Path Name="m_selection_path" Stroke="Black" StrokeThickness="1" StrokeDashArray="3, 2" Panel.ZIndex="9000000" SnapsToDevicePixels="True" >
+				<Path.Data>
+					<RectangleGeometry x:Name="m_selection_rect" Rect="20, 20, 50, 50" />
+				</Path.Data>
+			</Path>
+		</hypergraph:field>
+	</panels:centralized_scroll_panel>
+</UserControl>

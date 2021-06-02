@@ -1,0 +1,78 @@
+!!ARBfp1.0
+OPTION ARB_fragment_program_shadow;
+# cgc version 1.5.0014, build date Sep 18 2006 20:36:59
+# command line args: -profile arbfp1
+# source file: ShadowMaps2.cg
+#vendor NVIDIA Corporation
+#version 1.5.0.14
+#profile arbfp1
+#program p_Scene
+#semantic p_Scene.LightColor
+#semantic p_Scene.ColorSampler
+#semantic p_Scene.BlurSampler
+#semantic p_Scene.SpotSampler
+#var float2 kTCoord : $vin.TEXCOORD0 : TEX0 : 0 : 1
+#var float4 kProjTCoord : $vin.TEXCOORD1 : TEX1 : 1 : 1
+#var float4 kScreenTCoord : $vin.TEXCOORD2 : TEX2 : 2 : 1
+#var float3 kNormal : $vin.TEXCOORD3 : TEX3 : 3 : 1
+#var float3 kLightVector : $vin.TEXCOORD4 : TEX4 : 4 : 1
+#var float3 kEyeVector : $vin.TEXCOORD5 : TEX5 : 5 : 0
+#var float4 kPixelColor : $vout.COLOR : COL : 6 : 1
+#var float4 LightColor :  : c[0] : 7 : 1
+#var sampler2D ColorSampler :  : texunit 0 : 8 : 1
+#var sampler2DSHADOW BlurSampler :  : texunit 1 : 9 : 1
+#var sampler2D SpotSampler :  : texunit 2 : 10 : 1
+#const c[1] = 1 0 0.5 0.25
+#const c[2] = 2 8
+PARAM c[3] = { program.local[0],
+		{ 1, 0, 0.5, 0.25 },
+		{ 2, 8 } };
+TEMP R0;
+TEMP R1;
+TEMP R2;
+TEMP R3;
+DP3 R0.y, fragment.texcoord[4], fragment.texcoord[4];
+RSQ R0.y, R0.y;
+DP3 R0.x, fragment.texcoord[3], fragment.texcoord[3];
+MUL R1.xyz, R0.y, fragment.texcoord[4];
+RSQ R0.x, R0.x;
+MUL R0.xyz, R0.x, fragment.texcoord[3];
+DP3 R0.w, R0, R1;
+MUL R0.xyz, R0.w, R0;
+MAD R0.xyz, R0, c[2].x, -R1;
+DP3 R0.x, R1, R0;
+MAX R0.w, R0, c[1].y;
+ABS R1.w, R0;
+CMP R0.y, -R1.w, c[1].x, c[1];
+MAX R0.x, R0, c[1].y;
+ABS R0.y, R0;
+POW R0.x, R0.x, c[2].y;
+CMP R0.y, -R0, c[1], c[1].x;
+CMP R1.x, -R0.y, c[1].y, R0;
+TEX R0.xyz, fragment.texcoord[0], texture[0], 2D;
+MUL R1.xyz, R0, R1.x;
+MUL R2.xyz, R0.w, R0;
+MUL R3.xyz, R1, c[0].w;
+RCP R0.y, fragment.texcoord[1].w;
+MAD R1.yzw, R2.xxyz, c[0].xxyz, R3.xxyz;
+MUL R2.w, fragment.texcoord[1].y, R0.y;
+TXP R1.x, fragment.texcoord[2], texture[1], SHADOW2D;
+MOV R0.x, R2.w;
+MUL R0.w, fragment.texcoord[1].x, R0.y;
+TEX R0.xyz, R0.wxzw, texture[2], 2D;
+MUL R3.xyz, R1.x, R3;
+ADD R2.w, R2, -c[1].z;
+MUL R2.xyz, R2, c[0];
+MUL R3.xyz, R0, R3;
+MUL R2.xyz, R2, R1.x;
+MUL R2.w, R2, R2;
+ADD R0.w, R0, -c[1].z;
+MAD R0.w, R0, R0, R2;
+SGE R0.w, c[1], R0;
+ABS R0.w, R0;
+MAD R0.xyz, R2, R0, R3;
+CMP R0.w, -R0, c[1].y, c[1].x;
+CMP result.color.xyz, -R0.w, R1.yzww, R0;
+MOV result.color.w, c[1].x;
+END
+# 43 instructions, 4 R-regs

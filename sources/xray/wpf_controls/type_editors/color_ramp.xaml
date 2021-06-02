@@ -1,0 +1,16 @@
+﻿<UserControl x:Class="xray.editor.wpf_controls.color_ramp"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:local="clr-namespace:xray.editor.wpf_controls">
+	<ContentControl MouseDoubleClick="content_control_mouse_double_click" SnapsToDevicePixels="True" MinHeight="20">
+		<local:custom_gradient_control Margin="5" x:Name="m_gradient_box"
+									   MouseDown="gradient_box_mouse_down"
+									   MouseMove="gradient_box_mouse_move"
+									   MouseRightButtonUp="gradient_box_mouse_right_button_up"
+									   MouseUp="gradient_box_mouse_up">
+			<local:custom_gradient_control.Background>
+				<LinearGradientBrush StartPoint="0,0" EndPoint="1,0" />
+			</local:custom_gradient_control.Background>
+		</local:custom_gradient_control>
+	</ContentControl>
+</UserControl>

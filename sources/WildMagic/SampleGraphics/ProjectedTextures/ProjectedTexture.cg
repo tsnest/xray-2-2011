@@ -1,0 +1,94 @@
+//----------------------------------------------------------------------------
+void GetDirectionalLightFactors
+(
+    float3    kModelPosition,
+    float3    kModelNormal,
+    float3    kCameraPosition,
+    float3    kLightDirection,
+    float     fSpecularExponent,
+    out float fDiffuseFactor,
+    out float fSpecularFactor)
+{
+    float fDiff, fSpec;
+
+    fDiff = -dot(kModelNormal,kLightDirection);
+    if (fDiff > 0.0f)
+    {
+        float3 kViewVector = normalize(kCameraPosition - kModelPosition);
+        float3 kHalfVector = normalize(kViewVector - kLightDirection);
+        fSpec = dot(kModelNormal,kHalfVector);
+        if (fSpec > 0.0f)
+        {
+            fSpec = pow(fSpec,fSpecularExponent);
+        }
+        else
+        {
+            fSpec = 0.0f;
+        }
+    }
+    else
+    {
+        fDiff = 0.0f;
+        fSpec = 0.0f;
+    }
+    
+    fDiffuseFactor = fDiff;
+    fSpecularFactor = fSpec;
+}
+//----------------------------------------------------------------------------
+void v_ProjectedTexture
+(
+    in float3        kModelPosition  : POSITION,
+    in float3        kModelNormal : NORMAL,
+    out float4       kClipPosition : POSITION,
+    out float4       kVertexColor : COLOR,
+    out float4       kTCoord : TEXCOORD0,
+    uniform float4x4 WVPMatrix,
+    uniform float4x4 ProjectorMatrix,
+    uniform float3   CameraModelPosition,
+    uniform float3   MaterialEmissive,
+    uniform float3   MaterialAmbient,
+    uniform float4   MaterialDiffuse,
+    uniform float4   MaterialSpecular,
+    uniform float3   Light0ModelDirection,
+    uniform float3   Light0Ambient,
+    uniform float3   Light0Diffuse,
+    uniform float3   Light0Specular)
+{
+    // Transform the position from model space to clip space.
+    kClipPosition = mul(float4(kModelPosition,1.0f),WVPMatrix);
+
+    // Compute directional lighting.
+    float fDiff, fSpec;
+    GetDirectionalLightFactors(kModelPosition,kModelNormal,
+        CameraModelPosition,Light0ModelDirection,MaterialSpecular.a,
+        fDiff,fSpec);
+
+    float3 kColor = MaterialAmbient*Light0Ambient;
+    if (fDiff > 0.0f)
+    {
+        kColor += fDiff*MaterialDiffuse.rgb*Light0Diffuse;
+        if (fSpec > 0.0f)
+        {
+            kColor += fSpec*MaterialSpecular.rgb*Light0Specular;
+        }
+    }
+
+    kVertexColor.rgb = MaterialEmissive + kColor;
+    kVertexColor.a = MaterialDiffuse.a;
+    
+    // Compute the projected texture coordinates.
+    kTCoord = mul(float4(kModelPosition,1.0f),ProjectorMatrix);
+}
+//----------------------------------------------------------------------------
+void p_ProjectedTexture
+(
+    in float4         kVertexColor : COLOR,
+    in float4         kTCoord  : TEXCOORD0,
+    out float4        kPixelColor : COLOR,
+    uniform sampler2D ProjectorSampler)
+{
+    float4 kProjectorColor = tex2Dproj(ProjectorSampler,kTCoord);
+    kPixelColor = kProjectorColor*kVertexColor;
+}
+//----------------------------------------------------------------------------

@@ -1,0 +1,17 @@
+﻿<value:value_editor_base x:Class="xray.editor.wpf_controls.property_editors.value.color_editor"
+						 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+						 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+						 xmlns:value="clr-namespace:xray.editor.wpf_controls.property_editors.value" 
+						 xmlns:converters="clr-namespace:xray.editor.wpf_controls.converters">
+	<value:value_editor_base.Resources>
+		<converters:color_to_brush_converter x:Key="color_to_brush_converter"/>
+		<converters:color_to_string_converter x:Key="color_to_string_converter"/>
+	</value:value_editor_base.Resources>
+	<DockPanel>
+		<Button DockPanel.Dock="Left" Width="15" Height="15" ToolTip="Pick Color" Name="m_pick_color_button" Click="pick_color_button_click" >
+			<Path Data="M0 0 L15 0 L15 15 L0 15" Fill="{Binding value, Converter={StaticResource color_to_brush_converter}}"/>
+		</Button>
+		<TextBlock Margin="5, 0, 0, 0" Name="m_multivalue_text_block" />
+		<!--Text="{Binding value, Mode=OneWay, Converter={StaticResource color_to_string_converter}}"-->
+	</DockPanel>
+</value:value_editor_base>

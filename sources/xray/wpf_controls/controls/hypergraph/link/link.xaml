@@ -1,0 +1,50 @@
+﻿<UserControl x:Class="xray.editor.wpf_controls.hypergraph.link"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+			 Name="this"
+             ClipToBounds="False"
+             Panel.ZIndex="2000000000">
+	<UserControl.Resources>
+		<Style TargetType="{x:Type Path}">
+			<Style.Triggers>
+				<DataTrigger Binding="{Binding is_enabled, ElementName=this}" Value="False">
+					<Setter Property="Path.Stroke" Value="Gray"/>
+					<Setter Property="Path.Fill" Value="Gray"/>
+				</DataTrigger>
+				<Trigger Property="IsMouseOver" Value="True">
+					<Setter Property="Path.Stroke" Value="GreenYellow"/>
+					<Setter Property="Path.Fill" Value="GreenYellow"/>
+				</Trigger>
+                <DataTrigger Binding="{Binding is_selected, ElementName=this}" Value="True">
+                    <Setter Property="Path.Stroke" Value="Yellow"/>
+                    <Setter Property="Path.Fill" Value="Yellow"/>
+                </DataTrigger>
+            </Style.Triggers>
+			<Setter Property="Path.Stroke" Value="Black"/>
+			<Setter Property="Path.Fill" Value="Black"/>
+		</Style>
+	</UserControl.Resources>
+	<Canvas>
+		<Path Fill="Transparent" StrokeThickness="3" Name="line"  StrokeStartLineCap="Round" StrokeEndLineCap="Round">
+			<Path.Data>
+				<PathGeometry x:Name="m_path_geometry" x:FieldModifier="private">
+					<PathFigure x:Name="m_line_path">
+						<BezierSegment x:Name="m_line_segment" IsSmoothJoin="True" />
+					</PathFigure>
+				</PathGeometry>
+			</Path.Data>
+		</Path>
+		<Path Stroke="Transparent" StrokeLineJoin="Miter" StrokeEndLineCap="Square" StrokeStartLineCap="Square">
+			<Path.Data>
+				<PathGeometry>
+					<PathFigure x:Name="m_arrow">
+						<LineSegment />
+						<LineSegment />
+						<LineSegment />
+					</PathFigure>
+				</PathGeometry>
+			</Path.Data>
+		</Path>
+		<ContentControl Name="m_link_content" SizeChanged="link_content_size_changed"/>
+	</Canvas>
+</UserControl>

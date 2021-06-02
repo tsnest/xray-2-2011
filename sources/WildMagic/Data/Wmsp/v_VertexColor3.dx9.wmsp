@@ -1,0 +1,21 @@
+vs_2_0
+// cgc version 1.5.0014, build date Sep 18 2006 20:36:59
+// command line args: -profile vs_2_0
+// source file: VertexColor.cg
+//vendor NVIDIA Corporation
+//version 1.5.0.14
+//profile vs_2_0
+//program v_VertexColor3
+//semantic v_VertexColor3.WVPMatrix
+//var float3 kModelPosition : $vin.POSITION : ATTR0 : 0 : 1
+//var float3 kModelColor : $vin.COLOR : ATTR1 : 1 : 1
+//var float4 kClipPosition : $vout.POSITION : HPOS : 2 : 1
+//var float3 kVertexColor : $vout.COLOR : COL0 : 3 : 1
+//var float4x4 WVPMatrix :  : c[0], 4 : 4 : 1
+dcl_position v0
+dcl_color v1
+mul r0, v0.y, c1
+mad r0, v0.x, c0, r0
+mad r0, v0.z, c2, r0
+add oPos, r0, c3
+mov oD0.xyz, v1

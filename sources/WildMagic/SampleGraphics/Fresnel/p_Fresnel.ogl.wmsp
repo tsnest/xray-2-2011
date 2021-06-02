@@ -1,0 +1,23 @@
+!!ARBfp1.0
+# cgc version 1.4.0000, build date Jun  9 2005 12:09:02
+# command line args: -profile arbfp1
+# source file: Fresnel.cg
+#vendor NVIDIA Corporation
+#version 1.0.02
+#profile arbfp1
+#program p_Fresnel
+#var float3 kWorldNormal : $vin.TEXCOORD0 : TEX0 : 0 : 1
+#var float3 kEyeDirection : $vin.TEXCOORD1 : TEX1 : 1 : 1
+#var float4 kPixelColor : $vout.COLOR : COL : 2 : 1
+#const c[0] = 2 1
+PARAM c[1] = { { 2, 1 } };
+TEMP R0;
+TEMP R1;
+MUL R0.xyz, fragment.texcoord[0], c[0].x;
+MAD R1.xyz, fragment.texcoord[1], c[0].x, -c[0].y;
+ADD R0.xyz, R0, -c[0].y;
+DP3 R0.x, R0, R1;
+ADD R0.x, R0, c[0].y;
+MUL result.color, R0.x, R0.x;
+END
+# 6 instructions, 2 R-regs

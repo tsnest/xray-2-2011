@@ -1,0 +1,130 @@
+vs_2_0
+// cgc version 1.5.0014, build date Sep 18 2006 20:36:59
+// command line args: -profile vs_2_0
+// source file: RipplingOcean.cg
+//vendor NVIDIA Corporation
+//version 1.5.0.14
+//profile vs_2_0
+//program v_RipplingOcean
+//semantic v_RipplingOcean.WVPMatrix
+//semantic v_RipplingOcean.CameraWorldPosition
+//semantic v_RipplingOcean.LightDir
+//semantic v_RipplingOcean.WaveDirX
+//semantic v_RipplingOcean.WaveDirY
+//semantic v_RipplingOcean.WaveSpeed
+//semantic v_RipplingOcean.WaveOffset
+//semantic v_RipplingOcean.WaveHeight
+//semantic v_RipplingOcean.BumpSpeed
+//semantic v_RipplingOcean.Constants
+//var float3 kModelPosition : $vin.POSITION : ATTR0 : 0 : 1
+//var float3 kModelNormal : $vin.NORMAL : ATTR1 : 1 : 1
+//var float3 kModelTangent : $vin.COLOR : ATTR2 : 2 : 1
+//var float2 kWaveTCoord : $vin.TEXCOORD0 : ATTR3 : 3 : 1
+//var float4 kClipPosition : $vout.POSITION : HPOS : 4 : 1
+//var float2 kBumpTCoord0 : $vout.TEXCOORD0 : TEX0 : 5 : 1
+//var float2 kBumpTCoord1 : $vout.TEXCOORD1 : TEX1 : 6 : 1
+//var float3 kViewDir : $vout.TEXCOORD2 : TEX2 : 7 : 1
+//var float3 kTangent : $vout.TEXCOORD3 : TEX3 : 8 : 1
+//var float3 kBinormal : $vout.TEXCOORD4 : TEX4 : 9 : 1
+//var float3 kNormal : $vout.TEXCOORD5 : TEX5 : 10 : 1
+//var float4 kLightDirPlusAmbient : $vout.TEXCOORD6 : TEX6 : 11 : 1
+//var float4x4 WVPMatrix :  : c[0], 4 : 12 : 1
+//var float3 CameraWorldPosition :  : c[4] : 13 : 1
+//var float3 LightDir :  : c[5] : 14 : 1
+//var float4 WaveDirX :  : c[6] : 15 : 1
+//var float4 WaveDirY :  : c[7] : 16 : 1
+//var float4 WaveSpeed :  : c[8] : 17 : 1
+//var float4 WaveOffset :  : c[9] : 18 : 1
+//var float4 WaveHeight :  : c[10] : 19 : 1
+//var float4 BumpSpeed :  : c[11] : 20 : 1
+//var float4 Constants :  : c[12] : 21 : 1
+//const c[13] = -0.5 6.283185 0.1591549 0.5
+//const c[14] = 6.283185 -3.141593 0 1
+//const c[15] = -1.550099e-006 -2.170139e-005 0.002604167 0.0002604167
+//const c[16] = -0.02083333 -0.125 1 0.5
+//const c[17] = 2 -1
+dcl_texcoord0 v3
+dcl_normal v1
+dcl_position v0
+dcl_color v2
+def c13, -0.500000, 6.283185, 0.159155, 0.500000
+def c14, 6.283185, -3.141593, 0.000000, 1.000000
+def c15, -0.000002, -0.000022, 0.002604, 0.000260
+def c16, -0.020833, -0.125000, 1.000000, 0.500000
+def c17, 2.000000, -1.000000, 0, 0
+mul r0, v3.y, c7
+mad r1, v3.x, c6, r0
+mov r0, c8
+mad r0, c12.w, r0, r1
+add r0, r0, c9
+frc r0, r0
+add r0, r0, c13.x
+mul r0, r0, c13.y
+mad r0.w, r0, c13.z, c13
+mad r0.z, r0, c13, c13.w
+frc r0.w, r0
+mad r0.w, r0, c14.x, c14.y
+sincos r4.xy, r0.w, c15.xyzw, c16.xyzw
+frc r0.z, r0
+mad r0.z, r0, c14.x, c14.y
+sincos r3.xy, r0.z, c15.xyzw, c16.xyzw
+mad r0.x, r0, c13.z, c13.w
+mad r0.y, r0, c13.z, c13.w
+frc r0.y, r0
+frc r0.x, r0
+mad r0.x, r0, c14, c14.y
+sincos r1.xy, r0.x, c15.xyzw, c16.xyzw
+mad r2.x, r0.y, c14, c14.y
+sincos r0.xy, r2.x, c15.xyzw, c16.xyzw
+mov r2.y, r0.x
+mad r0.xzw, v2.xyyz, c17.x, c17.y
+mov r2.w, r4.x
+mov r2.z, r3.x
+mov r2.x, r1
+mul r2, r2, c10
+dp4 r1.zw, r2, c7
+dp4 r1.x, r2, c6
+mul r2.xyz, -r1.xzww, c12.x
+add r0.w, r2.z, r0
+dp3 r1.x, r0.xzww, r0.xzww
+rsq r1.w, r1.x
+mul r3.xzw, r1.w, r0
+mov r2.z, v1
+add r2.xy, v1, r2
+dp3 r1.z, r2, r2
+rsq r1.x, r1.z
+mul r2.xyz, r1.x, r2
+mul r0.xzw, r2.zyxy, r3.zywx
+mad r4.xzw, r2.yyzx, r3.wyxz, -r0
+dp3 r0.x, r4.xzww, r4.xzww
+rsq r2.w, r0.x
+mov r0.w, r4.y
+mov r0.x, r1.y
+mov r0.z, r3.y
+dp4 r3.y, r0, c10
+mul r4.xyz, r2.w, r4.xzww
+mov r0.xyz, v0
+mov r0.w, c14
+mov r1.xyz, v1
+mov r1.w, c14.z
+mad r1, r3.y, r1, r0
+mul r0, r1.y, c1
+mad r0, r1.x, c0, r0
+mad r0, r1.z, c2, r0
+mad oPos, r1.w, c3, r0
+mad oT4.xyz, r4, c13.w, c13.w
+add r4.xyz, r1, -c4
+dp3 r1.x, r4, r4
+rsq r0.x, r1.x
+mul r0.xyz, r0.x, r4
+mad oT2.xyz, r0, c13.w, c13.w
+mul r1.xy, v3, c12.z
+mov r0.x, c12.w
+mad oT0.xy, c11, r0.x, r1
+mov r0.w, c12
+mov r0.xyz, c5
+mad oT5.xyz, r2, c13.w, c13.w
+mad oT3.xyz, r3.xzww, c13.w, c13.w
+mad oT1.xy, c11.zwzw, r0.w, r1.yxzw
+mad oT6.xyz, r0, c13.w, c13.w
+mov oT6.w, c12.y

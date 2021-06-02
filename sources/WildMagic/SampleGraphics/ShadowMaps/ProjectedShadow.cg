@@ -1,0 +1,63 @@
+//----------------------------------------------------------------------------
+void v_ProjectedDepth
+(
+    in float3        kModelPosition : POSITION,
+    out float4       kClipPosition : POSITION,
+    out float        fDepth : TEXCOORD0,
+    uniform float4x4 WVPMatrix)
+{
+    // Transform the position from model space to clip space.
+    kClipPosition = mul(float4(kModelPosition,1.0f),WVPMatrix);
+
+    // Save the normalized distance from the light source.
+    fDepth = kClipPosition.z/kClipPosition.w;
+}
+//----------------------------------------------------------------------------
+void p_ProjectedDepth
+(
+    in float   fDepth : TEXCOORD0,
+    out float4 kPixelColor : COLOR)
+{
+    kPixelColor.rgb = fDepth;
+    kPixelColor.a = 1.0f;
+}
+//----------------------------------------------------------------------------
+void v_ShadowMap
+(
+    in float3        kModelPosition : POSITION,
+    out float4       kClipPosition : POSITION,
+    out float4       kProjectedTCoord : TEXCOORD0,
+    uniform float4x4 WVPMatrix,
+    uniform float4x4 ProjectorMatrix)
+{
+    // Transform the position from model space to clip space.
+    kClipPosition = mul(float4(kModelPosition,1.0f),WVPMatrix);
+
+    // Compute the projected texture coordinates.
+    kProjectedTCoord = mul(float4(kModelPosition,1.0f),ProjectorMatrix);
+}
+//----------------------------------------------------------------------------
+void p_ShadowMap
+(
+    in float4         kProjectedTCoord : TEXCOORD0,
+    out float4        kPixelColor : COLOR,
+    uniform float     DepthBias,
+    uniform sampler2D ColorSampler,
+    uniform sampler2D DepthSampler)
+{
+    float4 kColor = tex2Dproj(ColorSampler,kProjectedTCoord);
+    float4 kDepth = tex2Dproj(DepthSampler,kProjectedTCoord);
+
+    float fPointDepth = kProjectedTCoord.z/kProjectedTCoord.w;
+    float fBiasedDiff = fPointDepth - kDepth.r - DepthBias;
+    if (fBiasedDiff >= 0.0f)
+    {
+        kPixelColor.rgb = 0.0f;
+        kPixelColor.a = kColor.a;
+    }
+    else
+    {
+        kPixelColor = kColor;
+    }
+}
+//----------------------------------------------------------------------------

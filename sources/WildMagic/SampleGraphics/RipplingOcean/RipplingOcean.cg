@@ -1,0 +1,205 @@
+//----------------------------------------------------------------------------
+// DirectX wants texture coordinates with components in [0,1].
+//----------------------------------------------------------------------------
+float3 MapToUnit (float3 kVector)
+{
+    // map [-1,1] to [0,1]
+    return 0.5f*kVector + 0.5f;
+}
+//----------------------------------------------------------------------------
+float3 MapFromUnit (float3 kVector)
+{
+    // map [0,1] to [-1,1]
+    return 2.0f*kVector - 1.0f;
+}
+//----------------------------------------------------------------------------
+void v_RipplingOcean
+(
+    in float3        kModelPosition : POSITION,
+    in float3        kModelNormal : NORMAL,
+    in float3        kModelTangent : COLOR,
+    in float2        kWaveTCoord : TEXCOORD0,
+    out float4       kClipPosition : POSITION,
+    out float2       kBumpTCoord0 : TEXCOORD0,
+    out float2       kBumpTCoord1 : TEXCOORD1,
+    out float3       kViewDir : TEXCOORD2,
+    out float3       kTangent : TEXCOORD3,
+    out float3       kBinormal : TEXCOORD4,
+    out float3       kNormal : TEXCOORD5,
+    out float4       kLightDirPlusAmbient : TEXCOORD6,
+    uniform float4x4 WVPMatrix,
+    uniform float3   CameraWorldPosition,
+    uniform float3   LightDir,
+    uniform float4   WaveDirX,
+    uniform float4   WaveDirY,
+    uniform float4   WaveSpeed,
+    uniform float4   WaveOffset,
+    uniform float4   WaveHeight,
+    uniform float4   BumpSpeed,
+    uniform float4   Constants)
+        // Constants.x = averageDuDxDvDy
+        // Constants.y = ambient
+        // Constants.z = textureRepeat
+        // Constants.w = time
+{
+    // A numerical constant.
+    float fTwoPi = 6.28318530717958647692;
+
+    // The shader has 4 waves.  Each wave has a direction (in tangent space)
+    // of (kWaveDirX[i],kWaveDirY[i]) and some speed, height, and offset into
+    // the sin function.
+ 
+    // Wave position at a given time is an input to the sinusoidal function.
+    float4 kOffset = kWaveTCoord.x*WaveDirX + kWaveTCoord.y*WaveDirY + 
+        WaveSpeed*Constants.w + WaveOffset;
+
+    // Map the offset components into the interval [-pi/2,pi/2).
+    float4 kFrcOffset = frac(kOffset) - 0.5f;
+    kFrcOffset *= fTwoPi;
+
+    // Get the sin and cos values of the fractional offset components.
+    float4 kSin, kCos;
+    sincos(kFrcOffset,kSin,kCos);
+
+    // Add each of the four waves to the wave height.  The sin portion is the
+    // wave height.  The cos part (derivative) will be the change in normal.
+    float fWaveHeight = dot(kSin,WaveHeight);
+
+    // Add this wave height to the original position (along the normal).
+    float4 kWaveModelPosition = fWaveHeight*float4(kModelNormal,0.0f) +
+        float4(kModelPosition,1.0f);
+    kClipPosition = mul(kWaveModelPosition,WVPMatrix);
+
+    // Get the cos height of the wave.
+    float4 kCosWaveHeight = kCos*WaveHeight;
+    
+    // Calculate a normal, tangent, and binormal for a coordinate system for
+    // the pixel shader to use.
+    float3 kNormalOffset;
+    kNormalOffset.x = -dot(kCosWaveHeight,WaveDirX);
+    kNormalOffset.yz = -dot(kCosWaveHeight,WaveDirY);
+    kNormalOffset *= Constants.x;
+
+    float3 kTmpNormal = kModelNormal;
+    kTmpNormal.xy += kNormalOffset.xy;
+    kTmpNormal = normalize(kTmpNormal);    
+    kNormal = MapToUnit(kTmpNormal);
+    
+    float3 kTmpTangent = MapFromUnit(kModelTangent.xyz);
+    kTmpTangent.z += kNormalOffset.z;
+    kTmpTangent = normalize(kTmpTangent);
+    kTangent = MapToUnit(kTmpTangent);
+
+    kBinormal = MapToUnit(normalize(cross(kTmpNormal,kTmpTangent)));
+
+    // Calculate the view direction for the vertex.
+    kViewDir = MapToUnit(
+        normalize(kWaveModelPosition.xyz - CameraWorldPosition));
+
+    // Create texture coordinates.  The bump maps have a speed of bumpspeed
+    // which is offset from their original texture coordinates.  If you want
+    // the texture to repeat on the quad more often, then ramp up TexRepeat,
+    // which gives the impression of being farther away.
+    kBumpTCoord0 = (Constants.w*BumpSpeed.xy + Constants.z*kWaveTCoord);
+    
+    // Swizzle so that the textures will never line up.
+    kBumpTCoord1.yx = (Constants.w*BumpSpeed.wz + Constants.z*kWaveTCoord);
+
+    // Return the light direction, which assumes kLightDir is normalized.
+    // The w-component is used to pass through the ambient value.
+    kLightDirPlusAmbient.xyz = MapToUnit(LightDir);
+    kLightDirPlusAmbient.w = Constants.y;
+}
+//----------------------------------------------------------------------------
+void p_RipplingOcean
+(
+    in float2         kBumpTCoord0 : TEXCOORD0,
+    in float2         kBumpTCoord1 : TEXCOORD1,
+    in float3         kViewDir : TEXCOORD2,
+    in float3         kTangent : TEXCOORD3,
+    in float3         kBinormal : TEXCOORD4,
+    in float3         kNormal : TEXCOORD5,
+    in float4         kLightDir : TEXCOORD6,
+    out float4        kPixelColor : COLOR,
+    uniform sampler2D BumpSampler,
+    uniform sampler1D WaterSampler,
+    uniform sampler2D EnvSampler)
+{
+    // A lot of this shader is making the water look just right.  It looks
+    // pretty good in general, but there are some tweaks.  I will try to
+    // explain what is necessary and what is specific to this case.
+
+    // Sample the bumpmap twice.
+    float3 kNormPerturb0 = MapFromUnit(tex2D(BumpSampler,kBumpTCoord0).xyz);
+    float3 kNormPerturb1 = MapFromUnit(tex2D(BumpSampler,kBumpTCoord1).xyz);
+    
+    // The perturbed normal (in bumpmap space) is going to be the average.
+    float3 kNormPerturb = normalize((kNormPerturb0 + kNormPerturb1)*0.5f);
+
+    // Because the waves may have changed the surface, we will transform the
+    // bump mapped normal into world space.  We cannot just use the
+    // model->world transform here because that applies to the original
+    // model.  Because that got changed (along with the normal) in the
+    // vertex shader, we have to do it this way.
+    float3 kOldTangent = MapFromUnit(kTangent);
+    float3 kOldBinormal = MapFromUnit(kBinormal);
+    float3 kOldNormal = MapFromUnit(kNormal);
+    float3 kNewNormal = kNormPerturb.x*kOldTangent +
+        kNormPerturb.y*kOldBinormal + kNormPerturb.z*kOldNormal;
+
+    // The water color is view dependent. We look this up in the gradient
+    // texture.  Using the old normal (the water surface normal before bump
+    // mapping) makes the Fresnel factor (and the water color) look more
+    // right because it is much more low frequency than the bump mapped
+    // ripples.
+    float3 kOldView = MapFromUnit(kViewDir);
+    float fFresnel = 1.0f - saturate(-dot(kOldNormal,kOldView));
+    
+    // This step could have been done in the texture itself.
+    float fFresnelCubed = pow(fFresnel,3.0f);
+    
+    // Get the water color from the gradient texture.  If we are looking
+    // tangentially at the water, it will be bluer.  If we are looking
+    // straight down (fFresnel close to zero) it will be greener.
+    float3 kWaterColor = tex1D(WaterSampler,fFresnelCubed).xyz;
+
+    // Get the reflection vector for specular reflections.
+    float3 kReflect = reflect(kNewNormal,kOldView);
+
+    // We're going to sample the background texture, but we need to 
+    // put the coordinates into [0,1].
+    kReflect = MapToUnit(kReflect);
+
+    // This step is just due to the texture that we are using.  It biases
+    // towards the top, so that less of the water reflects the sun.  With an
+    // an environment map, this is irrelevant.  A sphere map was tried, but
+    // it was hard to get it just right.  Using the background texture is a
+    // hack, but it looks good.
+    kReflect.z = kReflect.z * 0.7f + 0.2f;
+
+    // This step is dependent upon knowing that up is in the z direction and
+    // y is the forwards/backwards direction and x is left to right.  If we
+    // had an environment map, it would not be an issue.
+    float3 kBackground = tex2D(EnvSampler,kReflect.xz).xyz;
+
+    // Use some factor of the background to find the specular reflection.
+    // This factor is totally arbitrary and so the "glow" factor of the
+    // background is the green component.  What I really want is the big sun
+    // to be the have the strongest specular component so it will appear on
+    // the water.  Green will do that.  Another way to do this would be to
+    // store a glow map in the alpha channel and use that.  Also, we will use
+    // Fresnel reflections as a factor so that the water reflects much more
+    // when you look at it at an angle.  The specular is toned down a bit.
+    float fSpecular = pow(kBackground.g,2.0f)*fFresnelCubed;
+    
+    // Calculate a diffuse factor, but we do not want it too dark, so we will
+    // add a small arbitrary ambient factor.
+    float3 kOldLightDir = MapFromUnit(kLightDir.xyz);
+    float fAmbient = kLightDir.w;
+    float fDiffuse = fAmbient - (1.0f-fAmbient)*dot(kNewNormal,kOldLightDir);
+
+    // Add the diffusely lit water color with some specular highlights.
+    kPixelColor.rgb = kWaterColor*fDiffuse + kBackground*fSpecular;
+    kPixelColor.a = 1.0f;
+}
+//----------------------------------------------------------------------------

@@ -1,0 +1,21 @@
+//----------------------------------------------------------------------------
+void v_Default
+(
+    in float3 kModelPosition  : POSITION,
+    out float4 kClipPosition : POSITION,
+    uniform float4x4 WVPMatrix)
+{
+    // Transform the position from model space to clip space.
+    kClipPosition = mul(float4(kModelPosition,1.0f),WVPMatrix);
+}
+//----------------------------------------------------------------------------
+void p_Default
+(
+    out float4 kPixelColor : COLOR)
+{
+    // All pixels are magenta to catch your attention that your requested
+    // pixel shader was not found...
+    kPixelColor.rba = 1.0f;
+    kPixelColor.g = 0.0f;
+}
+//----------------------------------------------------------------------------

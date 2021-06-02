@@ -1,0 +1,960 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{1351B0D6-E811-43F6-B57D-08655826DE18}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>xray.editor.wpf_controls</RootNamespace>
+    <AssemblyName>wpf_controls</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <StartupObject>
+    </StartupObject>
+    <TargetFrameworkSubset>Full</TargetFrameworkSubset>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>..\..\..\binaries\Win32\debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <OutputPath>..\..\..\binaries\Win32\release\</OutputPath>
+    <DefineConstants>TRACE;RELEASE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x64' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>..\..\..\binaries\x64\debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x64' ">
+    <DefineConstants>TRACE;RELEASE</DefineConstants>
+    <OutputPath>..\..\..\binaries\x64\release\</OutputPath>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationFramework.Aero">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UIAutomationProvider">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="UIAutomationTypes">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="PresentationCore">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="PresentationFramework">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsFormsIntegration">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="controls\animation_playback\animation_item_name_view.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="controls\animation_playback\animation_item_view.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="controls\animation_playback\animation_playback_panel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="controls\color_picker\color_palette.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="controls\color_picker\dialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="controls\color_picker\hue_spectrum.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="type_editors\color_ramp.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="controls\hypergraph\hypergraph_control.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="controls\hypergraph\link\link.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="controls\hypergraph\node\properties_node.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="controls\hypergraph\link\link_point.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="controls\logic_view\event_control.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="controls\logic_view\logic_view.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="controls\logic_view\logic_entity_view.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="property_editors\value\boolean_editor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="property_editors\value\control_editor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="property_editors\value\combo_box_editor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="property_editors\value\enum_editor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="controls\ruler.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="property_editors\value\default_editor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="property_editors\value\external_editor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="property_editors\value\i_list_collection_editor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="property_editors\value\int32_editor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="property_editors\value\properties_collection_editor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="property_editors\value\single_editor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="property_editors\value\string_select_file_editor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="controls\time_layout\time_layout.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="controls\time_layout\time_layout_item_control.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="type_editors\curve_editor\visual_curve.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="type_editors\curve_editor\visual_curve_key.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="type_editors\curve_editor\visual_curve_key_tangent.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="type_editors\curve_editor\panel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="controls\animation_lexeme_panel\animation_interval_item.cs" />
+    <Compile Include="controls\animation_lexeme_panel\animation_interval_view.xaml.cs">
+      <DependentUpon>animation_interval_view.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="controls\animation_lexeme_panel\animation_item.cs" />
+    <Compile Include="controls\animation_lexeme_panel\animation_item_intervals_view.xaml.cs">
+      <DependentUpon>animation_item_intervals_view.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="controls\animation_lexeme_panel\animation_item_name_view.xaml.cs">
+      <DependentUpon>animation_item_name_view.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="controls\animation_lexeme_panel\animation_lexeme_item.cs" />
+    <Compile Include="controls\animation_lexeme_panel\animation_lexeme_item_view.xaml.cs">
+      <DependentUpon>animation_lexeme_item_view.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="controls\animation_lexeme_panel\animation_lexeme_panel.xaml.cs">
+      <DependentUpon>animation_lexeme_panel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="controls\animation_lexeme_panel\animation_lexeme_panel_host.cs" />
+    <Compile Include="controls\animation_playback\animation_event.cs" />
+    <Compile Include="controls\animation_playback\animation_item_name_view.xaml.cs">
+      <DependentUpon>animation_item_name_view.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="controls\animation_playback\animation_item_view.xaml.cs">
+      <DependentUpon>animation_item_view.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="controls\animation_playback\animation_item.cs" />
+    <Compile Include="controls\animation_playback\animation_playback_host.cs" />
+    <Compile Include="controls\animation_playback\animation_playback_panel.xaml.cs">
+      <DependentUpon>animation_playback_panel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="controls\animation_setup\channels\animation_channel.cs" />
+    <Compile Include="controls\animation_setup\channels\animation_channel_item.cs" />
+    <Compile Include="controls\animation_setup\channels\animation_channel_type.cs" />
+    <Compile Include="controls\animation_setup\channels\animation_channel_list_view.xaml.cs">
+      <DependentUpon>animation_channel_list_view.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="controls\animation_setup\channels\animation_channel_name_view.xaml.cs">
+      <DependentUpon>animation_channel_name_view.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="controls\animation_setup\channels\event\animation_channel_event.cs" />
+    <Compile Include="controls\animation_setup\channels\event\animation_channel_events_view.xaml.cs">
+      <DependentUpon>animation_channel_events_view.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="controls\animation_setup\channels\event\animation_channel_event_view.xaml.cs">
+      <DependentUpon>animation_channel_event_view.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="controls\animation_setup\channels\interval\animation_channel_intervals_view.xaml.cs">
+      <DependentUpon>animation_channel_intervals_view.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="controls\animation_setup\channels\interval\animation_channel_interval_view.xaml.cs">
+      <DependentUpon>animation_channel_interval_view.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="controls\animation_setup\channels\interval\animation_channel_interval.cs" />
+    <Compile Include="controls\animation_setup\channels\partition\animation_channel_partition.cs" />
+    <Compile Include="controls\animation_setup\channels\partition\animation_channel_partitions_view.xaml.cs">
+      <DependentUpon>animation_channel_partitions_view.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="controls\animation_setup\channels\partition\animation_channel_partition_type.cs" />
+    <Compile Include="controls\animation_setup\channels\partition\animation_channel_partition_type_to_visibility_converter.cs" />
+    <Compile Include="controls\animation_setup\channels\partition\animation_channel_partition_view.xaml.cs">
+      <DependentUpon>animation_channel_partition_view.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="controls\animation_setup\animation_setup_host.cs" />
+    <Compile Include="controls\animation_setup\animation_setup_panel.xaml.cs">
+      <DependentUpon>animation_setup_panel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="controls\animation_setup\setup_panel_event_args.cs" />
+    <Compile Include="type_editors\animation_curve_editor.xaml.cs">
+      <DependentUpon>animation_curve_editor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="type_editors\curve_editor\panel_curve_item.xaml.cs">
+      <DependentUpon>panel_curve_item.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="controls\color_picker\color_workers\multiply_worker.cs" />
+    <Compile Include="controls\data_sources\data_sources_panel.xaml.cs">
+      <DependentUpon>data_sources_panel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="controls\data_sources\data_source_item.xaml.cs">
+      <DependentUpon>data_source_item.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="controls\data_sources\data_sources_panel_host.cs" />
+    <Compile Include="controls\hypergraph\link\links_event_args.cs" />
+    <Compile Include="controls\hypergraph\link\link_event_args.cs" />
+    <Compile Include="controls\hypergraph\link\link_id.cs" />
+    <Compile Include="controls\hypergraph\selection_event_args.cs" />
+    <Compile Include="markup_extensions\template_from_type_ext.cs" />
+    <Compile Include="property_editors\value\color_matrix_editor.xaml.cs">
+      <DependentUpon>color_matrix_editor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="types\color_curve.cs" />
+    <Compile Include="types\color_curve_key.cs">
+      <DependentUpon>color_curve.cs</DependentUpon>
+    </Compile>
+    <Compile Include="controls\color_picker\color_to_hue_part_converter.cs" />
+    <Compile Include="controls\color_picker\color_workers\alpha_worker.cs" />
+    <Compile Include="controls\color_picker\color_workers\blue_worker.cs" />
+    <Compile Include="controls\color_picker\color_workers\brightness_worker.cs" />
+    <Compile Include="controls\color_picker\color_workers\green_worker.cs" />
+    <Compile Include="controls\color_picker\color_workers\hue_worker.cs" />
+    <Compile Include="controls\color_picker\color_workers\red_worder.cs" />
+    <Compile Include="controls\color_picker\color_workers\saturation_worker.cs" />
+    <Compile Include="controls\color_picker\color_rgb_component_extracter.cs" />
+    <Compile Include="type_editors\color_matrix_editor\color_matrix_control.xaml.cs">
+      <DependentUpon>color_matrix_control.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="type_editors\color_matrix_editor\control_point.xaml.cs">
+      <DependentUpon>control_point.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="type_editors\color_matrix_editor\gradient_rect.xaml.cs">
+      <DependentUpon>gradient_rect.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="type_editors\color_matrix_editor\shaders\color_interpolation_effect.cs" />
+    <Compile Include="type_editors\color_matrix_editor\shaders\utils.cs" />
+    <Compile Include="controls\panels\linear_layout_panel.cs" />
+    <Compile Include="controls\panels\scale_to_fit_control.cs" />
+    <Compile Include="controls\panels\single_place_panel.cs" />
+    <Compile Include="types\color_matrix.cs" />
+    <Compile Include="types\color_matrix_element.cs">
+      <DependentUpon>color_matrix.cs</DependentUpon>
+    </Compile>
+    <Compile Include="types\color_rgb.cs" />
+    <Compile Include="types\color_utilities.cs" />
+    <Compile Include="controls\color_picker\color_palette.xaml.cs">
+      <DependentUpon>color_palette.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="controls\color_picker\dialog.xaml.cs">
+      <DependentUpon>dialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="types\color_hsv.cs" />
+    <Compile Include="controls\color_picker\hsv_circle.xaml.cs">
+      <DependentUpon>hsv_circle.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="controls\color_picker\hue_spectrum.xaml.cs">
+      <DependentUpon>hue_spectrum.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="types\command.cs" />
+    <Compile Include="converters\color_to_brush_converter.cs" />
+    <Compile Include="converters\bool_to_int_converter.cs" />
+    <Compile Include="converters\bool_to_visibility_converter.cs" />
+    <Compile Include="converters\Double_to_String_converter.cs" />
+    <Compile Include="converters\Point_to_String_converter.cs" />
+    <Compile Include="converters\singles_to_thickness_converter.cs" />
+    <Compile Include="converters\single_to_thickness_converter.cs" />
+    <Compile Include="helpers\dot_net_helpers.cs" />
+    <Compile Include="controls\hypergraph\commands\link_command.cs" />
+    <Compile Include="controls\hypergraph\commands\node_create_command.cs" />
+    <Compile Include="controls\hypergraph\commands\node_move_command.cs" />
+    <Compile Include="controls\hypergraph\commands\node_remove_command.cs" />
+    <Compile Include="controls\hypergraph\commands\unlink_command.cs" />
+    <Compile Include="controls\hypergraph\field.cs" />
+    <Compile Include="controls\hypergraph\hypergraph_control.xaml.cs">
+      <DependentUpon>hypergraph_control.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="controls\hypergraph\hypergraph_host.cs" />
+    <Compile Include="controls\hypergraph\menu_event_args.cs" />
+    <Compile Include="types\graph.cs" />
+    <Compile Include="types\graph_edge.cs">
+      <DependentUpon>graph.cs</DependentUpon>
+    </Compile>
+    <Compile Include="types\graph_node.cs">
+      <DependentUpon>graph.cs</DependentUpon>
+    </Compile>
+    <Compile Include="types\i_caster.cs" />
+    <Compile Include="types\i_command.cs" />
+    <Compile Include="types\i_command_engine.cs" />
+    <Compile Include="controls\hypergraph\link\link.xaml.cs">
+      <DependentUpon>link.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="controls\hypergraph\node\properties_node.xaml.cs">
+      <DependentUpon>properties_node.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="controls\hypergraph\node\node_event_args.cs" />
+    <Compile Include="controls\hypergraph\node\property.cs" />
+    <Compile Include="controls\hypergraph\link\link_point.xaml.cs">
+      <DependentUpon>link_point.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="controls\panels\scroll_viewer.cs" />
+    <Compile Include="controls\hypergraph\node\node_property_attribute.cs" />
+    <Compile Include="controls\logic_view\event_control.xaml.cs">
+      <DependentUpon>event_control.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="controls\logic_view\logic_view.xaml.cs">
+      <DependentUpon>logic_view.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="controls\logic_view\logic_entity_view.xaml.cs">
+      <DependentUpon>logic_entity_view.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="controls\logic_view\logic_view_host.cs" />
+    <Compile Include="markup_extensions\static_property_ext.cs" />
+    <Compile Include="property\property_container_base.cs" />
+    <Compile Include="property\property_container_collection.cs" />
+    <Compile Include="property_editors\attributes\collection_attribute.cs" />
+    <Compile Include="type_editors\color_ramp.xaml.cs">
+      <DependentUpon>color_ramp.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="converters\number_to_double_converter.cs" />
+    <Compile Include="converters\Enum_to_String_converter.cs" />
+    <Compile Include="property\dictionary_item_property_value.cs" />
+    <Compile Include="property\i_property_container.cs" />
+    <Compile Include="property\i_property_info_value.cs" />
+    <Compile Include="property\object_property_value.cs" />
+    <Compile Include="property\property_container.cs" />
+    <Compile Include="property\property_descriptor.cs" />
+    <Compile Include="property\i_property_value.cs" />
+    <Compile Include="property\callback_property_value.cs" />
+    <Compile Include="property\property_property_value.cs" />
+    <Compile Include="property_editors\attributes\combo_box_items_attribute.cs" />
+    <Compile Include="property_editors\attributes\data_source_attribute.cs" />
+    <Compile Include="property_editors\attributes\value_range_and_format_attribute.cs" />
+    <Compile Include="property_editors\attributes\vector3_attribute.cs" />
+    <Compile Include="property_editors\browsable_state.cs" />
+    <Compile Include="property_editors\default_editors_lists.cs" />
+    <Compile Include="property_editors\property.cs" />
+    <Compile Include="property_editors\assignable_type_editor_picker.cs" />
+    <Compile Include="property_editors\attributes\material_stage_effect_holder_attribute.cs" />
+    <Compile Include="property_editors\attribute_editor_picker.cs" />
+    <Compile Include="property_editors\attributes\control_container_attribute.cs" />
+    <Compile Include="property_editors\property_editor_base.cs" />
+    <Compile Include="property_editors\property_extractor.cs" />
+    <Compile Include="property_editors\editor_picker.cs" />
+    <Compile Include="property_editors\value\boolean_editor.xaml.cs">
+      <DependentUpon>boolean_editor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="property_editors\value\control_editor.xaml.cs">
+      <DependentUpon>control_editor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="property_editors\value\color_curve_editor.xaml.cs">
+      <DependentUpon>color_curve_editor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="property_editors\value\float_curve_editor.xaml.cs">
+      <DependentUpon>float_curve_editor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="property_editors\value\value_collection_editor_base.cs" />
+    <Compile Include="property_editors\value\combo_box_editor.xaml.cs">
+      <DependentUpon>combo_box_editor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="property_editors\value\default_editor.xaml.cs">
+      <DependentUpon>default_editor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="property_editors\value\value_editor_base.cs" />
+    <Compile Include="property_editors\value\enum_editor.xaml.cs">
+      <DependentUpon>enum_editor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="property_editors\value\external_editor.xaml.cs">
+      <DependentUpon>external_editor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="property_editors\value\i_list_collection_editor.xaml.cs">
+      <DependentUpon>i_list_collection_editor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="property_editors\value\int32_editor.xaml.cs">
+      <DependentUpon>int32_editor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="property_editors\value\properties_collection_editor.xaml.cs">
+      <DependentUpon>properties_collection_editor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="property_editors\value\single_editor.xaml.cs">
+      <DependentUpon>single_editor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="property_editors\value\string_select_file_editor.xaml.cs">
+      <DependentUpon>string_select_file_editor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="property_editors\attributes\external_editor_attribute.cs" />
+    <Compile Include="property_editors\item\item_editor_base.cs" />
+    <Compile Include="property_editors\value_editor_selector.cs" />
+    <Compile Include="property_editors\empty_collection_checher.cs" />
+    <Compile Include="property_editors\attributes\expandable_item_attribute.cs" />
+    <Compile Include="controls\property_grid\host.cs" />
+    <Compile Include="property_editors\item_editor_selector.cs" />
+    <Compile Include="property_editors\item_property_descriptor.cs" />
+    <Compile Include="property_editors\i_external_property_editor.cs" />
+    <Compile Include="property_editors\attributes\String_select_file_editor_attribute.cs" />
+    <Compile Include="property_editors\type_editor_picker.cs" />
+    <Compile Include="settings.cs" />
+    <Compile Include="controls\time_layout\time_layout_parent_length_time_converter.cs" />
+    <Compile Include="controls\time_layout\time_layout_parent_length_value_validation_rule.cs" />
+    <Compile Include="controls\time_layout\time_layout_end_value_validation_rule.cs" />
+    <Compile Include="controls\time_layout\time_layout_length_value_validation_rule.cs" />
+    <Compile Include="controls\time_layout\time_layout_length_time_converter.cs" />
+    <Compile Include="types\float_curve\float_curve.cs" />
+    <Compile Include="converters\main_dock_panel_width_converter.cs" />
+    <Compile Include="controls\time_layout\time_layout_end_time_converter.cs" />
+    <Compile Include="controls\ruler.xaml.cs">
+      <DependentUpon>ruler.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="controls\time_layout\time_layout_scale_dependent_converter.cs" />
+    <Compile Include="controls\time_layout\time_layout_start_time_converter.cs" />
+    <Compile Include="controls\time_layout\time_layout_host.cs" />
+    <Compile Include="controls\time_layout\time_layout_host.Designer.cs">
+      <DependentUpon>time_layout_host.cs</DependentUpon>
+    </Compile>
+    <Compile Include="controls\time_layout\time_layout_item.cs" />
+    <Compile Include="controls\time_layout\time_layout.xaml.cs">
+      <DependentUpon>time_layout.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="controls\time_layout\time_layout_item_control.xaml.cs">
+      <DependentUpon>time_layout_item_control.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="controls\time_layout\time_layout_item_template_selector.cs" />
+    <Compile Include="controls\time_layout\time_layout_start_value_validation_rule.cs" />
+    <Compile Include="types\float_curve\float_curve_key.cs">
+      <DependentUpon>float_curve.cs</DependentUpon>
+    </Compile>
+    <Compile Include="types\float_curve\float_curve_key_type.cs">
+      <DependentUpon>float_curve_key.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="property_editors\attributes\special_attribute.cs" />
+    <Compile Include="controls\time_layout\time_layout_visibility_converter.cs" />
+    <Compile Include="converters\Vector3D_to_string_converter.cs" />
+    <Compile Include="types\select_behavior.cs" />
+    <Compile Include="types\sizeable_matrix.cs" />
+    <Compile Include="helpers\utils.cs" />
+    <Compile Include="helpers\utils_helpers.cs" />
+    <Compile Include="type_editors\curve_editor\visual_curve.xaml.cs">
+      <DependentUpon>visual_curve.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="type_editors\curve_editor\curves_link.cs" />
+    <Compile Include="type_editors\curve_editor\hermite_spline_evaluator.cs" />
+    <Compile Include="type_editors\curve_editor\visual_curve_key.xaml.cs">
+      <DependentUpon>visual_curve_key.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="type_editors\curve_editor\visual_curve_key_tangent.xaml.cs">
+      <DependentUpon>visual_curve_key_tangent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="type_editors\curve_editor\panel.xaml.cs">
+      <DependentUpon>panel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="type_editors\curve_editor\visual_curve_range.cs" />
+    <Page Include="controls\logic_view\logic_scenes_view.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="property_editors\value\string_editor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="property_editors\value\themes\progress_bar_theme.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="property_editors\value\themes\string_editor_theme.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="property_editors\value\themes\value_editors_themes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="type_editors\curve_editor\effects\noise_effect\noise_effect_settings_window.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="type_editors\curve_editor\panel_curve_group.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="type_editors\animation_curve_editor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="type_editors\curve_editor\panel_curve_item.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="controls\animation_lexeme_panel\animation_item_intervals_view.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="controls\animation_lexeme_panel\animation_interval_view.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="controls\animation_lexeme_panel\animation_item_name_view.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="controls\animation_lexeme_panel\animation_lexeme_item_view.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="controls\animation_lexeme_panel\animation_lexeme_panel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="controls\color_picker\color_component_slider.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Compile Include="controls\color_picker\color_component_slider.xaml.cs">
+      <DependentUpon>color_component_slider.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="controls\color_picker\color_workers\color_part_worker_base.cs" />
+    <Resource Include="type_editors\color_matrix_editor\shaders\color_interpolation.ps" />
+    <Page Include="controls\animation_setup\channels\animation_channel_list_view.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="controls\animation_setup\channels\animation_channel_name_view.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="controls\animation_setup\animation_setup_panel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="controls\animation_setup\channels\event\animation_channel_events_view.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="controls\animation_setup\channels\event\animation_channel_event_view.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="controls\animation_setup\channels\interval\animation_channel_intervals_view.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="controls\animation_setup\channels\interval\animation_channel_interval_view.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="controls\animation_setup\channels\partition\animation_channel_partitions_view.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="controls\animation_setup\channels\partition\animation_channel_partition_view.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="controls\color_picker\hsv_circle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="type_editors\color_matrix_editor\color_matrix_control.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="type_editors\color_matrix_editor\control_point.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="type_editors\color_matrix_editor\gradient_rect.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="type_editors\curve_editor\panel_curve_effect.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="type_editors\curve_editor\templates\sqrt_curve_template.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="type_editors\curve_editor\templates\sinusoid_curve_template.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="type_editors\curve_editor\visual_curve_key_range_control.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="controls\data_sources\data_sources_panel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="controls\data_sources\data_source_item.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="type_editors\themes\editors_themes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="type_editors\themes\number_editor_theme.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="controls\hypergraph\node_above_header_content\groups_editor_node_above_header_content.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="property_editors\item\themes\custom_item_editor_theme.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="property_editors\item\themes\data_source_editor_theme.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="property_editors\item\themes\item_editor_themes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="property_editors\item\themes\material_stage_editor_theme.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="property_editors\item\themes\material_stage_effect_editor_theme.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="property_editors\item\themes\named_item_editor_theme.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="property_editors\value\color_curve_editor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="property_editors\value\color_editor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="property_editors\value\color_matrix_editor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="property_editors\value\float_curve_editor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="property_editors\value\property_container_editor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="property_editors\value\text_box_editor_extension.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="property_editors\value\vector3_editor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="controls\property_grid\property_grid_control.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="themes\expandable_items_control_theme.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="themes\generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="controls\property_grid\themes\property_grid_item_theme.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Compile Include="controls\property_grid\property_grid_control.xaml.cs">
+      <DependentUpon>property_grid_control.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="controls\property_grid\host.Designer.cs">
+      <DependentUpon>host.cs</DependentUpon>
+    </Compile>
+    <Compile Include="controls\property_grid\property.cs" />
+    <Compile Include="controls\property_grid\category_group_description.cs" />
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="controls\color_picker\HueCircle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="controls\color_picker\Saturation.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="type_editors\curve_editor\curves_panel.cs" />
+    <Compile Include="type_editors\curve_editor\curves_panel_presenter.cs" />
+    <Compile Include="type_editors\curve_editor\tools\add_tool.cs" />
+    <Compile Include="type_editors\curve_editor\tools\move_range_tool.cs" />
+    <Compile Include="type_editors\curve_editor\tools\move_tool.cs" />
+    <Compile Include="type_editors\curve_editor\tools\remove_tool.cs" />
+    <Compile Include="type_editors\curve_editor\tools\scale_tool.cs" />
+    <Compile Include="type_editors\curve_editor\tools\tool_base.cs" />
+    <Compile Include="type_editors\curve_editor\visual_curve_key_range_control.xaml.cs">
+      <DependentUpon>visual_curve_key_range_control.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="type_editors\curve_editor\panel_curve_group.xaml.cs">
+      <DependentUpon>panel_curve_group.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="type_editors\curve_editor\visual_curve_segment.cs" />
+    <Compile Include="helpers\grid_helper.cs" />
+    <Compile Include="controls\hypergraph\link\can_link_event_args.cs" />
+    <Compile Include="controls\hypergraph\node_above_header_content\groups_editor_node_above_header_content.xaml.cs">
+      <DependentUpon>groups_editor_node_above_header_content.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="controls\hypergraph\node\node_move_event_args.cs" />
+    <Compile Include="controls\hypergraph\node\property_view.cs" />
+    <Compile Include="input\input.cs" />
+    <Compile Include="input\input_command_event.cs" />
+    <Compile Include="library_initializer.cs" />
+    <Compile Include="helpers\math.cs" />
+    <Compile Include="property_editors\attributes\custom_property_attribute.cs" />
+    <Compile Include="property_editors\attributes\extension_attribute.cs" />
+    <Compile Include="property_editors\attributes\text_box_extension_attribute.cs" />
+    <Compile Include="property_editors\property_items_control.cs" />
+    <Compile Include="property_editors\value\color_editor.xaml.cs">
+      <DependentUpon>color_editor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="property_editors\value\property_container_editor.xaml.cs">
+      <DependentUpon>property_container_editor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="property_editors\value\text_box_editor_extension.xaml.cs">
+      <DependentUpon>text_box_editor_extension.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="property_editors\value\value_editor_extension_base.cs" />
+    <Compile Include="property_editors\value\vector3_editor.xaml.cs">
+      <DependentUpon>vector3_editor.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="type_editors\curve_editor\icons\addkey.png" />
+    <Resource Include="type_editors\curve_editor\icons\focus.png" />
+    <Resource Include="type_editors\curve_editor\icons\focustodefaultrange.png" />
+    <Resource Include="type_editors\curve_editor\icons\movenodes.png" />
+    <Resource Include="type_editors\curve_editor\icons\moverange.png" />
+    <Resource Include="type_editors\curve_editor\icons\nodetype1.png" />
+    <Resource Include="type_editors\curve_editor\icons\nodetype2.png" />
+    <Resource Include="type_editors\curve_editor\icons\nodetype3.png" />
+    <Resource Include="type_editors\curve_editor\icons\nodetype4.png" />
+    <Resource Include="type_editors\curve_editor\icons\nodetype5.png" />
+    <Resource Include="type_editors\curve_editor\icons\removekey.png" />
+    <Resource Include="type_editors\curve_editor\icons\scalenodes.png" />
+    <Resource Include="type_editors\curve_editor\icons\snaptogrid.png" />
+    <Resource Include="type_editors\curve_editor\icons\snaptonodes.png" />
+    <Resource Include="type_editors\curve_editor\icons\togglerange0.png" />
+    <Resource Include="type_editors\curve_editor\icons\togglerange1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\WPFToolkit.Extended\WPFToolkit.Extended.csproj">
+      <Project>{72E591D6-8F83-4D8C-8F67-9C325E623234}</Project>
+      <Name>WPFToolkit.Extended</Name>
+      <Private>True</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="controls\panels\centralized_scroll_panel.cs" />
+    <Compile Include="controls\hypergraph\node\node.cs" />
+    <Compile Include="controls\hypergraph\node\properties_control.cs" />
+    <Compile Include="markup_extensions\this_ext.cs" />
+    <Compile Include="controls\panels\i_centralized_control.cs" />
+    <Compile Include="property_editors\attributes\color_curve_editor_attribute.cs" />
+    <Compile Include="property_editors\attributes\float_curve_editor_attribute.cs" />
+    <Compile Include="controls\property_grid\property_grid_item.cs" />
+    <Compile Include="controls\property_grid\refresh_grid_on_change_attribute.cs" />
+    <Compile Include="controls\property_grid\value_changed_event_args.cs" />
+    <Compile Include="controls\property_grid\value_changed_event_handler.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="controls\expandable_items_control.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="property_editors\item\named_item_editor.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="property_editors\item\custom_item_editor.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="property_editors\item\data_source_editor.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="property_editors\item\material_stage_editor.xaml.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="controls\hypergraph\pan_direction.cs" />
+    <Compile Include="controls\logic_view\logic_scenes_view.xaml.cs">
+      <DependentUpon>logic_scenes_view.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="controls\property_grid\hierarchy_node.cs" />
+    <Compile Include="converters\color_to_string_converter.cs" />
+    <Compile Include="helpers\debug.cs" />
+    <Compile Include="property\control_containers\button.cs" />
+    <Compile Include="property\control_containers\control.cs" />
+    <Compile Include="property\control_containers\control_container.cs" />
+    <Compile Include="property\control_containers\dock_control_container.cs" />
+    <Compile Include="property\control_containers\stack_control_container.cs" />
+    <Compile Include="property\control_containers\toggle_button.cs" />
+    <Compile Include="property\control_containers\uniform_control_container.cs" />
+    <Compile Include="property_editors\attributes\control_attribute.cs" />
+    <Compile Include="property_editors\item\control_container_editor.cs" />
+    <Compile Include="types\float_curve\float_curve_group.cs" />
+    <Compile Include="types\float_curve\float_curve_monotone_type.cs" />
+    <Compile Include="types\hermite_spline_evaluator.cs" />
+    <Compile Include="types\hierarchy_item_id.cs" />
+    <Compile Include="type_editors\curve_editor\effects\visual_effect_base.cs" />
+    <Compile Include="type_editors\curve_editor\effects\noise_effect\visual_noise_effect.cs" />
+    <Compile Include="type_editors\curve_editor\effects\noise_effect\noise_effect_settings_window.xaml.cs">
+      <DependentUpon>noise_effect_settings_window.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="type_editors\curve_editor\panel_curve_effect.xaml.cs">
+      <DependentUpon>panel_curve_effect.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="type_editors\curve_editor\templates\curve_template_base.cs" />
+    <Compile Include="type_editors\curve_editor\templates\custom_curve_template.cs" />
+    <Compile Include="type_editors\curve_editor\templates\sqrt_curve_template.xaml.cs">
+      <DependentUpon>sqrt_curve_template.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="type_editors\curve_editor\templates\sinusoid_curve_template.xaml.cs">
+      <DependentUpon>sinusoid_curve_template.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="type_editors\number_editor.cs" />
+    <Compile Include="property_editors\item\material_stage_effect_editor.cs" />
+    <Compile Include="types\float_curve\effects\float_curve_effect.cs" />
+    <Compile Include="types\float_curve\float_curve_evaluator.cs" />
+    <Compile Include="types\float_curve\effects\float_curve_noise_effect.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="property_editors\attributes\type_converter.cs" />
+    <Compile Include="property_editors\attributes\type_converter_attribute.cs" />
+    <Compile Include="property_editors\value\string_editor.xaml.cs">
+      <DependentUpon>string_editor.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <PostBuildEvent>copy "$(TargetPath)" "$(TargetDir)..\wpf_controls-debug.dll"
+move "$(TargetDir)..\wpf_controls.dll" "$(TargetDir)..\wpf_controls.dll-renamed_by_post_build_step"
+erase /Q "$(TargetDir)..\wpf_controls.dll-renamed_by_post_build_step"</PostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <PostBuildEvent>copy "$(TargetPath)" "$(TargetDir)..\wpf_controls-release.dll"
+move "$(TargetDir)..\wpf_controls.dll" "$(TargetDir)..\wpf_controls.dll-renamed_by_post_build_step"
+erase /Q "$(TargetDir)..\wpf_controls.dll-renamed_by_post_build_step"</PostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PreBuildEvent>move "$(TargetPath)" "$(TargetPath)-renamed_by_pre_build_step"
+copy "$(TargetPath)-renamed_by_pre_build_step" "$(TargetPath)"
+erase /Q "$(TargetPath)-renamed_by_pre_build_step"</PreBuildEvent>
+  </PropertyGroup>
+</Project>

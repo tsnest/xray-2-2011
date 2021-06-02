@@ -1,0 +1,13 @@
+﻿<editors:value_editor_base x:Class="xray.editor.wpf_controls.property_editors.value.external_editor"
+			 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:editors="clr-namespace:xray.editor.wpf_controls.property_editors.value">
+	<DockPanel Name="Panel" PreviewKeyDown="panel_preview_key_down">
+		<Button DockPanel.Dock="Right" Padding="0,-2,0,-2" Tag="{Binding}" Name="run_editor_button"
+					 Click="run_editor_button_click" Width="18" Content="..." ToolTip="Run Editor">
+		</Button>
+		<Button DockPanel.Dock="Right" Padding="0,-2,0,-2" x:Name="m_clear_button"
+				Content="C" Click="clear_click" Width="18" ToolTip="Clear Value">
+		</Button>
+		<TextBox Name="externalEditorTextBox" Text="{Binding value, Mode=OneWay}" Foreground="LightGray" IsReadOnly="True" BorderThickness="0" Background="Transparent" KeyDown="text_box_key_down" LostFocus="text_box_lost_focus" />
+	</DockPanel>
+</editors:value_editor_base>

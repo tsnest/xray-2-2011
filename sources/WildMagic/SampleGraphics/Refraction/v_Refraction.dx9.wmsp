@@ -1,0 +1,63 @@
+vs_2_0
+// cgc version 1.5.0014, build date Sep 18 2006 20:36:59
+// command line args: -profile vs_2_0
+// source file: Refraction.cg
+//vendor NVIDIA Corporation
+//version 1.5.0.14
+//profile vs_2_0
+//program v_Refraction
+//semantic v_Refraction.WVPMatrix
+//semantic v_Refraction.WMatrix
+//semantic v_Refraction.CameraWorldPosition
+//semantic v_Refraction.FresnelConstants
+//var float3 kModelPosition : $vin.POSITION : ATTR0 : 0 : 1
+//var float3 kModelNormal : $vin.NORMAL : ATTR1 : 1 : 1
+//var float4 kClipPosition : $vout.POSITION : HPOS : 2 : 1
+//var float fReflectFactor : $vout.COLOR : COL0 : 3 : 1
+//var float2 kRefractVector : $vout.TEXCOORD0 : TEX0 : 4 : 1
+//var float2 kReflectVector : $vout.TEXCOORD1 : TEX1 : 5 : 1
+//var float4x4 WVPMatrix :  : c[0], 4 : 6 : 1
+//var float4x4 WMatrix :  : c[4], 4 : 7 : 1
+//var float3 CameraWorldPosition :  : c[8] : 8 : 1
+//var float4 FresnelConstants :  : c[9] : 9 : 1
+//const c[10] = 2 0.5 1 0
+dcl_position v0
+dcl_normal v1
+def c10, 2.000000, 0.500000, 1.000000, 0.000000
+mul r0.xyz, v0.y, c5
+mad r0.xyz, v0.x, c4, r0
+mad r1.xyz, v0.z, c6, r0
+mul r0.xyz, v1.y, c5
+add r1.xyz, r1, c7
+add r1.xyz, r1, -c8
+dp3 r1.w, r1, r1
+rsq r1.w, r1.w
+mad r0.xyz, v1.x, c4, r0
+mad r0.xyz, v1.z, c6, r0
+dp3 r0.w, r0, r0
+rsq r0.w, r0.w
+mul r1.xyz, r1.w, r1
+mul r0.xyz, r0.w, r0
+dp3 r1.x, r0, r1
+mad r0.w, r1.x, -r1.x, c10.z
+mul r0.x, c9.w, c9.w
+mad r1.w, -r0.x, r0, c10.z
+abs r0.x, r1.w
+rsq r0.x, r0.x
+rcp r0.x, r0.x
+mad r0.x, -r1, c9.w, -r0
+mul r0.xw, r0.yyzz, r0.x
+mul r0.yz, r0, r1.x
+slt r1.w, c10, r1
+mad r0.xw, r1.yyzz, c9.w, r0
+mul r0.xw, r0, r1.w
+mad oT0.xy, r0.xwzw, c10.y, c10.y
+mad r0.xy, -r0.yzzw, c10.x, r1.yzzw
+add r1.x, r1, c10.z
+mad oT1.xy, r0, c10.y, c10.y
+pow r0, r1.x, c9.z
+mul r1, v0.y, c1
+mad r1, v0.x, c0, r1
+mad r1, v0.z, c2, r1
+mad oD0.x, r0, c9.y, c9
+add oPos, r1, c3

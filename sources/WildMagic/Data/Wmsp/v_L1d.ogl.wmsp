@@ -1,0 +1,64 @@
+!!ARBvp1.0
+# cgc version 1.5.0014, build date Sep 18 2006 20:36:59
+# command line args: -profile arbvp1
+# source file: Lighting.cg
+#vendor NVIDIA Corporation
+#version 1.5.0.14
+#profile arbvp1
+#program v_L1d
+#semantic v_L1d.WVPMatrix
+#semantic v_L1d.CameraModelPosition
+#semantic v_L1d.MaterialEmissive
+#semantic v_L1d.MaterialAmbient
+#semantic v_L1d.MaterialDiffuse
+#semantic v_L1d.MaterialSpecular
+#semantic v_L1d.Light0ModelDirection
+#semantic v_L1d.Light0Ambient
+#semantic v_L1d.Light0Diffuse
+#semantic v_L1d.Light0Specular
+#semantic v_L1d.Light0Attenuation
+#var float3 kModelPosition : $vin.POSITION : POSITION : 0 : 1
+#var float3 kModelNormal : $vin.NORMAL : NORMAL : 1 : 1
+#var float4 kClipPosition : $vout.POSITION : HPOS : 2 : 1
+#var float4 kVertexColor : $vout.COLOR : COL0 : 3 : 1
+#var float4x4 WVPMatrix :  : c[1], 4 : 4 : 1
+#var float3 CameraModelPosition :  : c[5] : 5 : 1
+#var float3 MaterialEmissive :  : c[6] : 6 : 1
+#var float3 MaterialAmbient :  : c[7] : 7 : 1
+#var float4 MaterialDiffuse :  : c[8] : 8 : 1
+#var float4 MaterialSpecular :  : c[9] : 9 : 1
+#var float3 Light0ModelDirection :  : c[10] : 10 : 1
+#var float3 Light0Ambient :  : c[11] : 11 : 1
+#var float3 Light0Diffuse :  : c[12] : 12 : 1
+#var float3 Light0Specular :  : c[13] : 13 : 1
+#var float4 Light0Attenuation :  : c[14] : 14 : 1
+PARAM c[15] = { program.local[0..14] };
+TEMP R0;
+TEMP R1;
+TEMP R2;
+ADD R0.xyz, -vertex.position, c[5];
+DP3 R0.w, R0, R0;
+RSQ R0.w, R0.w;
+MAD R0.xyz, R0.w, R0, -c[10];
+DP3 R0.w, R0, R0;
+RSQ R0.w, R0.w;
+MUL R0.xyz, R0.w, R0;
+DP3 R0.y, vertex.normal, R0;
+DP3 R0.x, vertex.normal, -c[10];
+MOV R0.z, c[9].w;
+LIT R0.yz, R0.xyzz;
+MUL R1.xyz, R0.y, c[8];
+MOV R2.xyz, c[11];
+MUL R1.xyz, R1, c[12];
+MAD R1.xyz, R2, c[7], R1;
+MUL R2.xyz, R0.z, c[9];
+MUL R0, vertex.position.y, c[2];
+MAD R2.xyz, R2, c[13], R1;
+MAD R1, vertex.position.x, c[1], R0;
+MUL R0.xyz, R2, c[14].w;
+MAD R1, vertex.position.z, c[3], R1;
+ADD result.color.xyz, R0, c[6];
+ADD result.position, R1, c[4];
+MOV result.color.w, c[8];
+END
+# 24 instructions, 3 R-regs
