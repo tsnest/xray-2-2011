@@ -918,7 +918,7 @@ void xray::memory::on_after_memory_initialized	( )
 #if XRAY_DEBUG_ALLOCATOR
 void xray::memory::register_debug_allocator	( u64 const maximum_memory_size )
 {
-	u64 const max_memory_size		= 768*Mb; //192*Mb;
+	u64 const max_memory_size		= 384*Mb; //768*Mb; //192*Mb;
 	u64 memory_size					= math::max( maximum_memory_size ? maximum_memory_size : max_memory_size, 1*Mb );
 	memory_size						= math::min( memory_size, max_memory_size );
 	xray::debug::g_mt_allocator.do_register( memory_size, "debug multithreaded allocator" );
