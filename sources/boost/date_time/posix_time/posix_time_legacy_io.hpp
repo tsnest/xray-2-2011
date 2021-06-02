@@ -70,9 +70,9 @@ namespace posix_time {
   inline
   std::basic_istream<charT>& operator>>(std::basic_istream<charT>& is, time_duration& td)
   {
-    // need to create a xray::network::std_string and parse it
+    // need to create a std::string and parse it
     std::basic_string<charT> inp_s;
-    xray::network::std_stringstream out_ss;
+    std::stringstream out_ss;
     is >> inp_s;
     typename std::basic_string<charT>::iterator b = inp_s.begin();
     // need to use both iterators because there is no requirement

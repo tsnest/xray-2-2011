@@ -87,7 +87,6 @@ is used.
 
 namespace boost{ 
 
-#if defined(BOOST_HAS_FPCLASSIFY) || defined(isnan)
 //
 // This must not be located in any namespace under boost::math
 // otherwise we can get into an infinite loop if isnan is
@@ -100,20 +99,20 @@ inline bool is_nan_helper(T t, const boost::true_type&)
 {
 #ifdef isnan
    return isnan(t);
+#elif defined(BOOST_MATH_DISABLE_STD_FPCLASSIFY) || !defined(BOOST_HAS_FPCLASSIFY)
+   return false;
 #else // BOOST_HAS_FPCLASSIFY
    return (BOOST_FPCLASSIFY_PREFIX fpclassify(t) == (int)FP_NAN);
 #endif
 }
 
 template <class T>
-inline bool is_nan_helper(T t, const boost::false_type&)
+inline bool is_nan_helper(T, const boost::false_type&)
 {
    return false;
 }
 
 }
-
-#endif // defined(BOOST_HAS_FPCLASSIFY) || defined(isnan)
 
 namespace math{
 
@@ -133,7 +132,7 @@ inline int fpclassify_imp BOOST_NO_MACRO_EXPAND(T t, const generic_tag<true>&)
    BOOST_MATH_INSTRUMENT_VARIABLE(t);
 
    // whenever possible check for Nan's first:
-#ifdef BOOST_HAS_FPCLASSIFY
+#if defined(BOOST_HAS_FPCLASSIFY)  && !defined(BOOST_MATH_DISABLE_STD_FPCLASSIFY)
    if(::boost::math_detail::is_nan_helper(t, ::boost::is_floating_point<T>()))
       return FP_NAN;
 #elif defined(isnan)
@@ -390,6 +389,7 @@ namespace detail {
     template<class T> 
     inline bool isinf_impl(T x, generic_tag<true> const&)
     {
+        (void)x; // in case the compiler thinks that x is unused because std::numeric_limits<T>::has_infinity is false
         return std::numeric_limits<T>::has_infinity 
             && ( x == std::numeric_limits<T>::infinity()
                  || x == -std::numeric_limits<T>::infinity());

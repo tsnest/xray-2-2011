@@ -287,8 +287,17 @@ thread_local_data*   resources_manager::get_thread_local_data (threading::thread
 	if ( threading::current_thread_id() == thread_id )
 	{
 		local_data						=	(thread_local_data *)threading::tls_get_value(m_tls_key_thread_local_data);
+
 		if ( local_data )
+		{
+			pcstr const thread_log_name		=	threading::current_thread_logging_name();
+			if ( !local_data->thread_name.length() && strings::length(thread_log_name) )
+			{
+				threading::reader_writer_lock::mutex_raii	raii(m_thread_local_data_lock);
+				local_data->thread_name		=	thread_log_name;
+			}
 			return							local_data;
+		}
 	}
 
 	threading::lock_type_enum const lock_type	=	create_if_not_exist ? threading::lock_type_write : threading::lock_type_read;

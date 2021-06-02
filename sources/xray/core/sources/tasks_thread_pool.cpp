@@ -26,9 +26,6 @@ void   thread_pool::on_task_thread_exited (thread_tls * const tls)
 	XRAY_UNREFERENCED_PARAMETER					(tls);
 	threading::mutex_tasks_unaware_raii raii	(m_thread_exiting_mutex);
 
-#pragma message(XRAY_TODO("Lain 2 Lain: uncomment when fix inexact issue"))
-	//m_time_elapsed							=	m_timer.get_elapsed_msec();
-
 	if ( (u32)threading::interlocked_increment(m_num_task_threads_exited) == m_task_thread_tls.size() )
 		m_all_task_threads_destroyed.set		(true);
 }
@@ -254,6 +251,85 @@ void   thread_pool::wait_for_task_list (task * parent)
 	parent->set_event_for_wait_children			(NULL);
 }
 
+void   thread_pool::fill_stats			(strings::text_tree_item &		stats, 
+										 thread_tls_container &			tls_array,
+										 thread_tls::type_enum			filter,
+										 u32 *							task_threads_per_core)
+{
+	for ( thread_tls_container::const_iterator	it		=	tls_array.begin(),
+												it_end	=	tls_array.end();
+												it		!=	it_end;
+												++it )
+	{
+		thread_tls const & tls			=	* it;
+		if ( !tls.thread_name.length() )
+			continue;
+
+		//if ( tls.thread_type != filter )
+		//	continue;
+
+		u64 const ms_after_last_task	=	tls.last_task_end_tick ? 
+											((ticks_elapsed() - tls.last_task_end_tick) * 1000) / timing::g_qpc_per_second 
+											: 0;
+
+		bool const executing			=	(tls.current_task && tls.current_task != & tls.user_thread_root_task) 
+											|| (ms_after_last_task < 100);
+		if ( executing )
+			++task_threads_per_core[tls.hardware_thread];
+		
+		fixed_string<256>					state_string;
+		if ( tls.state == thread_tls::state_locked )
+			state_string				=	"SLEEP";
+		else if ( tls.state == thread_tls::state_inactive )
+			state_string				=	"IDLE ";
+		else if ( executing )
+			state_string				=	"TASK ";
+		else
+		{
+			if ( tls.thread_type == thread_tls::type_task_thread )
+				state_string			=	"TASK ";
+			else
+				state_string			=	"USER ";
+		}
+
+		stats.new_childf(
+			tls.thread_name.c_str(),
+			"state(%s), hardware core(%d), executed(%d)",
+			state_string.c_str(),
+			tls.hardware_thread,
+			tls.executed_tasks_count
+		);
+	}
+}
+
+void   thread_pool::fill_stats			(strings::text_tree_item & stats)
+{
+	u32 * const task_threads_per_core	=	(u32 *)ALLOCA(sizeof(u32) * m_core_thread_count.size());
+	for ( u32 i=0; i<m_core_thread_count.size(); ++i )
+		task_threads_per_core[i]		=	0;	
+
+	//fill_stats								(* stats.new_child("task threads"), 
+	//										 m_task_thread_tls, 
+	//										 thread_tls::type_task_thread, 
+	//										 task_threads_per_core);
+
+	fill_stats								(* stats.new_child("threads"), 
+											 m_user_thread_tls, 
+											 thread_tls::type_user_thread, 
+											 task_threads_per_core);
+
+	strings::text_tree_item & cores_item	=	* stats.new_child("CORES");
+	
+	for ( u32 i=0; i<m_core_thread_count.size(); ++i )
+	{
+		u32 const threads_count			=	m_core_thread_count[i];
+		cores_item.new_childf				(fixed_string512::createf("CORE %d", i).c_str(), 
+											 "(%d user + %d task)", 
+											 threads_count - task_threads_per_core[i], 
+											 task_threads_per_core[i]);
+	}
+}
+
 //-----------------------------------------------------------------------------------
 // thread_pool thread procedure
 //-----------------------------------------------------------------------------------
@@ -302,6 +378,9 @@ void   thread_tls::thread_proc_impl ()
 		}
 
 		current_task->execute					();
+		threading::interlocked_exchange			(last_task_end_tick, pool->ticks_elapsed());
+		threading::interlocked_increment		(executed_tasks_count);
+
    		if ( !pool->destroying() )
    			deactivated						=	pool->deactivate_if_oversubscribed(this);
 	}

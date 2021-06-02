@@ -10,6 +10,7 @@
 #include <xray/tasks_task.h>
 #include "tasks_type.h"
 #include <xray/tasks_thread_tls.h>
+#include <xray/text_tree.h>
 
 namespace xray {
 namespace tasks {
@@ -29,7 +30,7 @@ public:
 					   ~thread_pool					();
 
 	u32					thread_tls_key				() const { return m_thread_tls_key; }
-	u32					time_elapsed				() const { return m_time_elapsed; }
+	u64					ticks_elapsed				() const { return m_timer.get_elapsed_ticks(); }
 	thread_tls *		get_thread_tls				();
 	void				on_new_task					();
 
@@ -67,6 +68,15 @@ public:
 	bool				execute_while_wait_for_children () const { return m_execute_while_wait_for_children == execute_while_wait_for_children_true; }
 
 	void				wait_while_all_threads_end_grab_next_task	();
+
+	typedef buffer_vector<thread_tls>		thread_tls_container;
+
+	void				fill_stats					(strings::text_tree_item & stats);
+	void				fill_stats					(strings::text_tree_item &		stats, 
+													 thread_tls_container &			tls,
+													 thread_tls::type_enum			filter,
+													 u32 *							task_threads_per_core);
+
 private:
 	execute_while_wait_for_children_enum	m_execute_while_wait_for_children;
 	threading::mutex_tasks_unaware			m_thread_exiting_mutex;
@@ -75,7 +85,6 @@ private:
 	threading::event_tasks_unaware			m_all_task_threads_resumed;
 	threading::event_tasks_unaware			m_all_task_threads_started;
 	timing::timer							m_timer;
-	u32										m_time_elapsed;
 
 	threading::atomic32_type				m_num_task_threads_exited;
 	threading::atomic32_type				m_num_task_threads_started;
@@ -84,7 +93,6 @@ private:
 
 	u32										m_thread_tls_key;
 	u32										m_user_thread_index;
-	typedef buffer_vector<thread_tls>		thread_tls_container;
 	thread_tls_container					m_task_thread_tls;
 	thread_tls_container					m_user_thread_tls;
 

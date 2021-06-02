@@ -17,7 +17,7 @@ template <	typename BaseWithMember,
 			typename PointerType, 
 			PointerType BaseWithMember::*MemberNext, 
 			typename ThreadingPolicy	=	threading::mutex, 
-			typename SizePolicy			=	no_size_policy,
+			typename SizePolicy			=	size_policy,
 			typename DebugPolicy		=	debug_policy>
 class intrusive_list : public SizePolicy, public ThreadingPolicy, public DebugPolicy {
 public:

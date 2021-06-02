@@ -1,6 +1,6 @@
 //////////////////////////////////////////////////////////////////////////////
 //
-// (C) Copyright Ion Gaztanaga 2005-2008. Distributed under the Boost
+// (C) Copyright Ion Gaztanaga 2005-2009. Distributed under the Boost
 // Software License, Version 1.0. (See accompanying file
 // LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 //
@@ -28,6 +28,7 @@
 #include <boost/interprocess/allocators/detail/adaptive_node_pool.hpp>
 #include <boost/interprocess/exceptions.hpp>
 #include <boost/interprocess/allocators/detail/allocator_common.hpp>
+#include <boost/container/detail/multiallocation_chain.hpp>
 #include <boost/interprocess/detail/mpl.hpp>
 #include <memory>
 #include <algorithm>
@@ -41,7 +42,7 @@ namespace interprocess {
 
 /// @cond
 
-namespace detail{
+namespace ipcdetail{
 
 template < unsigned int Version
          , class T
@@ -70,7 +71,7 @@ class adaptive_pool_base
    template <int dummy>
    struct node_pool
    {
-      typedef detail::shared_adaptive_node_pool
+      typedef ipcdetail::shared_adaptive_node_pool
       < SegmentManager, sizeof_value<T>::value, NodesPerBlock, MaxFreeBlocks, OverheadPercent> type;
 
       static type *get(void *p)
@@ -87,15 +88,15 @@ class adaptive_pool_base
    typedef typename boost::
       pointer_to_other<void_pointer, const T>::type      const_pointer;
    typedef T                                             value_type;
-   typedef typename detail::add_reference
+   typedef typename ipcdetail::add_reference
                      <value_type>::type                  reference;
-   typedef typename detail::add_reference
+   typedef typename ipcdetail::add_reference
                      <const value_type>::type            const_reference;
-   typedef std::size_t                                   size_type;
-   typedef std::ptrdiff_t                                difference_type;
+   typedef typename segment_manager::size_type           size_type;
+   typedef typename segment_manager::difference_type     difference_type;
 
    typedef boost::interprocess::version_type<adaptive_pool_base, Version>   version;
-   typedef detail::transform_multiallocation_chain
+   typedef boost::container::containers_detail::transform_multiallocation_chain
       <typename SegmentManager::multiallocation_chain, T>multiallocation_chain;
 
    //!Obtains adaptive_pool_base from 
@@ -120,14 +121,14 @@ class adaptive_pool_base
    //!pool. Increments the reference count of the associated node pool.
    //!Can throw boost::interprocess::bad_alloc
    adaptive_pool_base(segment_manager *segment_mngr) 
-      : mp_node_pool(detail::get_or_create_node_pool<typename node_pool<0>::type>(segment_mngr)) { }
+      : mp_node_pool(ipcdetail::get_or_create_node_pool<typename node_pool<0>::type>(segment_mngr)) { }
 
    //!Copy constructor from other adaptive_pool_base. Increments the reference 
    //!count of the associated node pool. Never throws
    adaptive_pool_base(const adaptive_pool_base &other) 
       : mp_node_pool(other.get_node_pool()) 
    {  
-      node_pool<0>::get(detail::get_pointer(mp_node_pool))->inc_ref_count();   
+      node_pool<0>::get(ipcdetail::get_pointer(mp_node_pool))->inc_ref_count();   
    }
 
    //!Assignment from other adaptive_pool_base
@@ -144,27 +145,27 @@ class adaptive_pool_base
    template<class T2>
    adaptive_pool_base
       (const adaptive_pool_base<Version, T2, SegmentManager, NodesPerBlock, MaxFreeBlocks, OverheadPercent> &other)
-      : mp_node_pool(detail::get_or_create_node_pool<typename node_pool<0>::type>(other.get_segment_manager())) { }
+      : mp_node_pool(ipcdetail::get_or_create_node_pool<typename node_pool<0>::type>(other.get_segment_manager())) { }
 
    //!Destructor, removes node_pool_t from memory
    //!if its reference count reaches to zero. Never throws
    ~adaptive_pool_base() 
-   {  detail::destroy_node_pool_if_last_link(node_pool<0>::get(detail::get_pointer(mp_node_pool)));   }
+   {  ipcdetail::destroy_node_pool_if_last_link(node_pool<0>::get(ipcdetail::get_pointer(mp_node_pool)));   }
 
    //!Returns a pointer to the node pool.
    //!Never throws
    void* get_node_pool() const
-   {  return detail::get_pointer(mp_node_pool);   }
+   {  return ipcdetail::get_pointer(mp_node_pool);   }
 
    //!Returns the segment manager.
    //!Never throws
    segment_manager* get_segment_manager()const
-   {  return node_pool<0>::get(detail::get_pointer(mp_node_pool))->get_segment_manager();  }
+   {  return node_pool<0>::get(ipcdetail::get_pointer(mp_node_pool))->get_segment_manager();  }
 
    //!Swaps allocators. Does not throw. If each allocator is placed in a
    //!different memory segment, the result is undefined.
    friend void swap(self_t &alloc1, self_t &alloc2)
-   {  detail::do_swap(alloc1.mp_node_pool, alloc2.mp_node_pool);  }
+   {  ipcdetail::do_swap(alloc1.mp_node_pool, alloc2.mp_node_pool);  }
 
    /// @cond
    private:
@@ -203,7 +204,7 @@ class adaptive_pool_v1
          >
 {
    public:
-   typedef detail::adaptive_pool_base
+   typedef ipcdetail::adaptive_pool_base
          < 1, T, SegmentManager, NodesPerBlock, MaxFreeBlocks, OverheadPercent> base_t;
 
    template<class T2>
@@ -223,7 +224,7 @@ class adaptive_pool_v1
    {}
 };
 
-}  //namespace detail{
+}  //namespace ipcdetail{
 
 /// @endcond
 
@@ -249,7 +250,7 @@ template < class T
          >
 class adaptive_pool
    /// @cond
-   :  public detail::adaptive_pool_base
+   :  public ipcdetail::adaptive_pool_base
          < 2
          , T
          , SegmentManager
@@ -261,7 +262,7 @@ class adaptive_pool
 {
 
    #ifndef BOOST_INTERPROCESS_DOXYGEN_INVOKED
-   typedef detail::adaptive_pool_base
+   typedef ipcdetail::adaptive_pool_base
          < 2, T, SegmentManager, NodesPerBlock, MaxFreeBlocks, OverheadPercent> base_t;
    public:
    typedef boost::interprocess::version_type<adaptive_pool, 2>   version;
@@ -289,12 +290,12 @@ class adaptive_pool
    typedef implementation_defined::pointer               pointer;
    typedef implementation_defined::const_pointer         const_pointer;
    typedef T                                             value_type;
-   typedef typename detail::add_reference
+   typedef typename ipcdetail::add_reference
                      <value_type>::type                  reference;
-   typedef typename detail::add_reference
+   typedef typename ipcdetail::add_reference
                      <const value_type>::type            const_reference;
-   typedef std::size_t                                   size_type;
-   typedef std::ptrdiff_t                                difference_type;
+   typedef typename segment_manager::size_type           size_type;
+   typedef typename segment_manager::difference_type     difference_type;
 
    //!Obtains adaptive_pool from 
    //!adaptive_pool
@@ -397,7 +398,7 @@ class adaptive_pool
    //!preferred_elements. The number of actually allocated elements is
    //!will be assigned to received_size. The elements must be deallocated
    //!with deallocate(...)
-   multiallocation_chain allocate_many(size_type elem_size, std::size_t num_elements);
+   multiallocation_chain allocate_many(size_type elem_size, size_type num_elements);
 
    //!Allocates n_elements elements, each one of size elem_sizes[i]in a
    //!contiguous block
@@ -423,7 +424,7 @@ class adaptive_pool
    //!preferred_elements. The number of actually allocated elements is
    //!will be assigned to received_size. Memory allocated with this function
    //!must be deallocated only with deallocate_one().
-   multiallocation_chain allocate_individual(std::size_t num_elements);
+   multiallocation_chain allocate_individual(size_type num_elements);
 
    //!Deallocates memory previously allocated with allocate_one().
    //!You should never use deallocate_one to deallocate memory allocated

@@ -1,8 +1,8 @@
 //
-// socket_types.hpp
-// ~~~~~~~~~~~~~~~~
+// detail/socket_types.hpp
+// ~~~~~~~~~~~~~~~~~~~~~~~
 //
-// Copyright (c) 2003-2008 Christopher M. Kohlhoff (chris at kohlhoff dot com)
+// Copyright (c) 2003-2011 Christopher M. Kohlhoff (chris at kohlhoff dot com)
 //
 // Distributed under the Boost Software License, Version 1.0. (See accompanying
 // file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
@@ -15,75 +15,22 @@
 # pragma once
 #endif // defined(_MSC_VER) && (_MSC_VER >= 1200)
 
-#include <boost/asio/detail/push_options.hpp>
+#include <boost/asio/detail/config.hpp>
 
-#include <boost/asio/detail/push_options.hpp>
-#include <boost/config.hpp>
-#include <boost/asio/detail/pop_options.hpp>
-
-#include <boost/asio/detail/push_options.hpp>
 #if defined(BOOST_WINDOWS) || defined(__CYGWIN__)
 # if defined(_WINSOCKAPI_) && !defined(_WINSOCK2API_)
 #  error WinSock.h has already been included
 # endif // defined(_WINSOCKAPI_) && !defined(_WINSOCK2API_)
-# if !defined(_WIN32_WINNT) && !defined(_WIN32_WINDOWS)
-#  if defined(_MSC_VER) || defined(__BORLANDC__)
-#   pragma message( \
-  "Please define _WIN32_WINNT or _WIN32_WINDOWS appropriately. For example:\n"\
-  "- add -D_WIN32_WINNT=0x0501 to the compiler command line; or\n"\
-  "- add _WIN32_WINNT=0x0501 to your project's Preprocessor Definitions.\n"\
-  "Assuming _WIN32_WINNT=0x0501 (i.e. Windows XP target).")
-#  else // defined(_MSC_VER) || defined(__BORLANDC__)
-#   warning Please define _WIN32_WINNT or _WIN32_WINDOWS appropriately.
-#   warning For example, add -D_WIN32_WINNT=0x0501 to the compiler command line.
-#   warning Assuming _WIN32_WINNT=0x0501 (i.e. Windows XP target).
-#  endif // defined(_MSC_VER) || defined(__BORLANDC__)
-#  define _WIN32_WINNT 0x0501
-# endif // !defined(_WIN32_WINNT) && !defined(_WIN32_WINDOWS)
-# if defined(_MSC_VER)
-#  if defined(_WIN32) && !defined(WIN32)
-#   if !defined(_WINSOCK2API_)
-#    define WIN32 // Needed for correct types in winsock2.h
-#   elif !defined(_XBOX) // !defined(_WINSOCK2API_)
-#    error Please define the macro WIN32 in your compiler options
-#   endif // !defined(_WINSOCK2API_)
-#  endif // defined(_WIN32) && !defined(WIN32)
-# endif // defined(_MSC_VER)
 # if defined(__BORLANDC__)
 #  include <stdlib.h> // Needed for __errno
-#  if defined(__WIN32__) && !defined(WIN32)
-#   if !defined(_WINSOCK2API_)
-#    define WIN32 // Needed for correct types in winsock2.h
-#   else // !defined(_WINSOCK2API_)
-#    error Please define the macro WIN32 in your compiler options
-#   endif // !defined(_WINSOCK2API_)
-#  endif // defined(__WIN32__) && !defined(WIN32)
 #  if !defined(_WSPIAPI_H_)
 #   define _WSPIAPI_H_
 #   define BOOST_ASIO_WSPIAPI_H_DEFINED
 #  endif // !defined(_WSPIAPI_H_)
 # endif // defined(__BORLANDC__)
-# if !defined(BOOST_ASIO_NO_WIN32_LEAN_AND_MEAN)
-#  if !defined(WIN32_LEAN_AND_MEAN)
-#   define WIN32_LEAN_AND_MEAN
-#  endif // !defined(WIN32_LEAN_AND_MEAN)
-# endif // !defined(BOOST_ASIO_NO_WIN32_LEAN_AND_MEAN)
-# if defined(__CYGWIN__)
-#  if !defined(__USE_W32_SOCKETS)
-#   error You must add -D__USE_W32_SOCKETS to your compiler options.
-#  endif // !defined(__USE_W32_SOCKETS)
-#  if !defined(NOMINMAX)
-#   define NOMINMAX 1
-#  endif // !defined(NOMINMAX)
-# endif // defined(__CYGWIN__)
-# if defined(_XBOX)
-#  include <Xtl.h>
-#  include <boost/asio/detail/xbox360_sdk_compat.hpp>
-# else // if defined(_XBOX)
-#  include <winsock2.h>
-#  include <ws2tcpip.h>
-#  include <mswsock.h>
-# endif // if defined(_XBOX)
+# include <winsock2.h>
+# include <ws2tcpip.h>
+# include <mswsock.h>
 # if defined(BOOST_ASIO_WSPIAPI_H_DEFINED)
 #  undef _WSPIAPI_H_
 #  undef BOOST_ASIO_WSPIAPI_H_DEFINED
@@ -98,32 +45,37 @@
 # endif // !defined(BOOST_ASIO_NO_DEFAULT_LINKED_LIBS)
 # include <boost/asio/detail/old_win_sdk_compat.hpp>
 #else
-# ifdef SN_TARGET_PS3
-# else // #ifdef SN_TARGET_PS3
-#  include <sys/ioctl.h>
-#  include <sys/uio.h>
-#  include <sys/un.h>
-#  include <net/if.h>
-# endif // #ifdef SN_TARGET_PS3
-# include <sys/poll.h>
+# include <sys/ioctl.h>
+# if !defined(__SYMBIAN32__)
+#  include <sys/poll.h>
+# endif
 # include <sys/types.h>
-# if defined(__hpux) && !defined(__HP_aCC)
+# include <sys/stat.h>
+# include <fcntl.h>
+# if defined(__hpux)
 #  include <sys/time.h>
-# else
+# endif
+# if !defined(__hpux) || defined(__SELECT)
 #  include <sys/select.h>
 # endif
 # include <sys/socket.h>
+# include <sys/uio.h>
+# include <sys/un.h>
 # include <netinet/in.h>
-# include <netinet/tcp.h>
+# if !defined(__SYMBIAN32__)
+#  include <netinet/tcp.h>
+# endif
 # include <arpa/inet.h>
 # include <netdb.h>
+# include <net/if.h>
 # include <limits.h>
 # if defined(__sun)
 #  include <sys/filio.h>
 #  include <sys/sockio.h>
 # endif
 #endif
-#include <boost/asio/detail/pop_options.hpp>
+
+#include <boost/asio/detail/push_options.hpp>
 
 namespace boost {
 namespace asio {
@@ -161,6 +113,7 @@ const int shutdown_both = SD_BOTH;
 const int message_peek = MSG_PEEK;
 const int message_out_of_band = MSG_OOB;
 const int message_do_not_route = MSG_DONTROUTE;
+const int message_end_of_record = 0; // Not supported on Windows.
 # if defined (_WIN32_WINNT)
 const int max_iov_len = 64;
 # else
@@ -171,31 +124,11 @@ typedef int socket_type;
 const int invalid_socket = -1;
 const int socket_error_retval = -1;
 const int max_addr_v4_str_len = INET_ADDRSTRLEN;
-#ifdef SN_TARGET_PS3
-const int max_addr_v6_str_len = 256;
-struct in6_addr {
-    union {
-        unsigned char       Byte[16];
-        unsigned short      Word[8];
-    } u;
-};
-struct ipv6_mreq {
-    in6_addr ipv6mr_multiaddr;  // IPv6 multicast address.
-    unsigned long ipv6mr_interface;     // Interface index.
-};
-struct sockaddr_in6 {
-    unsigned short sin6_family; // AF_INET6.
-    unsigned short sin6_port;           // Transport level port number.
-    unsigned long  sin6_flowinfo;       // IPv6 flow information.
-    in6_addr sin6_addr;         // IPv6 address.
-    union {
-        unsigned long sin6_scope_id;     // Set of interfaces for a scope.
-        unsigned long sin6_scope_struct; 
-    };
-};
-#else // #ifdef SN_TARGET_PS3
+#if defined(INET6_ADDRSTRLEN)
 const int max_addr_v6_str_len = INET6_ADDRSTRLEN + 1 + IF_NAMESIZE;
-#endif // #ifdef SN_TARGET_PS3
+#else // defined(INET6_ADDRSTRLEN)
+const int max_addr_v6_str_len = 256;
+#endif // defined(INET6_ADDRSTRLEN)
 typedef sockaddr socket_addr_type;
 typedef in_addr in4_addr_type;
 # if defined(__hpux)
@@ -224,6 +157,7 @@ const int shutdown_both = SHUT_RDWR;
 const int message_peek = MSG_PEEK;
 const int message_out_of_band = MSG_OOB;
 const int message_do_not_route = MSG_DONTROUTE;
+const int message_end_of_record = MSG_EOR;
 # if defined(IOV_MAX)
 const int max_iov_len = IOV_MAX;
 # else

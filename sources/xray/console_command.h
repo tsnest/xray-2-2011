@@ -92,6 +92,7 @@ public:
 						cc_delegate				(pcstr name, functor_type const& functor, bool need_args);
 	virtual void		execute					(pcstr args);
 	virtual void		info					(info_str& dest) const;
+	virtual void		save_to					( console_commands::save_storage& , memory::base_allocator* )	const {};
 
 protected:
 	functor_type		m_functor;

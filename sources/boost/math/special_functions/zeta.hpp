@@ -113,9 +113,9 @@ inline T zeta_series2_imp(T s, const Policy& pol)
    zeta_series2<T> f(s);
    T result = tools::sum_series(
       f, 
-      tools::digits<T>(),
+      policies::get_epsilon<T, Policy>(),
       max_iter);
-   policies::check_series_iterations("boost::math::zeta_series2<%1%>(%1%)", max_iter, pol);
+   policies::check_series_iterations<T>("boost::math::zeta_series2<%1%>(%1%)", max_iter, pol);
    return result;
 }
 

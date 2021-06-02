@@ -5,7 +5,7 @@
  * Subject to the Boost Software License, Version 1.0. 
  * (See accompanying file LICENSE_1_0.txt or http://www.boost.org/LICENSE_1_0.txt)
  * Author: Jeff Garland, Bart Garst
- * $Date: 2008-11-12 14:37:53 -0500 (Wed, 12 Nov 2008) $
+ * $Date: 2011-11-13 01:10:55 -0500 (Sun, 13 Nov 2011) $
  */
 
 #include <map>
@@ -30,10 +30,10 @@ namespace boost {
     {
      public:
        data_not_accessible() : 
-         std::logic_error(xray::network::std_string("Unable to locate or access the required datafile.")) 
+         std::logic_error(std::string("Unable to locate or access the required datafile.")) 
        {}
-       data_not_accessible(const xray::network::std_string& filespec) : 
-         std::logic_error(xray::network::std_string("Unable to locate or access the required datafile. Filespec: " + filespec)) 
+       data_not_accessible(const std::string& filespec) : 
+         std::logic_error(std::string("Unable to locate or access the required datafile. Filespec: " + filespec)) 
        {}
     };
     
@@ -41,7 +41,7 @@ namespace boost {
     class bad_field_count : public std::out_of_range
     {
      public:
-       bad_field_count(const xray::network::std_string& s) : 
+       bad_field_count(const std::string& s) : 
          std::out_of_range(s) 
       {}
     };
@@ -167,21 +167,28 @@ namespace boost {
       tz_db_base() {}
 
       //! Process csv data file, may throw exceptions
+      /*! May throw bad_field_count exceptions */
+      void load_from_stream(std::istream &in)
+      {
+        std::string  buff;
+        while( std::getline(in, buff)) {
+          parse_string(buff);
+        }
+      }
+
+      //! Process csv data file, may throw exceptions
       /*! May throw data_not_accessible, or bad_field_count exceptions */
-      void load_from_file(const xray::network::std_string& pathspec)
+      void load_from_file(const std::string& pathspec)
       {
         string_type in_str;
-        xray::network::std_string  buff;
+        std::string  buff;
         
         std::ifstream ifs(pathspec.c_str());
         if(!ifs){
           boost::throw_exception(data_not_accessible(pathspec));
         }
         std::getline(ifs, buff); // first line is column headings
-
-        while( std::getline(ifs, buff)) {
-          parse_string(buff);
-        }
+        this->load_from_stream(ifs);
       }
 
       //! returns true if record successfully added to map
@@ -211,9 +218,9 @@ namespace boost {
       }
 
       //! Returns a vector of strings holding the time zone regions in the database
-      std::vector<xray::network::std_string> region_list() const
+      std::vector<std::string> region_list() const
       {
-        typedef std::vector<xray::network::std_string> vector_type;
+        typedef std::vector<std::string> vector_type;
         vector_type regions;
         typename map_type::const_iterator itr = m_zone_map.begin();
         while(itr != m_zone_map.end()) {
@@ -336,7 +343,7 @@ namespace boost {
 
         // initializations
         bool has_dst = true; 
-        if(result[DSTABBR] == xray::network::std_string()){
+        if(result[DSTABBR] == std::string()){
           has_dst = false;
         }
 

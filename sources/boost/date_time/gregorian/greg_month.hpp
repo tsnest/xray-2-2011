@@ -43,7 +43,7 @@ namespace gregorian {
   //! Exception thrown if a greg_month is constructed with a value out of range
   struct bad_month : public std::out_of_range
   {
-    bad_month() : std::out_of_range(xray::network::std_string("Month number is out of range 1..12")) {}
+    bad_month() : std::out_of_range(std::string("Month number is out of range 1..12")) {}
   };
   //! Build a policy class for the greg_month_rep
   typedef CV::simple_exception_policy<unsigned short, 1, 12, bad_month> greg_month_policies;
@@ -55,7 +55,7 @@ namespace gregorian {
   class BOOST_DATE_TIME_DECL greg_month : public greg_month_rep {
   public:
     typedef date_time::months_of_year month_enum;
-    typedef std::map<xray::network::std_string, unsigned short> month_map_type;
+    typedef std::map<std::string, unsigned short> month_map_type;
     typedef boost::shared_ptr<month_map_type> month_map_ptr_type;
     //! Construct a month from the months_of_year enumeration
     greg_month(month_enum theMonth) : 

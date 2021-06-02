@@ -357,7 +357,7 @@ long wav_read(void *in, fs_new::synchronous_device_interface const & device, flo
     int sampbyte = f->samplesize / 8;
     signed char *buf = (signed char*)_alloca(samples*sampbyte*f->channels);
 	xray::memory::zero(buf, samples*sampbyte*f->channels);
-	long bytes_read = device->read(f->f, buf, samples*sampbyte*f->channels);
+	long bytes_read = (long)device->read(f->f, buf, samples*sampbyte*f->channels);
     int i,j;
     long realsamples;
     int *ch_permute = f->channel_permute;
@@ -501,7 +501,7 @@ static int seek_forward(fs_new::file_type *in, fs_new::synchronous_device_interf
 		int seeked;
 		while(seek_needed > 0)
 		{
-			seeked = device->read(in, buf, seek_needed>1024?1024:seek_needed);
+			seeked = (int)device->read(in, buf, seek_needed>1024?1024:seek_needed);
 			if(!seeked)
 				return 0; /* Couldn't read more, can't read file */
 			else
@@ -574,7 +574,7 @@ input_format *open_audio_file(fs_new::file_type *in, fs_new::synchronous_device_
 	buf = (unsigned char *)_alloca(buf_size);
 	xray::memory::zero(buf, buf_size);
 
-	ret = device->read(in, buf+buf_filled, buf_size-buf_filled);
+	ret = (int)device->read(in, buf+buf_filled, buf_size-buf_filled);
 	buf_filled += ret;
 
 
@@ -595,8 +595,8 @@ input_format *open_audio_file(fs_new::file_type *in, fs_new::synchronous_device_
 int oe_write_page(ogg_page *page, fs_new::file_type *fp, fs_new::synchronous_device_interface const & device)
 {
     int written;
-	written = device->write(fp, page->header, page->header_len);
-	written += device->write(fp, page->body, page->body_len);
+	written = (int)device->write(fp, page->header, page->header_len);
+	written += (int)device->write(fp, page->body, page->body_len);
 
     return written;
 }

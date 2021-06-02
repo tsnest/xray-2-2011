@@ -20,9 +20,9 @@ namespace date_time {
       typedef typename date_type::year_type year_type;
       virtual ~dst_day_calc_rule() {};
       virtual date_type start_day(year_type y) const=0;
-      virtual xray::network::std_string start_rule_as_string() const=0;
+      virtual std::string start_rule_as_string() const=0;
       virtual date_type end_day(year_type y) const=0;
-      virtual xray::network::std_string end_rule_as_string() const=0;
+      virtual std::string end_rule_as_string() const=0;
 
     };
 
@@ -50,7 +50,7 @@ namespace date_time {
       {
         return dst_start_.get_date(y);
       }
-      virtual xray::network::std_string start_rule_as_string() const
+      virtual std::string start_rule_as_string() const
       {
         return dst_start_.to_string();
       }
@@ -58,7 +58,7 @@ namespace date_time {
       {
         return dst_end_.get_date(y);
       }
-      virtual xray::network::std_string end_rule_as_string() const
+      virtual std::string end_rule_as_string() const
       {
         return dst_end_.to_string();
       }

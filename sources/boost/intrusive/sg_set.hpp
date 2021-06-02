@@ -1,6 +1,6 @@
 /////////////////////////////////////////////////////////////////////////////
 //
-// (C) Copyright Ion Gaztanaga 2007-2008
+// (C) Copyright Ion Gaztanaga 2007-2009
 //
 // Distributed under the Boost Software License, Version 1.0.
 //    (See accompanying file LICENSE_1_0.txt or copy at
@@ -16,6 +16,7 @@
 #include <boost/intrusive/intrusive_fwd.hpp>
 #include <boost/intrusive/sgtree.hpp>
 #include <boost/intrusive/detail/mpl.hpp>
+#include <boost/move/move.hpp>
 #include <iterator>
 
 namespace boost {
@@ -42,12 +43,8 @@ class sg_set_impl
    /// @cond
    typedef sgtree_impl<Config> tree_type;
    //! This class is
-   //! non-copyable
-   sg_set_impl (const sg_set_impl&);
-
-   //! This class is
-   //! non-assignable
-   sg_set_impl &operator =(const sg_set_impl&);
+   //! movable
+   BOOST_MOVABLE_BUT_NOT_COPYABLE(sg_set_impl)
 
    typedef tree_type implementation_defined;
    /// @endcond
@@ -110,6 +107,17 @@ class sg_set_impl
            , const value_traits &v_traits = value_traits())
       : tree_(true, b, e, cmp, v_traits)
    {}
+
+   //! <b>Effects</b>: to-do
+   //!   
+   sg_set_impl(BOOST_RV_REF(sg_set_impl) x) 
+      :  tree_(::boost::move(x.tree_))
+   {}
+
+   //! <b>Effects</b>: to-do
+   //!   
+   sg_set_impl& operator=(BOOST_RV_REF(sg_set_impl) x) 
+   {  tree_ = ::boost::move(x.tree_);  return *this;  }
 
    //! <b>Effects</b>: Detaches all elements from this. The objects in the sg_set 
    //!   are not deleted (i.e. no destructors are called).
@@ -381,7 +389,7 @@ class sg_set_impl
 
    //! <b>Requires</b>: key_value_comp must be a comparison function that induces 
    //!   the same strict weak ordering as value_compare. The difference is that
-   //!   key_value_comp compares an ascapegoatitrary key with the contained values.
+   //!   key_value_comp compares an arbitrary key with the contained values.
    //! 
    //! <b>Effects</b>: Checks if a value can be inserted in the sg_set, using
    //!   a user provided key instead of the value itself.
@@ -416,7 +424,7 @@ class sg_set_impl
 
    //! <b>Requires</b>: key_value_comp must be a comparison function that induces 
    //!   the same strict weak ordering as value_compare. The difference is that
-   //!   key_value_comp compares an ascapegoatitrary key with the contained values.
+   //!   key_value_comp compares an arbitrary key with the contained values.
    //! 
    //! <b>Effects</b>: Checks if a value can be inserted in the sg_set, using
    //!   a user provided key instead of the value itself, using "hint" 
@@ -488,6 +496,60 @@ class sg_set_impl
    template<class Iterator>
    void insert(Iterator b, Iterator e)
    {  tree_.insert_unique(b, e);  }
+
+   //! <b>Requires</b>: value must be an lvalue, "pos" must be
+   //!   a valid iterator (or end) and must be the succesor of value
+   //!   once inserted according to the predicate. "value" must not be equal to any
+   //!   inserted key according to the predicate.
+   //!
+   //! <b>Effects</b>: Inserts x into the tree before "pos".
+   //! 
+   //! <b>Complexity</b>: Constant time.
+   //! 
+   //! <b>Throws</b>: Nothing.
+   //! 
+   //! <b>Note</b>: This function does not check preconditions so if "pos" is not
+   //! the successor of "value" or "value" is not unique tree ordering and uniqueness
+   //! invariants will be broken respectively.
+   //! This is a low-level function to be used only for performance reasons
+   //! by advanced users.
+   iterator insert_before(const_iterator pos, reference value)
+   {  return tree_.insert_before(pos, value);  }
+
+   //! <b>Requires</b>: value must be an lvalue, and it must be greater than
+   //!   any inserted key according to the predicate.
+   //!
+   //! <b>Effects</b>: Inserts x into the tree in the last position.
+   //! 
+   //! <b>Complexity</b>: Constant time.
+   //! 
+   //! <b>Throws</b>: Nothing.
+   //! 
+   //! <b>Note</b>: This function does not check preconditions so if value is
+   //!   less than or equal to the greatest inserted key tree ordering invariant will be broken.
+   //!   This function is slightly more efficient than using "insert_before".
+   //!   This is a low-level function to be used only for performance reasons
+   //!   by advanced users.
+   void push_back(reference value)
+   {  tree_.push_back(value);  }
+
+   //! <b>Requires</b>: value must be an lvalue, and it must be less
+   //!   than any inserted key according to the predicate.
+   //!
+   //! <b>Effects</b>: Inserts x into the tree in the first position.
+   //! 
+   //! <b>Complexity</b>: Constant time.
+   //! 
+   //! <b>Throws</b>: Nothing.
+   //! 
+   //! <b>Note</b>: This function does not check preconditions so if value is
+   //!   greater than or equal to the the mimum inserted key tree ordering or uniqueness
+   //!   invariants will be broken.
+   //!   This function is slightly more efficient than using "insert_before".
+   //!   This is a low-level function to be used only for performance reasons
+   //!   by advanced users.
+   void push_front(reference value)
+   {  tree_.push_front(value);  }
 
    //! <b>Effects</b>: Erases the element pointed to by pos. 
    //! 
@@ -1164,6 +1226,7 @@ class sg_set
       Options...
       #endif
       >::type   Base;
+   BOOST_MOVABLE_BUT_NOT_COPYABLE(sg_set)
 
    public:
    typedef typename Base::value_compare      value_compare;
@@ -1185,6 +1248,13 @@ class sg_set
       , const value_traits &v_traits = value_traits())
       :  Base(b, e, cmp, v_traits)
    {}
+
+   sg_set(BOOST_RV_REF(sg_set) x)
+      :  Base(::boost::move(static_cast<Base&>(x)))
+   {}
+
+   sg_set& operator=(BOOST_RV_REF(sg_set) x)
+   {  this->Base::operator=(::boost::move(static_cast<Base&>(x))); return *this;  }
 
    static sg_set &container_from_end_iterator(iterator end_iterator)
    {  return static_cast<sg_set &>(Base::container_from_end_iterator(end_iterator));   }
@@ -1223,8 +1293,7 @@ class sg_multiset_impl
    typedef sgtree_impl<Config> tree_type;
 
    //Non-copyable and non-assignable
-   sg_multiset_impl (const sg_multiset_impl&);
-   sg_multiset_impl &operator =(const sg_multiset_impl&);
+   BOOST_MOVABLE_BUT_NOT_COPYABLE(sg_multiset_impl)
    typedef tree_type implementation_defined;
    /// @endcond
 
@@ -1286,6 +1355,17 @@ class sg_multiset_impl
                 , const value_traits &v_traits = value_traits())
       : tree_(false, b, e, cmp, v_traits)
    {}
+
+   //! <b>Effects</b>: to-do
+   //!   
+   sg_multiset_impl(BOOST_RV_REF(sg_multiset_impl) x) 
+      :  tree_(::boost::move(x.tree_))
+   {}
+
+   //! <b>Effects</b>: to-do
+   //!   
+   sg_multiset_impl& operator=(BOOST_RV_REF(sg_multiset_impl) x) 
+   {  tree_ = ::boost::move(x.tree_);  return *this;  }
 
    //! <b>Effects</b>: Detaches all elements from this. The objects in the sg_multiset 
    //!   are not deleted (i.e. no destructors are called).
@@ -1571,6 +1651,57 @@ class sg_multiset_impl
    template<class Iterator>
    void insert(Iterator b, Iterator e)
    {  tree_.insert_equal(b, e);  }
+
+   //! <b>Requires</b>: value must be an lvalue, "pos" must be
+   //!   a valid iterator (or end) and must be the succesor of value
+   //!   once inserted according to the predicate
+   //!
+   //! <b>Effects</b>: Inserts x into the tree before "pos".
+   //! 
+   //! <b>Complexity</b>: Constant time.
+   //! 
+   //! <b>Throws</b>: Nothing.
+   //! 
+   //! <b>Note</b>: This function does not check preconditions so if "pos" is not
+   //! the successor of "value" tree ordering invariant will be broken.
+   //! This is a low-level function to be used only for performance reasons
+   //! by advanced users.
+   iterator insert_before(const_iterator pos, reference value)
+   {  return tree_.insert_before(pos, value);  }
+
+   //! <b>Requires</b>: value must be an lvalue, and it must be no less
+   //!   than the greatest inserted key
+   //!
+   //! <b>Effects</b>: Inserts x into the tree in the last position.
+   //! 
+   //! <b>Complexity</b>: Constant time.
+   //! 
+   //! <b>Throws</b>: Nothing.
+   //! 
+   //! <b>Note</b>: This function does not check preconditions so if value is
+   //!   less than the greatest inserted key tree ordering invariant will be broken.
+   //!   This function is slightly more efficient than using "insert_before".
+   //!   This is a low-level function to be used only for performance reasons
+   //!   by advanced users.
+   void push_back(reference value)
+   {  tree_.push_back(value);  }
+
+   //! <b>Requires</b>: value must be an lvalue, and it must be no greater
+   //!   than the minimum inserted key
+   //!
+   //! <b>Effects</b>: Inserts x into the tree in the first position.
+   //! 
+   //! <b>Complexity</b>: Constant time.
+   //! 
+   //! <b>Throws</b>: Nothing.
+   //! 
+   //! <b>Note</b>: This function does not check preconditions so if value is
+   //!   greater than the minimum inserted key tree ordering invariant will be broken.
+   //!   This function is slightly more efficient than using "insert_before".
+   //!   This is a low-level function to be used only for performance reasons
+   //!   by advanced users.
+   void push_front(reference value)
+   {  tree_.push_front(value);  }
 
    //! <b>Effects</b>: Erases the element pointed to by pos. 
    //! 
@@ -2247,6 +2378,7 @@ class sg_multiset
       Options...
       #endif
       >::type   Base;
+   BOOST_MOVABLE_BUT_NOT_COPYABLE(sg_multiset)
 
    public:
    typedef typename Base::value_compare      value_compare;
@@ -2268,6 +2400,13 @@ class sg_multiset
            , const value_traits &v_traits = value_traits())
       :  Base(b, e, cmp, v_traits)
    {}
+
+   sg_multiset(BOOST_RV_REF(sg_multiset) x)
+      :  Base(::boost::move(static_cast<Base&>(x)))
+   {}
+
+   sg_multiset& operator=(BOOST_RV_REF(sg_multiset) x)
+   {  this->Base::operator=(::boost::move(static_cast<Base&>(x))); return *this;  }
 
    static sg_multiset &container_from_end_iterator(iterator end_iterator)
    {  return static_cast<sg_multiset &>(Base::container_from_end_iterator(end_iterator));   }

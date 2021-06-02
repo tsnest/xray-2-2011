@@ -13,18 +13,23 @@
 
 namespace stalker2{
 
+static float cam_fov = 67.5f; //57.5f*math::pi/180.0f;
+
 camera_director::camera_director( game_world& w )
 :game_object_		( w ),
 m_active_camera		( NULL )
 {
 	static xray::console_commands::cc_float3 cc_cam_pos	("camera_pos", m_inverted_view.c.xyz(), float3(-1000,-1000,-1000), float3(1000,1000,1000), false, xray::console_commands::command_type_user_specific);
+	static xray::console_commands::cc_float cc_cam_fov("fov", cam_fov, 20.f, 140.0f, true, xray::console_commands::command_type_user_specific);
 
 	set_position_direction	( float3( 16.f, 10.f, 0.f ), float3( -1.f,  -1.f, 0.f ).normalize() );
 
-	float aspect( 4.f/3.f );
-	float fov( 57.5f*math::pi/180.0f );
+	float2 size			= m_game_world.get_game().engine().get_render_window_size();
+	aspect = size.x / size.y;
 
-	m_projection		= math::create_perspective_projection( fov/aspect, aspect, 0.2f, 5000.0f );
+	m_fov = cam_fov*math::pi/180.0f;
+	
+	m_projection		= math::create_perspective_projection( m_fov/aspect, aspect, 0.2f, 5000.0f );
 }
 
 void camera_director::set_position_direction( math::float3 const& p, math::float3 const& d )
@@ -39,6 +44,12 @@ void camera_director::tick( )
 		m_active_camera->tick	( );
 		m_inverted_view			= m_active_camera->get_inverted_view_matrix();
 		m_projection			= m_active_camera->get_projection_matrix();
+
+		if (!math::is_similar(m_fov, cam_fov))
+		{
+			m_fov = cam_fov*math::pi/180.0f;
+			m_projection = math::create_perspective_projection( m_fov/aspect, aspect, 0.2f, 5000.0f );
+		}
 	}
 
 	m_game_world.get_game().apply_camera(this);

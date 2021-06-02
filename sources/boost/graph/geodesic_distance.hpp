@@ -83,7 +83,7 @@ struct mean_graph_distance_measure
 
 template <typename Graph, typename DistanceMap>
 inline mean_graph_distance_measure<Graph, typename property_traits<DistanceMap>::value_type>
-measure_graph_mean_geodesic(const Graph& g, DistanceMap dist)
+measure_graph_mean_geodesic(const Graph&, DistanceMap)
 {
     typedef typename property_traits<DistanceMap>::value_type T;
     return mean_graph_distance_measure<Graph, T>();
@@ -156,7 +156,7 @@ all_mean_geodesics(const Graph& g,
     Result inf = numeric_values<Result>::infinity();
     Result sum = numeric_values<Result>::zero();
     VertexIterator i, end;
-    for(tie(i, end) = vertices(g); i != end; ++i) {
+    for(boost::tie(i, end) = vertices(g); i != end; ++i) {
         DistanceMap dm = get(dist, *i);
         Result r = mean_geodesic(g, dm, measure);
         put(geo, *i, r);

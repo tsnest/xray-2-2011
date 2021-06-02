@@ -32,6 +32,8 @@ public:
 private:
 	float4x4			m_inverted_view;
 	float4x4			m_projection;
+	float				m_fov;
+	float				aspect;
 
 	game_camera*		m_active_camera;
 }; // class camera_director

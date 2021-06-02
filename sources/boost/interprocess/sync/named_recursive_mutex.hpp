@@ -1,6 +1,6 @@
 //////////////////////////////////////////////////////////////////////////////
 //
-// (C) Copyright Ion Gaztanaga 2005-2008. Distributed under the Boost
+// (C) Copyright Ion Gaztanaga 2005-2009. Distributed under the Boost
 // Software License, Version 1.0. (See accompanying file
 // LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 //
@@ -24,6 +24,7 @@
 #include <boost/interprocess/detail/managed_open_or_create_impl.hpp>
 #include <boost/interprocess/sync/interprocess_recursive_mutex.hpp>
 #include <boost/interprocess/sync/emulation/named_creation_functor.hpp>
+#include <boost/interprocess/permissions.hpp>
 
 //!\file
 //!Describes a named named_recursive_mutex class for inter-process synchronization
@@ -32,7 +33,7 @@ namespace boost {
 namespace interprocess {
 
 /// @cond
-namespace detail{ class interprocess_tester; }
+namespace ipcdetail{ class interprocess_tester; }
 /// @endcond
 
 //!A recursive mutex with a global name, so it can be found from different 
@@ -50,7 +51,7 @@ class named_recursive_mutex
 
    //!Creates a global recursive_mutex with a name.
    //!If the recursive_mutex can't be created throws interprocess_exception
-   named_recursive_mutex(create_only_t create_only, const char *name);
+   named_recursive_mutex(create_only_t create_only, const char *name, const permissions &perm = permissions());
 
    //!Opens or creates a global recursive_mutex with a name. 
    //!If the recursive_mutex is created, this call is equivalent to
@@ -58,7 +59,7 @@ class named_recursive_mutex
    //!If the recursive_mutex is already created, this call is equivalent
    //!named_recursive_mutex(open_only_t, ... )
    //!Does not throw
-   named_recursive_mutex(open_or_create_t open_or_create, const char *name);
+   named_recursive_mutex(open_or_create_t open_or_create, const char *name, const permissions &perm = permissions());
 
    //!Opens a global recursive_mutex with a name if that recursive_mutex is previously
    //!created. If it is not previously created this function throws
@@ -97,14 +98,14 @@ class named_recursive_mutex
 
    /// @cond
    private:
-   friend class detail::interprocess_tester;
+   friend class ipcdetail::interprocess_tester;
    void dont_close_on_destruction();
 
    interprocess_recursive_mutex *mutex() const
    {  return static_cast<interprocess_recursive_mutex*>(m_shmem.get_user_address()); }
 
-   detail::managed_open_or_create_impl<shared_memory_object> m_shmem;
-   typedef detail::named_creation_functor<interprocess_recursive_mutex> construct_func_t;
+   ipcdetail::managed_open_or_create_impl<shared_memory_object> m_shmem;
+   typedef ipcdetail::named_creation_functor<interprocess_recursive_mutex> construct_func_t;
    /// @endcond
 };
 
@@ -114,28 +115,30 @@ inline named_recursive_mutex::~named_recursive_mutex()
 {}
 
 inline void named_recursive_mutex::dont_close_on_destruction()
-{  detail::interprocess_tester::dont_close_on_destruction(m_shmem);  }
+{  ipcdetail::interprocess_tester::dont_close_on_destruction(m_shmem);  }
 
-inline named_recursive_mutex::named_recursive_mutex(create_only_t, const char *name)
+inline named_recursive_mutex::named_recursive_mutex(create_only_t, const char *name, const permissions &perm)
    :  m_shmem  (create_only
                ,name
                ,sizeof(interprocess_recursive_mutex) +
-                  detail::managed_open_or_create_impl<shared_memory_object>::
+                  ipcdetail::managed_open_or_create_impl<shared_memory_object>::
                      ManagedOpenOrCreateUserOffset
                ,read_write
                ,0
-               ,construct_func_t(detail::DoCreate))
+               ,construct_func_t(ipcdetail::DoCreate)
+               ,perm)
 {}
 
-inline named_recursive_mutex::named_recursive_mutex(open_or_create_t, const char *name)
+inline named_recursive_mutex::named_recursive_mutex(open_or_create_t, const char *name, const permissions &perm)
    :  m_shmem  (open_or_create
                ,name
                ,sizeof(interprocess_recursive_mutex) +
-                  detail::managed_open_or_create_impl<shared_memory_object>::
+                  ipcdetail::managed_open_or_create_impl<shared_memory_object>::
                      ManagedOpenOrCreateUserOffset
                ,read_write
                ,0
-               ,construct_func_t(detail::DoOpenOrCreate))
+               ,construct_func_t(ipcdetail::DoOpenOrCreate)
+               ,perm)
 {}
 
 inline named_recursive_mutex::named_recursive_mutex(open_only_t, const char *name)
@@ -143,7 +146,7 @@ inline named_recursive_mutex::named_recursive_mutex(open_only_t, const char *nam
                ,name
                ,read_write
                ,0
-               ,construct_func_t(detail::DoOpen))
+               ,construct_func_t(ipcdetail::DoOpen))
 {}
 
 inline void named_recursive_mutex::lock()

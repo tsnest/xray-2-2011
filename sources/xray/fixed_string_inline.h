@@ -93,6 +93,17 @@ void   fixed_string<Size>::verify_self	()
 	R_ASSERT							(get_max_end() == m_buffer + Size);
 }
 
+template <int Size>
+fixed_string<Size>   fixed_string<Size>::createf	(pcstr format, ...)
+{
+	fixed_string<Size>					result;
+	va_list								argptr;
+	va_start 							(argptr, format);
+	result.appendf_va_list				(format, argptr);
+	va_end	 							(argptr);
+	return								result;
+}
+
 } // namespace xray
 
 #endif // FIXED_STRING_INLINE_H_INCLUDED

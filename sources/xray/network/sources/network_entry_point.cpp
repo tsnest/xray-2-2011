@@ -36,5 +36,6 @@ void xray::network::dispatch_callbacks				( )
 {
 }
 
+//old stlport only, remove me
 // here is _STLP_DECLSPEC
 _STLP_DECLSPEC

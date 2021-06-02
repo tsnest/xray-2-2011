@@ -38,7 +38,7 @@ namespace date_time {
     virtual ~year_based_generator() {};
     virtual date_type get_date(year_type y) const = 0;
     //! Returns a string for use in a POSIX time_zone string
-    virtual xray::network::std_string to_string() const =0;
+    virtual std::string to_string() const =0;
   };
   
   //! Generates a date by applying the year to the given month and day.
@@ -139,7 +139,7 @@ namespace date_time {
     * Jan-01 == "0" 
     * Feb-29 == "58"
     * Dec-31 == "365" */
-   virtual xray::network::std_string to_string() const
+   virtual std::string to_string() const
    {
      std::ostringstream ss;
      date_type d(2004, month_, day_);
@@ -230,7 +230,7 @@ namespace date_time {
     }
     //! Returns string suitable for use in POSIX time zone string
     /*! Returns a string formatted as "M4.3.0" ==> 3rd Sunday in April. */
-    virtual xray::network::std_string to_string() const
+    virtual std::string to_string() const
     {
      std::ostringstream ss;
      ss << 'M' 
@@ -287,7 +287,7 @@ namespace date_time {
     }
     //! Returns string suitable for use in POSIX time zone string
     /*! Returns a string formatted as "M4.1.0" ==> 1st Sunday in April. */
-    virtual xray::network::std_string to_string() const
+    virtual std::string to_string() const
     {
      std::ostringstream ss;
      ss << 'M' 
@@ -348,7 +348,7 @@ namespace date_time {
     }
     //! Returns string suitable for use in POSIX time zone string
     /*! Returns a string formatted as "M4.5.0" ==> last Sunday in April. */
-    virtual xray::network::std_string to_string() const
+    virtual std::string to_string() const
     {
       std::ostringstream ss;
       ss << 'M' 

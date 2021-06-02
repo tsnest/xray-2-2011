@@ -12,8 +12,8 @@
 #include <xray/core/library_linkage.h>
 #include <xray/fs/library_linkage.h>
 #include <xray/vfs/library_linkage.h>
-#include <xray/network/library_linkage.h>
 #include <xray/sound/library_linkage.h>
+#include <xray/network/library_linkage.h>
 
 #include <xray/ai_navigation/library_linkage.h>
 #include <xray/ai/library_linkage.h>

@@ -130,9 +130,9 @@ namespace date_time {
     {
       return time_duration_type(val.time_of_day);
     }
-    static xray::network::std_string zone_name(const time_rep_type&)
+    static std::string zone_name(const time_rep_type&)
     {
-      return xray::network::std_string();
+      return std::string();
     }
     static bool is_equal(const time_rep_type& lhs, const time_rep_type& rhs)
     {

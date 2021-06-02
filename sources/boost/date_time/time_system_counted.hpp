@@ -178,7 +178,7 @@ namespace date_time {
         return time_duration_type(0,0,0,val.tod()); 
       }
     }
-    static xray::network::std_string zone_name(const time_rep_type&)
+    static std::string zone_name(const time_rep_type&)
     {
       return "";
     }

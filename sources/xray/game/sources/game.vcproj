@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="windows-1251"?>
 <VisualStudioProject
 	ProjectType="Visual C++"
-	Version="9.00"
+	Version="9,00"
 	Name="game"
 	ProjectGUID="{9D1B540F-5E44-4ECA-B371-2BBF93B9DBC2}"
 	RootNamespace="game"
@@ -13,10 +13,10 @@
 			Name="Win32"
 		/>
 		<Platform
-			Name="Xbox 360"
+			Name="x64"
 		/>
 		<Platform
-			Name="x64"
+			Name="Xbox 360"
 		/>
 	</Platforms>
 	<ToolFiles>
@@ -80,64 +80,6 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
-			/>
-		</Configuration>
-		<Configuration
-			Name="PS3 GCC Debug|Xbox 360"
-			OutputDirectory="$(SolutionDir)$(PlatformName)\$(ConfigurationName)"
-			IntermediateDirectory="$(PlatformName)\$(ConfigurationName)"
-			ConfigurationType="1"
-			UseOfMFC="-1"
-			UseOfATL="0"
-			>
-			<Tool
-				Name="VCPreBuildEventTool"
-			/>
-			<Tool
-				Name="VCCustomBuildTool"
-			/>
-			<Tool
-				Name="VCXMLDataGeneratorTool"
-			/>
-			<Tool
-				Name="VCWebServiceProxyGeneratorTool"
-			/>
-			<Tool
-				Name="VCMIDLTool"
-			/>
-			<Tool
-				Name="VCCLX360CompilerTool"
-				AdditionalOptions="/MP"
-				MinimalRebuild="false"
-			/>
-			<Tool
-				Name="VCManagedResourceCompilerTool"
-			/>
-			<Tool
-				Name="VCResourceCompilerTool"
-			/>
-			<Tool
-				Name="VCPreLinkEventTool"
-			/>
-			<Tool
-				Name="VCX360LinkerTool"
-			/>
-			<Tool
-				Name="VCALinkTool"
-			/>
-			<Tool
-				Name="VCX360ImageTool"
-			/>
-			<Tool
-				Name="VCBscMakeTool"
-			/>
-			<Tool
-				Name="VCX360DeploymentTool"
-			/>
-			<Tool
-				Name="VCPostBuildEventTool"
-			/>
-			<DebuggerTool
 			/>
 		</Configuration>
 		<Configuration
@@ -260,64 +202,6 @@
 			/>
 		</Configuration>
 		<Configuration
-			Name="PS3 GCC Release|Xbox 360"
-			OutputDirectory="$(SolutionDir)$(PlatformName)\$(ConfigurationName)"
-			IntermediateDirectory="$(PlatformName)\$(ConfigurationName)"
-			ConfigurationType="1"
-			UseOfMFC="-1"
-			UseOfATL="0"
-			>
-			<Tool
-				Name="VCPreBuildEventTool"
-			/>
-			<Tool
-				Name="VCCustomBuildTool"
-			/>
-			<Tool
-				Name="VCXMLDataGeneratorTool"
-			/>
-			<Tool
-				Name="VCWebServiceProxyGeneratorTool"
-			/>
-			<Tool
-				Name="VCMIDLTool"
-			/>
-			<Tool
-				Name="VCCLX360CompilerTool"
-				AdditionalOptions="/MP"
-				MinimalRebuild="false"
-			/>
-			<Tool
-				Name="VCManagedResourceCompilerTool"
-			/>
-			<Tool
-				Name="VCResourceCompilerTool"
-			/>
-			<Tool
-				Name="VCPreLinkEventTool"
-			/>
-			<Tool
-				Name="VCX360LinkerTool"
-			/>
-			<Tool
-				Name="VCALinkTool"
-			/>
-			<Tool
-				Name="VCX360ImageTool"
-			/>
-			<Tool
-				Name="VCBscMakeTool"
-			/>
-			<Tool
-				Name="VCX360DeploymentTool"
-			/>
-			<Tool
-				Name="VCPostBuildEventTool"
-			/>
-			<DebuggerTool
-			/>
-		</Configuration>
-		<Configuration
 			Name="PS3 GCC Release|x64"
 			ConfigurationType="1"
 			>
@@ -434,64 +318,6 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
-			/>
-		</Configuration>
-		<Configuration
-			Name="PS3 GCC Master Gold|Xbox 360"
-			OutputDirectory="$(SolutionDir)$(PlatformName)\$(ConfigurationName)"
-			IntermediateDirectory="$(PlatformName)\$(ConfigurationName)"
-			ConfigurationType="1"
-			UseOfMFC="-1"
-			UseOfATL="0"
-			>
-			<Tool
-				Name="VCPreBuildEventTool"
-			/>
-			<Tool
-				Name="VCCustomBuildTool"
-			/>
-			<Tool
-				Name="VCXMLDataGeneratorTool"
-			/>
-			<Tool
-				Name="VCWebServiceProxyGeneratorTool"
-			/>
-			<Tool
-				Name="VCMIDLTool"
-			/>
-			<Tool
-				Name="VCCLX360CompilerTool"
-				AdditionalOptions="/MP"
-				MinimalRebuild="false"
-			/>
-			<Tool
-				Name="VCManagedResourceCompilerTool"
-			/>
-			<Tool
-				Name="VCResourceCompilerTool"
-			/>
-			<Tool
-				Name="VCPreLinkEventTool"
-			/>
-			<Tool
-				Name="VCX360LinkerTool"
-			/>
-			<Tool
-				Name="VCALinkTool"
-			/>
-			<Tool
-				Name="VCX360ImageTool"
-			/>
-			<Tool
-				Name="VCBscMakeTool"
-			/>
-			<Tool
-				Name="VCX360DeploymentTool"
-			/>
-			<Tool
-				Name="VCPostBuildEventTool"
-			/>
-			<DebuggerTool
 			/>
 		</Configuration>
 		<Configuration
@@ -615,64 +441,6 @@
 			/>
 		</Configuration>
 		<Configuration
-			Name="PS3 SNC Debug|Xbox 360"
-			OutputDirectory="$(SolutionDir)$(PlatformName)\$(ConfigurationName)"
-			IntermediateDirectory="$(PlatformName)\$(ConfigurationName)"
-			ConfigurationType="1"
-			UseOfMFC="-1"
-			UseOfATL="0"
-			>
-			<Tool
-				Name="VCPreBuildEventTool"
-			/>
-			<Tool
-				Name="VCCustomBuildTool"
-			/>
-			<Tool
-				Name="VCXMLDataGeneratorTool"
-			/>
-			<Tool
-				Name="VCWebServiceProxyGeneratorTool"
-			/>
-			<Tool
-				Name="VCMIDLTool"
-			/>
-			<Tool
-				Name="VCCLX360CompilerTool"
-				AdditionalOptions="/MP"
-				MinimalRebuild="false"
-			/>
-			<Tool
-				Name="VCManagedResourceCompilerTool"
-			/>
-			<Tool
-				Name="VCResourceCompilerTool"
-			/>
-			<Tool
-				Name="VCPreLinkEventTool"
-			/>
-			<Tool
-				Name="VCX360LinkerTool"
-			/>
-			<Tool
-				Name="VCALinkTool"
-			/>
-			<Tool
-				Name="VCX360ImageTool"
-			/>
-			<Tool
-				Name="VCBscMakeTool"
-			/>
-			<Tool
-				Name="VCX360DeploymentTool"
-			/>
-			<Tool
-				Name="VCPostBuildEventTool"
-			/>
-			<DebuggerTool
-			/>
-		</Configuration>
-		<Configuration
 			Name="PS3 SNC Debug|x64"
 			ConfigurationType="1"
 			>
@@ -790,64 +558,6 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
-			/>
-		</Configuration>
-		<Configuration
-			Name="PS3 SNC Release|Xbox 360"
-			OutputDirectory="$(SolutionDir)$(PlatformName)\$(ConfigurationName)"
-			IntermediateDirectory="$(PlatformName)\$(ConfigurationName)"
-			ConfigurationType="1"
-			UseOfMFC="-1"
-			UseOfATL="0"
-			>
-			<Tool
-				Name="VCPreBuildEventTool"
-			/>
-			<Tool
-				Name="VCCustomBuildTool"
-			/>
-			<Tool
-				Name="VCXMLDataGeneratorTool"
-			/>
-			<Tool
-				Name="VCWebServiceProxyGeneratorTool"
-			/>
-			<Tool
-				Name="VCMIDLTool"
-			/>
-			<Tool
-				Name="VCCLX360CompilerTool"
-				AdditionalOptions="/MP"
-				MinimalRebuild="false"
-			/>
-			<Tool
-				Name="VCManagedResourceCompilerTool"
-			/>
-			<Tool
-				Name="VCResourceCompilerTool"
-			/>
-			<Tool
-				Name="VCPreLinkEventTool"
-			/>
-			<Tool
-				Name="VCX360LinkerTool"
-			/>
-			<Tool
-				Name="VCALinkTool"
-			/>
-			<Tool
-				Name="VCX360ImageTool"
-			/>
-			<Tool
-				Name="VCBscMakeTool"
-			/>
-			<Tool
-				Name="VCX360DeploymentTool"
-			/>
-			<Tool
-				Name="VCPostBuildEventTool"
-			/>
-			<DebuggerTool
 			/>
 		</Configuration>
 		<Configuration
@@ -971,64 +681,6 @@
 			/>
 		</Configuration>
 		<Configuration
-			Name="PS3 SNC Master Gold|Xbox 360"
-			OutputDirectory="$(SolutionDir)$(PlatformName)\$(ConfigurationName)"
-			IntermediateDirectory="$(PlatformName)\$(ConfigurationName)"
-			ConfigurationType="1"
-			UseOfMFC="-1"
-			UseOfATL="0"
-			>
-			<Tool
-				Name="VCPreBuildEventTool"
-			/>
-			<Tool
-				Name="VCCustomBuildTool"
-			/>
-			<Tool
-				Name="VCXMLDataGeneratorTool"
-			/>
-			<Tool
-				Name="VCWebServiceProxyGeneratorTool"
-			/>
-			<Tool
-				Name="VCMIDLTool"
-			/>
-			<Tool
-				Name="VCCLX360CompilerTool"
-				AdditionalOptions="/MP"
-				MinimalRebuild="false"
-			/>
-			<Tool
-				Name="VCManagedResourceCompilerTool"
-			/>
-			<Tool
-				Name="VCResourceCompilerTool"
-			/>
-			<Tool
-				Name="VCPreLinkEventTool"
-			/>
-			<Tool
-				Name="VCX360LinkerTool"
-			/>
-			<Tool
-				Name="VCALinkTool"
-			/>
-			<Tool
-				Name="VCX360ImageTool"
-			/>
-			<Tool
-				Name="VCBscMakeTool"
-			/>
-			<Tool
-				Name="VCX360DeploymentTool"
-			/>
-			<Tool
-				Name="VCPostBuildEventTool"
-			/>
-			<DebuggerTool
-			/>
-		</Configuration>
-		<Configuration
 			Name="PS3 SNC Master Gold|x64"
 			IntermediateDirectory="$(PlatformName)\$(ConfigurationName)"
 			ConfigurationType="1"
@@ -1146,6 +798,7 @@
 			<Tool
 				Name="VCLibrarianTool"
 				OutputFile="$(SolutionDir)../binaries/$(PlatformName)/libraries/xray_$(ProjectName).lib"
+				AdditionalLibraryDirectories=""
 			/>
 			<Tool
 				Name="VCALinkTool"
@@ -1161,79 +814,6 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
-			/>
-		</Configuration>
-		<Configuration
-			Name="Release|Xbox 360"
-			OutputDirectory="$(SolutionDir)../binaries/$(PlatformName)/intermediates/$(ConfigurationName)/$(ProjectName)"
-			IntermediateDirectory="$(SolutionDir)../binaries/$(PlatformName)/intermediates/$(ConfigurationName)/$(ProjectName)"
-			ConfigurationType="4"
-			UseOfMFC="-1"
-			UseOfATL="0"
-			CharacterSet="2"
-			WholeProgramOptimization="1"
-			>
-			<Tool
-				Name="VCPreBuildEventTool"
-			/>
-			<Tool
-				Name="VCCustomBuildTool"
-			/>
-			<Tool
-				Name="VCXMLDataGeneratorTool"
-			/>
-			<Tool
-				Name="VCWebServiceProxyGeneratorTool"
-			/>
-			<Tool
-				Name="VCMIDLTool"
-			/>
-			<Tool
-				Name="VCCLX360CompilerTool"
-				AdditionalOptions="/MP"
-				Optimization="3"
-				InlineFunctionExpansion="2"
-				EnableIntrinsicFunctions="true"
-				EnableFiberSafeOptimizations="true"
-				AdditionalIncludeDirectories="$(SolutionDir)/stlport;$(SolutionDir);"
-				PreprocessorDefinitions="_XBOX;NDEBUG;"
-				StringPooling="true"
-				MinimalRebuild="false"
-				ExceptionHandling="0"
-				RuntimeLibrary="0"
-				BufferSecurityCheck="false"
-				FloatingPointModel="2"
-				RuntimeTypeInfo="true"
-				UsePrecompiledHeader="2"
-				PrecompiledHeaderThrough="pch.h"
-				PrecompiledHeaderFile="$(IntDir)\$(ProjectName).pch"
-				WarningLevel="4"
-				DebugInformationFormat="3"
-				TrapIntegerDivides="true"
-			/>
-			<Tool
-				Name="VCManagedResourceCompilerTool"
-			/>
-			<Tool
-				Name="VCResourceCompilerTool"
-			/>
-			<Tool
-				Name="VCPreLinkEventTool"
-			/>
-			<Tool
-				Name="VCLibrarianTool"
-				OutputFile="$(SolutionDir)../binaries/$(PlatformName)/libraries/xray_$(ProjectName)-static.lib"
-			/>
-			<Tool
-				Name="VCALinkTool"
-			/>
-			<Tool
-				Name="VCBscMakeTool"
-			/>
-			<Tool
-				Name="VCPostBuildEventTool"
-			/>
-			<DebuggerTool
 			/>
 		</Configuration>
 		<Configuration
@@ -1380,77 +960,6 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
-			/>
-		</Configuration>
-		<Configuration
-			Name="Debug|Xbox 360"
-			OutputDirectory="$(SolutionDir)../binaries/$(PlatformName)/intermediates/$(ConfigurationName)/$(ProjectName)"
-			IntermediateDirectory="$(SolutionDir)../binaries/$(PlatformName)/intermediates/$(ConfigurationName)/$(ProjectName)"
-			ConfigurationType="4"
-			UseOfMFC="-1"
-			UseOfATL="0"
-			CharacterSet="2"
-			>
-			<Tool
-				Name="VCPreBuildEventTool"
-			/>
-			<Tool
-				Name="VCCustomBuildTool"
-			/>
-			<Tool
-				Name="VCXMLDataGeneratorTool"
-			/>
-			<Tool
-				Name="VCWebServiceProxyGeneratorTool"
-			/>
-			<Tool
-				Name="VCMIDLTool"
-			/>
-			<Tool
-				Name="VCCLX360CompilerTool"
-				AdditionalOptions="/MP"
-				Optimization="0"
-				AdditionalIncludeDirectories="$(SolutionDir)/stlport;$(SolutionDir);"
-				PreprocessorDefinitions="_XBOX"
-				StringPooling="false"
-				MinimalRebuild="false"
-				ExceptionHandling="0"
-				BasicRuntimeChecks="3"
-				RuntimeLibrary="0"
-				BufferSecurityCheck="false"
-				EnableFunctionLevelLinking="true"
-				FloatingPointModel="0"
-				FloatingPointExceptions="true"
-				RuntimeTypeInfo="true"
-				UsePrecompiledHeader="2"
-				PrecompiledHeaderThrough="pch.h"
-				PrecompiledHeaderFile="$(IntDir)\$(ProjectName).pch"
-				WarningLevel="4"
-				DebugInformationFormat="3"
-			/>
-			<Tool
-				Name="VCManagedResourceCompilerTool"
-			/>
-			<Tool
-				Name="VCResourceCompilerTool"
-			/>
-			<Tool
-				Name="VCPreLinkEventTool"
-			/>
-			<Tool
-				Name="VCLibrarianTool"
-				OutputFile="$(SolutionDir)../binaries/$(PlatformName)/libraries/xray_$(ProjectName)-static-debug.lib"
-			/>
-			<Tool
-				Name="VCALinkTool"
-			/>
-			<Tool
-				Name="VCBscMakeTool"
-			/>
-			<Tool
-				Name="VCPostBuildEventTool"
-			/>
-			<DebuggerTool
 			/>
 		</Configuration>
 		<Configuration
@@ -1602,80 +1111,6 @@
 			/>
 		</Configuration>
 		<Configuration
-			Name="Release(static)|Xbox 360"
-			OutputDirectory="$(SolutionDir)../binaries/$(PlatformName)/intermediates/$(ConfigurationName)/$(ProjectName)"
-			IntermediateDirectory="$(SolutionDir)../binaries/$(PlatformName)/intermediates/$(ConfigurationName)/$(ProjectName)"
-			ConfigurationType="4"
-			UseOfMFC="-1"
-			UseOfATL="0"
-			CharacterSet="2"
-			WholeProgramOptimization="1"
-			>
-			<Tool
-				Name="VCPreBuildEventTool"
-			/>
-			<Tool
-				Name="VCCustomBuildTool"
-			/>
-			<Tool
-				Name="VCXMLDataGeneratorTool"
-			/>
-			<Tool
-				Name="VCWebServiceProxyGeneratorTool"
-			/>
-			<Tool
-				Name="VCMIDLTool"
-			/>
-			<Tool
-				Name="VCCLX360CompilerTool"
-				AdditionalOptions="/MP"
-				Optimization="2"
-				InlineFunctionExpansion="2"
-				EnableIntrinsicFunctions="true"
-				FavorSizeOrSpeed="1"
-				EnableFiberSafeOptimizations="true"
-				AdditionalIncludeDirectories="&quot;$(SolutionDir)/stlport&quot;;&quot;$(SolutionDir)&quot;;&quot;$(SolutionDir)/bullet&quot;"
-				PreprocessorDefinitions="_XBOX;NDEBUG;"
-				StringPooling="true"
-				MinimalRebuild="false"
-				ExceptionHandling="0"
-				RuntimeLibrary="0"
-				BufferSecurityCheck="false"
-				FloatingPointModel="2"
-				RuntimeTypeInfo="true"
-				UsePrecompiledHeader="2"
-				PrecompiledHeaderThrough="pch.h"
-				PrecompiledHeaderFile="$(IntDir)\$(ProjectName).pch"
-				WarningLevel="4"
-				DebugInformationFormat="3"
-				TrapIntegerDivides="true"
-			/>
-			<Tool
-				Name="VCManagedResourceCompilerTool"
-			/>
-			<Tool
-				Name="VCResourceCompilerTool"
-			/>
-			<Tool
-				Name="VCPreLinkEventTool"
-			/>
-			<Tool
-				Name="VCLibrarianTool"
-				OutputFile="$(SolutionDir)../binaries/$(PlatformName)/libraries/xray_$(ProjectName)-static.lib"
-			/>
-			<Tool
-				Name="VCALinkTool"
-			/>
-			<Tool
-				Name="VCBscMakeTool"
-			/>
-			<Tool
-				Name="VCPostBuildEventTool"
-			/>
-			<DebuggerTool
-			/>
-		</Configuration>
-		<Configuration
 			Name="Release(static)|x64"
 			OutputDirectory="$(SolutionDir)../binaries/$(PlatformName)/intermediates/$(ConfigurationName)/$(ProjectName)"
 			IntermediateDirectory="$(SolutionDir)../binaries/$(PlatformName)/intermediates/$(ConfigurationName)/$(ProjectName)"
@@ -1821,77 +1256,6 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
-			/>
-		</Configuration>
-		<Configuration
-			Name="Debug(static)|Xbox 360"
-			OutputDirectory="$(SolutionDir)../binaries/$(PlatformName)/intermediates/$(ConfigurationName)/$(ProjectName)"
-			IntermediateDirectory="$(SolutionDir)../binaries/$(PlatformName)/intermediates/$(ConfigurationName)/$(ProjectName)"
-			ConfigurationType="4"
-			UseOfMFC="-1"
-			UseOfATL="0"
-			CharacterSet="2"
-			>
-			<Tool
-				Name="VCPreBuildEventTool"
-			/>
-			<Tool
-				Name="VCCustomBuildTool"
-			/>
-			<Tool
-				Name="VCXMLDataGeneratorTool"
-			/>
-			<Tool
-				Name="VCWebServiceProxyGeneratorTool"
-			/>
-			<Tool
-				Name="VCMIDLTool"
-			/>
-			<Tool
-				Name="VCCLX360CompilerTool"
-				AdditionalOptions="/MP"
-				Optimization="0"
-				AdditionalIncludeDirectories="&quot;$(SolutionDir)/stlport&quot;;&quot;$(SolutionDir)&quot;;&quot;$(SolutionDir)/bullet&quot;"
-				PreprocessorDefinitions="_XBOX"
-				StringPooling="false"
-				MinimalRebuild="false"
-				ExceptionHandling="0"
-				BasicRuntimeChecks="3"
-				RuntimeLibrary="0"
-				BufferSecurityCheck="false"
-				EnableFunctionLevelLinking="true"
-				FloatingPointModel="0"
-				FloatingPointExceptions="true"
-				RuntimeTypeInfo="true"
-				UsePrecompiledHeader="2"
-				PrecompiledHeaderThrough="pch.h"
-				PrecompiledHeaderFile="$(IntDir)\$(ProjectName).pch"
-				WarningLevel="4"
-				DebugInformationFormat="3"
-			/>
-			<Tool
-				Name="VCManagedResourceCompilerTool"
-			/>
-			<Tool
-				Name="VCResourceCompilerTool"
-			/>
-			<Tool
-				Name="VCPreLinkEventTool"
-			/>
-			<Tool
-				Name="VCLibrarianTool"
-				OutputFile="$(SolutionDir)../binaries/$(PlatformName)/libraries/xray_$(ProjectName)-static-debug.lib"
-			/>
-			<Tool
-				Name="VCALinkTool"
-			/>
-			<Tool
-				Name="VCBscMakeTool"
-			/>
-			<Tool
-				Name="VCPostBuildEventTool"
-			/>
-			<DebuggerTool
 			/>
 		</Configuration>
 		<Configuration
@@ -2044,79 +1408,6 @@
 			/>
 		</Configuration>
 		<Configuration
-			Name="Master Gold|Xbox 360"
-			OutputDirectory="$(SolutionDir)../binaries/$(PlatformName)/intermediates/$(ConfigurationName)/$(ProjectName)"
-			IntermediateDirectory="$(SolutionDir)../binaries/$(PlatformName)/intermediates/$(ConfigurationName)/$(ProjectName)"
-			ConfigurationType="4"
-			UseOfMFC="-1"
-			UseOfATL="0"
-			CharacterSet="2"
-			WholeProgramOptimization="1"
-			>
-			<Tool
-				Name="VCPreBuildEventTool"
-			/>
-			<Tool
-				Name="VCCustomBuildTool"
-			/>
-			<Tool
-				Name="VCXMLDataGeneratorTool"
-			/>
-			<Tool
-				Name="VCWebServiceProxyGeneratorTool"
-			/>
-			<Tool
-				Name="VCMIDLTool"
-			/>
-			<Tool
-				Name="VCCLX360CompilerTool"
-				AdditionalOptions="/MP"
-				Optimization="3"
-				InlineFunctionExpansion="2"
-				EnableIntrinsicFunctions="true"
-				EnableFiberSafeOptimizations="true"
-				AdditionalIncludeDirectories="&quot;$(SolutionDir)/stlport&quot;;&quot;$(SolutionDir)&quot;;&quot;$(SolutionDir)/bullet&quot;"
-				PreprocessorDefinitions="_XBOX;NDEBUG;MASTER_GOLD;"
-				StringPooling="true"
-				MinimalRebuild="false"
-				ExceptionHandling="0"
-				RuntimeLibrary="0"
-				BufferSecurityCheck="false"
-				FloatingPointModel="2"
-				RuntimeTypeInfo="true"
-				UsePrecompiledHeader="2"
-				PrecompiledHeaderThrough="pch.h"
-				PrecompiledHeaderFile="$(IntDir)\$(ProjectName).pch"
-				WarningLevel="4"
-				DebugInformationFormat="3"
-				TrapIntegerDivides="true"
-			/>
-			<Tool
-				Name="VCManagedResourceCompilerTool"
-			/>
-			<Tool
-				Name="VCResourceCompilerTool"
-			/>
-			<Tool
-				Name="VCPreLinkEventTool"
-			/>
-			<Tool
-				Name="VCLibrarianTool"
-				OutputFile="$(SolutionDir)../binaries/$(PlatformName)/libraries/xray_$(ProjectName)-static-gold.lib"
-			/>
-			<Tool
-				Name="VCALinkTool"
-			/>
-			<Tool
-				Name="VCBscMakeTool"
-			/>
-			<Tool
-				Name="VCPostBuildEventTool"
-			/>
-			<DebuggerTool
-			/>
-		</Configuration>
-		<Configuration
 			Name="Master Gold|x64"
 			OutputDirectory="$(SolutionDir)../binaries/$(PlatformName)/intermediates/$(ConfigurationName)/$(ProjectName)"
 			IntermediateDirectory="$(SolutionDir)../binaries/$(PlatformName)/intermediates/$(ConfigurationName)/$(ProjectName)"
@@ -2190,6 +1481,716 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
+			/>
+		</Configuration>
+		<Configuration
+			Name="PS3 GCC Debug|Xbox 360"
+			OutputDirectory="$(SolutionDir)$(PlatformName)\$(ConfigurationName)"
+			IntermediateDirectory="$(PlatformName)\$(ConfigurationName)"
+			ConfigurationType="1"
+			UseOfMFC="-1"
+			UseOfATL="0"
+			>
+			<Tool
+				Name="VCPreBuildEventTool"
+			/>
+			<Tool
+				Name="VCCustomBuildTool"
+			/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"
+			/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"
+			/>
+			<Tool
+				Name="VCMIDLTool"
+			/>
+			<Tool
+				Name="VCCLX360CompilerTool"
+				AdditionalOptions="/MP"
+				MinimalRebuild="false"
+			/>
+			<Tool
+				Name="VCManagedResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCPreLinkEventTool"
+			/>
+			<Tool
+				Name="VCX360LinkerTool"
+			/>
+			<Tool
+				Name="VCALinkTool"
+			/>
+			<Tool
+				Name="VCX360ImageTool"
+			/>
+			<Tool
+				Name="VCBscMakeTool"
+			/>
+			<Tool
+				Name="VCX360DeploymentTool"
+			/>
+			<Tool
+				Name="VCPostBuildEventTool"
+			/>
+			<DebuggerTool
+			/>
+		</Configuration>
+		<Configuration
+			Name="PS3 GCC Release|Xbox 360"
+			OutputDirectory="$(SolutionDir)$(PlatformName)\$(ConfigurationName)"
+			IntermediateDirectory="$(PlatformName)\$(ConfigurationName)"
+			ConfigurationType="1"
+			UseOfMFC="-1"
+			UseOfATL="0"
+			>
+			<Tool
+				Name="VCPreBuildEventTool"
+			/>
+			<Tool
+				Name="VCCustomBuildTool"
+			/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"
+			/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"
+			/>
+			<Tool
+				Name="VCMIDLTool"
+			/>
+			<Tool
+				Name="VCCLX360CompilerTool"
+				AdditionalOptions="/MP"
+				MinimalRebuild="false"
+			/>
+			<Tool
+				Name="VCManagedResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCPreLinkEventTool"
+			/>
+			<Tool
+				Name="VCX360LinkerTool"
+			/>
+			<Tool
+				Name="VCALinkTool"
+			/>
+			<Tool
+				Name="VCX360ImageTool"
+			/>
+			<Tool
+				Name="VCBscMakeTool"
+			/>
+			<Tool
+				Name="VCX360DeploymentTool"
+			/>
+			<Tool
+				Name="VCPostBuildEventTool"
+			/>
+			<DebuggerTool
+			/>
+		</Configuration>
+		<Configuration
+			Name="PS3 GCC Master Gold|Xbox 360"
+			OutputDirectory="$(SolutionDir)$(PlatformName)\$(ConfigurationName)"
+			IntermediateDirectory="$(PlatformName)\$(ConfigurationName)"
+			ConfigurationType="1"
+			UseOfMFC="-1"
+			UseOfATL="0"
+			>
+			<Tool
+				Name="VCPreBuildEventTool"
+			/>
+			<Tool
+				Name="VCCustomBuildTool"
+			/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"
+			/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"
+			/>
+			<Tool
+				Name="VCMIDLTool"
+			/>
+			<Tool
+				Name="VCCLX360CompilerTool"
+				AdditionalOptions="/MP"
+				MinimalRebuild="false"
+			/>
+			<Tool
+				Name="VCManagedResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCPreLinkEventTool"
+			/>
+			<Tool
+				Name="VCX360LinkerTool"
+			/>
+			<Tool
+				Name="VCALinkTool"
+			/>
+			<Tool
+				Name="VCX360ImageTool"
+			/>
+			<Tool
+				Name="VCBscMakeTool"
+			/>
+			<Tool
+				Name="VCX360DeploymentTool"
+			/>
+			<Tool
+				Name="VCPostBuildEventTool"
+			/>
+			<DebuggerTool
+			/>
+		</Configuration>
+		<Configuration
+			Name="PS3 SNC Debug|Xbox 360"
+			OutputDirectory="$(SolutionDir)$(PlatformName)\$(ConfigurationName)"
+			IntermediateDirectory="$(PlatformName)\$(ConfigurationName)"
+			ConfigurationType="1"
+			UseOfMFC="-1"
+			UseOfATL="0"
+			>
+			<Tool
+				Name="VCPreBuildEventTool"
+			/>
+			<Tool
+				Name="VCCustomBuildTool"
+			/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"
+			/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"
+			/>
+			<Tool
+				Name="VCMIDLTool"
+			/>
+			<Tool
+				Name="VCCLX360CompilerTool"
+				AdditionalOptions="/MP"
+				MinimalRebuild="false"
+			/>
+			<Tool
+				Name="VCManagedResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCPreLinkEventTool"
+			/>
+			<Tool
+				Name="VCX360LinkerTool"
+			/>
+			<Tool
+				Name="VCALinkTool"
+			/>
+			<Tool
+				Name="VCX360ImageTool"
+			/>
+			<Tool
+				Name="VCBscMakeTool"
+			/>
+			<Tool
+				Name="VCX360DeploymentTool"
+			/>
+			<Tool
+				Name="VCPostBuildEventTool"
+			/>
+			<DebuggerTool
+			/>
+		</Configuration>
+		<Configuration
+			Name="PS3 SNC Release|Xbox 360"
+			OutputDirectory="$(SolutionDir)$(PlatformName)\$(ConfigurationName)"
+			IntermediateDirectory="$(PlatformName)\$(ConfigurationName)"
+			ConfigurationType="1"
+			UseOfMFC="-1"
+			UseOfATL="0"
+			>
+			<Tool
+				Name="VCPreBuildEventTool"
+			/>
+			<Tool
+				Name="VCCustomBuildTool"
+			/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"
+			/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"
+			/>
+			<Tool
+				Name="VCMIDLTool"
+			/>
+			<Tool
+				Name="VCCLX360CompilerTool"
+				AdditionalOptions="/MP"
+				MinimalRebuild="false"
+			/>
+			<Tool
+				Name="VCManagedResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCPreLinkEventTool"
+			/>
+			<Tool
+				Name="VCX360LinkerTool"
+			/>
+			<Tool
+				Name="VCALinkTool"
+			/>
+			<Tool
+				Name="VCX360ImageTool"
+			/>
+			<Tool
+				Name="VCBscMakeTool"
+			/>
+			<Tool
+				Name="VCX360DeploymentTool"
+			/>
+			<Tool
+				Name="VCPostBuildEventTool"
+			/>
+			<DebuggerTool
+			/>
+		</Configuration>
+		<Configuration
+			Name="PS3 SNC Master Gold|Xbox 360"
+			OutputDirectory="$(SolutionDir)$(PlatformName)\$(ConfigurationName)"
+			IntermediateDirectory="$(PlatformName)\$(ConfigurationName)"
+			ConfigurationType="1"
+			UseOfMFC="-1"
+			UseOfATL="0"
+			>
+			<Tool
+				Name="VCPreBuildEventTool"
+			/>
+			<Tool
+				Name="VCCustomBuildTool"
+			/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"
+			/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"
+			/>
+			<Tool
+				Name="VCMIDLTool"
+			/>
+			<Tool
+				Name="VCCLX360CompilerTool"
+				AdditionalOptions="/MP"
+				MinimalRebuild="false"
+			/>
+			<Tool
+				Name="VCManagedResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCPreLinkEventTool"
+			/>
+			<Tool
+				Name="VCX360LinkerTool"
+			/>
+			<Tool
+				Name="VCALinkTool"
+			/>
+			<Tool
+				Name="VCX360ImageTool"
+			/>
+			<Tool
+				Name="VCBscMakeTool"
+			/>
+			<Tool
+				Name="VCX360DeploymentTool"
+			/>
+			<Tool
+				Name="VCPostBuildEventTool"
+			/>
+			<DebuggerTool
+			/>
+		</Configuration>
+		<Configuration
+			Name="Release|Xbox 360"
+			OutputDirectory="$(SolutionDir)../binaries/$(PlatformName)/intermediates/$(ConfigurationName)/$(ProjectName)"
+			IntermediateDirectory="$(SolutionDir)../binaries/$(PlatformName)/intermediates/$(ConfigurationName)/$(ProjectName)"
+			ConfigurationType="4"
+			UseOfMFC="-1"
+			UseOfATL="0"
+			CharacterSet="2"
+			WholeProgramOptimization="1"
+			>
+			<Tool
+				Name="VCPreBuildEventTool"
+			/>
+			<Tool
+				Name="VCCustomBuildTool"
+			/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"
+			/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"
+			/>
+			<Tool
+				Name="VCMIDLTool"
+			/>
+			<Tool
+				Name="VCCLX360CompilerTool"
+				AdditionalOptions="/MP"
+				Optimization="3"
+				InlineFunctionExpansion="2"
+				EnableIntrinsicFunctions="true"
+				EnableFiberSafeOptimizations="true"
+				AdditionalIncludeDirectories="$(SolutionDir)/stlport;$(SolutionDir);"
+				PreprocessorDefinitions="_XBOX;NDEBUG;"
+				StringPooling="true"
+				MinimalRebuild="false"
+				ExceptionHandling="0"
+				RuntimeLibrary="0"
+				BufferSecurityCheck="false"
+				FloatingPointModel="2"
+				RuntimeTypeInfo="true"
+				UsePrecompiledHeader="2"
+				PrecompiledHeaderThrough="pch.h"
+				PrecompiledHeaderFile="$(IntDir)\$(ProjectName).pch"
+				WarningLevel="4"
+				DebugInformationFormat="3"
+				TrapIntegerDivides="true"
+			/>
+			<Tool
+				Name="VCManagedResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCPreLinkEventTool"
+			/>
+			<Tool
+				Name="VCLibrarianTool"
+				OutputFile="$(SolutionDir)../binaries/$(PlatformName)/libraries/xray_$(ProjectName)-static.lib"
+			/>
+			<Tool
+				Name="VCALinkTool"
+			/>
+			<Tool
+				Name="VCBscMakeTool"
+			/>
+			<Tool
+				Name="VCPostBuildEventTool"
+			/>
+			<DebuggerTool
+			/>
+		</Configuration>
+		<Configuration
+			Name="Debug|Xbox 360"
+			OutputDirectory="$(SolutionDir)../binaries/$(PlatformName)/intermediates/$(ConfigurationName)/$(ProjectName)"
+			IntermediateDirectory="$(SolutionDir)../binaries/$(PlatformName)/intermediates/$(ConfigurationName)/$(ProjectName)"
+			ConfigurationType="4"
+			UseOfMFC="-1"
+			UseOfATL="0"
+			CharacterSet="2"
+			>
+			<Tool
+				Name="VCPreBuildEventTool"
+			/>
+			<Tool
+				Name="VCCustomBuildTool"
+			/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"
+			/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"
+			/>
+			<Tool
+				Name="VCMIDLTool"
+			/>
+			<Tool
+				Name="VCCLX360CompilerTool"
+				AdditionalOptions="/MP"
+				Optimization="0"
+				AdditionalIncludeDirectories="$(SolutionDir)/stlport;$(SolutionDir);"
+				PreprocessorDefinitions="_XBOX"
+				StringPooling="false"
+				MinimalRebuild="false"
+				ExceptionHandling="0"
+				BasicRuntimeChecks="3"
+				RuntimeLibrary="0"
+				BufferSecurityCheck="false"
+				EnableFunctionLevelLinking="true"
+				FloatingPointModel="0"
+				FloatingPointExceptions="true"
+				RuntimeTypeInfo="true"
+				UsePrecompiledHeader="2"
+				PrecompiledHeaderThrough="pch.h"
+				PrecompiledHeaderFile="$(IntDir)\$(ProjectName).pch"
+				WarningLevel="4"
+				DebugInformationFormat="3"
+			/>
+			<Tool
+				Name="VCManagedResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCPreLinkEventTool"
+			/>
+			<Tool
+				Name="VCLibrarianTool"
+				OutputFile="$(SolutionDir)../binaries/$(PlatformName)/libraries/xray_$(ProjectName)-static-debug.lib"
+			/>
+			<Tool
+				Name="VCALinkTool"
+			/>
+			<Tool
+				Name="VCBscMakeTool"
+			/>
+			<Tool
+				Name="VCPostBuildEventTool"
+			/>
+			<DebuggerTool
+			/>
+		</Configuration>
+		<Configuration
+			Name="Release(static)|Xbox 360"
+			OutputDirectory="$(SolutionDir)../binaries/$(PlatformName)/intermediates/$(ConfigurationName)/$(ProjectName)"
+			IntermediateDirectory="$(SolutionDir)../binaries/$(PlatformName)/intermediates/$(ConfigurationName)/$(ProjectName)"
+			ConfigurationType="4"
+			UseOfMFC="-1"
+			UseOfATL="0"
+			CharacterSet="2"
+			WholeProgramOptimization="1"
+			>
+			<Tool
+				Name="VCPreBuildEventTool"
+			/>
+			<Tool
+				Name="VCCustomBuildTool"
+			/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"
+			/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"
+			/>
+			<Tool
+				Name="VCMIDLTool"
+			/>
+			<Tool
+				Name="VCCLX360CompilerTool"
+				AdditionalOptions="/MP"
+				Optimization="2"
+				InlineFunctionExpansion="2"
+				EnableIntrinsicFunctions="true"
+				FavorSizeOrSpeed="1"
+				EnableFiberSafeOptimizations="true"
+				AdditionalIncludeDirectories="&quot;$(SolutionDir)/stlport&quot;;&quot;$(SolutionDir)&quot;;&quot;$(SolutionDir)/bullet&quot;"
+				PreprocessorDefinitions="_XBOX;NDEBUG;"
+				StringPooling="true"
+				MinimalRebuild="false"
+				ExceptionHandling="0"
+				RuntimeLibrary="0"
+				BufferSecurityCheck="false"
+				FloatingPointModel="2"
+				RuntimeTypeInfo="true"
+				UsePrecompiledHeader="2"
+				PrecompiledHeaderThrough="pch.h"
+				PrecompiledHeaderFile="$(IntDir)\$(ProjectName).pch"
+				WarningLevel="4"
+				DebugInformationFormat="3"
+				TrapIntegerDivides="true"
+			/>
+			<Tool
+				Name="VCManagedResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCPreLinkEventTool"
+			/>
+			<Tool
+				Name="VCLibrarianTool"
+				OutputFile="$(SolutionDir)../binaries/$(PlatformName)/libraries/xray_$(ProjectName)-static.lib"
+			/>
+			<Tool
+				Name="VCALinkTool"
+			/>
+			<Tool
+				Name="VCBscMakeTool"
+			/>
+			<Tool
+				Name="VCPostBuildEventTool"
+			/>
+			<DebuggerTool
+			/>
+		</Configuration>
+		<Configuration
+			Name="Debug(static)|Xbox 360"
+			OutputDirectory="$(SolutionDir)../binaries/$(PlatformName)/intermediates/$(ConfigurationName)/$(ProjectName)"
+			IntermediateDirectory="$(SolutionDir)../binaries/$(PlatformName)/intermediates/$(ConfigurationName)/$(ProjectName)"
+			ConfigurationType="4"
+			UseOfMFC="-1"
+			UseOfATL="0"
+			CharacterSet="2"
+			>
+			<Tool
+				Name="VCPreBuildEventTool"
+			/>
+			<Tool
+				Name="VCCustomBuildTool"
+			/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"
+			/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"
+			/>
+			<Tool
+				Name="VCMIDLTool"
+			/>
+			<Tool
+				Name="VCCLX360CompilerTool"
+				AdditionalOptions="/MP"
+				Optimization="0"
+				AdditionalIncludeDirectories="&quot;$(SolutionDir)/stlport&quot;;&quot;$(SolutionDir)&quot;;&quot;$(SolutionDir)/bullet&quot;"
+				PreprocessorDefinitions="_XBOX"
+				StringPooling="false"
+				MinimalRebuild="false"
+				ExceptionHandling="0"
+				BasicRuntimeChecks="3"
+				RuntimeLibrary="0"
+				BufferSecurityCheck="false"
+				EnableFunctionLevelLinking="true"
+				FloatingPointModel="0"
+				FloatingPointExceptions="true"
+				RuntimeTypeInfo="true"
+				UsePrecompiledHeader="2"
+				PrecompiledHeaderThrough="pch.h"
+				PrecompiledHeaderFile="$(IntDir)\$(ProjectName).pch"
+				WarningLevel="4"
+				DebugInformationFormat="3"
+			/>
+			<Tool
+				Name="VCManagedResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCPreLinkEventTool"
+			/>
+			<Tool
+				Name="VCLibrarianTool"
+				OutputFile="$(SolutionDir)../binaries/$(PlatformName)/libraries/xray_$(ProjectName)-static-debug.lib"
+			/>
+			<Tool
+				Name="VCALinkTool"
+			/>
+			<Tool
+				Name="VCBscMakeTool"
+			/>
+			<Tool
+				Name="VCPostBuildEventTool"
+			/>
+			<DebuggerTool
+			/>
+		</Configuration>
+		<Configuration
+			Name="Master Gold|Xbox 360"
+			OutputDirectory="$(SolutionDir)../binaries/$(PlatformName)/intermediates/$(ConfigurationName)/$(ProjectName)"
+			IntermediateDirectory="$(SolutionDir)../binaries/$(PlatformName)/intermediates/$(ConfigurationName)/$(ProjectName)"
+			ConfigurationType="4"
+			UseOfMFC="-1"
+			UseOfATL="0"
+			CharacterSet="2"
+			WholeProgramOptimization="1"
+			>
+			<Tool
+				Name="VCPreBuildEventTool"
+			/>
+			<Tool
+				Name="VCCustomBuildTool"
+			/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"
+			/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"
+			/>
+			<Tool
+				Name="VCMIDLTool"
+			/>
+			<Tool
+				Name="VCCLX360CompilerTool"
+				AdditionalOptions="/MP"
+				Optimization="3"
+				InlineFunctionExpansion="2"
+				EnableIntrinsicFunctions="true"
+				EnableFiberSafeOptimizations="true"
+				AdditionalIncludeDirectories="&quot;$(SolutionDir)/stlport&quot;;&quot;$(SolutionDir)&quot;;&quot;$(SolutionDir)/bullet&quot;"
+				PreprocessorDefinitions="_XBOX;NDEBUG;MASTER_GOLD;"
+				StringPooling="true"
+				MinimalRebuild="false"
+				ExceptionHandling="0"
+				RuntimeLibrary="0"
+				BufferSecurityCheck="false"
+				FloatingPointModel="2"
+				RuntimeTypeInfo="true"
+				UsePrecompiledHeader="2"
+				PrecompiledHeaderThrough="pch.h"
+				PrecompiledHeaderFile="$(IntDir)\$(ProjectName).pch"
+				WarningLevel="4"
+				DebugInformationFormat="3"
+				TrapIntegerDivides="true"
+			/>
+			<Tool
+				Name="VCManagedResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCResourceCompilerTool"
+			/>
+			<Tool
+				Name="VCPreLinkEventTool"
+			/>
+			<Tool
+				Name="VCLibrarianTool"
+				OutputFile="$(SolutionDir)../binaries/$(PlatformName)/libraries/xray_$(ProjectName)-static-gold.lib"
+			/>
+			<Tool
+				Name="VCALinkTool"
+			/>
+			<Tool
+				Name="VCBscMakeTool"
+			/>
+			<Tool
+				Name="VCPostBuildEventTool"
+			/>
+			<DebuggerTool
 			/>
 		</Configuration>
 	</Configurations>
@@ -2279,14 +2280,6 @@
 					/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Release|Xbox 360"
-					>
-			<Tool
-				Name="VCCLX360CompilerTool"
-				UsePrecompiledHeader="1"
-			/>
-				</FileConfiguration>
-				<FileConfiguration
 					Name="Release|x64"
 					>
 					<Tool
@@ -2301,14 +2294,6 @@
 						Name="VCCLCompilerTool"
 						UsePrecompiledHeader="1"
 					/>
-				</FileConfiguration>
-				<FileConfiguration
-					Name="Debug|Xbox 360"
-					>
-			<Tool
-				Name="VCCLX360CompilerTool"
-				UsePrecompiledHeader="1"
-			/>
 				</FileConfiguration>
 				<FileConfiguration
 					Name="Debug|x64"
@@ -2327,14 +2312,6 @@
 					/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Release(static)|Xbox 360"
-					>
-			<Tool
-				Name="VCCLX360CompilerTool"
-				UsePrecompiledHeader="1"
-			/>
-				</FileConfiguration>
-				<FileConfiguration
 					Name="Release(static)|x64"
 					>
 					<Tool
@@ -2349,14 +2326,6 @@
 						Name="VCCLCompilerTool"
 						UsePrecompiledHeader="1"
 					/>
-				</FileConfiguration>
-				<FileConfiguration
-					Name="Debug(static)|Xbox 360"
-					>
-			<Tool
-				Name="VCCLX360CompilerTool"
-				UsePrecompiledHeader="1"
-			/>
 				</FileConfiguration>
 				<FileConfiguration
 					Name="Debug(static)|x64"
@@ -2375,18 +2344,50 @@
 					/>
 				</FileConfiguration>
 				<FileConfiguration
-					Name="Master Gold|Xbox 360"
-					>
-			<Tool
-				Name="VCCLX360CompilerTool"
-				UsePrecompiledHeader="1"
-			/>
-				</FileConfiguration>
-				<FileConfiguration
 					Name="Master Gold|x64"
 					>
 					<Tool
 						Name="VCCLCompilerTool"
+						UsePrecompiledHeader="1"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Xbox 360"
+					>
+					<Tool
+						Name="VCCLX360CompilerTool"
+						UsePrecompiledHeader="1"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Xbox 360"
+					>
+					<Tool
+						Name="VCCLX360CompilerTool"
+						UsePrecompiledHeader="1"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release(static)|Xbox 360"
+					>
+					<Tool
+						Name="VCCLX360CompilerTool"
+						UsePrecompiledHeader="1"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug(static)|Xbox 360"
+					>
+					<Tool
+						Name="VCCLX360CompilerTool"
+						UsePrecompiledHeader="1"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Master Gold|Xbox 360"
+					>
+					<Tool
+						Name="VCCLX360CompilerTool"
 						UsePrecompiledHeader="1"
 					/>
 				</FileConfiguration>
@@ -3109,14 +3110,6 @@
 							/>
 						</FileConfiguration>
 						<FileConfiguration
-							Name="PS3 GCC Debug|Xbox 360"
-							>
-			<Tool
-				Name="VCCLX360CompilerTool"
-				UsePrecompiledHeader="0"
-			/>
-						</FileConfiguration>
-						<FileConfiguration
 							Name="PS3 GCC Debug|x64"
 							>
 							<Tool
@@ -3131,14 +3124,6 @@
 								Name="VCCLCompilerTool"
 								UsePrecompiledHeader="0"
 							/>
-						</FileConfiguration>
-						<FileConfiguration
-							Name="PS3 GCC Release|Xbox 360"
-							>
-			<Tool
-				Name="VCCLX360CompilerTool"
-				UsePrecompiledHeader="0"
-			/>
 						</FileConfiguration>
 						<FileConfiguration
 							Name="PS3 GCC Release|x64"
@@ -3157,14 +3142,6 @@
 							/>
 						</FileConfiguration>
 						<FileConfiguration
-							Name="PS3 GCC Master Gold|Xbox 360"
-							>
-			<Tool
-				Name="VCCLX360CompilerTool"
-				UsePrecompiledHeader="0"
-			/>
-						</FileConfiguration>
-						<FileConfiguration
 							Name="PS3 GCC Master Gold|x64"
 							>
 							<Tool
@@ -3179,14 +3156,6 @@
 								Name="VCCLCompilerTool"
 								UsePrecompiledHeader="0"
 							/>
-						</FileConfiguration>
-						<FileConfiguration
-							Name="PS3 SNC Debug|Xbox 360"
-							>
-			<Tool
-				Name="VCCLX360CompilerTool"
-				UsePrecompiledHeader="0"
-			/>
 						</FileConfiguration>
 						<FileConfiguration
 							Name="PS3 SNC Debug|x64"
@@ -3205,14 +3174,6 @@
 							/>
 						</FileConfiguration>
 						<FileConfiguration
-							Name="PS3 SNC Release|Xbox 360"
-							>
-			<Tool
-				Name="VCCLX360CompilerTool"
-				UsePrecompiledHeader="0"
-			/>
-						</FileConfiguration>
-						<FileConfiguration
 							Name="PS3 SNC Release|x64"
 							>
 							<Tool
@@ -3227,14 +3188,6 @@
 								Name="VCCLCompilerTool"
 								UsePrecompiledHeader="0"
 							/>
-						</FileConfiguration>
-						<FileConfiguration
-							Name="PS3 SNC Master Gold|Xbox 360"
-							>
-			<Tool
-				Name="VCCLX360CompilerTool"
-				UsePrecompiledHeader="0"
-			/>
 						</FileConfiguration>
 						<FileConfiguration
 							Name="PS3 SNC Master Gold|x64"
@@ -3253,14 +3206,6 @@
 							/>
 						</FileConfiguration>
 						<FileConfiguration
-							Name="Release|Xbox 360"
-							>
-			<Tool
-				Name="VCCLX360CompilerTool"
-				UsePrecompiledHeader="0"
-			/>
-						</FileConfiguration>
-						<FileConfiguration
 							Name="Release|x64"
 							>
 							<Tool
@@ -3275,14 +3220,6 @@
 								Name="VCCLCompilerTool"
 								UsePrecompiledHeader="0"
 							/>
-						</FileConfiguration>
-						<FileConfiguration
-							Name="Debug|Xbox 360"
-							>
-			<Tool
-				Name="VCCLX360CompilerTool"
-				UsePrecompiledHeader="0"
-			/>
 						</FileConfiguration>
 						<FileConfiguration
 							Name="Debug|x64"
@@ -3301,14 +3238,6 @@
 							/>
 						</FileConfiguration>
 						<FileConfiguration
-							Name="Release(static)|Xbox 360"
-							>
-			<Tool
-				Name="VCCLX360CompilerTool"
-				UsePrecompiledHeader="0"
-			/>
-						</FileConfiguration>
-						<FileConfiguration
 							Name="Release(static)|x64"
 							>
 							<Tool
@@ -3323,14 +3252,6 @@
 								Name="VCCLCompilerTool"
 								UsePrecompiledHeader="0"
 							/>
-						</FileConfiguration>
-						<FileConfiguration
-							Name="Debug(static)|Xbox 360"
-							>
-			<Tool
-				Name="VCCLX360CompilerTool"
-				UsePrecompiledHeader="0"
-			/>
 						</FileConfiguration>
 						<FileConfiguration
 							Name="Debug(static)|x64"
@@ -3349,18 +3270,98 @@
 							/>
 						</FileConfiguration>
 						<FileConfiguration
-							Name="Master Gold|Xbox 360"
-							>
-			<Tool
-				Name="VCCLX360CompilerTool"
-				UsePrecompiledHeader="0"
-			/>
-						</FileConfiguration>
-						<FileConfiguration
 							Name="Master Gold|x64"
 							>
 							<Tool
 								Name="VCCLCompilerTool"
+								UsePrecompiledHeader="0"
+							/>
+						</FileConfiguration>
+						<FileConfiguration
+							Name="PS3 GCC Debug|Xbox 360"
+							>
+							<Tool
+								Name="VCCLX360CompilerTool"
+								UsePrecompiledHeader="0"
+							/>
+						</FileConfiguration>
+						<FileConfiguration
+							Name="PS3 GCC Release|Xbox 360"
+							>
+							<Tool
+								Name="VCCLX360CompilerTool"
+								UsePrecompiledHeader="0"
+							/>
+						</FileConfiguration>
+						<FileConfiguration
+							Name="PS3 GCC Master Gold|Xbox 360"
+							>
+							<Tool
+								Name="VCCLX360CompilerTool"
+								UsePrecompiledHeader="0"
+							/>
+						</FileConfiguration>
+						<FileConfiguration
+							Name="PS3 SNC Debug|Xbox 360"
+							>
+							<Tool
+								Name="VCCLX360CompilerTool"
+								UsePrecompiledHeader="0"
+							/>
+						</FileConfiguration>
+						<FileConfiguration
+							Name="PS3 SNC Release|Xbox 360"
+							>
+							<Tool
+								Name="VCCLX360CompilerTool"
+								UsePrecompiledHeader="0"
+							/>
+						</FileConfiguration>
+						<FileConfiguration
+							Name="PS3 SNC Master Gold|Xbox 360"
+							>
+							<Tool
+								Name="VCCLX360CompilerTool"
+								UsePrecompiledHeader="0"
+							/>
+						</FileConfiguration>
+						<FileConfiguration
+							Name="Release|Xbox 360"
+							>
+							<Tool
+								Name="VCCLX360CompilerTool"
+								UsePrecompiledHeader="0"
+							/>
+						</FileConfiguration>
+						<FileConfiguration
+							Name="Debug|Xbox 360"
+							>
+							<Tool
+								Name="VCCLX360CompilerTool"
+								UsePrecompiledHeader="0"
+							/>
+						</FileConfiguration>
+						<FileConfiguration
+							Name="Release(static)|Xbox 360"
+							>
+							<Tool
+								Name="VCCLX360CompilerTool"
+								UsePrecompiledHeader="0"
+							/>
+						</FileConfiguration>
+						<FileConfiguration
+							Name="Debug(static)|Xbox 360"
+							>
+							<Tool
+								Name="VCCLX360CompilerTool"
+								UsePrecompiledHeader="0"
+							/>
+						</FileConfiguration>
+						<FileConfiguration
+							Name="Master Gold|Xbox 360"
+							>
+							<Tool
+								Name="VCCLX360CompilerTool"
 								UsePrecompiledHeader="0"
 							/>
 						</FileConfiguration>

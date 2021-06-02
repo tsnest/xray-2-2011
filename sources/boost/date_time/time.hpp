@@ -78,21 +78,21 @@ namespace date_time {
     /*! Optional bool parameter will return time zone as an offset 
      * (ie "+07:00"). Empty string is returned for classes that do 
      * not use a time_zone */
-    xray::network::std_string zone_name(bool /*as_offset*/=false) const
+    std::string zone_name(bool /*as_offset*/=false) const
     {
       return time_system::zone_name(time_);
     }
     /*! Optional bool parameter will return time zone as an offset 
      * (ie "+07:00"). Empty string is returned for classes that do 
      * not use a time_zone */
-    xray::network::std_string zone_abbrev(bool /*as_offset*/=false) const
+    std::string zone_abbrev(bool /*as_offset*/=false) const
     {
       return time_system::zone_name(time_);
     }
     //! An empty string is returned for classes that do not use a time_zone
-    xray::network::std_string zone_as_posix_string() const
+    std::string zone_as_posix_string() const
     {
-      return xray::network::std_string();
+      return std::string();
     }
 
     //! check to see if date is not a value

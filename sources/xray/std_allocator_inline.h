@@ -71,6 +71,18 @@ inline typename STD_ALLOCATOR::pointer STD_ALLOCATOR::allocate		(size_type n, si
 }
 
 TEMPLATE_SIGNATURE
+inline typename STD_ALLOCATOR::pointer STD_ALLOCATOR::_M_allocate	( size_type const n, void* p ) const
+{
+	return						allocate(n, p);
+}
+
+TEMPLATE_SIGNATURE
+inline typename STD_ALLOCATOR::pointer STD_ALLOCATOR::_M_allocate	(size_type n, size_type& allocated) const
+{
+	return						allocate(n, allocated);
+}
+
+TEMPLATE_SIGNATURE
 inline char *STD_ALLOCATOR::__charalloc								( size_type const n )
 {
 	return 						( (char*)allocate(n) );

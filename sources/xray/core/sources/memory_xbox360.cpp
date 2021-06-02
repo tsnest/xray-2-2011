@@ -25,7 +25,8 @@ static u32 s_allocated_size_4kb			= 0;
 static pvoid s_address_4kb				= 0;
 
 static u64 const resources_arena_granularity	= 64*Kb;
-static u32 const memory_must_be_left			= 9*Mb + 256*Kb + 128*Kb + 64*Kb + 8*Kb + 4*Kb;
+static u32 const memory_must_be_left			= 9*Mb + 256*Kb + 128*Kb + 64*Kb + 8*Kb + 4*Kb
+												+ 4*Mb; // for shader compilation
 
 static inline bool inside					( pvoid const buffer, pvoid const arena, u64 const arena_size )
 {

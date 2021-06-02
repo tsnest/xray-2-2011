@@ -138,6 +138,7 @@ void world_user::set_active_sound_scene	(	sound_scene_ptr& scene,
 											u32 fade_in_time,
 											u32 fade_out_old_scene_time  )
 {
+	R_ASSERT					( scene );
 	sound_scene& scn					= static_cast_checked<sound_scene&>( *scene.c_ptr() );
 
 	functor_order* order				= XRAY_NEW_IMPL( m_allocator, functor_order )

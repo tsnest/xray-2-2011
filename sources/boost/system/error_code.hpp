@@ -129,7 +129,7 @@ namespace boost
         too_many_files_open_in_system = ENFILE,
         too_many_files_open = EMFILE,
         too_many_links = EMLINK,
-        too_many_synbolic_link_levels = ELOOP,
+        too_many_symbolic_link_levels = ELOOP,
         value_too_large = EOVERFLOW,
         wrong_protocol_type = EPROTOTYPE
       };
@@ -204,9 +204,12 @@ namespace boost
 
     static const error_category &  system_category = get_system_category();
     static const error_category &  generic_category = get_generic_category();
-    
+
+    //  deprecated synonyms --------------------------------------------------//
+
 # ifndef BOOST_SYSTEM_NO_DEPRECATED
-    //  deprecated synonyms
+    //inline const error_category &  get_system_category() { return system_category(); }
+    //inline const error_category &  get_generic_category() { return get_generic_category(); }
     inline const error_category &  get_posix_category() { return get_generic_category(); }
     static const error_category &  posix_category = get_generic_category();
     static const error_category &  errno_ecat     = get_generic_category();

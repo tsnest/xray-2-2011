@@ -23,15 +23,15 @@ namespace posix_time {
    * A negative duration will be created if the first character in
    * string is a '-', all other '-' will be treated as delimiters.
    * Accepted delimiters are "-:,.". */
-  inline time_duration duration_from_string(const xray::network::std_string& s) {
+  inline time_duration duration_from_string(const std::string& s) {
     return date_time::parse_delimited_time_duration<time_duration>(s);
   }
 
-  inline ptime time_from_string(const xray::network::std_string& s) {
+  inline ptime time_from_string(const std::string& s) {
     return date_time::parse_delimited_time<ptime>(s, ' ');
   }
 
-  inline ptime from_iso_string(const xray::network::std_string& s) {
+  inline ptime from_iso_string(const std::string& s) {
     return date_time::parse_iso_time<ptime>(s, 'T');
   }
 

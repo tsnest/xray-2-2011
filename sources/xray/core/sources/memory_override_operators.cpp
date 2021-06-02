@@ -153,7 +153,7 @@ inline void check_if_CRT_allocations_enabled	( )
 	}
 }
 
-#ifdef _MSC_VER
+#if defined(_MSC_VER) && !defined(_DLL)
 extern "C" {
 
 pvoid malloc					( size_t size )

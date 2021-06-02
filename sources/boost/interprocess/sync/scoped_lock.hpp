@@ -1,6 +1,6 @@
 //////////////////////////////////////////////////////////////////////////////
 //
-// (C) Copyright Ion Gaztanaga 2005-2008. Distributed under the Boost
+// (C) Copyright Ion Gaztanaga 2005-2009. Distributed under the Boost
 // Software License, Version 1.0. (See accompanying file
 // LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 //
@@ -53,12 +53,10 @@ class scoped_lock
    /// @cond
    private:
    typedef scoped_lock<Mutex> this_type;
-   scoped_lock(scoped_lock&);
-   scoped_lock& operator=  (scoped_lock&);
+   BOOST_MOVABLE_BUT_NOT_COPYABLE(scoped_lock)
    typedef bool this_type::*unspecified_bool_type;
    /// @endcond
    public:
-   BOOST_INTERPROCESS_ENABLE_MOVE_EMULATION(scoped_lock)
 
    typedef Mutex mutex_type;
 
@@ -125,7 +123,7 @@ class scoped_lock
    //!   can be moved with the expression: "boost::interprocess::move(lock);". This
    //!   constructor does not alter the state of the mutex, only potentially
    //!   who owns it.
-   scoped_lock(BOOST_INTERPROCESS_RV_REF(scoped_lock) scop)
+   scoped_lock(BOOST_RV_REF(scoped_lock) scop)
       : mp_mutex(0), m_locked(scop.owns())
    {  mp_mutex = scop.release(); }
 
@@ -142,8 +140,8 @@ class scoped_lock
    //!   other threads hold a sharable_lock on this mutex (sharable_lock's can
    //!   share ownership with an upgradable_lock).
    template<class T>
-   explicit scoped_lock(BOOST_INTERPROCESS_RV_REF(upgradable_lock<T>) upgr
-      , typename detail::enable_if< detail::is_same<T, Mutex> >::type * = 0)
+   explicit scoped_lock(BOOST_RV_REF(upgradable_lock<T>) upgr
+      , typename ipcdetail::enable_if< ipcdetail::is_same<T, Mutex> >::type * = 0)
       : mp_mutex(0), m_locked(false)
    {
       upgradable_lock<mutex_type> &u_lock = upgr;
@@ -170,8 +168,8 @@ class scoped_lock
    //!   If the "read lock" is held, then mutex transfer occurs only if it can
    //!   do so in a non-blocking manner.
    template<class T>
-   scoped_lock(BOOST_INTERPROCESS_RV_REF(upgradable_lock<T>) upgr, try_to_lock_type
-         , typename detail::enable_if< detail::is_same<T, Mutex> >::type * = 0)
+   scoped_lock(BOOST_RV_REF(upgradable_lock<T>) upgr, try_to_lock_type
+         , typename ipcdetail::enable_if< ipcdetail::is_same<T, Mutex> >::type * = 0)
       : mp_mutex(0), m_locked(false)
    {
       upgradable_lock<mutex_type> &u_lock = upgr;
@@ -200,8 +198,8 @@ class scoped_lock
    //!   merely changes type to an unlocked "write lock". If the "read lock" is held,
    //!   then mutex transfer occurs only if it can do so in a non-blocking manner.
    template<class T>
-   scoped_lock(BOOST_INTERPROCESS_RV_REF(upgradable_lock<T>) upgr, boost::posix_time::ptime &abs_time
-               , typename detail::enable_if< detail::is_same<T, Mutex> >::type * = 0)
+   scoped_lock(BOOST_RV_REF(upgradable_lock<T>) upgr, boost::posix_time::ptime &abs_time
+               , typename ipcdetail::enable_if< ipcdetail::is_same<T, Mutex> >::type * = 0)
       : mp_mutex(0), m_locked(false)
    {
       upgradable_lock<mutex_type> &u_lock = upgr;
@@ -231,8 +229,8 @@ class scoped_lock
    //!   If the "read lock" is held, then mutex transfer occurs only if it can
    //!   do so in a non-blocking manner.
    template<class T>
-   scoped_lock(BOOST_INTERPROCESS_RV_REF(sharable_lock<T>) shar, try_to_lock_type
-      , typename detail::enable_if< detail::is_same<T, Mutex> >::type * = 0)
+   scoped_lock(BOOST_RV_REF(sharable_lock<T>) shar, try_to_lock_type
+      , typename ipcdetail::enable_if< ipcdetail::is_same<T, Mutex> >::type * = 0)
       : mp_mutex(0), m_locked(false)
    {
       sharable_lock<mutex_type> &s_lock = shar;
@@ -260,7 +258,7 @@ class scoped_lock
    //!   the same mutex before the assignment. In this case, this will own the
    //!   mutex after the assignment (and scop will not), but the mutex's lock
    //!   count will be decremented by one.
-   scoped_lock &operator=(BOOST_INTERPROCESS_RV_REF(scoped_lock) scop)
+   scoped_lock &operator=(BOOST_RV_REF(scoped_lock) scop)
    {  
       if(this->owns())
          this->unlock();

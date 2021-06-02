@@ -140,7 +140,7 @@ namespace date_time {
   template<class time_duration>
   inline
   time_duration
-  parse_delimited_time_duration(const xray::network::std_string& s)
+  parse_delimited_time_duration(const std::string& s)
   {
     return str_from_delimited_time_duration<time_duration,char>(s);
   }
@@ -148,10 +148,10 @@ namespace date_time {
   //! Utility function to split appart string
   inline
   bool 
-  split(const xray::network::std_string& s,
+  split(const std::string& s,
         char sep,
-        xray::network::std_string& first,
-        xray::network::std_string& second)
+        std::string& first,
+        std::string& second)
   {
     int sep_pos = static_cast<int>(s.find(sep));
     first = s.substr(0,sep_pos);
@@ -163,13 +163,13 @@ namespace date_time {
   template<class time_type>
   inline
   time_type
-  parse_delimited_time(const xray::network::std_string& s, char sep)
+  parse_delimited_time(const std::string& s, char sep)
   {
     typedef typename time_type::time_duration_type time_duration;
     typedef typename time_type::date_type date_type;
 
     //split date/time on a unique delimiter char such as ' ' or 'T'
-    xray::network::std_string date_string, tod_string;
+    std::string date_string, tod_string;
     split(s, sep, date_string, tod_string);
     //call parse_date with first string
     date_type d = parse_date<date_type>(date_string);
@@ -184,7 +184,7 @@ namespace date_time {
   template<class time_duration>
   inline
   time_duration
-  parse_undelimited_time_duration(const xray::network::std_string& s)
+  parse_undelimited_time_duration(const std::string& s)
   {
     int precision = 0;
     {
@@ -207,7 +207,7 @@ namespace date_time {
     }
     // stlport choked when passing s.substr() to tokenizer
     // using a new string fixed the error
-    xray::network::std_string remain = s.substr(sign);
+    std::string remain = s.substr(sign);
     /* We do not want the offset_separator to wrap the offsets, we 
      * will never want to  process more than: 
      * 2 char, 2 char, 2 char, frac_sec length.
@@ -217,11 +217,11 @@ namespace date_time {
     bool ret_part = true;
     boost::offset_separator osf(offsets, offsets+4, wrap_off, ret_part); 
     typedef boost::tokenizer<boost::offset_separator,
-                             xray::network::std_string::const_iterator,
-                             xray::network::std_string > tokenizer;
+                             std::basic_string<char>::const_iterator,
+                             std::basic_string<char> > tokenizer;
     typedef boost::tokenizer<boost::offset_separator,
-                             xray::network::std_string::const_iterator,
-                             xray::network::std_string >::iterator tokenizer_iterator;
+                             std::basic_string<char>::const_iterator,
+                             std::basic_string<char> >::iterator tokenizer_iterator;
     tokenizer tok(remain, osf);
     for(tokenizer_iterator ti=tok.begin(); ti!=tok.end();++ti){
       switch(pos) {
@@ -242,7 +242,7 @@ namespace date_time {
           }
         case 3:
           {
-            xray::network::std_string char_digits(ti->substr(1)); // digits w/no decimal
+            std::string char_digits(ti->substr(1)); // digits w/no decimal
             int digits = static_cast<int>(char_digits.length());
             
             //Works around a bug in MSVC 6 library that does not support
@@ -295,13 +295,13 @@ namespace date_time {
   template<class time_type>
   inline
   time_type
-  parse_iso_time(const xray::network::std_string& s, char sep)
+  parse_iso_time(const std::string& s, char sep)
   {
     typedef typename time_type::time_duration_type time_duration;
     typedef typename time_type::date_type date_type;
 
     //split date/time on a unique delimiter char such as ' ' or 'T'
-    xray::network::std_string date_string, tod_string;
+    std::string date_string, tod_string;
     split(s, sep, date_string, tod_string);
     //call parse_date with first string
     date_type d = parse_undelimited_date<date_type>(date_string);

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="windows-1251"?>
 <VisualStudioProject
 	ProjectType="Visual C++"
-	Version="9.00"
+	Version="9,00"
 	Name="texture_compressor_test"
 	ProjectGUID="{EAFB22ED-6CE8-4740-AF16-6AE6DB773462}"
 	RootNamespace="texture_compressor_test"
@@ -80,7 +80,7 @@
 				AdditionalDependencies=""
 				OutputFile="$(SolutionDir)../binaries/$(PlatformName)/$(ProjectName)-win32-dynamic.exe"
 				LinkIncremental="1"
-				AdditionalLibraryDirectories="$(SolutionDir)../binaries/$(PlatformName)/libraries/;$(SolutionDir)cs/libraries/$(PlatformName)"
+				AdditionalLibraryDirectories="&quot;$(SolutionDir)../binaries/$(PlatformName)/libraries/&quot;;&quot;$(SolutionDir)cs/libraries/$(PlatformName)&quot;"
 				IgnoreDefaultLibraryNames="libcmt"
 				DelayLoadDLLs=""
 				GenerateDebugInformation="true"

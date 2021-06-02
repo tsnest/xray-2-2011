@@ -7,6 +7,7 @@
 #ifndef XRAY_TASKS_MANAGER_H_INCLUDED
 #define XRAY_TASKS_MANAGER_H_INCLUDED
 
+#include <xray/text_tree.h>
 #include <boost/function.hpp>
 #include <boost/bind.hpp>
 
@@ -50,6 +51,8 @@ XRAY_CORE_API	void			resume_all_task_threads	();
 XRAY_CORE_API	bool			zero_tasks				(); // remove this func from interface
 XRAY_CORE_API	void			check_all_free			(); // remove this func from interface
 XRAY_CORE_API	void			collect_garbage			(u32 * out_tasks_freed_count = NULL); // remove this func from interface
+
+XRAY_CORE_API	void			fill_stats				(strings::text_tree_item & stats);
 
 XRAY_CORE_API	void			set_logging				(do_logging_bool do_logging);
 

@@ -107,34 +107,85 @@ void hud::input_tick( )
 
 	m_frame_events.m_onframe_move_fwd		= 0.f;
 	m_frame_events.m_onframe_move_right		= 0.f;
+	m_frame_events.m_onframe_run_fwd		= 0.f;
+	m_frame_events.m_onframe_run_right		= 0.f;
 	m_frame_events.m_onframe_turn_x			= 0.f;
 	m_frame_events.m_onframe_turn_y			= 0.f;
 	m_frame_events.m_onframe_jump			= false;
+	m_frame_events.m_onframe_reload			= false;
+	m_frame_events.m_onframe_shoot			= false;
 
 	if( m_frame_events.empty() )
 		return;
 
-	if ( m_frame_events.keyb_event_present(input::key_w) )
-		m_frame_events.m_onframe_move_fwd		+= 1.0f;//factor*.1f;
-	
-	if ( m_frame_events.keyb_event_present(input::key_s) )
+	if ( m_frame_events.keyb_event_present(input::key_s) ) 
+	{
+		m_frame_events.m_onframe_back = true;
 		m_frame_events.m_onframe_move_fwd		-= 1.0f;//factor*.1f;
+	} else {
+		m_frame_events.m_onframe_back = false;
+	}
 
-	if ( m_frame_events.keyb_event_present(input::key_d) )
-		m_frame_events.m_onframe_move_right		+= 1.0f;//factor*.1f;
-	
-	if ( m_frame_events.keyb_event_present(input::key_a) )
-		m_frame_events.m_onframe_move_right		-= 1.0f;//factor*.1f;
+	if(	m_frame_events.keyb_event_present(input::key_r)) {
+		m_frame_events.m_onframe_reload = true;
+	}
+	if(	m_frame_events.keyb_event_present(input::key_q)) {
+		m_frame_events.m_onframe_shoot = true;
+	}
+
+	if(	!m_frame_events.keyb_event_present(input::key_lshift)) 
+	{
+		m_frame_events.m_onframe_shift = false;
+
+		if ( m_frame_events.keyb_event_present(input::key_w) ) 
+		{
+			m_frame_events.m_onframe_move_fwd		+= 1.0f;//factor*.1f;
+		}
+
+		if ( m_frame_events.keyb_event_present(input::key_d))
+		{
+			m_frame_events.m_onframe_move_right		+= 1.0f;//factor*.1f;
+		}
+
+		if ( m_frame_events.keyb_event_present(input::key_a) )
+		{
+			m_frame_events.m_onframe_move_right		-= 1.0f;//factor*.1f;
+		}
+
+	} else {
+
+		m_frame_events.m_onframe_shift = true;
+
+		if ( m_frame_events.keyb_event_present(input::key_w)) 
+		{
+			m_frame_events.m_onframe_run_fwd		+= 1.0f;//factor*.1f;
+		}
+		if ( m_frame_events.keyb_event_present(input::key_d)) 
+		{
+			m_frame_events.m_onframe_run_right		+= 1.0f;//factor*.1f;
+		}
+		if ( m_frame_events.keyb_event_present(input::key_a)) 
+		{
+			m_frame_events.m_onframe_run_right		-= 1.0f;//factor*.1f;
+		}
+	}
 
 	if ( m_frame_events.keyb_event_present(input::key_space) )
 		m_frame_events.m_onframe_jump		= true;
 
 	m_frame_events.m_onframe_turn_x	= math::deg2rad( m_frame_events.m_mouse_move.y );
 	m_frame_events.m_onframe_turn_y	= math::deg2rad( m_frame_events.m_mouse_move.x ) * 0.75f;
-	camera_move_on_frame				( float2( m_frame_events.m_onframe_turn_x, m_frame_events.m_onframe_turn_y ), 
-										m_frame_events.m_onframe_move_fwd, 
-										m_frame_events.m_onframe_move_right );
 
+	if(m_frame_events.keyb_event_present(input::key_lshift) && !m_frame_events.keyb_event_present(input::key_s))
+	{
+		camera_move_on_frame				( float2( m_frame_events.m_onframe_turn_x, m_frame_events.m_onframe_turn_y ), 
+													  m_frame_events.m_onframe_run_fwd, 
+													  m_frame_events.m_onframe_run_right );
+	} else {
+		camera_move_on_frame				( float2( m_frame_events.m_onframe_turn_x, m_frame_events.m_onframe_turn_y ), 
+													  m_frame_events.m_onframe_move_fwd, 
+												      m_frame_events.m_onframe_move_right );
+	}
 }
 
 void hud::camera_move_on_frame(	math::float2 const& raw_angles, 

@@ -476,7 +476,7 @@ namespace detail
           lua_pushnil(m_interpreter);
           if (lua_next(m_interpreter, -2) != 0)
           {
-              detail::stack_pop pop_guard(m_interpreter, 2);
+              detail::stack_pop pop(m_interpreter, 2);
               handle(m_interpreter, -2).swap(m_key);
           }
           else

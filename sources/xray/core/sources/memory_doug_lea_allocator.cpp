@@ -142,11 +142,19 @@ pvoid doug_lea_allocator::realloc_impl	( pvoid pointer, size_t const new_size XR
 	}
 
 	size_t const previous_size	= pointer ? usable_size( pointer ) : 0;
-	if ( pointer )
+	if ( pointer ) 
+	{
 		on_free					( pointer, false );
+	}
 
 	size_t const real_size		= needed_size( new_size );
 	pvoid const result			= xray_mspace_realloc( m_arena, pointer, real_size );
+	if ( !result )
+	{
+		if ( !m_return_null_after_out_of_memory )
+			LOG_ERROR			( "out of memory!!!!" );
+	}
+	m_out_of_memory				= m_return_null_after_out_of_memory & !result;
 	return
 		on_malloc(
 			result,

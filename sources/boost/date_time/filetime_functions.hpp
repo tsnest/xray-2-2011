@@ -6,7 +6,7 @@
  * Boost Software License, Version 1.0. (See accompanying
  * file LICENSE_1_0.txt or http://www.boost.org/LICENSE_1_0.txt)
  * Author: Jeff Garland, Bart Garst
- * $Date: 2009-06-06 07:24:09 -0400 (Sat, 06 Jun 2009) $
+ * $Date: 2011-11-13 01:10:55 -0500 (Sun, 13 Nov 2011) $
  */
 
 /*! @file filetime_functions.hpp
@@ -53,17 +53,11 @@ namespace winapi {
             boost::uint16_t wSecond;
             boost::uint16_t wMilliseconds;
         };
-#ifndef _XBOX
+
         __declspec(dllimport) void __stdcall GetSystemTimeAsFileTime(FILETIME* lpFileTime);
         __declspec(dllimport) int __stdcall FileTimeToLocalFileTime(const FILETIME* lpFileTime, FILETIME* lpLocalFileTime);
         __declspec(dllimport) void __stdcall GetSystemTime(SYSTEMTIME* lpSystemTime);
         __declspec(dllimport) int __stdcall SystemTimeToFileTime(const SYSTEMTIME* lpSystemTime, FILETIME* lpFileTime);
-#else // #ifndef _XBOX
-        void __stdcall GetSystemTimeAsFileTime(FILETIME* lpFileTime);
-        int __stdcall FileTimeToLocalFileTime(const FILETIME* lpFileTime, FILETIME* lpLocalFileTime);
-        void __stdcall GetSystemTime(SYSTEMTIME* lpSystemTime);
-        int __stdcall SystemTimeToFileTime(const SYSTEMTIME* lpSystemTime, FILETIME* lpFileTime);
-#endif // #ifndef _XBOX
 
     } // extern "C"
 
@@ -79,12 +73,12 @@ namespace winapi {
         file_time ft_utc;
         GetSystemTimeAsFileTime(&ft_utc);
         FileTimeToLocalFileTime(&ft_utc, &ft);
-#elif defined(BOOST_NO_GETSYSTEMTIMEASFILETIME)
+#elif defined(BOOST_HAS_GETSYSTEMTIMEASFILETIME)
+        GetSystemTimeAsFileTime(&ft);
+#else
         system_time st;
         GetSystemTime(&st);
         SystemTimeToFileTime(&st, &ft);
-#else
-        GetSystemTimeAsFileTime(&ft);
 #endif
     }
 

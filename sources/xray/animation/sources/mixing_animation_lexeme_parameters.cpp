@@ -25,7 +25,9 @@ void animation_lexeme_parameters::create_animation_intervals( skeleton_animation
 	u32 const channel_id			= pinned_animation->event_channels().get_channel_id( animation_intervals_channel_id );
 	if ( channel_id == u32(-1) ) {
 #ifndef MASTER_GOLD
+	#ifdef DEBUG
 		LOG_WARNING					( "animation [%s] has no animation intervals, assuming single interval", m_identifier );
+	#endif
 #endif
 		new ( animation_intervals ) animation_interval( animation, 0.f, animation_length );
 		m_start_animation_interval_id	= 0;

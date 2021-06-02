@@ -24257,6 +24257,10 @@
 						>
 					</File>
 					<File
+						RelativePath=".\resources_manager_debug.cpp"
+						>
+					</File>
+					<File
 						RelativePath=".\resources_manager_debug.h"
 						>
 					</File>

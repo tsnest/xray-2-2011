@@ -41,7 +41,6 @@ thread_pool::thread_pool(u32 const								max_task_threads,
 						 do_logging_bool						do_logging) :
 								m_min_permanent_working_threads(min_permanent_working_threads),
 								m_execute_while_wait_for_children(execute_while_wait_for_children),
-								m_time_elapsed(u32(-1)), 
 								m_initialized(false), 
 								m_thread_tls_key(0),
 								m_user_thread_index(0),
@@ -91,6 +90,7 @@ void thread_pool::initialize					( )
 		tls.hardware_thread					=	i % threading::core_count();
 		tls.state							=	thread_tls::state_inactive;
 		tls.thread_type						=	thread_tls::type_task_thread;
+		tls.thread_name						=	thread_name_for_logging;
 
 		tls.thread_id						=	threading::spawn(	boost::bind(&tasks::thread_tls::thread_proc, &tls),
 																	thread_name_for_debugger.c_str(), 
@@ -214,6 +214,7 @@ void   thread_pool::register_current_thread_as_core_user ()
 	tls.thread_type							=	thread_tls::type_user_thread;
 	tls.pool								=	this;
 	tls.current_task						=	& tls.user_thread_root_task;
+	tls.thread_name							=	threading::current_thread_logging_name();
 
 	threading::tls_set_value					(m_thread_tls_key, (pvoid)& m_user_thread_tls[m_user_thread_index]);
 	++m_user_thread_index;
@@ -392,6 +393,11 @@ void   set_logging (do_logging_bool const do_logging)
 void   wait_while_all_threads_end_grab_next_task ()
 {
 	s_thread_pool->wait_while_all_threads_end_grab_next_task	();
+}
+
+tasks::thread_pool *	get_thread_pool	()
+{
+	return	s_thread_pool.c_ptr();
 }
 
 } // namespace tasks

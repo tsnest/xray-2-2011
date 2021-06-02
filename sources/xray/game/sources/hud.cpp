@@ -117,7 +117,8 @@ void hud::on_resources_loaded( resources::queries_result& data )
 	m_character_transform.c.xyz()	= m_camera_inv_view.c.xyz();
 
 
-	m_weapon->action				( 1 );//shoot
+	m_weapon->action				( 0 );//idle
+
 
 	m_actor_controller->activate				( m_character_transform );
 	m_animation_player->set_object_transform	( m_character_transform );
@@ -202,11 +203,21 @@ void hud::tick( )
 	float3 walk_direction(0,0,0);
 
 	float const frame_time_sec		= m_frame_events.m_last_frame_time_delta/1000.0f;
-	
-	float const move_delta_fw		= frame_time_sec * 1.66f *6; //6km/h
-	float const move_delta_right	= frame_time_sec * 0.83f *6; //3km/h
-	walk_direction	= m_character_transform.k.xyz()*m_frame_events.m_onframe_move_fwd * move_delta_fw;
-	walk_direction	+= m_character_transform.i.xyz()*m_frame_events.m_onframe_move_right * move_delta_right;
+
+	if(	m_frame_events.m_onframe_shift	&& !m_frame_events.m_onframe_back)  
+	{
+		float const run_delta_fw		= frame_time_sec * 1.66f *6; //6km/h
+		float const run_delta_right		= frame_time_sec * 0.83f *6; //3km/h
+
+		walk_direction	= m_character_transform.k.xyz()*m_frame_events.m_onframe_run_fwd * run_delta_fw;
+		walk_direction	+= m_character_transform.i.xyz()*m_frame_events.m_onframe_run_right * run_delta_right;
+	} else {
+		float const move_delta_fw		= frame_time_sec * 1.66f *3.5; //3.5km/h
+		float const move_delta_right	= frame_time_sec * 0.83f *3.5;
+
+		walk_direction	= m_character_transform.k.xyz()*m_frame_events.m_onframe_move_fwd * move_delta_fw;
+		walk_direction	+= m_character_transform.i.xyz()*m_frame_events.m_onframe_move_right * move_delta_right;
+	}
 
 	m_actor_controller->set_walk_direction(walk_direction  );
 	
@@ -222,13 +233,24 @@ void hud::tick( )
 
 	mutable_buffer buffer				( ALLOCA( animation::animation_player::stack_buffer_size ), animation::animation_player::stack_buffer_size );
 
-	m_crouch = false;
+	//m_crouch = false;
 
 	animation::skeleton_animation_ptr current_idle_animation		= m_idle_stand_animation;
 	animation::skeleton_animation_ptr current_additive_animation	= m_look_animation_add;
 
 	float additive_current_anim_time		= animation::cubic_spline_skeleton_animation_pinned( current_additive_animation ).c_ptr()->length_in_frames() / animation::default_fps * k;
 
+	if(m_frame_events.m_onframe_shoot) {
+		m_frame_events.m_onframe_shoot = false;
+		m_weapon->action				( 1 );
+	}
+
+	if(m_frame_events.m_onframe_reload) {
+		m_frame_events.m_onframe_reload = false;
+		m_weapon->action				( 2 );
+	}
+
+if(!m_crouch) {
 	animation::mixing::animation_lexeme	current_idle_lexeme(
 		animation::mixing::animation_lexeme_parameters(
 			buffer, 
@@ -258,6 +280,42 @@ void hud::tick( )
 						+ current_additive_lexeme
 						+ weapon_target /*+ current_additive_lexeme_1*/
 						,current_time );
+	} else {
+
+
+	//animation::skeleton_animation_ptr current_crouch_animation		= m_crouch_animation;
+
+	animation::mixing::animation_lexeme	current_idle_lexeme(
+		animation::mixing::animation_lexeme_parameters(
+			buffer, 
+			"crouch",
+			current_idle_animation
+		).time_scale( 0.f )
+	);
+
+	animation::mixing::animation_lexeme	current_additive_lexeme(
+		animation::mixing::animation_lexeme_parameters(
+			buffer, 
+			"additive",
+			current_additive_animation
+		)
+		.time_scale( 0.f )
+		.start_animation_interval_time( additive_current_anim_time )
+		.override_existing_animation( true )
+		.additivity_priority( 1 )
+	);
+
+	u32 current_time				= m_anim_timer.get_elapsed_msec();
+	
+	animation::mixing::animation_lexeme weapon_target = m_weapon->select_animation( buffer );
+
+	m_animation_player->set_target_and_tick	( 
+						current_idle_lexeme
+						+ current_additive_lexeme
+						+ weapon_target
+						,current_time );
+
+		}
 
 	render::scene_ptr scene			= m_game_world.get_game().get_render_scene();
 	render::game::renderer& r		= m_game_world.get_game().renderer();

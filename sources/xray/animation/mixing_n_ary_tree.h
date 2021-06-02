@@ -78,8 +78,10 @@ public:
 			void		compute_bones_matrices		( skeleton const& skeleton, float4x4* const begin, float4x4* const end ) const;
 			float4x4	computed_bone_matrix		( skeleton_bone const& bone ) const;
 #ifndef MASTER_GOLD
+#ifdef DEBUG
 			void		dump_animation_states		( u32 const target_time_in_ms ) const;
 			void		dump_tree					( u32 const target_time_in_ms ) const;
+#endif
 #endif // #ifndef MASTER_GOLD
 
 	inline	bool		are_there_any_animations	( ) const { return m_animations_count > 0; }

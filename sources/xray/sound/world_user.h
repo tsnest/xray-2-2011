@@ -21,12 +21,14 @@ struct sound_response;
 class sound_world;
 class sound_debug_stats;
 
+/*
 #ifndef SN_TARGET_PS3
 template class XRAY_SOUND_API ::std::_STLP_PRIV_NAME::_STLP_alloc_proxy<u64*, u64, ::std::_Alloc_traits<u64, vectora_allocator< u64 > >::allocator_type >;
 template class XRAY_SOUND_API ::std::_STLP_PRIV_NAME::_Vector_base< u64, vectora_allocator< typename qualified_type<u64>::result > >;
 template class XRAY_SOUND_API ::std::vector< u64, vectora_allocator< typename qualified_type<u64>::result > >;
 template class XRAY_SOUND_API vectora<u64>;
 #endif // #ifndef SN_TARGET_PS3
+*/
 
 class XRAY_SOUND_API world_user : private sound::noncopyable
 {

@@ -401,6 +401,11 @@ u32   pending_queries_count ()
 	return									g_resources_manager->pending_queries_count(); 
 }
 
+void	fill_stats						(strings::text_tree_item & stats)
+{
+	g_resources_manager->fill_stats			(stats);
+}
+
 static threading::atomic32_type	s_resources_thread_started	=	false;
 static threading::atomic32_type	s_resources_thread_exit		=	false;
 static threading::atomic32_type	s_resources_thread_finished	=	false;

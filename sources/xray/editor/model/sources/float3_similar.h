@@ -10,7 +10,7 @@
 namespace xray {
 namespace model_editor {
 
-struct float3_similar: public std::binary_function<math::float3 const, math::float3 const, bool>
+struct float3_similar: public std::binary_function<math::float3 const&, math::float3 const&, bool>
 {
 	float3_similar( float precision = math::epsilon_5 ):
 		m_precision(precision){}

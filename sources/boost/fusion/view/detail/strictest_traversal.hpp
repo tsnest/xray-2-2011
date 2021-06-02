@@ -1,5 +1,5 @@
 /*=============================================================================
-    Copyright (c) 2001-2006 Joel de Guzman
+    Copyright (c) 2001-2011 Joel de Guzman
     Copyright (c) 2006 Dan Marsden
 
     Distributed under the Boost Software License, Version 1.0. (See accompanying
@@ -42,8 +42,8 @@ namespace boost { namespace fusion
             template<typename Sig>
             struct result;
 
-            template<typename Next, typename StrictestSoFar>
-            struct result<strictest_traversal_impl(Next, StrictestSoFar)>
+            template<typename StrictestSoFar, typename Next>
+            struct result<strictest_traversal_impl(StrictestSoFar, Next)>
             {
                 typedef typename remove_reference<Next>::type next_value;
                 typedef typename remove_reference<StrictestSoFar>::type strictest_so_far;

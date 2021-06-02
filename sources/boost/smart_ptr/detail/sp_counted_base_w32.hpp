@@ -63,8 +63,7 @@ public:
 
     virtual void destroy() // nothrow
     {
-		sp_counted_base* me = this;
-        XRAY_BOOST_DELETE(me);
+        delete this;
     }
 
     virtual void * get_deleter( sp_typeinfo const & ti ) = 0;

@@ -38,6 +38,8 @@ public:
 	char*					get_buffer		() { return m_buffer; } // when writing NULL, call set_size
 	u32						get_buffer_size	() { return Size; }
 
+	static self_type 		createf			(pcstr format, ...);
+
 	//-----------------------------------------------------------------------------------
 	// operations
 	//-----------------------------------------------------------------------------------

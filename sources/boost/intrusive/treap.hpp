@@ -31,6 +31,7 @@
 #include <boost/intrusive/detail/mpl.hpp>
 #include <boost/intrusive/treap_algorithms.hpp>
 #include <boost/intrusive/link_mode.hpp>
+#include <boost/move/move.hpp>
 #include <boost/intrusive/priority_compare.hpp>
 
 namespace boost {
@@ -116,18 +117,17 @@ class treap_impl
       <pointer, node>::type                                          node_ptr;
    typedef typename boost::pointer_to_other
       <node_ptr, const node>::type                                   const_node_ptr;
-   typedef treap_algorithms<node_traits>                              node_algorithms;
+   typedef treap_algorithms<node_traits>                             node_algorithms;
 
    static const bool constant_time_size = Config::constant_time_size;
-   static const bool stateful_value_traits = detail::store_cont_ptr_on_it<treap_impl>::value;
+   static const bool stateful_value_traits = detail::is_stateful_value_traits<real_value_traits>::value;
 
    /// @cond
    private:
    typedef detail::size_holder<constant_time_size, size_type>        size_traits;
 
    //noncopyable
-   treap_impl (const treap_impl&);
-   treap_impl operator =(const treap_impl&);
+   BOOST_MOVABLE_BUT_NOT_COPYABLE(treap_impl)
 
    enum { safemode_or_autounlink  = 
             (int)real_value_traits::link_mode == (int)auto_unlink   ||
@@ -176,6 +176,12 @@ class treap_impl
    priority_compare &priv_pcomp()
    {  return data_.node_plus_pred_.header_plus_priority_size_.get();  }
 
+   const value_traits &priv_value_traits() const
+   {  return data_;  }
+
+   value_traits &priv_value_traits()
+   {  return data_;  }
+
    const node &priv_header() const
    {  return data_.node_plus_pred_.header_plus_priority_size_.header_plus_size_.header_;  }
 
@@ -184,7 +190,7 @@ class treap_impl
 
    static node_ptr uncast(const_node_ptr ptr)
    {
-      return node_ptr(const_cast<node*>(detail::get_pointer(ptr)));
+      return node_ptr(const_cast<node*>(detail::boost_intrusive_get_pointer(ptr)));
    }
 
    size_traits &priv_size_traits()
@@ -217,14 +223,14 @@ class treap_impl
 
    typedef typename node_algorithms::insert_commit_data insert_commit_data;
 
-   //! <b>Effects</b>: Constructs an empty tree. 
+   //! <b>Effects</b>: Constructs an empty treap. 
    //!   
    //! <b>Complexity</b>: Constant. 
    //! 
    //! <b>Throws</b>: If value_traits::node_traits::node
    //!   constructor throws (this does not happen with predefined Boost.Intrusive hooks)
    //!   or the copy constructor of the value_compare/priority_compare objects throw. Basic guarantee.
-   treap_impl( const value_compare &cmp     = value_compare()
+   treap_impl( const value_compare &cmp    = value_compare()
             , const priority_compare &pcmp = priority_compare()
             , const value_traits &v_traits = value_traits()) 
       :  data_(cmp, pcmp, v_traits)
@@ -236,7 +242,7 @@ class treap_impl
    //! <b>Requires</b>: Dereferencing iterator must yield an lvalue of type value_type.
    //!   cmp must be a comparison function that induces a strict weak ordering.
    //!
-   //! <b>Effects</b>: Constructs an empty tree and inserts elements from
+   //! <b>Effects</b>: Constructs an empty treap and inserts elements from
    //!   [b, e).
    //!
    //! <b>Complexity</b>: Linear in N if [b, e) is already sorted using
@@ -261,6 +267,23 @@ class treap_impl
          this->insert_equal(b, e);
    }
 
+   //! <b>Effects</b>: to-do
+   //!   
+   treap_impl(BOOST_RV_REF(treap_impl) x)
+      : data_( ::boost::move(x.priv_comp())
+             , ::boost::move(x.priv_pcomp())
+             , ::boost::move(x.priv_value_traits()))
+   {
+      node_algorithms::init_header(&priv_header());  
+      this->priv_size_traits().set_size(size_type(0));
+      this->swap(x);
+   }
+
+   //! <b>Effects</b>: to-do
+   //!   
+   treap_impl& operator=(BOOST_RV_REF(treap_impl) x) 
+   {  this->swap(x); return *this;  }
+
    //! <b>Effects</b>: Detaches all elements from this. The objects in the set 
    //!   are not deleted (i.e. no destructors are called), but the nodes according to 
    //!   the value_traits template parameter are reinitialized and thus can be reused. 
@@ -272,7 +295,7 @@ class treap_impl
    ~treap_impl() 
    {}
 
-   //! <b>Effects</b>: Returns an iterator pointing to the beginning of the tree.
+   //! <b>Effects</b>: Returns an iterator pointing to the beginning of the treap.
    //! 
    //! <b>Complexity</b>: Constant.
    //! 
@@ -280,7 +303,7 @@ class treap_impl
    iterator begin()
    {  return iterator (node_traits::get_left(node_ptr(&priv_header())), this);   }
 
-   //! <b>Effects</b>: Returns a const_iterator pointing to the beginning of the tree.
+   //! <b>Effects</b>: Returns a const_iterator pointing to the beginning of the treap.
    //! 
    //! <b>Complexity</b>: Constant.
    //! 
@@ -288,7 +311,7 @@ class treap_impl
    const_iterator begin() const
    {  return this->cbegin();   }
 
-   //! <b>Effects</b>: Returns a const_iterator pointing to the beginning of the tree.
+   //! <b>Effects</b>: Returns a const_iterator pointing to the beginning of the treap.
    //! 
    //! <b>Complexity</b>: Constant.
    //! 
@@ -296,7 +319,7 @@ class treap_impl
    const_iterator cbegin() const
    {  return const_iterator (node_traits::get_left(const_node_ptr(&priv_header())), this);   }
 
-   //! <b>Effects</b>: Returns an iterator pointing to the end of the tree.
+   //! <b>Effects</b>: Returns an iterator pointing to the end of the treap.
    //! 
    //! <b>Complexity</b>: Constant.
    //! 
@@ -304,7 +327,7 @@ class treap_impl
    iterator end()
    {  return iterator (node_ptr(&priv_header()), this);  }
 
-   //! <b>Effects</b>: Returns a const_iterator pointing to the end of the tree.
+   //! <b>Effects</b>: Returns a const_iterator pointing to the end of the treap.
    //!
    //! <b>Complexity</b>: Constant.
    //! 
@@ -312,7 +335,7 @@ class treap_impl
    const_iterator end() const
    {  return this->cend();  }
 
-   //! <b>Effects</b>: Returns a const_iterator pointing to the end of the tree.
+   //! <b>Effects</b>: Returns a const_iterator pointing to the end of the treap.
    //! 
    //! <b>Complexity</b>: Constant.
    //! 
@@ -321,7 +344,7 @@ class treap_impl
    {  return const_iterator (uncast(const_node_ptr(&priv_header())), this);  }
 
 
-   //! <b>Effects</b>: Returns an iterator pointing to the highest priority object of the tree.
+   //! <b>Effects</b>: Returns an iterator pointing to the highest priority object of the treap.
    //! 
    //! <b>Complexity</b>: Constant.
    //! 
@@ -329,7 +352,7 @@ class treap_impl
    iterator top()
    {  return this->empty() ? this->end() : iterator (node_traits::get_parent(node_ptr(&priv_header())), this);   }
 
-   //! <b>Effects</b>: Returns a const_iterator pointing to the highest priority object of the tree..
+   //! <b>Effects</b>: Returns a const_iterator pointing to the highest priority object of the treap..
    //! 
    //! <b>Complexity</b>: Constant.
    //! 
@@ -337,7 +360,7 @@ class treap_impl
    const_iterator top() const
    {  return this->ctop();   }
 
-   //! <b>Effects</b>: Returns a const_iterator pointing to the highest priority object of the tree..
+   //! <b>Effects</b>: Returns a const_iterator pointing to the highest priority object of the treap..
    //! 
    //! <b>Complexity</b>: Constant.
    //! 
@@ -346,7 +369,7 @@ class treap_impl
    {  return this->empty() ? this->cend() : const_iterator (node_traits::get_parent(const_node_ptr(&priv_header())), this);   }
 
    //! <b>Effects</b>: Returns a reverse_iterator pointing to the beginning of the
-   //!    reversed tree.
+   //!    reversed treap.
    //! 
    //! <b>Complexity</b>: Constant.
    //! 
@@ -355,7 +378,7 @@ class treap_impl
    {  return reverse_iterator(this->end());  }
 
    //! <b>Effects</b>: Returns a const_reverse_iterator pointing to the beginning
-   //!    of the reversed tree.
+   //!    of the reversed treap.
    //! 
    //! <b>Complexity</b>: Constant.
    //! 
@@ -364,7 +387,7 @@ class treap_impl
    {  return const_reverse_iterator(this->end());  }
 
    //! <b>Effects</b>: Returns a const_reverse_iterator pointing to the beginning
-   //!    of the reversed tree.
+   //!    of the reversed treap.
    //! 
    //! <b>Complexity</b>: Constant.
    //! 
@@ -373,7 +396,7 @@ class treap_impl
    {  return const_reverse_iterator(this->end());  }
 
    //! <b>Effects</b>: Returns a reverse_iterator pointing to the end
-   //!    of the reversed tree.
+   //!    of the reversed treap.
    //! 
    //! <b>Complexity</b>: Constant.
    //! 
@@ -382,7 +405,7 @@ class treap_impl
    {  return reverse_iterator(this->begin());   }
 
    //! <b>Effects</b>: Returns a const_reverse_iterator pointing to the end
-   //!    of the reversed tree.
+   //!    of the reversed treap.
    //! 
    //! <b>Complexity</b>: Constant.
    //! 
@@ -391,7 +414,7 @@ class treap_impl
    {  return const_reverse_iterator(this->begin());   }
 
    //! <b>Effects</b>: Returns a const_reverse_iterator pointing to the end
-   //!    of the reversed tree.
+   //!    of the reversed treap.
    //! 
    //! <b>Complexity</b>: Constant.
    //! 
@@ -400,7 +423,7 @@ class treap_impl
    {  return const_reverse_iterator(this->begin());   }
 
    //! <b>Effects</b>: Returns a reverse_iterator pointing to the highest priority object of the
-   //!    reversed tree.
+   //!    reversed treap.
    //! 
    //! <b>Complexity</b>: Constant.
    //! 
@@ -409,7 +432,7 @@ class treap_impl
    {  return reverse_iterator(this->top());  }
 
    //! <b>Effects</b>: Returns a const_reverse_iterator pointing to the highest priority objec
-   //!    of the reversed tree.
+   //!    of the reversed treap.
    //! 
    //! <b>Complexity</b>: Constant.
    //! 
@@ -418,7 +441,7 @@ class treap_impl
    {  return const_reverse_iterator(this->top());  }
 
    //! <b>Effects</b>: Returns a const_reverse_iterator pointing to the highest priority object
-   //!    of the reversed tree.
+   //!    of the reversed treap.
    //! 
    //! <b>Complexity</b>: Constant.
    //! 
@@ -451,7 +474,7 @@ class treap_impl
    //! <b>Precondition</b>: it must be a valid iterator
    //!   of treap.
    //! 
-   //! <b>Effects</b>: Returns a const reference to the tree associated to the iterator
+   //! <b>Effects</b>: Returns a const reference to the treap associated to the iterator
    //! 
    //! <b>Throws</b>: Nothing.
    //! 
@@ -462,7 +485,7 @@ class treap_impl
    //! <b>Precondition</b>: it must be a valid end const_iterator
    //!   of treap.
    //! 
-   //! <b>Effects</b>: Returns a const reference to the tree associated to the end iterator
+   //! <b>Effects</b>: Returns a const reference to the treap associated to the end iterator
    //! 
    //! <b>Throws</b>: Nothing.
    //! 
@@ -470,7 +493,7 @@ class treap_impl
    static const treap_impl &container_from_iterator(const_iterator it)
    {  return priv_container_from_iterator(it);   }
 
-   //! <b>Effects</b>: Returns the value_compare object used by the tree.
+   //! <b>Effects</b>: Returns the value_compare object used by the treap.
    //! 
    //! <b>Complexity</b>: Constant.
    //! 
@@ -478,7 +501,7 @@ class treap_impl
    value_compare value_comp() const
    {  return this->priv_comp();   }
 
-   //! <b>Effects</b>: Returns the priority_compare object used by the tree.
+   //! <b>Effects</b>: Returns the priority_compare object used by the treap.
    //! 
    //! <b>Complexity</b>: Constant.
    //! 
@@ -494,7 +517,7 @@ class treap_impl
    bool empty() const
    {  return node_algorithms::unique(const_node_ptr(&priv_header()));   }
 
-   //! <b>Effects</b>: Returns the number of elements stored in the tree.
+   //! <b>Effects</b>: Returns the number of elements stored in the treap.
    //! 
    //! <b>Complexity</b>: Linear to elements contained in *this
    //!   if constant-time size option is disabled. Constant time otherwise.
@@ -531,12 +554,12 @@ class treap_impl
 
    //! <b>Requires</b>: value must be an lvalue
    //! 
-   //! <b>Effects</b>: Inserts value into the tree before the upper bound.
+   //! <b>Effects</b>: Inserts value into the treap before the upper bound.
    //! 
    //! <b>Complexity</b>: Average complexity for insert element is at
    //!   most logarithmic.
    //! 
-   //! <b>Throws</b>: If the internal value_compare or priority_compare funcstions throw. Strong guarantee.
+   //! <b>Throws</b>: If the internal value_compare or priority_compare functions throw. Strong guarantee.
    //! 
    //! <b>Note</b>: Does not affect the validity of iterators and references.
    //!   No copy-constructors are called.
@@ -549,22 +572,23 @@ class treap_impl
       node_ptr to_insert(get_real_value_traits().to_node_ptr(value));
       if(safemode_or_autounlink)
          BOOST_INTRUSIVE_SAFE_HOOK_DEFAULT_ASSERT(node_algorithms::unique(to_insert));
-      this->priv_size_traits().increment();
-      return iterator(node_algorithms::insert_equal_upper_bound
+      iterator ret(node_algorithms::insert_equal_upper_bound
          (node_ptr(&priv_header()), to_insert, key_node_comp, key_node_pcomp), this);
+      this->priv_size_traits().increment();
+      return ret;
    }
 
    //! <b>Requires</b>: value must be an lvalue, and "hint" must be
    //!   a valid iterator.
    //! 
-   //! <b>Effects</b>: Inserts x into the tree, using "hint" as a hint to
+   //! <b>Effects</b>: Inserts x into the treap, using "hint" as a hint to
    //!   where it will be inserted. If "hint" is the upper_bound
    //!   the insertion takes constant time (two comparisons in the worst case)
    //! 
    //! <b>Complexity</b>: Logarithmic in general, but it is amortized
    //!   constant time if t is inserted immediately before hint.
    //! 
-   //! <b>Throws</b>: If the internal value_compare or priority_compare funcstions throw. Strong guarantee.
+   //! <b>Throws</b>: If the internal value_compare or priority_compare functions throw. Strong guarantee.
    //! 
    //! <b>Note</b>: Does not affect the validity of iterators and references.
    //!   No copy-constructors are called.
@@ -577,22 +601,23 @@ class treap_impl
       node_ptr to_insert(get_real_value_traits().to_node_ptr(value));
       if(safemode_or_autounlink)
          BOOST_INTRUSIVE_SAFE_HOOK_DEFAULT_ASSERT(node_algorithms::unique(to_insert));
-      this->priv_size_traits().increment();
-      return iterator(node_algorithms::insert_equal
+      iterator ret (node_algorithms::insert_equal
          (node_ptr(&priv_header()), hint.pointed_node(), to_insert, key_node_comp, key_node_pcomp), this);
+      this->priv_size_traits().increment();
+      return ret;
    }
 
    //! <b>Requires</b>: Dereferencing iterator must yield an lvalue 
    //!   of type value_type.
    //! 
-   //! <b>Effects</b>: Inserts a each element of a range into the tree
+   //! <b>Effects</b>: Inserts a each element of a range into the treap
    //!   before the upper bound of the key of each element.
    //! 
    //! <b>Complexity</b>: Insert range is in general O(N * log(N)), where N is the
    //!   size of the range. However, it is linear in N if the range is already sorted
    //!   by value_comp().
    //! 
-   //! <b>Throws</b>: If the internal value_compare or priority_compare funcstions throw.
+   //! <b>Throws</b>: If the internal value_compare or priority_compare functions throw.
    //!   Strong guarantee.
    //! 
    //! <b>Note</b>: Does not affect the validity of iterators and references.
@@ -607,13 +632,13 @@ class treap_impl
 
    //! <b>Requires</b>: value must be an lvalue
    //! 
-   //! <b>Effects</b>: Inserts value into the tree if the value
+   //! <b>Effects</b>: Inserts value into the treap if the value
    //!   is not already present.
    //! 
    //! <b>Complexity</b>: Average complexity for insert element is at
    //!   most logarithmic.
    //! 
-   //! <b>Throws</b>: If the internal value_compare or priority_compare funcstions throw.
+   //! <b>Throws</b>: If the internal value_compare or priority_compare functions throw.
    //!   Strong guarantee.
    //! 
    //! <b>Note</b>: Does not affect the validity of iterators and references.
@@ -630,14 +655,14 @@ class treap_impl
    //! <b>Requires</b>: value must be an lvalue, and "hint" must be
    //!   a valid iterator
    //! 
-   //! <b>Effects</b>: Tries to insert x into the tree, using "hint" as a hint
+   //! <b>Effects</b>: Tries to insert x into the treap, using "hint" as a hint
    //!   to where it will be inserted.
    //! 
    //! <b>Complexity</b>: Logarithmic in general, but it is amortized
    //!   constant time (two comparisons in the worst case)
    //!   if t is inserted immediately before hint.
    //! 
-   //! <b>Throws</b>: If the internal value_compare or priority_compare funcstions throw.
+   //! <b>Throws</b>: If the internal value_compare or priority_compare functions throw.
    //!   Strong guarantee.
    //! 
    //! <b>Note</b>: Does not affect the validity of iterators and references.
@@ -654,13 +679,13 @@ class treap_impl
    //! <b>Requires</b>: Dereferencing iterator must yield an lvalue 
    //!   of type value_type.
    //! 
-   //! <b>Effects</b>: Tries to insert each element of a range into the tree.
+   //! <b>Effects</b>: Tries to insert each element of a range into the treap.
    //! 
    //! <b>Complexity</b>: Insert range is in general O(N * log(N)), where N is the 
    //!   size of the range. However, it is linear in N if the range is already sorted 
    //!   by value_comp().
    //! 
-   //! <b>Throws</b>: If the internal value_compare or priority_compare funcstions throw.
+   //! <b>Throws</b>: If the internal value_compare or priority_compare functions throw.
    //!   Strong guarantee.
    //! 
    //! <b>Note</b>: Does not affect the validity of iterators and references.
@@ -680,8 +705,10 @@ class treap_impl
    }
 
    //! <b>Requires</b>: key_value_comp must be a comparison function that induces 
-   //!   the same strict weak ordering as value_compare. The difference is that
-   //!   key_value_comp compares an arbitrary key with the contained values.
+   //!   the same strict weak ordering as value_compare.
+   //!   key_value_pcomp must be a comparison function that induces 
+   //!   the same strict weak ordering as priority_compare. The difference is that
+   //!   key_value_pcomp and key_value_comp compare an arbitrary key with the contained values.
    //! 
    //! <b>Effects</b>: Checks if a value can be inserted in the container, using
    //!   a user provided key instead of the value itself.
@@ -694,7 +721,8 @@ class treap_impl
    //! 
    //! <b>Complexity</b>: Average complexity is at most logarithmic.
    //!
-   //! <b>Throws</b>: If the key_value_comp ordering function throws. Strong guarantee.
+   //! <b>Throws</b>: If the key_value_comp or key_value_pcomp
+   //!   ordering functions throw. Strong guarantee.
    //! 
    //! <b>Notes</b>: This function is used to improve performance when constructing
    //!   a value_type is expensive: if there is an equivalent value
@@ -725,8 +753,10 @@ class treap_impl
    }
 
    //! <b>Requires</b>: key_value_comp must be a comparison function that induces 
-   //!   the same strict weak ordering as value_compare. The difference is that
-   //!   key_value_comp compares an arbitrary key with the contained values.
+   //!   the same strict weak ordering as value_compare.
+   //!   key_value_pcomp must be a comparison function that induces 
+   //!   the same strict weak ordering as priority_compare. The difference is that
+   //!   key_value_pcomp and key_value_comp compare an arbitrary key with the contained values.
    //! 
    //! <b>Effects</b>: Checks if a value can be inserted in the container, using
    //!   a user provided key instead of the value itself, using "hint" 
@@ -741,7 +771,8 @@ class treap_impl
    //! <b>Complexity</b>: Logarithmic in general, but it's amortized
    //!   constant time if t is inserted immediately before hint.
    //!
-   //! <b>Throws</b>: If the key_value_comp ordering function throws. Strong guarantee.
+   //! <b>Throws</b>: If the key_value_comp or key_value_pcomp
+   //!   ordering functions throw. Strong guarantee.
    //! 
    //! <b>Notes</b>: This function is used to improve performance when constructing
    //!   a value_type is expensive: if there is an equivalent value
@@ -795,9 +826,86 @@ class treap_impl
       node_ptr to_insert(get_real_value_traits().to_node_ptr(value));
       if(safemode_or_autounlink)
          BOOST_INTRUSIVE_SAFE_HOOK_DEFAULT_ASSERT(node_algorithms::unique(to_insert));
-      this->priv_size_traits().increment();
       node_algorithms::insert_unique_commit(node_ptr(&priv_header()), to_insert, commit_data);
+      this->priv_size_traits().increment();
       return iterator(to_insert, this);
+   }
+
+   //! <b>Requires</b>: value must be an lvalue, "pos" must be
+   //!   a valid iterator (or end) and must be the succesor of value
+   //!   once inserted according to the predicate
+   //!
+   //! <b>Effects</b>: Inserts x into the treap before "pos".
+   //! 
+   //! <b>Complexity</b>: Constant time.
+   //! 
+   //! <b>Throws</b>: If the internal priority_compare function throws. Strong guarantee.
+   //! 
+   //! <b>Note</b>: This function does not check preconditions so if "pos" is not
+   //! the successor of "value" treap ordering invariant will be broken.
+   //! This is a low-level function to be used only for performance reasons
+   //! by advanced users.
+   iterator insert_before(const_iterator pos, reference value)
+   {
+      node_ptr to_insert(get_real_value_traits().to_node_ptr(value));
+      if(safemode_or_autounlink)
+         BOOST_INTRUSIVE_SAFE_HOOK_DEFAULT_ASSERT(node_algorithms::unique(to_insert));
+      detail::key_nodeptr_comp<priority_compare, treap_impl>
+         pcomp(priv_pcomp(), this);
+      iterator ret (node_algorithms::insert_before
+         (node_ptr(&priv_header()), pos.pointed_node(), to_insert, pcomp), this);
+      this->priv_size_traits().increment();
+      return ret;
+   }
+
+   //! <b>Requires</b>: value must be an lvalue, and it must be no less
+   //!   than the greatest inserted key
+   //!
+   //! <b>Effects</b>: Inserts x into the treap in the last position.
+   //! 
+   //! <b>Complexity</b>: Constant time.
+   //! 
+   //! <b>Throws</b>: If the internal priority_compare function throws. Strong guarantee.
+   //! 
+   //! <b>Note</b>: This function does not check preconditions so if value is
+   //!   less than the greatest inserted key treap ordering invariant will be broken.
+   //!   This function is slightly more efficient than using "insert_before".
+   //!   This is a low-level function to be used only for performance reasons
+   //!   by advanced users.
+   void push_back(reference value)
+   {
+      node_ptr to_insert(get_real_value_traits().to_node_ptr(value));
+      if(safemode_or_autounlink)
+         BOOST_INTRUSIVE_SAFE_HOOK_DEFAULT_ASSERT(node_algorithms::unique(to_insert));
+      detail::key_nodeptr_comp<priority_compare, treap_impl>
+         pcomp(priv_pcomp(), this);
+      node_algorithms::push_back(node_ptr(&priv_header()), to_insert, pcomp);
+      this->priv_size_traits().increment();
+   }
+
+   //! <b>Requires</b>: value must be an lvalue, and it must be no greater
+   //!   than the minimum inserted key
+   //!
+   //! <b>Effects</b>: Inserts x into the treap in the first position.
+   //! 
+   //! <b>Complexity</b>: Constant time.
+   //! 
+   //! <b>Throws</b>: If the internal priority_compare function throws. Strong guarantee.
+   //! 
+   //! <b>Note</b>: This function does not check preconditions so if value is
+   //!   greater than the minimum inserted key treap ordering invariant will be broken.
+   //!   This function is slightly more efficient than using "insert_before".
+   //!   This is a low-level function to be used only for performance reasons
+   //!   by advanced users.
+   void push_front(reference value)
+   {
+      node_ptr to_insert(get_real_value_traits().to_node_ptr(value));
+      if(safemode_or_autounlink)
+         BOOST_INTRUSIVE_SAFE_HOOK_DEFAULT_ASSERT(node_algorithms::unique(to_insert));
+      detail::key_nodeptr_comp<priority_compare, treap_impl>
+         pcomp(priv_pcomp(), this);
+      node_algorithms::push_front(node_ptr(&priv_header()), to_insert, pcomp);
+      this->priv_size_traits().increment();
    }
 
    //! <b>Effects</b>: Erases the element pointed to by pos. 
@@ -817,7 +925,7 @@ class treap_impl
          BOOST_INTRUSIVE_SAFE_HOOK_DEFAULT_ASSERT(!node_algorithms::unique(to_erase));
       detail::key_nodeptr_comp<priority_compare, treap_impl>
          key_node_pcomp(priv_pcomp(), this);
-      node_algorithms::erase(&priv_header(), to_erase,key_node_pcomp);
+      node_algorithms::erase(&priv_header(), to_erase, key_node_pcomp);
       this->priv_size_traits().decrement();
       if(safemode_or_autounlink)
          node_algorithms::init(to_erase);
@@ -856,7 +964,8 @@ class treap_impl
    //! 
    //! <b>Complexity</b>: O(log(size() + N).
    //! 
-   //! <b>Throws</b>: if the internal priority_compare function throws. Strong guarantee.
+   //! <b>Throws</b>: if the internal priority_compare function throws.
+   //!   Equivalent guarantee to <i>while(beg != end) erase(beg++);</i>
    //! 
    //! <b>Note</b>: Invalidates the iterators (but not the references)
    //!    to the erased elements. No destructors are called.
@@ -1260,16 +1369,16 @@ class treap_impl
       }
    }
 
-   //! <b>Effects</b>: Unlinks the leftmost node from the tree.
+   //! <b>Effects</b>: Unlinks the leftmost node from the treap.
    //! 
    //! <b>Complexity</b>: Average complexity is constant time.
    //! 
    //! <b>Throws</b>: Nothing.
    //! 
-   //! <b>Notes</b>: This function breaks the tree and the tree can
+   //! <b>Notes</b>: This function breaks the treap and the treap can
    //!   only be used for more unlink_leftmost_without_rebalance calls.
    //!   This function is normally used to achieve a step by step
-   //!   controlled destruction of the tree.
+   //!   controlled destruction of the treap.
    pointer unlink_leftmost_without_rebalance()
    {
       node_ptr to_be_disposed(node_algorithms::unlink_leftmost_without_rebalance
@@ -1283,10 +1392,10 @@ class treap_impl
    }
 
    //! <b>Requires</b>: replace_this must be a valid iterator of *this
-   //!   and with_this must not be inserted in any tree.
+   //!   and with_this must not be inserted in any treap.
    //! 
    //! <b>Effects</b>: Replaces replace_this in its position in the
-   //!   tree with with_this. The tree does not need to be rebalanced.
+   //!   treap with with_this. The treap does not need to be rebalanced.
    //! 
    //! <b>Complexity</b>: Constant. 
    //! 
@@ -1301,6 +1410,8 @@ class treap_impl
       node_algorithms::replace_node( get_real_value_traits().to_node_ptr(*replace_this)
                                    , node_ptr(&priv_header())
                                    , get_real_value_traits().to_node_ptr(with_this));
+      if(safemode_or_autounlink)
+         node_algorithms::init(replace_this.pointed_node());
    }
 
    //! <b>Requires</b>: value must be an lvalue and shall be in a set of
@@ -1363,7 +1474,7 @@ class treap_impl
    const_iterator iterator_to(const_reference value) const
    {  return const_iterator (value_traits::to_node_ptr(const_cast<reference> (value)), this); }
 
-   //! <b>Requires</b>: value shall not be in a tree.
+   //! <b>Requires</b>: value shall not be in a treap.
    //! 
    //! <b>Effects</b>: init_node puts the hook of a value in a well-known default
    //!   state.
@@ -1399,7 +1510,7 @@ class treap_impl
    static treap_impl &priv_container_from_end_iterator(const const_iterator &end_iterator)
    {
       header_plus_size *r = detail::parent_from_member<header_plus_size, node>
-         ( detail::get_pointer(end_iterator.pointed_node()), &header_plus_size::header_);
+         ( detail::boost_intrusive_get_pointer(end_iterator.pointed_node()), &header_plus_size::header_);
       typename node_plus_pred_t::header_plus_priority_size *n =
          detail::parent_from_member
          < typename node_plus_pred_t::header_plus_priority_size
@@ -1613,6 +1724,7 @@ class treap
       Options...
       #endif
       >::type   Base;
+   BOOST_MOVABLE_BUT_NOT_COPYABLE(treap)
 
    public:
    typedef typename Base::value_compare      value_compare;
@@ -1638,6 +1750,13 @@ class treap
        , const value_traits &v_traits = value_traits())
       :  Base(unique, b, e, cmp, pcmp, v_traits)
    {}
+
+   treap(BOOST_RV_REF(treap) x)
+      :  Base(::boost::move(static_cast<Base&>(x)))
+   {}
+
+   treap& operator=(BOOST_RV_REF(treap) x)
+   {  this->Base::operator=(::boost::move(static_cast<Base&>(x))); return *this;  }
 
    static treap &container_from_end_iterator(iterator end_iterator)
    {  return static_cast<treap &>(Base::container_from_end_iterator(end_iterator));   }

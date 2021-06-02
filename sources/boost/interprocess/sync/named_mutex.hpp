@@ -1,6 +1,6 @@
 //////////////////////////////////////////////////////////////////////////////
 //
-// (C) Copyright Ion Gaztanaga 2005-2008. Distributed under the Boost
+// (C) Copyright Ion Gaztanaga 2005-2009. Distributed under the Boost
 // Software License, Version 1.0. (See accompanying file
 // LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 //
@@ -21,6 +21,7 @@
 #include <boost/interprocess/exceptions.hpp>
 #include <boost/interprocess/sync/emulation/named_creation_functor.hpp>
 #include <boost/interprocess/detail/interprocess_tester.hpp>
+#include <boost/interprocess/permissions.hpp>
 
 #if defined(BOOST_INTERPROCESS_NAMED_MUTEX_USES_POSIX_SEMAPHORES)
    #include <boost/interprocess/sync/posix/semaphore_wrapper.hpp>
@@ -56,7 +57,7 @@ class named_mutex
    public:
    //!Creates a global interprocess_mutex with a name.
    //!Throws interprocess_exception on error.
-   named_mutex(create_only_t create_only, const char *name);
+   named_mutex(create_only_t create_only, const char *name, const permissions &perm = permissions());
 
    //!Opens or creates a global mutex with a name. 
    //!If the mutex is created, this call is equivalent to
@@ -64,7 +65,7 @@ class named_mutex
    //!If the mutex is already created, this call is equivalent
    //!named_mutex(open_only_t, ... )
    //!Does not throw
-   named_mutex(open_or_create_t open_or_create, const char *name);
+   named_mutex(open_or_create_t open_or_create, const char *name, const permissions &perm = permissions());
 
    //!Opens a global mutex with a name if that mutex is previously
    //!created. If it is not previously created this function throws
@@ -103,17 +104,17 @@ class named_mutex
 
    /// @cond
    private:
-   friend class detail::interprocess_tester;
+   friend class ipcdetail::interprocess_tester;
    void dont_close_on_destruction();
 
    #if defined(BOOST_INTERPROCESS_NAMED_MUTEX_USES_POSIX_SEMAPHORES)
-   detail::named_semaphore_wrapper m_sem;
+   ipcdetail::named_semaphore_wrapper m_sem;
    #else
    interprocess_mutex *mutex() const
    {  return static_cast<interprocess_mutex*>(m_shmem.get_user_address()); }
 
-   detail::managed_open_or_create_impl<shared_memory_object> m_shmem;
-   typedef detail::named_creation_functor<interprocess_mutex> construct_func_t;
+   ipcdetail::managed_open_or_create_impl<shared_memory_object> m_shmem;
+   typedef ipcdetail::named_creation_functor<interprocess_mutex> construct_func_t;
    #endif
    /// @endcond
 };
@@ -122,20 +123,20 @@ class named_mutex
 
 #if defined(BOOST_INTERPROCESS_NAMED_MUTEX_USES_POSIX_SEMAPHORES)
 
-inline named_mutex::named_mutex(create_only_t, const char *name)
-   :  m_sem(detail::DoCreate, name, read_write, 1)
+inline named_mutex::named_mutex(create_only_t, const char *name, const permissions &perm)
+   :  m_sem(ipcdetail::DoCreate, name, 1, perm)
 {}
 
-inline named_mutex::named_mutex(open_or_create_t, const char *name)
-   :  m_sem(detail::DoOpenOrCreate, name, read_write, 1)
+inline named_mutex::named_mutex(open_or_create_t, const char *name, const permissions &perm)
+   :  m_sem(ipcdetail::DoOpenOrCreate, name, 1, perm)
 {}
 
 inline named_mutex::named_mutex(open_only_t, const char *name)
-   :  m_sem(detail::DoOpen, name, read_write, 1)
+   :  m_sem(ipcdetail::DoOpen, name, 1, permissions())
 {}
 
 inline void named_mutex::dont_close_on_destruction()
-{  detail::interprocess_tester::dont_close_on_destruction(m_sem);  }
+{  ipcdetail::interprocess_tester::dont_close_on_destruction(m_sem);  }
 
 inline named_mutex::~named_mutex()
 {}
@@ -159,36 +160,38 @@ inline bool named_mutex::timed_lock(const boost::posix_time::ptime &abs_time)
 }
 
 inline bool named_mutex::remove(const char *name)
-{  return detail::named_semaphore_wrapper::remove(name);   }
+{  return ipcdetail::named_semaphore_wrapper::remove(name);   }
 
 #else
 
 inline void named_mutex::dont_close_on_destruction()
-{  detail::interprocess_tester::dont_close_on_destruction(m_shmem);  }
+{  ipcdetail::interprocess_tester::dont_close_on_destruction(m_shmem);  }
 
 inline named_mutex::~named_mutex()
 {}
 
-inline named_mutex::named_mutex(create_only_t, const char *name)
+inline named_mutex::named_mutex(create_only_t, const char *name, const permissions &perm)
    :  m_shmem  (create_only
                ,name
                ,sizeof(interprocess_mutex) +
-                  detail::managed_open_or_create_impl<shared_memory_object>::
+                  ipcdetail::managed_open_or_create_impl<shared_memory_object>::
                      ManagedOpenOrCreateUserOffset
                ,read_write
                ,0
-               ,construct_func_t(detail::DoCreate))
+               ,construct_func_t(ipcdetail::DoCreate)
+               ,perm)
 {}
 
-inline named_mutex::named_mutex(open_or_create_t, const char *name)
+inline named_mutex::named_mutex(open_or_create_t, const char *name, const permissions &perm)
    :  m_shmem  (open_or_create
                ,name
                ,sizeof(interprocess_mutex) +
-                  detail::managed_open_or_create_impl<shared_memory_object>::
+                  ipcdetail::managed_open_or_create_impl<shared_memory_object>::
                      ManagedOpenOrCreateUserOffset
                ,read_write
                ,0
-               ,construct_func_t(detail::DoOpenOrCreate))
+               ,construct_func_t(ipcdetail::DoOpenOrCreate)
+               ,perm)
 {}
 
 inline named_mutex::named_mutex(open_only_t, const char *name)
@@ -196,7 +199,7 @@ inline named_mutex::named_mutex(open_only_t, const char *name)
                ,name
                ,read_write
                ,0
-               ,construct_func_t(detail::DoOpen))
+               ,construct_func_t(ipcdetail::DoOpen))
 {}
 
 inline void named_mutex::lock()

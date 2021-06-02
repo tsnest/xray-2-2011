@@ -23,35 +23,35 @@ namespace gregorian {
   /*! Return special_value from string argument. If argument is 
    * not one of the special value names (defined in src/gregorian/names.hpp), 
    * return 'not_special' */
-  BOOST_DATE_TIME_DECL special_values special_value_from_string(const xray::network::std_string& s);
+  BOOST_DATE_TIME_DECL special_values special_value_from_string(const std::string& s);
 
   //! Deprecated: Use from_simple_string
-  inline date from_string(xray::network::std_string s) {
+  inline date from_string(std::string s) {
     return date_time::parse_date<date>(s);
   }
 
   //! From delimited date string where with order year-month-day eg: 2002-1-25 or 2003-Jan-25 (full month name is also accepted)
-  inline date from_simple_string(xray::network::std_string s) {
+  inline date from_simple_string(std::string s) {
     return date_time::parse_date<date>(s, date_time::ymd_order_iso);
   }
   
   //! From delimited date string where with order year-month-day eg: 1-25-2003 or Jan-25-2003 (full month name is also accepted)
-  inline date from_us_string(xray::network::std_string s) {
+  inline date from_us_string(std::string s) {
     return date_time::parse_date<date>(s, date_time::ymd_order_us);
   }
   
   //! From delimited date string where with order day-month-year eg: 25-1-2002 or 25-Jan-2003 (full month name is also accepted)
-  inline date from_uk_string(xray::network::std_string s) {
+  inline date from_uk_string(std::string s) {
     return date_time::parse_date<date>(s, date_time::ymd_order_dmy);
   }
   
   //! From iso type date string where with order year-month-day eg: 20020125
-  inline date from_undelimited_string(xray::network::std_string s) {
+  inline date from_undelimited_string(std::string s) {
     return date_time::parse_undelimited_date<date>(s);
   }
 
   //! From iso type date string where with order year-month-day eg: 20020125
-  inline date date_from_iso_string(const xray::network::std_string& s) {
+  inline date date_from_iso_string(const std::string& s) {
     return date_time::parse_undelimited_date<date>(s);
   }
 
@@ -75,7 +75,7 @@ namespace gregorian {
     // This function cannot be compiled with MSVC 6.0 due to internal compiler shorcomings
 #else
   //! Function to parse a date_period from a string (eg: [2003-Oct-31/2003-Dec-25])
-  inline date_period date_period_from_string(const xray::network::std_string& s){
+  inline date_period date_period_from_string(const std::string& s){
     return date_time::from_simple_string_type<date,char>(s);
   }
 #  if !defined(BOOST_NO_STD_WSTRING)

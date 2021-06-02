@@ -2,7 +2,7 @@
 // io_service.hpp
 // ~~~~~~~~~~~~~~
 //
-// Copyright (c) 2003-2008 Christopher M. Kohlhoff (chris at kohlhoff dot com)
+// Copyright (c) 2003-2011 Christopher M. Kohlhoff (chris at kohlhoff dot com)
 //
 // Distributed under the Boost Software License, Version 1.0. (See accompanying
 // file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
@@ -15,33 +15,29 @@
 # pragma once
 #endif // defined(_MSC_VER) && (_MSC_VER >= 1200)
 
-#include <boost/asio/detail/push_options.hpp>
-
-#include <boost/asio/detail/push_options.hpp>
+#include <boost/asio/detail/config.hpp>
 #include <cstddef>
 #include <stdexcept>
 #include <typeinfo>
-#include <boost/config.hpp>
-#include <boost/throw_exception.hpp>
-#include <boost/system/error_code.hpp>
-#include <boost/asio/detail/pop_options.hpp>
-
-#include <boost/asio/detail/dev_poll_reactor_fwd.hpp>
-#include <boost/asio/detail/epoll_reactor_fwd.hpp>
-#include <boost/asio/detail/kqueue_reactor_fwd.hpp>
 #include <boost/asio/detail/noncopyable.hpp>
-#include <boost/asio/detail/select_reactor_fwd.hpp>
 #include <boost/asio/detail/service_registry_fwd.hpp>
-
-#ifndef XRAY_NO_SIGNALS_H
-#	include <boost/asio/detail/signal_init.hpp>
-#endif // #ifndef XRAY_NO_SIGNALS_H
-
-#include <boost/asio/detail/task_io_service_fwd.hpp>
-#include <boost/asio/detail/win_iocp_io_service_fwd.hpp>
-#include <boost/asio/xbox360/xbox_iocp_service_fwd.hpp>
-#include <boost/asio/detail/winsock_init.hpp>
 #include <boost/asio/detail/wrapped_handler.hpp>
+#include <boost/system/error_code.hpp>
+
+#if defined(BOOST_ASIO_HAS_IOCP)
+# include <boost/asio/detail/win_iocp_io_service_fwd.hpp>
+#else
+# include <boost/asio/detail/task_io_service_fwd.hpp>
+#endif
+
+#if defined(BOOST_WINDOWS) || defined(__CYGWIN__)
+# include <boost/asio/detail/winsock_init.hpp>
+#elif defined(__sun) || defined(__QNX__) || defined(__hpux) || defined(_AIX) \
+  || defined(__osf__)
+# include <boost/asio/detail/signal_init.hpp>
+#endif
+
+#include <boost/asio/detail/push_options.hpp>
 
 namespace boost {
 namespace asio {
@@ -50,6 +46,12 @@ class io_service;
 template <typename Service> Service& use_service(io_service& ios);
 template <typename Service> void add_service(io_service& ios, Service* svc);
 template <typename Service> bool has_service(io_service& ios);
+
+#if defined(BOOST_ASIO_HAS_IOCP)
+namespace detail { typedef win_iocp_io_service io_service_impl; }
+#else
+namespace detail { typedef task_io_service io_service_impl; }
+#endif
 
 /// Provides core I/O functionality.
 /**
@@ -66,9 +68,12 @@ template <typename Service> bool has_service(io_service& ios);
  *
  * @par Thread Safety
  * @e Distinct @e objects: Safe.@n
- * @e Shared @e objects: Safe, with the exception that calling reset() while
- * there are unfinished run(), run_one(), poll() or poll_one() calls results in
- * undefined behaviour.
+ * @e Shared @e objects: Safe, with the specific exceptions of the reset() and
+ * notify_fork() functions. Calling reset() while there are unfinished run(),
+ * run_one(), poll() or poll_one() calls results in undefined behaviour. The
+ * notify_fork() function should not be called while any io_service function,
+ * or any function on an I/O object that is associated with the io_service, is
+ * being called in another thread.
  *
  * @par Concepts:
  * Dispatcher.
@@ -183,20 +188,9 @@ class io_service
   : private noncopyable
 {
 private:
-  // The type of the platform-specific implementation.
+  typedef detail::io_service_impl impl_type;
 #if defined(BOOST_ASIO_HAS_IOCP)
-  typedef detail::win_iocp_io_service impl_type;
   friend class detail::win_iocp_overlapped_ptr;
-#elif defined(BOOST_ASIO_HAS_EPOLL)
-  typedef detail::task_io_service<detail::epoll_reactor<false> > impl_type;
-#elif defined(BOOST_ASIO_HAS_KQUEUE)
-  typedef detail::task_io_service<detail::kqueue_reactor<false> > impl_type;
-#elif defined(BOOST_ASIO_HAS_DEV_POLL)
-  typedef detail::task_io_service<detail::dev_poll_reactor<false> > impl_type;
-#elif defined(_XBOX)
-  typedef detail::xbox_iocp_service	impl_type;
-#else
-  typedef detail::task_io_service<detail::select_reactor<false> > impl_type;
 #endif
 
 public:
@@ -210,7 +204,7 @@ public:
   class strand;
 
   /// Constructor.
-  io_service();
+  BOOST_ASIO_DECL io_service();
 
   /// Constructor.
   /**
@@ -219,7 +213,7 @@ public:
    * @param concurrency_hint A suggestion to the implementation on how many
    * threads it should allow to run simultaneously.
    */
-  explicit io_service(std::size_t concurrency_hint);
+  BOOST_ASIO_DECL explicit io_service(std::size_t concurrency_hint);
 
   /// Destructor.
   /**
@@ -253,7 +247,7 @@ public:
    * destructor defined above destroys all handlers, causing all @c shared_ptr
    * references to all connection objects to be destroyed.
    */
-  ~io_service();
+  BOOST_ASIO_DECL ~io_service();
 
   /// Run the io_service object's event processing loop.
   /**
@@ -265,8 +259,10 @@ public:
    * waiting in the pool are equivalent and the io_service may choose any one
    * of them to invoke a handler.
    *
-   * The run() function may be safely called again once it has completed only
-   * after a call to reset().
+   * A normal exit from the run() function implies that the io_service object
+   * is stopped (the stopped() function returns @c true). Subsequent calls to
+   * run(), run_one(), poll() or poll_one() will return immediately unless there
+   * is a prior call to reset().
    *
    * @return The number of handlers that were executed.
    *
@@ -279,7 +275,7 @@ public:
    * The poll() function may also be used to dispatch ready handlers, but
    * without blocking.
    */
-  std::size_t run();
+  BOOST_ASIO_DECL std::size_t run();
 
   /// Run the io_service object's event processing loop.
   /**
@@ -291,8 +287,10 @@ public:
    * waiting in the pool are equivalent and the io_service may choose any one
    * of them to invoke a handler.
    *
-   * The run() function may be safely called again once it has completed only
-   * after a call to reset().
+   * A normal exit from the run() function implies that the io_service object
+   * is stopped (the stopped() function returns @c true). Subsequent calls to
+   * run(), run_one(), poll() or poll_one() will return immediately unless there
+   * is a prior call to reset().
    *
    * @param ec Set to indicate what error occurred, if any.
    *
@@ -305,7 +303,7 @@ public:
    * The poll() function may also be used to dispatch ready handlers, but
    * without blocking.
    */
-  std::size_t run(boost::system::error_code& ec);
+  BOOST_ASIO_DECL std::size_t run(boost::system::error_code& ec);
 
   /// Run the io_service object's event processing loop to execute at most one
   /// handler.
@@ -313,11 +311,15 @@ public:
    * The run_one() function blocks until one handler has been dispatched, or
    * until the io_service has been stopped.
    *
-   * @return The number of handlers that were executed.
+   * @return The number of handlers that were executed. A zero return value
+   * implies that the io_service object is stopped (the stopped() function
+   * returns @c true). Subsequent calls to run(), run_one(), poll() or
+   * poll_one() will return immediately unless there is a prior call to
+   * reset().
    *
    * @throws boost::system::system_error Thrown on failure.
    */
-  std::size_t run_one();
+  BOOST_ASIO_DECL std::size_t run_one();
 
   /// Run the io_service object's event processing loop to execute at most one
   /// handler.
@@ -325,11 +327,15 @@ public:
    * The run_one() function blocks until one handler has been dispatched, or
    * until the io_service has been stopped.
    *
-   * @param ec Set to indicate what error occurred, if any.
+   * @return The number of handlers that were executed. A zero return value
+   * implies that the io_service object is stopped (the stopped() function
+   * returns @c true). Subsequent calls to run(), run_one(), poll() or
+   * poll_one() will return immediately unless there is a prior call to
+   * reset().
    *
    * @return The number of handlers that were executed.
    */
-  std::size_t run_one(boost::system::error_code& ec);
+  BOOST_ASIO_DECL std::size_t run_one(boost::system::error_code& ec);
 
   /// Run the io_service object's event processing loop to execute ready
   /// handlers.
@@ -341,7 +347,7 @@ public:
    *
    * @throws boost::system::system_error Thrown on failure.
    */
-  std::size_t poll();
+  BOOST_ASIO_DECL std::size_t poll();
 
   /// Run the io_service object's event processing loop to execute ready
   /// handlers.
@@ -353,7 +359,7 @@ public:
    *
    * @return The number of handlers that were executed.
    */
-  std::size_t poll(boost::system::error_code& ec);
+  BOOST_ASIO_DECL std::size_t poll(boost::system::error_code& ec);
 
   /// Run the io_service object's event processing loop to execute one ready
   /// handler.
@@ -365,7 +371,7 @@ public:
    *
    * @throws boost::system::system_error Thrown on failure.
    */
-  std::size_t poll_one();
+  BOOST_ASIO_DECL std::size_t poll_one();
 
   /// Run the io_service object's event processing loop to execute one ready
   /// handler.
@@ -377,7 +383,7 @@ public:
    *
    * @return The number of handlers that were executed.
    */
-  std::size_t poll_one(boost::system::error_code& ec);
+  BOOST_ASIO_DECL std::size_t poll_one(boost::system::error_code& ec);
 
   /// Stop the io_service object's event processing loop.
   /**
@@ -386,20 +392,32 @@ public:
    * return as soon as possible. Subsequent calls to run(), run_one(), poll()
    * or poll_one() will return immediately until reset() is called.
    */
-  void stop();
+  BOOST_ASIO_DECL void stop();
+
+  /// Determine whether the io_service object has been stopped.
+  /**
+   * This function is used to determine whether an io_service object has been
+   * stopped, either through an explicit call to stop(), or due to running out
+   * of work. When an io_service object is stopped, calls to run(), run_one(),
+   * poll() or poll_one() will return immediately without invoking any
+   * handlers.
+   *
+   * @return @c true if the io_service object is stopped, otherwise @c false.
+   */
+  BOOST_ASIO_DECL bool stopped() const;
 
   /// Reset the io_service in preparation for a subsequent run() invocation.
   /**
    * This function must be called prior to any second or later set of
    * invocations of the run(), run_one(), poll() or poll_one() functions when a
    * previous invocation of these functions returned due to the io_service
-   * being stopped or running out of work. This function allows the io_service
-   * to reset any internal state, such as a "stopped" flag.
+   * being stopped or running out of work. After a call to reset(), the
+   * io_service object's stopped() function will return @c false.
    *
    * This function must not be called while there are any unfinished calls to
    * the run(), run_one(), poll() or poll_one() functions.
    */
-  void reset();
+  BOOST_ASIO_DECL void reset();
 
   /// Request the io_service to invoke the given handler.
   /**
@@ -413,9 +431,17 @@ public:
    * @param handler The handler to be called. The io_service will make
    * a copy of the handler object as required. The function signature of the
    * handler must be: @code void handler(); @endcode
+   *
+   * @note This function throws an exception only if:
+   *
+   * @li the handler's @c asio_handler_allocate function; or
+   *
+   * @li the handler's copy constructor
+   *
+   * throws an exception.
    */
   template <typename CompletionHandler>
-  void dispatch(CompletionHandler handler);
+  void dispatch(BOOST_ASIO_MOVE_ARG(CompletionHandler) handler);
 
   /// Request the io_service to invoke the given handler and return immediately.
   /**
@@ -430,9 +456,17 @@ public:
    * @param handler The handler to be called. The io_service will make
    * a copy of the handler object as required. The function signature of the
    * handler must be: @code void handler(); @endcode
+   *
+   * @note This function throws an exception only if:
+   *
+   * @li the handler's @c asio_handler_allocate function; or
+   *
+   * @li the handler's copy constructor
+   *
+   * throws an exception.
    */
   template <typename CompletionHandler>
-  void post(CompletionHandler handler);
+  void post(BOOST_ASIO_MOVE_ARG(CompletionHandler) handler);
 
   /// Create a new handler that automatically dispatches the wrapped handler
   /// on the io_service.
@@ -463,6 +497,61 @@ public:
   detail::wrapped_handler<io_service&, Handler>
 #endif
   wrap(Handler handler);
+
+  /// Fork-related event notifications.
+  enum fork_event
+  {
+    /// Notify the io_service that the process is about to fork.
+    fork_prepare,
+
+    /// Notify the io_service that the process has forked and is the parent.
+    fork_parent,
+
+    /// Notify the io_service that the process has forked and is the child.
+    fork_child
+  };
+
+  /// Notify the io_service of a fork-related event.
+  /**
+   * This function is used to inform the io_service that the process is about
+   * to fork, or has just forked. This allows the io_service, and the services
+   * it contains, to perform any necessary housekeeping to ensure correct
+   * operation following a fork.
+   *
+   * This function must not be called while any other io_service function, or
+   * any function on an I/O object associated with the io_service, is being
+   * called in another thread. It is, however, safe to call this function from
+   * within a completion handler, provided no other thread is accessing the
+   * io_service.
+   *
+   * @param event A fork-related event.
+   *
+   * @throws boost::system::system_error Thrown on failure. If the notification
+   * fails the io_service object should no longer be used and should be
+   * destroyed.
+   *
+   * @par Example
+   * The following code illustrates how to incorporate the notify_fork()
+   * function:
+   * @code my_io_service.notify_fork(boost::asio::io_service::fork_prepare);
+   * if (fork() == 0)
+   * {
+   *   // This is the child process.
+   *   my_io_service.notify_fork(boost::asio::io_service::fork_child);
+   * }
+   * else
+   * {
+   *   // This is the parent process.
+   *   my_io_service.notify_fork(boost::asio::io_service::fork_parent);
+   * } @endcode
+   *
+   * @note For each service object @c svc in the io_service set, performs
+   * <tt>svc->fork_service();</tt>. When processing the fork_prepare event,
+   * services are visited in reverse order of the beginning of service object
+   * lifetime. Otherwise, services are visited in order of the beginning of
+   * service object lifetime.
+   */
+  BOOST_ASIO_DECL void notify_fork(boost::asio::io_service::fork_event event);
 
   /// Obtain the service object corresponding to the given type.
   /**
@@ -562,10 +651,6 @@ public:
    */
   ~work();
 
-  /// (Deprecated: use get_io_service().) Get the io_service associated with the
-  /// work.
-  boost::asio::io_service& io_service();
-
   /// Get the io_service associated with the work.
   boost::asio::io_service& get_io_service();
 
@@ -573,8 +658,8 @@ private:
   // Prevent assignment.
   void operator=(const work& other);
 
-  // The io_service.
-  boost::asio::io_service& io_service_;
+  // The io_service implementation.
+  detail::io_service_impl& io_service_impl_;
 };
 
 /// Class used to uniquely identify a service.
@@ -591,10 +676,6 @@ class io_service::service
   : private noncopyable
 {
 public:
-  /// (Deprecated: use get_io_service().) Get the io_service object that owns
-  /// the service.
-  boost::asio::io_service& io_service();
-
   /// Get the io_service object that owns the service.
   boost::asio::io_service& get_io_service();
 
@@ -603,19 +684,33 @@ protected:
   /**
    * @param owner The io_service object that owns the service.
    */
-  service(boost::asio::io_service& owner);
+  BOOST_ASIO_DECL service(boost::asio::io_service& owner);
 
   /// Destructor.
-  virtual ~service();
+  BOOST_ASIO_DECL virtual ~service();
 
 private:
   /// Destroy all user-defined handler objects owned by the service.
   virtual void shutdown_service() = 0;
 
+  /// Handle notification of a fork-related event to perform any necessary
+  /// housekeeping.
+  /**
+   * This function is not a pure virtual so that services only have to
+   * implement it if necessary. The default implementation does nothing.
+   */
+  BOOST_ASIO_DECL virtual void fork_service(
+      boost::asio::io_service::fork_event event);
+
   friend class boost::asio::detail::service_registry;
+  struct key
+  {
+    key() : type_info_(0), id_(0) {}
+    const std::type_info* type_info_;
+    const boost::asio::io_service::id* id_;
+  } key_;
+
   boost::asio::io_service& owner_;
-  const std::type_info* type_info_;
-  const boost::asio::io_service::id* id_;
   service* next_;
 };
 
@@ -624,10 +719,7 @@ class service_already_exists
   : public std::logic_error
 {
 public:
-  service_already_exists()
-    : std::logic_error("Service already exists.")
-  {
-  }
+  BOOST_ASIO_DECL service_already_exists();
 };
 
 /// Exception thrown when trying to add a service object to an io_service where
@@ -636,17 +728,45 @@ class invalid_service_owner
   : public std::logic_error
 {
 public:
-  invalid_service_owner()
-    : std::logic_error("Invalid service owner.")
+  BOOST_ASIO_DECL invalid_service_owner();
+};
+
+namespace detail {
+
+// Special derived service id type to keep classes header-file only.
+template <typename Type>
+class service_id
+  : public boost::asio::io_service::id
+{
+};
+
+// Special service base class to keep classes header-file only.
+template <typename Type>
+class service_base
+  : public boost::asio::io_service::service
+{
+public:
+  static boost::asio::detail::service_id<Type> id;
+
+  // Constructor.
+  service_base(boost::asio::io_service& io_service)
+    : boost::asio::io_service::service(io_service)
   {
   }
 };
 
+template <typename Type>
+boost::asio::detail::service_id<Type> service_base<Type>::id;
+
+} // namespace detail
 } // namespace asio
 } // namespace boost
 
-#include <boost/asio/impl/io_service.ipp>
-
 #include <boost/asio/detail/pop_options.hpp>
+
+#include <boost/asio/impl/io_service.hpp>
+#if defined(BOOST_ASIO_HEADER_ONLY)
+# include <boost/asio/impl/io_service.ipp>
+#endif // defined(BOOST_ASIO_HEADER_ONLY)
 
 #endif // BOOST_ASIO_IO_SERVICE_HPP

@@ -16,13 +16,14 @@
 #endif
 
 #include <boost/interprocess/detail/config_begin.hpp>
-#include <boost/interprocess/containers/container/map.hpp>
+#include <boost/container/map.hpp>
+#include <boost/interprocess/containers/containers_fwd.hpp>
 
 namespace boost {
 namespace interprocess {
 
-using boost::interprocess_container::map;
-using boost::interprocess_container::multimap;
+using boost::container::map;
+using boost::container::multimap;
 
 }  //namespace interprocess {
 }  //namespace boost {

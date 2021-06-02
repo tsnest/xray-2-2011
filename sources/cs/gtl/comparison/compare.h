@@ -15,25 +15,34 @@
 #include <cs/gtl/type_traits.h>
 
 namespace gtl {
+namespace detail {
 
-template < typename LeftType, typename RightType, typename PredicateType >
-inline bool compare						(
-		LeftType const& left,
-		RightType const& right,
-		PredicateType const& predicate
-	)
-{
-	return		predicate( left, right );
-}
+template <typename T0, typename T1, typename P>
+struct compare_pointer_helper {
+	template <bool a>
+	static inline bool compare			(T0 const& _0, T1 const& _1, P const& p)
+	{
+		return		p(_0,_1);
+	}
 
-template < typename LeftType, typename RightType, typename PredicateType >
-inline bool compare						(
-		LeftType* const left,
-		RightType* const right,
-		PredicateType* const predicate
-	)
+	template <>
+	static inline bool compare<true>	(T0 const& _0, T1 const& _1, P const& p)
+	{
+		return		gtl::compare(*_0, *_1, p);
+	}
+};
+
+} // namespace detail
+
+template <typename T0, typename T1, typename P>
+inline bool compare						(T0 const& _0, T1 const& _1, P const& p)
 {
-	return		gtl::compare( *left, *right, predicate );
+	return			(
+		detail::compare_pointer_helper<T0,T1,P>::compare<
+			boost::is_pointer<T0>::value
+		>
+		(_0, _1, p)
+	);
 }
 
 namespace detail {
@@ -55,8 +64,8 @@ namespace detail {
 #define CS_DECLARE_COMPARER(a,b) \
 	template <typename T1, typename T2>\
 	inline	bool a						(T1 const& p0, T2 const& p1)\
-	{ \
-		return		compare(p0,p1,detail::comparator<b>()); \
+	{\
+		return		compare(p0,p1,detail::comparator<b>());\
 	}
 
 CS_DECLARE_COMPARER(equal,			std::equal_to);

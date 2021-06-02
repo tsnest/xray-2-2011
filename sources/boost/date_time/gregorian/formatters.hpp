@@ -36,7 +36,7 @@ namespace gregorian {
   //! To YYYY-mmm-DD string where mmm 3 char month name. Example:  2002-Jan-01
   /*!\ingroup date_format
    */
-  inline xray::network::std_string to_simple_string(const date& d) {
+  inline std::string to_simple_string(const date& d) {
     return to_simple_string_type<char>(d);
   }
 
@@ -54,7 +54,7 @@ namespace gregorian {
   //! Convert date period to simple string. Example: [2002-Jan-01/2002-Jan-02]
   /*!\ingroup date_format
    */
-  inline xray::network::std_string to_simple_string(const date_period& d) {
+  inline std::string to_simple_string(const date_period& d) {
     return to_simple_string_type<char>(d);
   }
 
@@ -68,7 +68,7 @@ namespace gregorian {
   //! Date period to iso standard format CCYYMMDD/CCYYMMDD. Example: 20021225/20021231
   /*!\ingroup date_format
    */
-  inline xray::network::std_string to_iso_string(const date_period& d) {
+  inline std::string to_iso_string(const date_period& d) {
     return to_iso_string_type<char>(d);
   }
 
@@ -81,7 +81,7 @@ namespace gregorian {
   //! Convert to iso extended format string CCYY-MM-DD. Example 2002-12-31
   /*!\ingroup date_format
    */
-  inline xray::network::std_string to_iso_extended_string(const date& d) {
+  inline std::string to_iso_extended_string(const date& d) {
     return to_iso_extended_string_type<char>(d);
   }
 
@@ -93,7 +93,7 @@ namespace gregorian {
   //! Convert to iso standard string YYYYMMDD. Example: 20021231
   /*!\ingroup date_format
    */
-  inline xray::network::std_string to_iso_string(const date& d) {
+  inline std::string to_iso_string(const date& d) {
     return to_iso_string_type<char>(d);
   }
 
@@ -114,7 +114,7 @@ namespace gregorian {
        << ymd.day;
     return ss.str();
   }
-  inline xray::network::std_string to_sql_string(const date& d) {
+  inline std::string to_sql_string(const date& d) {
     return to_sql_string_type<char>(d);
   }
 

@@ -72,7 +72,9 @@ bool animation_player::set_target	 ( expression const& expression, u32 const cur
 	);
 
 	#ifndef MASTER_GOLD
+	#ifdef DEBUG
 	m_mixing_tree.dump_tree		( current_time_in_ms );
+	#endif
 	#endif // #ifndef MASTER_GOLD
 
 	mixing::n_ary_tree temp		= 
@@ -85,7 +87,9 @@ bool animation_player::set_target	 ( expression const& expression, u32 const cur
 			m_first_subscribed_channel
 		).computed_tree( m_mixing_tree );
 	#ifndef MASTER_GOLD
+	#ifdef DEBUG
 	temp.dump_tree				( current_time_in_ms );
+	#endif
 	#endif // #ifndef MASTER_GOLD
 
 	R_ASSERT					( !mixing_buffer.size(), "buffer calculation failed: %d bytes left", mixing_buffer.size() );
@@ -109,8 +113,10 @@ bool animation_player::set_target_and_tick		( expression const& expression, u32 
 	tick						( current_time_in_ms );
 
 	#ifndef MASTER_GOLD
+	#ifdef DEBUG
 	if ( is_new_target )
 		m_mixing_tree.dump_tree	( current_time_in_ms );
+	#endif
 	#endif // #ifndef MASTER_GOLD
 
 	return						is_new_target;

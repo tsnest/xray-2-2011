@@ -40,7 +40,7 @@ public:
 
 	inline thread_local_data	(thread_local_data const &) { NOT_IMPLEMENTED(); }
 
-	intrusive_list<queries_result, queries_result *, &queries_result::m_next_ready>					finished_queries;
+	intrusive_list<queries_result, queries_result *, &queries_result::m_next_ready>			finished_queries;
 	intrusive_list<fs_task, fs_task *, & fs_task::m_next>									ready_fs_tasks;
 	
 	// we need this to prevent the following Code Analysis error
@@ -77,6 +77,7 @@ public:
 	bool						dispatching_callbacks;
 	u32							in_translate_query_counter;
 	u32							disable_translate_query_counter_check;
+	fixed_string<32>			thread_name;
 
 
 	void	delete_this ()

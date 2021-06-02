@@ -70,7 +70,7 @@ namespace date_time {
      *  an integer or a string as controled by the formatting 
      *  policy
      */ 
-    static xray::network::std_string ymd_to_string(ymd_type ymd)
+    static std::string ymd_to_string(ymd_type ymd)
     {
       typedef typename ymd_type::month_type month_type;
       std::ostringstream ss;
@@ -96,7 +96,7 @@ namespace date_time {
   {
   public:
     //! Convert to a date to standard string using format policies
-    static xray::network::std_string date_to_string(date_type d)
+    static std::string date_to_string(date_type d)
     {
       typedef typename date_type::ymd_type ymd_type;
       if (d.is_not_a_date()) {

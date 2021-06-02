@@ -303,6 +303,21 @@ __delayLoadHelper2(
         if (hmod == 0) {
             hmod = ::LoadLibrary(dli.szDll);
             }
+		if (hmod == 0) {
+			#ifdef WIN64
+			#	define XRAY_PLATFORM_FOLDER "win64"
+			#else // #ifdef WIN64
+			#	define XRAY_PLATFORM_FOLDER "win32"
+			#endif // #ifdef WIN64
+			
+			char path[260];
+			strcpy_s(path, "../../binaries.prebuilt/" XRAY_PLATFORM_FOLDER "/" );
+			
+			#undef XRAY_PLATFORM_FOLDER
+
+			strcat_s(path,dli.szDll);
+            hmod = ::LoadLibrary(path);
+		}
         if (hmod == 0) {
             dli.dwLastError = ::GetLastError();
             if (__pfnDliFailureHook2) {

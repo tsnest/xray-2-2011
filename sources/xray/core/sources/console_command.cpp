@@ -74,7 +74,7 @@ void console_command::save_to( console_commands::save_storage& f, memory::base_a
 
 //--delegate
 cc_delegate::cc_delegate( pcstr name, functor_type const& functor, bool need_args ) 
-:	super		( name, false, command_type_user_specific, execution_filter_general ), 
+:	super		( name, true, command_type_user_specific, execution_filter_general ), 
 	m_functor	( functor )
 {
 	m_need_args = need_args;

@@ -22,6 +22,11 @@ namespace boost
 		XRAY_UNREFERENCED_PARAMETER	( e );
 		FATAL("boost exception caught: %s", e.what());
 	}
+	void throw_exception(std::bad_cast const & e)
+	{
+		XRAY_UNREFERENCED_PARAMETER	( e );
+		FATAL("boost exception caught: %s", e.what());
+	};	
 
 } // namespace boost
 

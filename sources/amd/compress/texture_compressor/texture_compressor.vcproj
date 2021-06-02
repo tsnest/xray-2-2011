@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="Windows-1252"?>
 <VisualStudioProject
 	ProjectType="Visual C++"
-	Version="9.00"
+	Version="9,00"
 	Name="texture_compressor"
 	ProjectGUID="{4EBA1E2F-CEDE-4009-B890-30D72F9FEEEE}"
 	RootNamespace="texture_compressor"
@@ -238,7 +238,7 @@
 				AdditionalDependencies="&quot;..\vc8\MT DLL Release\$(PlatformName)\ati_compress_mt_dll_vc8.lib&quot;"
 				OutputFile="$(SolutionDir)../binaries/$(PlatformName)/xray_$(ProjectName).dll"
 				LinkIncremental="1"
-				AdditionalLibraryDirectories=""
+				AdditionalLibraryDirectories="&quot;$(SolutionDir)stlport/libraries/$(PlatformName)&quot;"
 				GenerateDebugInformation="true"
 				ImportLibrary="$(SolutionDir)../binaries/$(PlatformName)/libraries/xray_$(ProjectName).lib"
 			/>
@@ -324,7 +324,7 @@
 				AdditionalDependencies="&quot;..\vc8\MT DLL Release\$(PlatformName)\ati_compress_mt_dll_vc8.lib&quot;"
 				OutputFile="$(SolutionDir)../binaries/$(PlatformName)/xray_$(ProjectName).dll"
 				LinkIncremental="1"
-				AdditionalLibraryDirectories=""
+				AdditionalLibraryDirectories="&quot;$(SolutionDir)stlport/libraries/$(PlatformName)&quot;"
 				GenerateDebugInformation="true"
 				OptimizeReferences="2"
 				EnableCOMDATFolding="2"

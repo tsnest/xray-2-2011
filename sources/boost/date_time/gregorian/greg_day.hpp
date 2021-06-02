@@ -20,10 +20,10 @@ namespace gregorian {
   struct bad_day_of_month : public std::out_of_range
   {
     bad_day_of_month() : 
-      std::out_of_range(xray::network::std_string("Day of month value is out of range 1..31")) 
+      std::out_of_range(std::string("Day of month value is out of range 1..31")) 
     {}
     //! Allow other classes to throw with unique string for bad day like Feb 29
-    bad_day_of_month(const xray::network::std_string& s) : 
+    bad_day_of_month(const std::string& s) : 
       std::out_of_range(s) 
     {}
   };

@@ -33,13 +33,13 @@ namespace date_time {
    * C style tolower() is used.
    */
   inline
-  xray::network::std_string
-  convert_to_lower(xray::network::std_string inp)
+  std::string
+  convert_to_lower(std::string inp)
   {
 #if !defined(BOOST_DATE_TIME_NO_LOCALE)
     const std::locale loc(std::locale::classic());
 #endif
-    xray::network::std_string::size_type i = 0, n = inp.length();
+    std::string::size_type i = 0, n = inp.length();
     for (; i < n; ++i) {
       inp[i] =
 #if defined(BOOST_DATE_TIME_NO_LOCALE)
@@ -58,12 +58,12 @@ namespace date_time {
      * want to preserve the original argument */
     template<class month_type>
     inline unsigned short
-    month_str_to_ushort(xray::network::std_string const& s) {
+    month_str_to_ushort(std::string const& s) {
       if((s.at(0) >= '0') && (s.at(0) <= '9')) {
         return boost::lexical_cast<unsigned short>(s);
       }
       else {
-        xray::network::std_string str = convert_to_lower(s);
+        std::string str = convert_to_lower(s);
         typename month_type::month_map_ptr_type ptr = month_type::get_month_map_ptr();
         typename month_type::month_map_type::iterator iter = ptr->find(str);
         if(iter != ptr->end()) { // required for STLport
@@ -101,8 +101,8 @@ namespace date_time {
      */
     template<class date_type>
     date_type
-    parse_date(const xray::network::std_string& s, int order_spec = ymd_order_iso) {
-      xray::network::std_string spec_str;
+    parse_date(const std::string& s, int order_spec = ymd_order_iso) {
+      std::string spec_str;
       if(order_spec == ymd_order_iso) {
         spec_str = "ymd";
       }
@@ -117,14 +117,14 @@ namespace date_time {
       typedef typename date_type::month_type month_type;
       unsigned pos = 0;
       unsigned short year(0), month(0), day(0);
-      typedef typename xray::network::std_string::traits_type traits_type;
+      typedef typename std::basic_string<char>::traits_type traits_type;
       typedef boost::char_separator<char, traits_type> char_separator_type;
       typedef boost::tokenizer<char_separator_type,
-                               xray::network::std_string::const_iterator,
-                               xray::network::std_string > tokenizer;
+                               std::basic_string<char>::const_iterator,
+                               std::basic_string<char> > tokenizer;
       typedef boost::tokenizer<char_separator_type,
-                               xray::network::std_string::const_iterator,
-                               xray::network::std_string >::iterator tokenizer_iterator;
+                               std::basic_string<char>::const_iterator,
+                               std::basic_string<char> >::iterator tokenizer_iterator;
       // may need more delimiters, these work for the regression tests
       const char sep_char[] = {',','-','.',' ','/','\0'};
       char_separator_type sep(sep_char);
@@ -156,7 +156,7 @@ namespace date_time {
     //! Generic function to parse undelimited date (eg: 20020201)
     template<class date_type>
     date_type
-    parse_undelimited_date(const xray::network::std_string& s) {
+    parse_undelimited_date(const std::string& s) {
       int offsets[] = {4,2,2};
       int pos = 0;
       typedef typename date_type::year_type year_type;
@@ -171,8 +171,8 @@ namespace date_time {
       boost::offset_separator osf(offsets, offsets+3, false, false);
 
       typedef typename boost::tokenizer<boost::offset_separator,
-                                        xray::network::std_string::const_iterator,
-                                        xray::network::std_string > tokenizer_type;
+                                        std::basic_string<char>::const_iterator,
+                                        std::basic_string<char> > tokenizer_type;
       tokenizer_type tok(s, osf);
       for(typename tokenizer_type::iterator ti=tok.begin(); ti!=tok.end();++ti) {
         unsigned short i = boost::lexical_cast<unsigned short>(*ti);
@@ -212,7 +212,7 @@ namespace date_time {
     date_type
     from_stream_type(iterator_type& beg,
                      iterator_type const& /* end */,
-                     xray::network::std_string const&)
+                     std::string const&)
     {
       return parse_date<date_type>(*beg);
     }

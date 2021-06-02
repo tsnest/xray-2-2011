@@ -14,7 +14,6 @@
 
 # include <boost/config.hpp>
 # include <boost/detail/workaround.hpp>
-# include <boost/noncopyable.hpp>
 
 namespace boost
 {
@@ -22,7 +21,7 @@ namespace boost
 namespace detail
 {
 
-template<class T> struct addr_impl_ref : private noncopyable
+template<class T> struct addr_impl_ref
 {
     T & v_;
 

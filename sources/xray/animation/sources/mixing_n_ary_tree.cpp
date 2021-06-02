@@ -189,6 +189,7 @@ void n_ary_tree::destroy			( )
 }
 
 #ifndef MASTER_GOLD
+#ifdef DEBUG
 void n_ary_tree::dump_animation_states	( u32 const current_time_in_ms ) const
 {
 	LOG_INFO						( "-------time: %5d------------", current_time_in_ms );
@@ -220,6 +221,7 @@ void n_ary_tree::dump_tree				( u32 const current_time_in_ms ) const
 	for ( ; i; i = i->m_next_animation )
 		(*i).accept					( dumper );
 }
+#endif
 #endif
 
 float4x4 n_ary_tree::get_object_transform	( ) const
@@ -520,6 +522,7 @@ void n_ary_tree::remove_animation	(
 }
 
 #ifndef MASTER_GOLD
+	#ifdef DEBUG
 static pcstr get_event_id				( u32 const event )
 {
 	using namespace xray::animation::mixing;
@@ -537,9 +540,11 @@ static pcstr get_event_id				( u32 const event )
 		default													: NODEFAULT( return "<unknown event id>" );
 	}
 }
+	#endif
 #endif
 
 #ifndef MASTER_GOLD
+	#ifdef DEBUG
 static void log_event					( xray::animation::mixing::animation_event const& event, n_ary_tree_animation_node& animation )
 {
 	LOG_DEBUG							( "\tevent types:" );
@@ -562,6 +567,7 @@ static void log_event					( xray::animation::mixing::animation_event const& even
 	LOG_DEBUG							( "\tanimation interval id   : %d", event.animation_interval_id );
 	LOG_DEBUG							( "\tanimation interval time : %.3fs", event.animation_interval_time );
 }
+	#endif
 #endif //#ifndef MASTER_GOLD
 
 n_ary_tree::process_event_result_enum n_ary_tree::process_event	(
@@ -575,6 +581,7 @@ n_ary_tree::process_event_result_enum n_ary_tree::process_event	(
 	bool object_transform_has_been_setup = false;
 	if ( event_type & time_event_animation_lexeme_ended ) {
 #ifndef MASTER_GOLD
+	#ifdef DEBUG
 		n_ary_tree_weight_calculator	weight_calculator( animation_state.event_iterator->event_time_in_ms );
 		weight_calculator.visit			( *current_animation_node );
 		float const weight				= weight_calculator.weight( );
@@ -590,6 +597,7 @@ n_ary_tree::process_event_result_enum n_ary_tree::process_event	(
 
 		LOG_DEBUG						( "processed animation event:" );
 		log_event						( *current_animation_node->animation_state().event_iterator, *current_animation_node );
+	#endif
 #endif // #ifndef MASTER_GOLD
 
 		mixing::animation_state** const new_end	= std::remove( m_animation_events, m_animation_events + m_animations_count, &animation_state );
@@ -660,7 +668,9 @@ n_ary_tree::process_event_result_enum n_ary_tree::process_event	(
 
 		if ( !current_animation_node->driving_animation() ) {
 #ifndef MASTER_GOLD
+#ifdef DEBUG
 			LOG_DEBUG							( "ON_ANIMATION_INTERVAL_ENDED: [%s] setting time scale start time: %d, %.3f", current_animation_node->identifier(), animation_state.event_iterator->event_time_in_ms, animation_state.animation_interval_time );
+#endif
 #endif
 			n_ary_tree_time_scale_start_time_modifier(
 				*current_animation_node,
@@ -804,8 +814,10 @@ void n_ary_tree::update_event_iterators	( u32 const target_time_in_ms )
 	// it and insert into a proper position to keep event iterators in a sorted order
 	while ( (*m_animation_events)->event_iterator->event_time_in_ms == target_time_in_ms ) {
 #ifndef MASTER_GOLD
+	#ifdef DEBUG
 		LOG_DEBUG						( "processed animation event:" );
 		log_event						( *(*m_animation_events)->event_iterator, (*m_animation_events)->event_iterator.animation() );
+	#endif
 #endif
 		++((*m_animation_events)->event_iterator);
 		animation_state** const found	= std::lower_bound( m_animation_events + 1, m_animation_events + m_animations_count, *m_animation_events, event_iterator_predicate() );
@@ -815,11 +827,13 @@ void n_ary_tree::update_event_iterators	( u32 const target_time_in_ms )
 	}
 
 #ifndef MASTER_GOLD
+	#ifdef DEBUG
 	LOG_DEBUG							( "NEXT animation events:" );
 	for ( animation_state const* const* i = m_animation_events, * const* const e = m_animation_events + m_animations_count; i != e; ++i ) {
 		LOG_DEBUG						( "animation event:" );
 		log_event						( *(*i)->event_iterator, (*i)->event_iterator.animation() );
 	}
+	#endif
 #endif
 }
 
@@ -1003,7 +1017,9 @@ void n_ary_tree::tick					(
 		R_ASSERT_U						( !need_new_transform(target_time_in_ms) );
 		m_tree_actual_time_in_ms		= target_time_in_ms;
 #ifndef MASTER_GOLD
+	#ifdef DEBUG
 		dump_animation_states			( target_time_in_ms );
+	#endif
 #endif // #ifndef MASTER_GOLD
 #ifdef XRAY_NORMALIZE_ANIMATIONS_WEIGHTS
 		need_weights_normalization		= true;

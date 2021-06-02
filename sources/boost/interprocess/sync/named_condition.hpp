@@ -1,6 +1,6 @@
 //////////////////////////////////////////////////////////////////////////////
 //
-// (C) Copyright Ion Gaztanaga 2005-2008. Distributed under the Boost
+// (C) Copyright Ion Gaztanaga 2005-2009. Distributed under the Boost
 // Software License, Version 1.0. (See accompanying file
 // LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 //
@@ -27,6 +27,7 @@
 #include <boost/interprocess/detail/posix_time_types_wrk.hpp>
 #include <boost/interprocess/sync/emulation/named_creation_functor.hpp>
 #include <boost/interprocess/sync/named_mutex.hpp>
+#include <boost/interprocess/permissions.hpp>
 #if defined BOOST_INTERPROCESS_NAMED_MUTEX_USES_POSIX_SEMAPHORES
 #include <boost/interprocess/sync/interprocess_mutex.hpp>
 #include <boost/interprocess/sync/scoped_lock.hpp>
@@ -40,7 +41,7 @@ namespace boost {
 namespace interprocess {
 
 /// @cond
-namespace detail{ class interprocess_tester; }
+namespace ipcdetail{ class interprocess_tester; }
 /// @endcond
 
 //! A global condition variable that can be created by name.
@@ -57,7 +58,7 @@ class named_condition
    public:
    //!Creates a global condition with a name.
    //!If the condition can't be created throws interprocess_exception
-   named_condition(create_only_t create_only, const char *name);
+   named_condition(create_only_t create_only, const char *name, const permissions &perm = permissions());
 
    //!Opens or creates a global condition with a name. 
    //!If the condition is created, this call is equivalent to
@@ -65,7 +66,7 @@ class named_condition
    //!If the condition is already created, this call is equivalent
    //!named_condition(open_only_t, ... )
    //!Does not throw
-   named_condition(open_or_create_t open_or_create, const char *name);
+   named_condition(open_or_create_t open_or_create, const char *name, const permissions &perm = permissions());
 
    //!Opens a global condition with a name if that condition is previously
    //!created. If it is not previously created this function throws
@@ -153,7 +154,7 @@ class named_condition
    void do_wait(Lock& lock)
    {
       //named_condition only works with named_mutex
-      BOOST_STATIC_ASSERT((detail::is_convertible<typename Lock::mutex_type&, named_mutex&>::value == true));
+      BOOST_STATIC_ASSERT((ipcdetail::is_convertible<typename Lock::mutex_type&, named_mutex&>::value == true));
       
       //lock internal before unlocking external to avoid race with a notifier
       scoped_lock<interprocess_mutex>     internal_lock(*this->mutex());
@@ -170,7 +171,7 @@ class named_condition
    bool do_timed_wait(Lock& lock, const boost::posix_time::ptime &abs_time)
    {
       //named_condition only works with named_mutex
-      BOOST_STATIC_ASSERT((detail::is_convertible<typename Lock::mutex_type&, named_mutex&>::value == true));
+      BOOST_STATIC_ASSERT((ipcdetail::is_convertible<typename Lock::mutex_type&, named_mutex&>::value == true));
       //lock internal before unlocking external to avoid race with a notifier  
       scoped_lock<interprocess_mutex>     internal_lock(*this->mutex(), abs_time);  
       if(!internal_lock) return false;
@@ -184,13 +185,13 @@ class named_condition
    }
    #endif
 
-   friend class detail::interprocess_tester;
+   friend class ipcdetail::interprocess_tester;
    void dont_close_on_destruction();
 
-   detail::managed_open_or_create_impl<shared_memory_object> m_shmem;
+   ipcdetail::managed_open_or_create_impl<shared_memory_object> m_shmem;
 
-   template <class T, class Arg> friend class boost::interprocess::detail::named_creation_functor;
-   typedef detail::named_creation_functor<condition_holder> construct_func_t;
+   template <class T, class Arg> friend class boost::interprocess::ipcdetail::named_creation_functor;
+   typedef ipcdetail::named_creation_functor<condition_holder> construct_func_t;
    /// @endcond
 };
 
@@ -199,26 +200,28 @@ class named_condition
 inline named_condition::~named_condition()
 {}
 
-inline named_condition::named_condition(create_only_t, const char *name)
+inline named_condition::named_condition(create_only_t, const char *name, const permissions &perm)
    :  m_shmem  (create_only
                ,name
                ,sizeof(condition_holder) +
-                  detail::managed_open_or_create_impl<shared_memory_object>::
+                  ipcdetail::managed_open_or_create_impl<shared_memory_object>::
                      ManagedOpenOrCreateUserOffset
                ,read_write
                ,0
-               ,construct_func_t(detail::DoCreate))
+               ,construct_func_t(ipcdetail::DoCreate)
+               ,perm)
 {}
 
-inline named_condition::named_condition(open_or_create_t, const char *name)
+inline named_condition::named_condition(open_or_create_t, const char *name, const permissions &perm)
    :  m_shmem  (open_or_create
                ,name
                ,sizeof(condition_holder) +
-                  detail::managed_open_or_create_impl<shared_memory_object>::
+                  ipcdetail::managed_open_or_create_impl<shared_memory_object>::
                      ManagedOpenOrCreateUserOffset
                ,read_write
                ,0
-               ,construct_func_t(detail::DoOpenOrCreate))
+               ,construct_func_t(ipcdetail::DoOpenOrCreate)
+               ,perm)
 {}
 
 inline named_condition::named_condition(open_only_t, const char *name)
@@ -226,11 +229,11 @@ inline named_condition::named_condition(open_only_t, const char *name)
                ,name
                ,read_write
                ,0
-               ,construct_func_t(detail::DoOpen))
+               ,construct_func_t(ipcdetail::DoOpen))
 {}
 
 inline void named_condition::dont_close_on_destruction()
-{  detail::interprocess_tester::dont_close_on_destruction(m_shmem);  }
+{  ipcdetail::interprocess_tester::dont_close_on_destruction(m_shmem);  }
 
 #if defined(BOOST_INTERPROCESS_NAMED_MUTEX_USES_POSIX_SEMAPHORES)
 

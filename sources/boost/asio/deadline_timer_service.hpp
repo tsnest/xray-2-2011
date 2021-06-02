@@ -2,7 +2,7 @@
 // deadline_timer_service.hpp
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~
 //
-// Copyright (c) 2003-2008 Christopher M. Kohlhoff (chris at kohlhoff dot com)
+// Copyright (c) 2003-2011 Christopher M. Kohlhoff (chris at kohlhoff dot com)
 //
 // Distributed under the Boost Software License, Version 1.0. (See accompanying
 // file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
@@ -15,22 +15,13 @@
 # pragma once
 #endif // defined(_MSC_VER) && (_MSC_VER >= 1200)
 
-#include <boost/asio/detail/push_options.hpp>
-
-#include <boost/asio/detail/push_options.hpp>
+#include <boost/asio/detail/config.hpp>
 #include <cstddef>
-#include <boost/config.hpp>
-#include <boost/asio/detail/pop_options.hpp>
-
+#include <boost/asio/detail/deadline_timer_service.hpp>
 #include <boost/asio/io_service.hpp>
 #include <boost/asio/time_traits.hpp>
-#include <boost/asio/detail/deadline_timer_service.hpp>
-#include <boost/asio/detail/epoll_reactor.hpp>
-#include <boost/asio/detail/kqueue_reactor.hpp>
-#include <boost/asio/detail/select_reactor.hpp>
-#include <boost/asio/detail/service_base.hpp>
-#include <boost/asio/detail/win_iocp_io_service.hpp>
-#include <boost/asio/xbox360/xbox_iocp_service.hpp>
+
+#include <boost/asio/detail/push_options.hpp>
 
 namespace boost {
 namespace asio {
@@ -63,25 +54,7 @@ public:
 
 private:
   // The type of the platform-specific implementation.
-#if defined(BOOST_ASIO_HAS_IOCP)
-  typedef detail::deadline_timer_service<
-    traits_type, detail::win_iocp_io_service> service_impl_type;
-#elif defined(BOOST_ASIO_HAS_EPOLL)
-  typedef detail::deadline_timer_service<
-    traits_type, detail::epoll_reactor<false> > service_impl_type;
-#elif defined(BOOST_ASIO_HAS_KQUEUE)
-  typedef detail::deadline_timer_service<
-    traits_type, detail::kqueue_reactor<false> > service_impl_type;
-#elif defined(BOOST_ASIO_HAS_DEV_POLL)
-  typedef detail::deadline_timer_service<
-    traits_type, detail::dev_poll_reactor<false> > service_impl_type;
-#elif defined(_XBOX)
-  typedef detail::deadline_timer_service<
-    traits_type, detail::xbox_iocp_service> service_impl_type;
-#else
-  typedef detail::deadline_timer_service<
-    traits_type, detail::select_reactor<false> > service_impl_type;
-#endif
+  typedef detail::deadline_timer_service<traits_type> service_impl_type;
 
 public:
   /// The implementation type of the deadline timer.
@@ -95,12 +68,7 @@ public:
   explicit deadline_timer_service(boost::asio::io_service& io_service)
     : boost::asio::detail::service_base<
         deadline_timer_service<TimeType, TimeTraits> >(io_service),
-      service_impl_(boost::asio::use_service<service_impl_type>(io_service))
-  {
-  }
-
-  /// Destroy all user-defined handler objects owned by the service.
-  void shutdown_service()
+      service_impl_(io_service)
   {
   }
 
@@ -120,6 +88,13 @@ public:
   std::size_t cancel(implementation_type& impl, boost::system::error_code& ec)
   {
     return service_impl_.cancel(impl, ec);
+  }
+
+  /// Cancels one asynchronous wait operation associated with the timer.
+  std::size_t cancel_one(implementation_type& impl,
+      boost::system::error_code& ec)
+  {
+    return service_impl_.cancel_one(impl, ec);
   }
 
   /// Get the expiry time for the timer as an absolute time.
@@ -156,14 +131,21 @@ public:
 
   // Start an asynchronous wait on the timer.
   template <typename WaitHandler>
-  void async_wait(implementation_type& impl, WaitHandler handler)
+  void async_wait(implementation_type& impl,
+      BOOST_ASIO_MOVE_ARG(WaitHandler) handler)
   {
-    service_impl_.async_wait(impl, handler);
+    service_impl_.async_wait(impl, BOOST_ASIO_MOVE_CAST(WaitHandler)(handler));
   }
 
 private:
-  // The service that provides the platform-specific implementation.
-  service_impl_type& service_impl_;
+  // Destroy all user-defined handler objects owned by the service.
+  void shutdown_service()
+  {
+    service_impl_.shutdown_service();
+  }
+
+  // The platform-specific implementation.
+  service_impl_type service_impl_;
 };
 
 } // namespace asio

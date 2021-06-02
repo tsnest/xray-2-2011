@@ -146,11 +146,13 @@ public:
 
 	bool						mount_operations_are_pending		() const { return m_pending_mount_operations_count || m_pending_mount_helper_query_count; }
 
+	void						fill_stats							(strings::text_tree_item & stats);
+
 private:
 	void						register_cooks						();
 	void						init_query_with_no_fat_it			(query_result &		query);
 	void						add_to_generate_if_no_file_queue	(query_result &		query);
-	void						remove_from_generate_if_no_file_queue	(query_result &		query);
+	void						remove_from_generate_if_no_file_queue	(query_result &	query);
 
 	void						push_to_device_manager				(query_result &		query);
 	void						dispatch_query_callbacks			(queries_result *	ready_query_list, 

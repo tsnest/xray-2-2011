@@ -44,6 +44,8 @@ public:
 
 	void				collect_garbage						(u32 * out_tasks_freed_count = NULL);
 
+	void				fill_stats							(strings::text_tree_item & stats);
+
 private:
 	struct collector
 	{
@@ -271,6 +273,13 @@ task *   task_manager::grab_next_task ()
 	}
 }
 
+tasks::thread_pool *	get_thread_pool();
+
+void   task_manager::fill_stats			(strings::text_tree_item & stats)
+{
+	get_thread_pool()->fill_stats					(stats);
+}
+
 void   spawn_task (task::function const & function, task_type * type, task * parent)
 {
 	s_task_manager.spawn_task					(function, type, parent);
@@ -306,6 +315,11 @@ void   collect_garbage (u32 * const out_tasks_freed_count)
 void	on_thread_spawn	( )
 {
 	register_current_thread_as_core_user	( );
+}
+
+void    fill_stats (strings::text_tree_item & stats)
+{
+	s_task_manager.fill_stats				(stats);
 }
 
 } // namespace tasks

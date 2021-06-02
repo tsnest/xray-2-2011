@@ -1,6 +1,6 @@
 //////////////////////////////////////////////////////////////////////////////
 //
-// (C) Copyright Ion Gaztanaga 2005-2008. Distributed under the Boost
+// (C) Copyright Ion Gaztanaga 2005-2009. Distributed under the Boost
 // Software License, Version 1.0. (See accompanying file
 // LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 //
@@ -24,33 +24,45 @@
 // It is provided "as is" without express or implied warranty.
 //////////////////////////////////////////////////////////////////////////////
 
+#include <boost/interprocess/exceptions.hpp>
 #include <boost/interprocess/sync/posix/ptime_to_timespec.hpp>
 #include <boost/interprocess/detail/posix_time_types_wrk.hpp>
 #include <boost/interprocess/exceptions.hpp>
 #ifndef BOOST_INTERPROCESS_POSIX_TIMEOUTS
 #  include <boost/interprocess/detail/os_thread_functions.hpp>
 #endif
+#include <boost/assert.hpp>
 
 namespace boost {
 namespace interprocess {
 
 inline interprocess_mutex::interprocess_mutex()
 {
-   detail::mutexattr_wrapper mut_attr;
-   detail::mutex_initializer mut(m_mut, mut_attr);
+   ipcdetail::mutexattr_wrapper mut_attr;
+   ipcdetail::mutex_initializer mut(m_mut, mut_attr);
    mut.release();
 }
 
 inline interprocess_mutex::~interprocess_mutex() 
 {
    int res = pthread_mutex_destroy(&m_mut);
-   assert(res  == 0);(void)res;
+   BOOST_ASSERT(res  == 0);(void)res;
 }
 
 inline void interprocess_mutex::lock()
 {
+#ifdef BOOST_INTERPROCESS_ENABLE_TIMEOUT_WHEN_LOCKING
+   boost::posix_time::ptime wait_time
+      = boost::posix_time::microsec_clock::universal_time()
+        + boost::posix_time::milliseconds(BOOST_INTERPROCESS_TIMEOUT_WHEN_LOCKING_DURATION_MS);
+   if (!timed_lock(wait_time))
+   {
+      throw interprocess_exception(timeout_when_locking_error, "Interprocess mutex timeout when locking. Possible deadlock: owner died without unlocking?");
+   }
+#else
    if (pthread_mutex_lock(&m_mut) != 0) 
       throw lock_exception();
+#endif
 }
 
 inline bool interprocess_mutex::try_lock()
@@ -69,7 +81,7 @@ inline bool interprocess_mutex::timed_lock(const boost::posix_time::ptime &abs_t
    }
    #ifdef BOOST_INTERPROCESS_POSIX_TIMEOUTS
 
-   timespec ts = detail::ptime_to_timespec(abs_time);
+   timespec ts = ipcdetail::ptime_to_timespec(abs_time);
    int res = pthread_mutex_timedlock(&m_mut, &ts);
    if (res != 0 && res != ETIMEDOUT)
       throw lock_exception();
@@ -92,7 +104,7 @@ inline bool interprocess_mutex::timed_lock(const boost::posix_time::ptime &abs_t
          return false;
       }
       // relinquish current time slice
-     detail::thread_yield();
+     ipcdetail::thread_yield();
    }while (true);
    return true;
 
@@ -103,7 +115,7 @@ inline void interprocess_mutex::unlock()
 {
    int res = 0;
    res = pthread_mutex_unlock(&m_mut);
-   assert(res == 0);
+   BOOST_ASSERT(res == 0);
 }
 
 }  //namespace interprocess {

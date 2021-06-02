@@ -1,5 +1,5 @@
 /*=============================================================================
-    Copyright (c) 2001-2006 Joel de Guzman
+    Copyright (c) 2001-2011 Joel de Guzman
 
     Distributed under the Boost Software License, Version 1.0. (See accompanying
     file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
@@ -16,6 +16,26 @@
 #include <boost/type_traits/add_const.hpp>
 #include <boost/type_traits/is_base_of.hpp>
 #include <boost/detail/workaround.hpp>
+
+#if !defined(BOOST_FUSION_DONT_USE_PREPROCESSED_FILES)
+#include <boost/fusion/container/vector/detail/preprocessed/vector.hpp>
+#else
+#if defined(__WAVE__) && defined(BOOST_FUSION_CREATE_PREPROCESSED_FILES)
+#pragma wave option(preserve: 2, line: 0, output: "detail/preprocessed/vvector" FUSION_MAX_VECTOR_SIZE_STR ".hpp")
+#endif
+
+/*=============================================================================
+    Copyright (c) 2001-2011 Joel de Guzman
+
+    Distributed under the Boost Software License, Version 1.0. (See accompanying
+    file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
+
+    This is an auto-generated file. Do not edit!
+==============================================================================*/
+
+#if defined(__WAVE__) && defined(BOOST_FUSION_CREATE_PREPROCESSED_FILES)
+#pragma wave option(preserve: 1)
+#endif
 
 namespace boost { namespace fusion
 {
@@ -56,7 +76,7 @@ namespace boost { namespace fusion
 
         template <typename Sequence>
         vector(Sequence const& rhs)
-#if BOOST_WORKAROUND(BOOST_MSVC, <= 1400)
+#if BOOST_WORKAROUND(BOOST_MSVC, <= 1600)
             : vec(ctor_helper(rhs, is_base_of<vector, Sequence>())) {}
 #else
             : vec(rhs) {}
@@ -111,7 +131,7 @@ namespace boost { namespace fusion
         typename add_reference<
             typename mpl::at<types, I>::type
         >::type
-        at_impl(I index)
+        at_impl(I /*index*/)
         {
             return vec.at_impl(mpl::int_<I::value>());
         }
@@ -122,14 +142,14 @@ namespace boost { namespace fusion
                 typename mpl::at<types, I>::type
             >::type
         >::type
-        at_impl(I index) const
+        at_impl(I /*index*/) const
         {
             return vec.at_impl(mpl::int_<I::value>());
         }
 
     private:
 
-#if BOOST_WORKAROUND(BOOST_MSVC, <= 1400)
+#if BOOST_WORKAROUND(BOOST_MSVC, <= 1600)
         static vector_n const&
         ctor_helper(vector const& rhs, mpl::true_)
         {
@@ -147,5 +167,11 @@ namespace boost { namespace fusion
         vector_n vec;
     };
 }}
+
+#if defined(__WAVE__) && defined(BOOST_FUSION_CREATE_PREPROCESSED_FILES)
+#pragma wave option(output: null)
+#endif
+
+#endif // BOOST_FUSION_DONT_USE_PREPROCESSED_FILES
 
 #endif

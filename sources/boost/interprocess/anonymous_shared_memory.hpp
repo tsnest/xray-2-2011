@@ -1,6 +1,6 @@
 //////////////////////////////////////////////////////////////////////////////
 //
-// (C) Copyright Ion Gaztanaga 2005-2008. Distributed under the Boost
+// (C) Copyright Ion Gaztanaga 2005-2009. Distributed under the Boost
 // Software License, Version 1.0. (See accompanying file
 // LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 //
@@ -37,7 +37,7 @@ namespace interprocess {
 
 /// @cond
 
-namespace detail{
+namespace ipcdetail{
 
    class raw_mapped_region_creator
    {
@@ -101,7 +101,7 @@ anonymous_shared_memory(std::size_t size, void *address = 0)
    if(fd != -1)   
       close(fd);
 
-   return detail::raw_mapped_region_creator::create_posix_mapped_region(address, 0, size);
+   return ipcdetail::raw_mapped_region_creator::create_posix_mapped_region(address, 0, size);
 }
 #else
 {

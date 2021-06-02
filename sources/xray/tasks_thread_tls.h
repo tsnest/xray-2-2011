@@ -22,7 +22,7 @@ public:
 
 public:
 	thread_tls					() : thread_type(type_task_thread), pool(NULL), thread_index(0),
-									 thread_id(0), hardware_thread(0), current_task(NULL), 
+									 thread_id(0), hardware_thread(0), current_task(NULL), executed_tasks_count(0),
 									 last_task_type(NULL), state(state_inactive), in_grab_next_task(0) {}
 	bool						is_task_thread () const { return thread_type == type_task_thread; }
 	bool						is_user_thread () const { return thread_type == type_user_thread; }
@@ -47,6 +47,9 @@ public:
 	u32							hardware_thread;
 	type_enum					thread_type;
 	threading::atomic32_type	in_grab_next_task;
+	fixed_string<32>			thread_name;
+	threading::atomic64_type	last_task_end_tick;
+	threading::atomic32_type	executed_tasks_count;
 };
 
 XRAY_CORE_API	thread_tls *	current_task_thread_tls		();

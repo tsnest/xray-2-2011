@@ -1,6 +1,6 @@
 //////////////////////////////////////////////////////////////////////////////
 //
-// (C) Copyright Ion Gaztanaga 2005-2008. Distributed under the Boost
+// (C) Copyright Ion Gaztanaga 2005-2009. Distributed under the Boost
 // Software License, Version 1.0. (See accompanying file
 // LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 //
@@ -16,8 +16,10 @@
 #include <boost/interprocess/creation_tags.hpp>
 #include <boost/interprocess/detail/os_file_functions.hpp>
 #include <boost/interprocess/detail/tmp_dir_helpers.hpp>
+#include <boost/interprocess/permissions.hpp>
 #include <string>
 #include <semaphore.h>
+#include <boost/assert.hpp>
 
 #ifdef SEM_FAILED
 #define BOOST_INTERPROCESS_POSIX_SEM_FAILED (reinterpret_cast<sem_t*>(SEM_FAILED))
@@ -35,43 +37,32 @@ namespace boost {
 namespace interprocess {
 
 /// @cond
-namespace detail{ class interprocess_tester; }
+namespace ipcdetail{ class interprocess_tester; }
 /// @endcond
 
-namespace detail {
+namespace ipcdetail {
 
 inline bool semaphore_open
-   (sem_t *&handle, detail::create_enum_t type, const char *origname, mode_t mode,
-    unsigned int count)
+   (sem_t *&handle, ipcdetail::create_enum_t type, const char *origname, 
+    unsigned int count, const permissions &perm = permissions())
 {
    std::string name;
    #ifndef BOOST_INTERPROCESS_FILESYSTEM_BASED_POSIX_SEMAPHORES
-   detail::add_leading_slash(origname, name);
+   ipcdetail::add_leading_slash(origname, name);
    #else
-   detail::create_tmp_dir_and_get_filename(origname, name);
+   ipcdetail::create_tmp_and_clean_old_and_get_filename(origname, name);
    #endif
 
    //Create new mapping
    int oflag = 0;
-   if(mode == read_only){
-      oflag |= O_RDONLY;
-   }
-   else if(mode == read_write){
-      oflag |= O_RDWR;
-   }
-   else{
-      error_info err(mode_error);
-      throw interprocess_exception(err);
-   }
-
    switch(type){
-      case detail::DoOpen:
+      case ipcdetail::DoOpen:
          //No addition
       break;
-      case detail::DoCreate:
+      case ipcdetail::DoCreate:
          oflag |= (O_CREAT | O_EXCL);
       break;
-      case detail::DoOpenOrCreate:
+      case ipcdetail::DoOpenOrCreate:
          oflag |= O_CREAT;
       break;
       default:
@@ -83,7 +74,7 @@ inline bool semaphore_open
 
    //Open file using POSIX API
    if(oflag & O_CREAT)
-      handle = sem_open(name.c_str(), oflag, S_IRWXO | S_IRWXG | S_IRWXU, count);
+      handle = sem_open(name.c_str(), oflag, perm.get_permissions(), count);
    else
       handle = sem_open(name.c_str(), oflag);
 
@@ -99,7 +90,7 @@ inline void semaphore_close(sem_t *handle)
 {
    int ret = sem_close(handle);
    if(ret != 0){  
-      assert(0);
+      BOOST_ASSERT(0);
    }
 }
 
@@ -108,11 +99,11 @@ inline bool semaphore_unlink(const char *semname)
    try{
       std::string sem_str;
       #ifndef BOOST_INTERPROCESS_FILESYSTEM_BASED_POSIX_SEMAPHORES
-      detail::add_leading_slash(semname, sem_str);
+      ipcdetail::add_leading_slash(semname, sem_str);
       #else
-      detail::tmp_filename(semname, sem_str);
+      ipcdetail::tmp_filename(semname, sem_str);
       #endif
-      return 0 != sem_unlink(sem_str.c_str());
+      return 0 == sem_unlink(sem_str.c_str());
    }
    catch(...){
       return false;
@@ -134,7 +125,7 @@ inline void semaphore_destroy(sem_t *handle)
 {
    int ret = sem_destroy(handle);
    if(ret != 0){  
-      assert(0);
+      BOOST_ASSERT(0);
    }
 }
 
@@ -169,7 +160,7 @@ inline bool semaphore_try_wait(sem_t *handle)
 inline bool semaphore_timed_wait(sem_t *handle, const boost::posix_time::ptime &abs_time)
 {
    #ifdef BOOST_INTERPROCESS_POSIX_TIMEOUTS
-   timespec tspec = detail::ptime_to_timespec(abs_time);
+   timespec tspec = ipcdetail::ptime_to_timespec(abs_time);
    for (;;){
       int res = sem_timedwait(handle, &tspec);
       if(res == 0)
@@ -204,8 +195,8 @@ class named_semaphore_wrapper
 
    public:
    named_semaphore_wrapper
-      (detail::create_enum_t type, const char *name, mode_t mode, unsigned int count)
-   {  semaphore_open(mp_sem, type, name, mode, count);   }
+      (ipcdetail::create_enum_t type, const char *name, unsigned int count, const permissions &perm = permissions())
+   {  semaphore_open(mp_sem, type, name, count, perm);   }
 
    ~named_semaphore_wrapper()
    {
@@ -229,7 +220,7 @@ class named_semaphore_wrapper
    {  return semaphore_unlink(name);   }
 
    private:
-   friend class detail::interprocess_tester;
+   friend class ipcdetail::interprocess_tester;
    void dont_close_on_destruction()
    {  mp_sem = BOOST_INTERPROCESS_POSIX_SEM_FAILED; }
 
@@ -265,7 +256,7 @@ class semaphore_wrapper
    sem_t       m_sem;
 };
 
-}  //namespace detail {
+}  //namespace ipcdetail {
 }  //namespace interprocess {
 }  //namespace boost {
 

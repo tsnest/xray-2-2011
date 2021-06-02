@@ -401,7 +401,7 @@ void finalize						( )
 
 #include <xray/configs.h>
 
-#ifdef NDEBUG
+#if 0//def NDEBUG
 namespace std {
 	inline void terminate()
 	{

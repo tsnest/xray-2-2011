@@ -686,7 +686,7 @@ void editor_world::show_particle_editor()
 
 xray::editor_base::tool_window^ editor_world::create_model_editor( )
 {
-	model_editor::editor_creator::set_memory_allocator(g_allocator);
+	xray::model_editor::editor_creator::set_memory_allocator(g_allocator);
 	xray::editor_base::tool_window^ ed = model_editor::editor_creator::create_editor( engine().get_renderer_world(),
 																						m_tool_windows,
 																						engine().get_resources_path());

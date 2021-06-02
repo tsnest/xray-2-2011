@@ -25,7 +25,9 @@ platform_initializer::~platform_initializer()
 {
 	initializer_t* tmp_initer	= xray::pointer_cast<initializer_t*>(m_object_store);
 	tmp_initer->~winsock_init	();
-	initializer_t::finalize		();
+	
+	
+	//initializer_t::finalize		();
 }
 
 

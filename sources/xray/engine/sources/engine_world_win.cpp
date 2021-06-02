@@ -118,7 +118,7 @@ HWND new_window			( )
 	u32 const screen_size_x	= GetSystemMetrics( SM_CXSCREEN );
 	u32 const screen_size_y	= GetSystemMetrics( SM_CYSCREEN );
 
-	if ( bhwWindowed ) {
+	if ( bhwWindowed || s_world && s_world->command_line_editor() ) {
 		DWORD const	window_style = WS_OVERLAPPED;// | WS_CAPTION;
 
 		u32 window_size_x		= 0;

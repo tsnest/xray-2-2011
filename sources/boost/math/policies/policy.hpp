@@ -34,6 +34,8 @@ namespace tools{
 
 template <class T>
 int digits(BOOST_MATH_EXPLICIT_TEMPLATE_TYPE(T));
+template <class T>
+T epsilon(BOOST_MATH_EXPLICIT_TEMPLATE_TYPE(T));
 
 }
 
@@ -736,6 +738,7 @@ struct basic_digits<long double> : public mpl::int_<LDBL_MANT_DIG>{ };
 template <class Real, class Policy>
 struct precision
 {
+   BOOST_STATIC_ASSERT( ::std::numeric_limits<Real>::radix == 2);
    typedef typename Policy::precision_type precision_type;
    typedef basic_digits<Real> digits_t;
    typedef typename mpl::if_<
@@ -773,6 +776,7 @@ struct precision<long double, Policy>
 template <class Real, class Policy>
 struct precision
 {
+   BOOST_STATIC_ASSERT((::std::numeric_limits<Real>::radix == 2) || ((::std::numeric_limits<Real>::is_specialized == 0) || (::std::numeric_limits<Real>::digits == 0)));
 #ifndef __BORLANDC__
    typedef typename Policy::precision_type precision_type;
    typedef typename mpl::if_c<
@@ -850,6 +854,74 @@ inline unsigned long get_max_root_iterations()
 {
    typedef typename Policy::max_root_iterations_type iter_type;
    return iter_type::value;
+}
+
+namespace detail{
+
+template <class T, class Digits, class Small, class Default>
+struct series_factor_calc
+{
+   static T get()
+   {
+      return ldexp(T(1.0), 1 - Digits::value);
+   }
+};
+
+template <class T, class Digits>
+struct series_factor_calc<T, Digits, mpl::true_, mpl::true_>
+{
+   static T get()
+   {
+      return boost::math::tools::epsilon<T>();
+   }
+};
+template <class T, class Digits>
+struct series_factor_calc<T, Digits, mpl::true_, mpl::false_>
+{
+   static T get()
+   {
+      static const boost::uintmax_t v = static_cast<boost::uintmax_t>(1u) << (Digits::value - 1);
+      return 1 / static_cast<T>(v);
+   }
+};
+template <class T, class Digits>
+struct series_factor_calc<T, Digits, mpl::false_, mpl::true_>
+{
+   static T get()
+   {
+      return boost::math::tools::epsilon<T>();
+   }
+};
+
+template <class T, class Policy>
+inline T get_epsilon_imp(mpl::true_ const&)
+{
+#ifndef BOOST_NO_LIMITS_COMPILE_TIME_CONSTANTS
+   BOOST_STATIC_ASSERT( ::std::numeric_limits<T>::is_specialized);
+   BOOST_STATIC_ASSERT( ::std::numeric_limits<T>::radix == 2);
+#else
+   BOOST_ASSERT(::std::numeric_limits<T>::is_specialized);
+   BOOST_ASSERT(::std::numeric_limits<T>::radix == 2);
+#endif
+   typedef typename boost::math::policies::precision<T, Policy>::type p_t;
+   typedef mpl::bool_<p_t::value <= std::numeric_limits<boost::uintmax_t>::digits> is_small_int;
+   typedef mpl::bool_<p_t::value >= std::numeric_limits<T>::digits> is_default_value;
+   return series_factor_calc<T, p_t, is_small_int, is_default_value>::get();
+}
+
+template <class T, class Policy>
+inline T get_epsilon_imp(mpl::false_ const&)
+{
+   return tools::epsilon<T>();
+}
+
+} // namespace detail
+
+template <class T, class Policy>
+inline T get_epsilon(BOOST_MATH_EXPLICIT_TEMPLATE_TYPE(T))
+{
+   typedef mpl::bool_< (std::numeric_limits<T>::is_specialized && (std::numeric_limits<T>::radix == 2)) > tag_type;
+   return detail::get_epsilon_imp<T, Policy>(tag_type());
 }
 
 namespace detail{

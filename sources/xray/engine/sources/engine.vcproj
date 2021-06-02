@@ -1353,6 +1353,7 @@
 			<Tool
 				Name="VCLibrarianTool"
 				OutputFile="$(SolutionDir)../binaries/$(PlatformName)/libraries/xray_$(ProjectName)-debug.lib"
+				AdditionalLibraryDirectories=""
 			/>
 			<Tool
 				Name="VCALinkTool"

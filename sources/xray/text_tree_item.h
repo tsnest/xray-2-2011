@@ -91,6 +91,35 @@ namespace strings {
 		void						set_visibility	(bool is_visible) {m_is_visible=is_visible;};
 		text_tree_item*				find			(pcstr s);
 		text_tree_item*				new_child		(pcstr s, bool is_page_breaker=false);
+
+		template <class Type>
+		text_tree_item*				new_child		(pcstr name, Type value)
+		{
+			text_tree_item* child	=	new_child(name);
+			child->add_column			(value);
+			return						child;
+		}
+		template <class Type1, class Type2>
+		text_tree_item*				new_child		(pcstr name, Type1 value1, Type1 value2)
+		{
+			text_tree_item* child	=	new_child(name);
+			child->add_column			(value1);
+			child->add_column			(value2);
+			return						child;
+		}
+
+		text_tree_item*				new_childf		(pcstr name, pcstr format, ...)
+		{
+			text_tree_item* child	=	new_child(name);
+			fixed_string512				string;
+			va_list						argptr;
+			va_start 					(argptr, format);
+			string.appendf_va_list		(format, argptr);
+			va_end	 					(argptr);
+			child->add_column			(string.c_str());
+			return						child;
+		}
+
 		template <class Type1>
 		void						add_column		(Type1 s) {add_column_impl(make_str(s));};
 		void						set_name		(pcstr s);

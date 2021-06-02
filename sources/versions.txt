@@ -1,7 +1,7 @@
 amd/compress
 amd/GPUPerfAPI-2.3.876.0
 amd/tootle-2.2
-boost-1.40.0
+boost-1.48.0
 bugtrap-1.3.3291.42976
 cell-3.20.001
 cs-1.3

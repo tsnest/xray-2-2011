@@ -76,10 +76,16 @@ protected:
 		float3					m_mouse_move;
 
 		float					m_onframe_move_fwd;
+		float					m_onframe_run_fwd;
 		float					m_onframe_move_right;
+		float					m_onframe_run_right;
+		bool					m_onframe_shift;
+		bool					m_onframe_back;
 		float					m_onframe_turn_y;
 		float					m_onframe_turn_x;
 		bool					m_onframe_jump;
+		bool					m_onframe_reload;
+		bool					m_onframe_shoot;
 	} m_frame_events;
 
 private:
@@ -97,6 +103,7 @@ private:
 	animation::animation_player*		m_animation_player;
 
 	animation::skeleton_animation_ptr	m_idle_stand_animation;
+//	animation::skeleton_animation_ptr	m_crouch_animation;
 
 	animation::skeleton_animation_ptr	m_look_animation_add; //additive
 

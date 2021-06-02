@@ -21,25 +21,25 @@ namespace gregorian {
   //! To YYYY-mmm-DD string where mmm 3 char month name. Example:  2002-Jan-01
   /*!\ingroup date_format
    */
-  inline xray::network::std_string to_simple_string(const date& d) {
+  inline std::string to_simple_string(const date& d) {
     return date_time::date_formatter<date,date_time::simple_format<char> >::date_to_string(d);
   }
 
   //! Convert date period to simple string. Example: [2002-Jan-01/2002-Jan-02]
   /*!\ingroup date_format
    */
-  inline xray::network::std_string to_simple_string(const date_period& d) {
-    xray::network::std_string s("[");
-    xray::network::std_string d1(date_time::date_formatter<date,date_time::simple_format<char> >::date_to_string(d.begin()));
-    xray::network::std_string d2(date_time::date_formatter<date,date_time::simple_format<char> >::date_to_string(d.last()));
-    return xray::network::std_string("[" + d1 + "/" + d2 + "]");
+  inline std::string to_simple_string(const date_period& d) {
+    std::string s("[");
+    std::string d1(date_time::date_formatter<date,date_time::simple_format<char> >::date_to_string(d.begin()));
+    std::string d2(date_time::date_formatter<date,date_time::simple_format<char> >::date_to_string(d.last()));
+    return std::string("[" + d1 + "/" + d2 + "]");
   }
 
   //! Date period to iso standard format CCYYMMDD/CCYYMMDD. Example: 20021225/20021231
   /*!\ingroup date_format
    */
-  inline xray::network::std_string to_iso_string(const date_period& d) {
-    xray::network::std_string s(date_time::date_formatter<date,date_time::iso_format<char> >::date_to_string(d.begin()));
+  inline std::string to_iso_string(const date_period& d) {
+    std::string s(date_time::date_formatter<date,date_time::iso_format<char> >::date_to_string(d.begin()));
     return s + "/" + date_time::date_formatter<date,date_time::iso_format<char> >::date_to_string(d.last());
   }
 
@@ -47,20 +47,20 @@ namespace gregorian {
   //! Convert to iso extended format string CCYY-MM-DD. Example 2002-12-31
   /*!\ingroup date_format
    */
-  inline xray::network::std_string to_iso_extended_string(const date& d) {
+  inline std::string to_iso_extended_string(const date& d) {
     return date_time::date_formatter<date,date_time::iso_extended_format<char> >::date_to_string(d);
   }
 
   //! Convert to iso standard string YYYYMMDD. Example: 20021231
   /*!\ingroup date_format
    */
-  inline xray::network::std_string to_iso_string(const date& d) {
+  inline std::string to_iso_string(const date& d) {
     return date_time::date_formatter<date,date_time::iso_format<char> >::date_to_string(d);
   }
   
   
 
-  inline xray::network::std_string to_sql_string(const date& d) 
+  inline std::string to_sql_string(const date& d) 
   {
     date::ymd_type ymd = d.year_month_day();
     std::ostringstream ss;

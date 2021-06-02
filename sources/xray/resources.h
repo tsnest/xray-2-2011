@@ -13,6 +13,7 @@
 #	define DEBUG_RESOURCES					0
 #endif
 
+#include <xray/text_tree_item.h>
 #include <xray/fs/native_path_string.h>
 #include <xray/fs/virtual_path_string.h>
 #include <xray/resources_types.h>
@@ -202,7 +203,8 @@ XRAY_CORE_API	void	start_resources_threads		( );
 XRAY_CORE_API	void	finish_resources_threads	( );
 
 
-XRAY_CORE_API	u32		pending_queries_count ( );
+XRAY_CORE_API	u32		pending_queries_count		( );
+XRAY_CORE_API	void	fill_stats					( strings::text_tree_item & stats );
 
 template < int count >
 inline			long   	query_resources		( request const				(& requests)[ count ], 

@@ -13,6 +13,8 @@ namespace core {
 
 static string512	s_application		=	"";
 static string512	s_user				=	"";
+static fs_new::native_path_string	s_user_data_directory = "";
+static bool			s_user_data_initialized		=	false;
 
 void   set_application_name ( pcstr application_name )
 {
@@ -31,15 +33,18 @@ pcstr   user_name ( )
 
 pcstr   user_data_directory ( )
 {
-	static string512	s_user_data_directory = "";
-	static bool			s_initialized = false;
-
-	if ( !s_initialized ) {
-		s_initialized	= true;
-		strings::join	( s_user_data_directory, current_directory(), "user_data/" );
+	if ( !s_user_data_initialized ) {
+		s_user_data_directory			=	fs_new::get_current_directory();
+		
+		bool const append_result		=	fs_new::append_relative_path	(
+												& s_user_data_directory, 
+												fs_new::native_path_string::convert("user_data")
+											);
+		XRAY_UNREFERENCED_PARAMETER			(append_result);
+		s_user_data_initialized					=	true;
 	}
-
-	return				s_user_data_directory;
+	
+	return				s_user_data_directory.c_str();
 }
 
 } // namespace core
