@@ -14,6 +14,7 @@
 namespace stalker2{
 
 static float cam_fov = 67.5f; //57.5f*math::pi/180.0f;
+static float cam_sav = cam_fov;
 
 camera_director::camera_director( game_world& w )
 :game_object_		( w ),
@@ -42,13 +43,16 @@ void camera_director::tick( )
 	if(m_active_camera)
 	{
 		m_active_camera->tick	( );
-		m_inverted_view			= m_active_camera->get_inverted_view_matrix();
-		m_projection			= m_active_camera->get_projection_matrix();
 
-		if (!math::is_similar(m_fov, cam_fov))
+		m_inverted_view			= m_active_camera->get_inverted_view_matrix();
+		//m_projection			= m_active_camera->get_projection_matrix();
+
+		if (!math::is_similar(cam_fov, cam_sav))
 		{
+			cam_sav = cam_fov;
 			m_fov = cam_fov*math::pi/180.0f;
 			m_projection = math::create_perspective_projection( m_fov/aspect, aspect, 0.2f, 5000.0f );
+			//LOG_WARNING("UPDATING FOV" );
 		}
 	}
 

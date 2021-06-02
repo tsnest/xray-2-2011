@@ -138,7 +138,7 @@ void game_module::register_memory_allocators	( )
 
 
 	XRAY_CONSTRUCT_REFERENCE				( s_game_allocator, xray::memory::doug_lea_allocator_type );
-	s_game_allocator->do_register			(   8*Mb,	"stalker2" );
+	s_game_allocator->do_register			(   128*Mb,	"stalker2" );
 
 //	s_game_allocator->user_current_thread_id( );
 	g_allocator								= &*s_game_allocator;

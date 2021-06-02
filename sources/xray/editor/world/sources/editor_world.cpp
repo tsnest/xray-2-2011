@@ -933,7 +933,8 @@ void editor_world::on_render_resources_created(resources::queries_result& data)
 
 	load_editors					( );
 
-	m_ai_navigation_world			= xray::ai::navigation::create_world( *this, *m_scene, get_renderer().debug() );
+	m_ai_navigation_world->get_graph_generator()->change_show_navigation_mesh(true);
+	m_ai_navigation_world->get_graph_generator()->change_show_triangle_faces(true);
 
 	on_after_render_scene_created	( );
 

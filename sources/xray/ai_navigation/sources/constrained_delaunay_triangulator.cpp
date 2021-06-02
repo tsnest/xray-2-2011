@@ -176,7 +176,7 @@ bool constrained_delaunay_triangulator::remove_triangles (
 		case 1 : third_index = 2; break;
 		case 2 : third_index = 1; break;
 		case 3 : third_index = 0; break;
-		default : NODEFAULT();
+		default : NODEFAULT( third_index = u32(-1) );
 	}
 
 	u32 const	triangles_count	= m_indices.size() / 3;
